@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Base application theme — splash screen uses this -->
+    <style name="Theme.DwSecretNotes" parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:navigationBarColor">@android:color/transparent</item>
+        <item name="android:windowLightStatusBar">false</item>
+    </style>
+
+    <!-- Splash screen theme (shown before setContent) -->
+    <style name="Theme.DwSecretNotes.Starting" parent="Theme.SplashScreen">
+        <item name="windowSplashScreenBackground">#0D0D12</item>
+        <item name="windowSplashScreenAnimatedIcon">@drawable/app_icon</item>
+        <item name="postSplashScreenTheme">@style/Theme.DwSecretNotes</item>
+    </style>
+
+    <!-- Translucent popup used by the home-screen widget's quick-encrypt overlay -->
+    <style name="Theme.DwSecretNotes.WidgetCapture" parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:navigationBarColor">@android:color/transparent</item>
+        <item name="android:windowAnimationStyle">@android:style/Animation.Dialog</item>
+    </style>
+</resources>
