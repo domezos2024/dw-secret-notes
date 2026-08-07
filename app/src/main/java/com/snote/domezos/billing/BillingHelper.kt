@@ -208,46 +208,56 @@ class BillingHelper(
     private fun handlePurchase(purchase: Purchase) {
         if (purchase.purchaseState != Purchase.PurchaseState.PURCHASED) return
         val firstProduct = purchase.products.firstOrNull()
-        if (firstProduct == tipProductId) {
-            val consumeParams = ConsumeParams.newBuilder()
-                .setPurchaseToken(purchase.purchaseToken)
-                .build()
-            billingClient.consumeAsync(consumeParams) { billingResult, _ ->
-                if (billingResult.responseCode == BillingClient.BillingResponseCode.OK) {
-                    onTipPurchased?.invoke(purchase.quantity)
-                }
+        when (firstProduct) {
+            tipProductId -> handleTipPurchase(purchase)
+            productId -> handleInAppPremiumPurchase(purchase)
+            else -> handleSubscriptionPurchase(purchase, firstProduct)
+        }
+    }
+
+    private fun handleTipPurchase(purchase: Purchase) {
+        val consumeParams = ConsumeParams.newBuilder()
+            .setPurchaseToken(purchase.purchaseToken)
+            .build()
+        billingClient.consumeAsync(consumeParams) { billingResult, _ ->
+            if (billingResult.responseCode == BillingClient.BillingResponseCode.OK) {
+                onTipPurchased?.invoke(purchase.quantity)
             }
-        } else if (firstProduct == productId) {
-            // Consumable: allows the 30-day grant to be repurchased once it runs out, instead
-            // of Google Play permanently marking it "owned".
-            val consumeParams = ConsumeParams.newBuilder()
+        }
+    }
+
+    private fun handleInAppPremiumPurchase(purchase: Purchase) {
+        // Consumable: allows the 30-day grant to be repurchased once it runs out, instead
+        // of Google Play permanently marking it "owned".
+        val consumeParams = ConsumeParams.newBuilder()
+            .setPurchaseToken(purchase.purchaseToken)
+            .build()
+        billingClient.consumeAsync(consumeParams) { billingResult, _ ->
+            if (billingResult.responseCode == BillingClient.BillingResponseCode.OK) {
+                Prefs.setPremiumSource(context, "inapp")
+                onPremiumActivated()
+                scope.launch { BackendClient.activatePremium(context, productId) }
+            }
+        }
+    }
+
+    private fun handleSubscriptionPurchase(purchase: Purchase, firstProduct: String?) {
+        val activate = {
+            Prefs.setPremiumSource(context, "subscription")
+            onPremiumActivated()
+            scope.launch { BackendClient.activatePremium(context, firstProduct ?: subscriptionId) }
+        }
+        if (!purchase.isAcknowledged) {
+            val acknowledgeParams = AcknowledgePurchaseParams.newBuilder()
                 .setPurchaseToken(purchase.purchaseToken)
                 .build()
-            billingClient.consumeAsync(consumeParams) { billingResult, _ ->
+            billingClient.acknowledgePurchase(acknowledgeParams) { billingResult ->
                 if (billingResult.responseCode == BillingClient.BillingResponseCode.OK) {
-                    Prefs.setPremiumSource(context, "inapp")
-                    onPremiumActivated()
-                    scope.launch { BackendClient.activatePremium(context, productId) }
+                    activate()
                 }
             }
         } else {
-            val activate = {
-                Prefs.setPremiumSource(context, "subscription")
-                onPremiumActivated()
-                scope.launch { BackendClient.activatePremium(context, firstProduct ?: subscriptionId) }
-            }
-            if (!purchase.isAcknowledged) {
-                val acknowledgeParams = AcknowledgePurchaseParams.newBuilder()
-                    .setPurchaseToken(purchase.purchaseToken)
-                    .build()
-                billingClient.acknowledgePurchase(acknowledgeParams) { billingResult ->
-                    if (billingResult.responseCode == BillingClient.BillingResponseCode.OK) {
-                        activate()
-                    }
-                }
-            } else {
-                activate()
-            }
+            activate()
         }
     }
 

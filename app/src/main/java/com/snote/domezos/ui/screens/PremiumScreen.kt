@@ -155,18 +155,10 @@ fun PremiumScreen(
             // never hardcode a currency symbol, since Play Billing charges users
             // in their own local currency regardless of the app's UI language.
             val livePrice = billingHelper?.oneTimePriceFormatted
-            val monthlyPriceText = if (livePrice != null) {
-                stringResource(R.string.premium_price_monthly_fmt, livePrice)
-            } else {
-                stringResource(R.string.premium_price_monthly)
-            }
+            val monthlyPriceText = priceOrFallback(livePrice, R.string.premium_price_monthly_fmt, R.string.premium_price_monthly)
             val liveTrialDays = billingHelper?.subTrialDays
             val liveRecurringPrice = billingHelper?.subRecurringPriceFormatted
-            val subscriptionPriceText = if (liveRecurringPrice != null) {
-                stringResource(R.string.premium_price_subscription_fmt, liveRecurringPrice)
-            } else {
-                stringResource(R.string.premium_price_subscription)
-            }
+            val subscriptionPriceText = priceOrFallback(liveRecurringPrice, R.string.premium_price_subscription_fmt, R.string.premium_price_subscription)
             val trialBadgeText = if (liveTrialDays != null) {
                 stringResource(R.string.premium_trial_badge_fmt, liveTrialDays)
             } else {
@@ -177,11 +169,7 @@ fun PremiumScreen(
             } else {
                 stringResource(R.string.premium_sub_offer_trial)
             }
-            val offerPriceText = if (livePrice != null) {
-                stringResource(R.string.premium_offer_price_fmt, livePrice)
-            } else {
-                stringResource(R.string.premium_offer_price)
-            }
+            val offerPriceText = priceOrFallback(livePrice, R.string.premium_offer_price_fmt, R.string.premium_offer_price)
 
             // Plan cards
             Row(
@@ -214,60 +202,33 @@ fun PremiumScreen(
 
             // Dynamic offer details
             if (selectedPlan == 0) {
-                GlassCard(borderColor = MaterialTheme.colorScheme.onSurfaceVariant.copy(alpha = 0.4f)) {
-                    Column(verticalArrangement = Arrangement.spacedBy(6.dp)) {
-                        Text(
-                            text = stringResource(R.string.premium_offer_title),
-                            style = MaterialTheme.typography.labelLarge,
-                            color = MaterialTheme.colorScheme.tertiary,
-                            fontWeight = FontWeight.Bold
-                        )
-                        listOf(
-                            offerPriceText,
-                            stringResource(R.string.premium_offer_duration),
-                            stringResource(R.string.premium_offer_no_renewal),
-                            stringResource(R.string.premium_offer_optional)
-                        ).forEach { text ->
-                            Row(horizontalArrangement = Arrangement.spacedBy(6.dp)) {
-                                Text("•", color = MaterialTheme.colorScheme.onSurfaceVariant, style = MaterialTheme.typography.bodySmall)
-                                Text(
-                                    text = text,
-                                    style = MaterialTheme.typography.bodySmall,
-                                    color = MaterialTheme.colorScheme.onSurface
-                                )
-                            }
-                        }
-                    }
-                }
+                BulletOfferCard(
+                    borderColor = MaterialTheme.colorScheme.onSurfaceVariant.copy(alpha = 0.4f),
+                    bulletColor = MaterialTheme.colorScheme.onSurfaceVariant,
+                    title = stringResource(R.string.premium_offer_title),
+                    items = listOf(
+                        offerPriceText,
+                        stringResource(R.string.premium_offer_duration),
+                        stringResource(R.string.premium_offer_no_renewal),
+                        stringResource(R.string.premium_offer_optional)
+                    )
+                )
             } else {
-                GlassCard(borderColor = MaterialTheme.colorScheme.secondary.copy(alpha = 0.4f)) {
-                    Column(verticalArrangement = Arrangement.spacedBy(6.dp)) {
-                        Text(
-                            text = stringResource(R.string.premium_sub_offer_title),
-                            style = MaterialTheme.typography.labelLarge,
-                            color = MaterialTheme.colorScheme.tertiary,
-                            fontWeight = FontWeight.Bold
-                        )
-                        listOf(
-                            subOfferTrialText,
-                            stringResource(R.string.premium_sub_offer_renewal),
-                            stringResource(R.string.premium_sub_offer_cancel),
-                            stringResource(R.string.premium_offer_optional)
-                        ).forEach { text ->
-                            Row(horizontalArrangement = Arrangement.spacedBy(6.dp)) {
-                                Text("•", color = MaterialTheme.colorScheme.tertiary, style = MaterialTheme.typography.bodySmall)
-                                Text(
-                                    text = text,
-                                    style = MaterialTheme.typography.bodySmall,
-                                    color = MaterialTheme.colorScheme.onSurface
-                                )
-                            }
-                        }
-                    }
-                }
+                BulletOfferCard(
+                    borderColor = MaterialTheme.colorScheme.secondary.copy(alpha = 0.4f),
+                    bulletColor = MaterialTheme.colorScheme.tertiary,
+                    title = stringResource(R.string.premium_sub_offer_title),
+                    items = listOf(
+                        subOfferTrialText,
+                        stringResource(R.string.premium_sub_offer_renewal),
+                        stringResource(R.string.premium_sub_offer_cancel),
+                        stringResource(R.string.premium_offer_optional)
+                    )
+                )
             }
 
             // Buy button
+            val activityNotFoundText = stringResource(R.string.error_activity_context_not_found)
             Button(
                 onClick = {
                     haptic.performHapticFeedback(HapticFeedbackType.LongPress)
@@ -280,7 +241,7 @@ fun PremiumScreen(
                                 billingHelper?.launchSubscriptionBillingFlow(activity)
                             }
                         } else {
-                            scope.launch { snackbarHostState.showSnackbar("Error: Activity context not found") }
+                            scope.launch { snackbarHostState.showSnackbar(activityNotFoundText) }
                         }
                     }
                 },
@@ -315,6 +276,40 @@ fun PremiumScreen(
             )
             Spacer(Modifier.height(8.dp))
             FooterNote()
+        }
+    }
+}
+
+@Composable
+private fun priceOrFallback(live: String?, fmtRes: Int, plainRes: Int): String {
+    return if (live != null) stringResource(fmtRes, live) else stringResource(plainRes)
+}
+
+@Composable
+private fun BulletOfferCard(
+    borderColor: androidx.compose.ui.graphics.Color,
+    bulletColor: androidx.compose.ui.graphics.Color,
+    title: String,
+    items: List<String>
+) {
+    GlassCard(borderColor = borderColor) {
+        Column(verticalArrangement = Arrangement.spacedBy(6.dp)) {
+            Text(
+                text = title,
+                style = MaterialTheme.typography.labelLarge,
+                color = MaterialTheme.colorScheme.tertiary,
+                fontWeight = FontWeight.Bold
+            )
+            items.forEach { text ->
+                Row(horizontalArrangement = Arrangement.spacedBy(6.dp)) {
+                    Text("•", color = bulletColor, style = MaterialTheme.typography.bodySmall)
+                    Text(
+                        text = text,
+                        style = MaterialTheme.typography.bodySmall,
+                        color = MaterialTheme.colorScheme.onSurface
+                    )
+                }
+            }
         }
     }
 }

@@ -13,8 +13,24 @@ import kotlinx.coroutines.withContext
 
 object BackendClient {
     private const val TAG = "BackendClient"
-    private const val BASE_URL = "https://domezos-ware.org/api/"
+
+    // Overridable only for tests (pointing at a local MockWebServer); production code never
+    // changes this from the default.
+    internal var BASE_URL = "https://domezos-ware.org/api/"
     private const val HMAC_SECRET = "change-me"
+    private const val CONNECT_TIMEOUT_MS = 8_000
+    private const val READ_TIMEOUT_MS = 8_000
+
+    private fun openJsonPostConnection(path: String, extraHeaders: Map<String, String> = emptyMap()): HttpURLConnection {
+        return (URL(BASE_URL + path).openConnection() as HttpURLConnection).apply {
+            requestMethod = "POST"
+            doOutput = true
+            connectTimeout = CONNECT_TIMEOUT_MS
+            readTimeout = READ_TIMEOUT_MS
+            setRequestProperty("Content-Type", "application/json")
+            extraHeaders.forEach { (key, value) -> setRequestProperty(key, value) }
+        }
+    }
 
     suspend fun performHandshake(ctx: Context): Boolean = withContext(Dispatchers.IO) {
         val deviceToken = Prefs.getDeviceToken(ctx)
@@ -32,15 +48,10 @@ object BackendClient {
         val bodyRaw = bodyJson.toString()
         val canonical = "$timestamp|$nonce|$action|$bodyRaw"
         val signature = hmacSha256(HMAC_SECRET, canonical)
-        val conn = (URL(BASE_URL + "encrypt_handshake.php").openConnection() as HttpURLConnection).apply {
-            requestMethod = "POST"
-            doOutput = true
-            connectTimeout = 8_000
-            readTimeout = 8_000
-            setRequestProperty("Content-Type", "application/json")
-            setRequestProperty("X-Signature", signature)
-            setRequestProperty("X-Device-Token", deviceToken)
-        }
+        val conn = openJsonPostConnection(
+            "encrypt_handshake.php",
+            mapOf("X-Signature" to signature, "X-Device-Token" to deviceToken)
+        )
         try {
             conn.outputStream.use { it.write(bodyRaw.toByteArray()) }
             if (conn.responseCode == 200) {
@@ -67,13 +78,7 @@ object BackendClient {
 
     suspend fun activatePremium(ctx: Context, productId: String): Boolean = withContext(Dispatchers.IO) {
         val deviceToken = Prefs.getDeviceToken(ctx)
-        val conn = (URL(BASE_URL + "activate_premium.php").openConnection() as HttpURLConnection).apply {
-            requestMethod = "POST"
-            doOutput = true
-            connectTimeout = 8_000
-            readTimeout = 8_000
-            setRequestProperty("Content-Type", "application/json")
-        }
+        val conn = openJsonPostConnection("activate_premium.php")
         try {
             val body = JSONObject().apply {
                 put("deviceToken", deviceToken)
@@ -97,13 +102,7 @@ object BackendClient {
 
     suspend fun deactivatePremium(ctx: Context): Boolean = withContext(Dispatchers.IO) {
         val deviceToken = Prefs.getDeviceToken(ctx)
-        val conn = (URL(BASE_URL + "deactivate_premium.php").openConnection() as HttpURLConnection).apply {
-            requestMethod = "POST"
-            doOutput = true
-            connectTimeout = 8_000
-            readTimeout = 8_000
-            setRequestProperty("Content-Type", "application/json")
-        }
+        val conn = openJsonPostConnection("deactivate_premium.php")
         try {
             val body = JSONObject().apply {
                 put("deviceToken", deviceToken)
@@ -127,7 +126,7 @@ object BackendClient {
         false
     }
 
-    private fun hmacSha256(key: String, data: String): String {
+    internal fun hmacSha256(key: String, data: String): String {
         val mac = Mac.getInstance("HmacSHA256")
         val secretKey = SecretKeySpec(key.toByteArray(), "HmacSHA256")
         mac.init(secretKey)
