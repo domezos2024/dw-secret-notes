@@ -7,7 +7,9 @@
     <string name="nav_premium">Premium</string>
     <string name="nav_language">Lingua</string>
     <string name="hint_enter_text">Inserisci il tuo testo</string>
+    <string name="hint_enter_text_optional">Inserisci il tuo testo (opzionale)</string>
     <string name="btn_encrypt">Cripta</string>
+    <string name="btn_attach_image">Allega immagine (opzionale)</string>
     <string name="label_encrypted_link">Link per il testo criptato</string>
     <string name="btn_copy">Copia negli appunti</string>
     <string name="btn_share">Condividi</string>
@@ -28,6 +30,7 @@
     <string name="label_your_alias">IL TUO ALIAS</string>
     <string name="error_not_found">Messaggio non trovato o già eliminato.</string>
     <string name="error_decrypt_failed">Decriptazione fallita. Chiave errata?</string>
+    <string name="error_activity_context_not_found">Errore: contesto dell\'attività non trovato</string>
     <string name="help_title">Aiuto &amp; FAQ</string>
     <string name="help_how_title">Come funziona</string>
     <string name="help_how_body">Scrivi il tuo messaggio segreto, tocca Cripta e condividi il link generato. Il destinatario apre il link nell\'app e il messaggio viene decriptato tramite AES 256 bit, solo una volta. Dopo la lettura, viene rimosso in modo permanente e irrevocabile dal server.</string>
@@ -72,6 +75,7 @@
     <string name="premium_sub_offer_cancel">Disdici su Google Play prima della fine del periodo di prova per evitare l\'addebito</string>
     <string name="premium_offer_title">Dettagli Acquisto</string>
     <string name="premium_offer_price">Prezzo: €1,79 per 30 giorni di accesso Premium</string>
+    <string name="premium_offer_price_fmt">Prezzo: %1$s per 30 giorni di accesso Premium</string>
     <string name="premium_offer_duration">Accesso valido per 30 giorni dalla data di acquisto</string>
     <string name="premium_offer_no_renewal">NON si rinnova automaticamente — acquisto unico</string>
     <string name="premium_offer_optional">Premium è opzionale — l\'app funziona gratuitamente senza di esso</string>

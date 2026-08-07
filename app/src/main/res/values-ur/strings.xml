@@ -7,7 +7,9 @@
     <string name="nav_premium">پریمیم</string>
     <string name="nav_language">زبان</string>
     <string name="hint_enter_text">اپنا متن درج کریں</string>
+    <string name="hint_enter_text_optional">اپنا متن درج کریں (اختیاری)</string>
     <string name="btn_encrypt">انکرپٹ کریں</string>
+    <string name="btn_attach_image">تصویر منسلک کریں (اختیاری)</string>
     <string name="label_encrypted_link">انکرپٹڈ متن کے لیے لنک</string>
     <string name="btn_copy">کلپ بورڈ پر کاپی کریں</string>
     <string name="btn_share">شیئر کریں</string>
@@ -27,6 +29,7 @@
     <string name="label_your_alias">آپ کا عرف</string>
     <string name="error_not_found">پیغام نہیں ملا یا پہلے ہی حذف ہو چکا ہے۔</string>
     <string name="error_decrypt_failed">ڈیکرپشن ناکام۔ کیا کلید غلط ہے؟</string>
+    <string name="error_activity_context_not_found">خرابی: ایکٹیویٹی سیاق و سباق نہیں ملا</string>
     <string name="help_title">مدد اور عمومی سوالات</string>
     <string name="help_how_title">یہ کیسے کام کرتا ہے</string>
     <string name="help_how_body">اپنا خفیہ پیغام ٹائپ کریں، انکرپٹ پر ٹیپ کریں، اور تیار کردہ لنک شیئر کریں۔ وصول کنندہ ایپ میں لنک کھولتا ہے اور پیغام AES 256-bit کا استعمال کرتے ہوئے ڈیکرپٹ کیا جاتا ہے — صرف ایک بار۔ پڑھنے کے بعد، اسے سرور سے مستقل طور پر اور ناقابل واپسی طور پر حذف کر دیا جاتا ہے۔</string>
@@ -71,6 +74,7 @@
     <string name="premium_sub_offer_cancel">چارج ہونے سے بچنے کے لیے ٹرائل ختم ہونے سے پہلے Google Play کے ذریعے منسوخ کریں</string>
     <string name="premium_offer_title">خریداری کی تفصیل</string>
     <string name="premium_offer_price">قیمت: 30 دن کے Premium رسائی کے لیے €1.79</string>
+    <string name="premium_offer_price_fmt">قیمت: 30 دن کے Premium رسائی کے لیے %1$s</string>
     <string name="premium_offer_duration">خریداری کی تاریخ سے 30 دن تک رسائی درست ہے</string>
     <string name="premium_offer_no_renewal">خودکار تجدید نہیں ہوتی — ایک بار کی خریداری</string>
     <string name="premium_offer_optional">Premium اختیاری ہے — ایپ اس کے بغیر مفت میں مکمل طور پر قابل استعمال ہے</string>

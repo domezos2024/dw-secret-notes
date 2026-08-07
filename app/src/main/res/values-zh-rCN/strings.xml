@@ -7,7 +7,9 @@
     <string name="nav_premium">高级版</string>
     <string name="nav_language">语言</string>
     <string name="hint_enter_text">请输入文本</string>
+    <string name="hint_enter_text_optional">请输入文本（可选）</string>
     <string name="btn_encrypt">加密</string>
+    <string name="btn_attach_image">添加图片（可选）</string>
     <string name="label_encrypted_link">加密文本链接</string>
     <string name="btn_copy">复制到剪贴板</string>
     <string name="btn_share">分享</string>
@@ -27,6 +29,7 @@
     <string name="label_your_alias">您的别名</string>
     <string name="error_not_found">找不到消息或已被删除。</string>
     <string name="error_decrypt_failed">解密失败。密钥错误？</string>
+    <string name="error_activity_context_not_found">错误：未找到 Activity 上下文</string>
     <string name="help_title">帮助与常见问题</string>
     <string name="help_how_title">工作原理</string>
     <string name="help_how_body">输入您的秘密消息，点击“加密”，然后分享生成的链接。接收者在应用中打开链接即可解密消息。阅读后，消息将从服务器中删除。</string>
@@ -38,6 +41,8 @@
     <string name="help_faq_a2">消息无法恢复。没有备份。请妥善保管链接，直到接收者阅读完毕。</string>
     <string name="help_faq_q3">我需要账户吗？</string>
     <string name="help_faq_a3">基本使用不需要账户。高级版用户可享受自定义别名、密码保护等额外功能。</string>
+    <string name="help_faq_q4">重新安装或重置后可以恢复高级版吗？</string>
+    <string name="help_faq_a4">不可以。高级版与单个匿名设备令牌绑定，该令牌会在每次安装时重新生成。我们不会存储任何个人数据，也无法追踪设备。如果卸载应用、重置设备或更换新设备，高级版将无法恢复，需要重新购买。</string>
     <string name="info_title">关于应用</string>
     <string name="info_version_label">版本</string>
     <string name="info_developer_label">开发者</string>
@@ -69,6 +74,7 @@
     <string name="premium_sub_offer_cancel">请在试用期结束前通过Google Play取消，以免产生费用</string>
     <string name="premium_offer_title">购买详情</string>
     <string name="premium_offer_price">价格：€1.79 / 30天Premium访问权限</string>
+    <string name="premium_offer_price_fmt">价格：%1$s / 30天Premium访问权限</string>
     <string name="premium_offer_duration">从购买日期起有效30天</string>
     <string name="premium_offer_no_renewal">不会自动续订 — 一次性购买</string>
     <string name="premium_offer_optional">Premium为可选项 — 应用可免费完整使用</string>

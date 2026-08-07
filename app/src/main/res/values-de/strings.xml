@@ -29,6 +29,7 @@
     <string name="label_your_alias">DEIN ALIAS</string>
     <string name="error_not_found">Nachricht nicht gefunden oder bereits gelöscht.</string>
     <string name="error_decrypt_failed">Entschlüsselung fehlgeschlagen. Falscher Schlüssel?</string>
+    <string name="error_activity_context_not_found">Fehler: Activity-Kontext nicht gefunden</string>
     <string name="help_title">Hilfe &amp; FAQ</string>
     <string name="help_how_title">So funktioniert es</string>
     <string name="help_how_body">Tippen Sie Ihre Geheimbotschaft ein, tippen Sie auf Verschlüsseln und teilen Sie den generierten Link. Der Empfänger öffnet den Link in der App und die Nachricht wird mittels AES 256 Bit entschlüsselt – einmalig. Danach ist sie für immer und unwiderruflich gelöscht.</string>
@@ -73,6 +74,7 @@
     <string name="premium_sub_offer_cancel">Kündige vor Ablauf der Testphase über Google Play, um keine Kosten zu verursachen</string>
     <string name="premium_offer_title">Kaufdetails</string>
     <string name="premium_offer_price">Preis: 1,79 € für 30 Tage Premium-Zugang</string>
+    <string name="premium_offer_price_fmt">Preis: %1$s für 30 Tage Premium-Zugang</string>
     <string name="premium_offer_duration">Zugang gültig für 30 Tage ab Kaufdatum</string>
     <string name="premium_offer_no_renewal">Verlängert sich NICHT automatisch — Einmalkauf</string>
     <string name="premium_offer_optional">Premium ist optional — die App ist kostenlos voll nutzbar</string>

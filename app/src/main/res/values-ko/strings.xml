@@ -7,7 +7,9 @@
     <string name="nav_premium">프리미엄</string>
     <string name="nav_language">언어</string>
     <string name="hint_enter_text">텍스트를 입력하세요</string>
+    <string name="hint_enter_text_optional">텍스트를 입력하세요 (선택 사항)</string>
     <string name="btn_encrypt">암호화하기</string>
+    <string name="btn_attach_image">이미지 첨부 (선택 사항)</string>
     <string name="label_encrypted_link">암호화된 텍스트 링크</string>
     <string name="btn_copy">클립보드에 복사</string>
     <string name="btn_share">공유하기</string>
@@ -26,6 +28,7 @@
     <string name="label_your_alias">귀하의 별칭</string>
     <string name="error_not_found">메시지를 찾을 수 없거나 이미 삭제되었습니다.</string>
     <string name="error_decrypt_failed">복호화 실패. 잘못된 키입니까?</string>
+    <string name="error_activity_context_not_found">오류: 액티비티 컨텍스트를 찾을 수 없습니다</string>
     <string name="help_title">도움말 및 FAQ</string>
     <string name="help_how_title">작동 방식</string>
     <string name="help_how_body">비밀 메시지를 입력하고 암호화를 누른 다음 생성된 링크를 공유하세요. 수신자가 앱에서 링크를 열면 메시지가 복호화됩니다. 읽은 후에는 서버에서 삭제됩니다.</string>
@@ -70,6 +73,7 @@
     <string name="premium_sub_offer_cancel">요금이 청구되지 않도록 체험 기간이 끝나기 전에 Google Play에서 취소하세요</string>
     <string name="premium_offer_title">구매 상세 정보</string>
     <string name="premium_offer_price">가격: €1.79 / 30일 Premium 이용권</string>
+    <string name="premium_offer_price_fmt">가격: %1$s / 30일 Premium 이용권</string>
     <string name="premium_offer_duration">구매일로부터 30일간 유효</string>
     <string name="premium_offer_no_renewal">자동 갱신 없음 — 일회성 구매</string>
     <string name="premium_offer_optional">Premium은 선택사항 — 앱은 무료로 완전히 사용 가능합니다</string>

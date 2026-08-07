@@ -7,7 +7,9 @@
     <string name="nav_premium">Премиум</string>
     <string name="nav_language">Язык</string>
     <string name="hint_enter_text">Введите ваш текст</string>
+    <string name="hint_enter_text_optional">Введите ваш текст (необязательно)</string>
     <string name="btn_encrypt">Зашифровать</string>
+    <string name="btn_attach_image">Прикрепить изображение (необязательно)</string>
     <string name="label_encrypted_link">Ссылка на зашифрованный текст</string>
     <string name="btn_copy">Копировать в буфер</string>
     <string name="btn_share">Поделиться</string>
@@ -29,6 +31,7 @@
     <string name="label_your_alias">ВАШ ПСЕВДОНИМ</string>
     <string name="error_not_found">Сообщение не найдено или уже удалено.</string>
     <string name="error_decrypt_failed">Ошибка расшифровки. Неверный ключ?</string>
+    <string name="error_activity_context_not_found">Ошибка: контекст activity не найден</string>
     <string name="help_title">Помощь и FAQ</string>
     <string name="help_how_title">Как это работает</string>
     <string name="help_how_body">Введите сообщение, нажмите «Зашифровать» и отправьте ссылку. Получатель откроет её в приложении, и сообщение расшифруется. После прочтения оно удаляется с сервера.</string>
@@ -73,6 +76,7 @@
     <string name="premium_sub_offer_cancel">Отмените через Google Play до окончания пробного периода, чтобы избежать списания средств</string>
     <string name="premium_offer_title">Детали покупки</string>
     <string name="premium_offer_price">Цена: €1,79 за 30 дней доступа Premium</string>
+    <string name="premium_offer_price_fmt">Цена: %1$s за 30 дней доступа Premium</string>
     <string name="premium_offer_duration">Доступ действителен 30 дней с даты покупки</string>
     <string name="premium_offer_no_renewal">НЕ продлевается автоматически — разовая покупка</string>
     <string name="premium_offer_optional">Premium необязателен — приложение полностью бесплатно без него</string>

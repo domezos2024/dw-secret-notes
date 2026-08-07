@@ -7,7 +7,9 @@
     <string name="nav_premium">Premium</string>
     <string name="nav_language">Idioma</string>
     <string name="hint_enter_text">Introduce tu texto</string>
+    <string name="hint_enter_text_optional">Introduce tu texto (opcional)</string>
     <string name="btn_encrypt">Cifrar</string>
+    <string name="btn_attach_image">Adjuntar imagen (opcional)</string>
     <string name="label_encrypted_link">Enlace para texto cifrado</string>
     <string name="btn_copy">Copiar al portapapeles</string>
     <string name="btn_share">Compartir</string>
@@ -28,6 +30,7 @@
     <string name="label_your_alias">TU ALIAS</string>
     <string name="error_not_found">Mensaje no encontrado o ya eliminado.</string>
     <string name="error_decrypt_failed">Error de descifrado. ¿Clave incorrecta?</string>
+    <string name="error_activity_context_not_found">Error: no se encontró el contexto de la actividad</string>
     <string name="help_title">Ayuda y FAQ</string>
     <string name="help_how_title">Cómo funciona</string>
     <string name="help_how_body">Escribe tu mensaje secreto, pulsa Cifrar y comparte el enlace generado. El destinatario abre el enlace en la aplicación y el mensaje se descifra mediante AES 256 bits, solo una vez. Tras leerlo, se elimina de forma permanente e irrevocable del servidor.</string>
@@ -72,6 +75,7 @@
     <string name="premium_sub_offer_cancel">Cancela antes de que finalice la prueba a través de Google Play para evitar cargos</string>
     <string name="premium_offer_title">Detalles de Compra</string>
     <string name="premium_offer_price">Precio: €1,79 por 30 días de acceso Premium</string>
+    <string name="premium_offer_price_fmt">Precio: %1$s por 30 días de acceso Premium</string>
     <string name="premium_offer_duration">Acceso válido por 30 días desde la fecha de compra</string>
     <string name="premium_offer_no_renewal">NO se renueva automáticamente — compra única</string>
     <string name="premium_offer_optional">Premium es opcional — la app es totalmente gratuita sin él</string>

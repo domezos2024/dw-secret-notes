@@ -7,7 +7,9 @@
     <string name="nav_premium">بريميوم</string>
     <string name="nav_language">اللغة</string>
     <string name="hint_enter_text">أدخل النص الخاص بك</string>
+    <string name="hint_enter_text_optional">أدخل النص الخاص بك (اختياري)</string>
     <string name="btn_encrypt">تشفير</string>
+    <string name="btn_attach_image">إرفاق صورة (اختياري)</string>
     <string name="label_encrypted_link">رابط النص المشفر</string>
     <string name="btn_copy">نسخ إلى الحافظة</string>
     <string name="btn_share">مشاركة</string>
@@ -31,6 +33,7 @@
     <string name="label_your_alias">اسمك المستعار</string>
     <string name="error_not_found">الرسالة غير موجودة أو تم حذفها بالفعل.</string>
     <string name="error_decrypt_failed">فشل فك التشفير. هل المفتاح خاطئ؟</string>
+    <string name="error_activity_context_not_found">خطأ: لم يتم العثور على سياق النشاط</string>
     <string name="help_title">المساعدة والأسئلة الشائعة</string>
     <string name="help_how_title">كيف يعمل</string>
     <string name="help_how_body">اكتب رسالتك السرية، واضغط على تشفير، وشارك الرابط الناتج. يفتح المستلم الرابط في التطبيق ويتم فك تشفير الرسالة باستخدام AES 256 بت — مرة واحدة فقط. بعد القراءة، يتم حذفها نهائياً ولا يمكن استعادتها من الخادم.</string>
@@ -75,6 +78,7 @@
     <string name="premium_sub_offer_cancel">ألغِ الاشتراك عبر Google Play قبل انتهاء الفترة التجريبية لتجنب فرض الرسوم</string>
     <string name="premium_offer_title">تفاصيل الشراء</string>
     <string name="premium_offer_price">السعر: €1.79 لـ 30 يومًا من الوصول المميز</string>
+    <string name="premium_offer_price_fmt">السعر: %1$s لـ 30 يومًا من الوصول المميز</string>
     <string name="premium_offer_duration">الوصول صالح لمدة 30 يومًا من تاريخ الشراء</string>
     <string name="premium_offer_no_renewal">لا يتجدد تلقائيًا — شراء لمرة واحدة فقط</string>
     <string name="premium_offer_optional">بريميوم اختياري — التطبيق مجاني تمامًا بدونه</string>

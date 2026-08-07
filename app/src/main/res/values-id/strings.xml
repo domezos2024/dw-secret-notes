@@ -7,7 +7,9 @@
     <string name="nav_premium">Premium</string>
     <string name="nav_language">Bahasa</string>
     <string name="hint_enter_text">Masukkan teks Anda</string>
+    <string name="hint_enter_text_optional">Masukkan teks Anda (opsional)</string>
     <string name="btn_encrypt">Enkripsi</string>
+    <string name="btn_attach_image">Lampirkan gambar (opsional)</string>
     <string name="label_encrypted_link">Tautan untuk teks terenkripsi</string>
     <string name="btn_copy">Salin ke papan klip</string>
     <string name="btn_share">Bagikan</string>
@@ -26,6 +28,7 @@
     <string name="label_your_alias">ALIAS ANDA</string>
     <string name="error_not_found">Pesan tidak ditemukan atau sudah dihapus.</string>
     <string name="error_decrypt_failed">Dekripsi gagal. Kunci salah?</string>
+    <string name="error_activity_context_not_found">Error: Konteks aktivitas tidak ditemukan</string>
     <string name="help_title">Bantuan &amp; FAQ</string>
     <string name="help_how_title">Cara kerjanya</string>
     <string name="help_how_body">Ketik pesan rahasia Anda, ketuk Enkripsi, dan bagikan tautan yang dihasilkan. Penerima membuka tautan di aplikasi dan pesan didekripsi menggunakan AES 256-bit — sekali saja. Setelah dibaca, pesan dihapus secara permanen dan tidak dapat dipulihkan dari server.</string>
@@ -70,6 +73,7 @@
     <string name="premium_sub_offer_cancel">Batalkan melalui Google Play sebelum masa uji coba berakhir agar tidak dikenakan biaya</string>
     <string name="premium_offer_title">Detail Pembelian</string>
     <string name="premium_offer_price">Harga: €1,79 untuk 30 hari akses Premium</string>
+    <string name="premium_offer_price_fmt">Harga: %1$s untuk 30 hari akses Premium</string>
     <string name="premium_offer_duration">Akses berlaku 30 hari sejak tanggal pembelian</string>
     <string name="premium_offer_no_renewal">TIDAK diperpanjang otomatis — pembelian sekali saja</string>
     <string name="premium_offer_optional">Premium bersifat opsional — aplikasi dapat digunakan gratis tanpanya</string>

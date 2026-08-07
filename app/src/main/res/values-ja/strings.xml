@@ -7,7 +7,9 @@
     <string name="nav_premium">プレミアム</string>
     <string name="nav_language">言語</string>
     <string name="hint_enter_text">テキストを入力してください</string>
+    <string name="hint_enter_text_optional">テキストを入力してください（任意）</string>
     <string name="btn_encrypt">暗号化する</string>
+    <string name="btn_attach_image">画像を添付（任意）</string>
     <string name="label_encrypted_link">暗号化テキストのリンク</string>
     <string name="btn_copy">クリップボードにコピー</string>
     <string name="btn_share">共有する</string>
@@ -26,6 +28,7 @@
     <string name="label_your_alias">あなたのエイリアス</string>
     <string name="error_not_found">メッセージが見つからないか、既に削除されています。</string>
     <string name="error_decrypt_failed">復号に失敗しました。キーが間違っていませんか？</string>
+    <string name="error_activity_context_not_found">エラー：アクティビティのコンテキストが見つかりません</string>
     <string name="help_title">ヘルプとFAQ</string>
     <string name="help_how_title">使い方</string>
     <string name="help_how_body">秘密のメッセージを入力し、「暗号化」をタップしてリンクを共有します。相手がアプリでリンクを開くとメッセージが復号されます。閲覧後、サーバーから削除されます。</string>
@@ -70,6 +73,7 @@
     <string name="premium_sub_offer_cancel">請求されないよう、無料期間終了前にGoogle Playでキャンセルしてください</string>
     <string name="premium_offer_title">購入詳細</string>
     <string name="premium_offer_price">価格：€1.79 / 30日間のPremiumアクセス</string>
+    <string name="premium_offer_price_fmt">価格：%1$s / 30日間のPremiumアクセス</string>
     <string name="premium_offer_duration">購入日から30日間有効</string>
     <string name="premium_offer_no_renewal">自動更新なし — 一回限りの購入</string>
     <string name="premium_offer_optional">Premiumはオプションです — アプリは無料で完全に使用できます</string>
