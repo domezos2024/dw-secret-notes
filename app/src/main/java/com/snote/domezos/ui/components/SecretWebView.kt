@@ -19,6 +19,12 @@ class SecretWebView(context: Context) : WebView(context) {
         setupWebView()
     }
 
+    companion object {
+        private const val ENCRYPT_ENDPOINT = "https://domezos-ware.org/api/android_be_encrypt.php"
+        private const val DECRYPT_ENDPOINT = "https://domezos-ware.org/api/view_api.php"
+        private const val SHORT_LINK_HOST = "https://snote.fun"
+    }
+
     @SuppressLint("SetJavaScriptEnabled")
     private fun setupWebView() {
         settings.javaScriptEnabled = true
@@ -37,7 +43,7 @@ class SecretWebView(context: Context) : WebView(context) {
                 }
             }
             postUrl(
-                "https://domezos-ware.org/api/android_be_encrypt.php",
+                ENCRYPT_ENDPOINT,
                 body.toByteArray(Charsets.UTF_8)
             )
         } catch (e: Exception) {
@@ -54,19 +60,21 @@ class SecretWebView(context: Context) : WebView(context) {
         this.onResult = callback
         this.onImageResult = onImage
         try {
-            val isLink = alias.startsWith("link:")
-            val cleanAlias = if (isLink) alias.substring(5) else alias
-            val encodedPass = URLEncoder.encode(pass, "UTF-8")
-            val url = if (isLink) {
-                "https://snote.fun?link=$cleanAlias"
-            } else {
-                val encodedAlias = URLEncoder.encode(cleanAlias, "UTF-8")
-                "https://domezos-ware.org/api/view_api.php?com=$encodedAlias&pass=$encodedPass"
-            }
-            loadUrl(url)
+            loadUrl(buildDecryptUrl(alias, pass))
         } catch (e: Exception) {
             callback("Error: ${e.message}")
         }
+    }
+
+    private fun buildDecryptUrl(alias: String, pass: String): String {
+        val isLink = alias.startsWith("link:")
+        val cleanAlias = if (isLink) alias.substring(5) else alias
+        if (isLink) {
+            return "$SHORT_LINK_HOST?link=$cleanAlias"
+        }
+        val encodedAlias = URLEncoder.encode(cleanAlias, "UTF-8")
+        val encodedPass = URLEncoder.encode(pass, "UTF-8")
+        return "$DECRYPT_ENDPOINT?com=$encodedAlias&pass=$encodedPass"
     }
 
     inner class AndroidInterface {

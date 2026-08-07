@@ -29,6 +29,7 @@
     <string name="label_your_alias">YOUR ALIAS</string>
     <string name="error_not_found">Message not found or already deleted.</string>
     <string name="error_decrypt_failed">Decryption failed. Wrong key?</string>
+    <string name="error_activity_context_not_found">Error: Activity context not found</string>
     <string name="help_title">Help &amp; FAQ</string>
     <string name="help_how_title">How it works</string>
     <string name="help_how_body">Type your secret message, tap Encrypt, and share the generated link. The recipient opens the link in the app and the message is decrypted using AES 256-bit  once only. After reading, it is permanently and irrevocably deleted from the server.</string>

@@ -35,6 +35,7 @@ class MainActivity : ComponentActivity() {
     companion object {
         private val URL_REGEX   = """(https?://\S+)""".toRegex()
         private val ALIAS_REGEX = """\b([A-Za-z0-9]{5})\b""".toRegex()
+        private const val RATE_PROMPT_RUN_COUNT = 3
     }
 
     fun clearDeepLink() {
@@ -53,29 +54,38 @@ class MainActivity : ComponentActivity() {
         }
     }
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        installSplashScreen()
+    private fun setupSecureFlagsIfNeeded() {
         if (!BuildConfig.DEBUG) {
             window.setFlags(WindowManager.LayoutParams.FLAG_SECURE, WindowManager.LayoutParams.FLAG_SECURE)
         }
+    }
+
+    private fun computeShowRatePrompt(runCount: Int): Boolean =
+        runCount == RATE_PROMPT_RUN_COUNT && !Prefs.hasRatedApp(this) && !Prefs.hasSeenRatePrompt(this)
+
+    private fun createBillingHelper(): BillingHelper = BillingHelper(
+        context = this,
+        onPremiumActivated = {
+            Prefs.setPremium(this, true)
+            isPremium = true
+        },
+        onPremiumDeactivated = {
+            Prefs.setPremium(this, false)
+            isPremium = false
+        }
+    )
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        installSplashScreen()
+        setupSecureFlagsIfNeeded()
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         val isFirstRun = Prefs.getLanguage(this) == null
         val runCount = Prefs.incrementRunCount(this)
-        val showRatePrompt = runCount == 3 && !Prefs.hasRatedApp(this) && !Prefs.hasSeenRatePrompt(this)
+        val showRatePrompt = computeShowRatePrompt(runCount)
         deepLinkAlias = extractAliasFromIntent(intent)
         isPremium = Prefs.isPremium(this)
-        billingHelper = BillingHelper(
-            context = this,
-            onPremiumActivated = {
-                Prefs.setPremium(this, true)
-                isPremium = true
-            },
-            onPremiumDeactivated = {
-                Prefs.setPremium(this, false)
-                isPremium = false
-            }
-        )
+        billingHelper = createBillingHelper()
         refreshPremiumFromServer()
         setContent {
             val currentThemeId = remember { mutableStateOf(Prefs.getTheme(this)) }
@@ -123,18 +133,22 @@ class MainActivity : ComponentActivity() {
         if (data != null) return extractAliasFromUri(data)
         if (intent?.action == Intent.ACTION_SEND && intent.type == "text/plain") {
             val text = intent.getStringExtra(Intent.EXTRA_TEXT) ?: return null
-            val urlMatch = URL_REGEX.find(text)
-            if (urlMatch != null) {
-                val uri = try { urlMatch.value.toUri() } catch (_: Exception) { null }
-                if (uri != null) {
-                    val alias = extractAliasFromUri(uri)
-                    if (alias != null) return alias
-                }
-                return urlMatch.value
-            }
-            return ALIAS_REGEX.find(text)?.value ?: text
+            return extractAliasFromShareText(text)
         }
         return null
+    }
+
+    private fun extractAliasFromShareText(text: String): String? {
+        val urlMatch = URL_REGEX.find(text)
+        if (urlMatch != null) {
+            val uri = try { urlMatch.value.toUri() } catch (_: Exception) { null }
+            if (uri != null) {
+                val alias = extractAliasFromUri(uri)
+                if (alias != null) return alias
+            }
+            return urlMatch.value
+        }
+        return ALIAS_REGEX.find(text)?.value ?: text
     }
 
     private fun extractAliasFromUri(data: android.net.Uri): String? {

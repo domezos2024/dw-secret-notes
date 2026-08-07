@@ -225,6 +225,7 @@ fun TipScreen(onBack: () -> Unit, onNavigate: (String) -> Unit = {}, onThemeChan
 
             // Send tip button
             val purchaseErrorText = stringResource(R.string.tip_purchase_error)
+            val activityNotFoundText = stringResource(R.string.error_activity_context_not_found)
             Button(
                 onClick = {
                     haptic.performHapticFeedback(HapticFeedbackType.LongPress)
@@ -235,7 +236,7 @@ fun TipScreen(onBack: () -> Unit, onNavigate: (String) -> Unit = {}, onThemeChan
                             scope.launch { snackbarHostState.showSnackbar(purchaseErrorText) }
                         }
                     } else {
-                        scope.launch { snackbarHostState.showSnackbar("Error: Activity context not found") }
+                        scope.launch { snackbarHostState.showSnackbar(activityNotFoundText) }
                     }
                 },
                 modifier = Modifier

@@ -1,7 +1,5 @@
 package com.snote.domezos.ui.screens
 
-import android.app.Activity
-import android.content.ContextWrapper
 import android.content.res.Configuration
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.layout.Arrangement
@@ -40,6 +38,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import com.snote.domezos.R
 import com.snote.domezos.data.Prefs
+import com.snote.domezos.util.findActivity
 import java.util.Locale
 
 data class LanguageOption(
@@ -92,12 +91,7 @@ fun LanguageScreen(isFirstRun: Boolean, onConfirm: () -> Unit) {
                         haptic.performHapticFeedback(HapticFeedbackType.LongPress)
                         Prefs.setLanguage(context, selected)
                         onConfirm()
-                        var currentContext = context
-                        while (currentContext is ContextWrapper) {
-                            if (currentContext is Activity) break
-                            currentContext = currentContext.baseContext
-                        }
-                        (currentContext as? Activity)?.recreate()
+                        context.findActivity()?.recreate()
                     },
                     modifier = Modifier.fillMaxWidth().height(52.dp),
                     colors = ButtonDefaults.buttonColors(containerColor = MaterialTheme.colorScheme.secondary, contentColor = MaterialTheme.colorScheme.onSecondary),

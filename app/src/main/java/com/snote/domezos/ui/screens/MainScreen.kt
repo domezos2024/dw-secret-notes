@@ -1,5 +1,7 @@
 package com.snote.domezos.ui.screens
 
+import com.snote.domezos.util.findActivity
+
 import android.content.Intent
 import androidx.core.net.toUri
 import android.graphics.Bitmap
@@ -103,6 +105,10 @@ import com.snote.domezos.ui.components.SecretWebView
 
 private const val PASSPHRASE = "dw_secret_notes_passphrase_2026"
 
+private const val DECRYPT_COUNTDOWN_SECONDS = 60
+private const val AD_ROTATION_DELAY_MS = 25000L
+private const val DEEP_LINK_DECRYPT_DELAY_MS = 100L
+
 private val AD_RES_IDS = listOf(
     R.string.ad_1, R.string.ad_2, R.string.ad_3, R.string.ad_4, R.string.ad_5,
     R.string.ad_6, R.string.ad_7, R.string.ad_8, R.string.ad_9, R.string.ad_10
@@ -115,6 +121,23 @@ private val PREMIUM_RES_IDS = listOf(
     R.string.premium_active_10
 )
 
+internal data class ParsedAlias(val rawAlias: String, val isLink: Boolean, val pass: String)
+
+internal fun parseAliasFromUri(uri: android.net.Uri, currentUrl: String): ParsedAlias {
+    val comParam = uri.getQueryParameter("com")
+    val linkParam = uri.getQueryParameter("link")
+    val rawAlias = comParam ?: linkParam ?: uri.lastPathSegment ?: ""
+    val pass = uri.getQueryParameter("pass") ?: ""
+    val isLink = comParam == null && (linkParam != null || currentUrl.contains("snote.fun"))
+    return ParsedAlias(rawAlias, isLink, pass)
+}
+
+internal fun formatGeneratedAlias(result: String): String = when {
+    result.contains("com=") -> result.substringAfter("com=").substringBefore("&").take(12) + "..."
+    result.contains("link=") -> result.substringAfter("link=").take(8)
+    else -> "Link Ready"
+}
+
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun MainScreen(
@@ -124,7 +147,11 @@ fun MainScreen(
     onThemeChanged: (String) -> Unit = {},
     currentThemeId: String = "classic",
     isPremium: Boolean = false,
-    showRatePrompt: Boolean = false
+    showRatePrompt: Boolean = false,
+    // Test-only seam: lets tests fake the backend's encrypt response (e.g. a short snote.fun
+    // link) without going through the real SecretWebView/network. Production call sites never
+    // pass this, so default behavior (secretWebView.encrypt) is unchanged.
+    encryptOverride: ((text: String, imageBase64: String?, callback: (String) -> Unit) -> Unit)? = null
 ) {
     val context = LocalContext.current
     val haptic = LocalHapticFeedback.current
@@ -142,7 +169,7 @@ fun MainScreen(
     var decryptedText by remember { mutableStateOf("") }
     var decryptError by remember { mutableStateOf("") }
     var decryptDone by remember { mutableStateOf(false) }
-    var countdown by remember { mutableIntStateOf(60) }
+    var countdown by remember { mutableIntStateOf(DECRYPT_COUNTDOWN_SECONDS) }
     var isDecryptingRemote by remember { mutableStateOf(false) }
     var remotePass by remember { mutableStateOf("") }
     var selectedImageUri by remember { mutableStateOf<Uri?>(null) }
@@ -156,36 +183,22 @@ fun MainScreen(
     var showRateDialog by remember { mutableStateOf(showRatePrompt) }
 
     if (showRateDialog) {
-        AlertDialog(
-            onDismissRequest = {
+        RateDialog(
+            onDismiss = {
                 Prefs.setHasSeenRatePrompt(context)
                 showRateDialog = false
             },
-            title = { Text(stringResource(R.string.rate_dialog_title)) },
-            text = { Text(stringResource(R.string.rate_dialog_message)) },
-            confirmButton = {
-                TextButton(onClick = {
-                    Prefs.setHasSeenRatePrompt(context)
-                    showRateDialog = false
-                    launchInAppReview(context) { Prefs.setHasRatedApp(context, true) }
-                }) {
-                    Text(stringResource(R.string.rate_dialog_confirm))
-                }
-            },
-            dismissButton = {
-                TextButton(onClick = {
-                    Prefs.setHasSeenRatePrompt(context)
-                    showRateDialog = false
-                }) {
-                    Text(stringResource(R.string.rate_dialog_dismiss))
-                }
+            onConfirm = {
+                Prefs.setHasSeenRatePrompt(context)
+                showRateDialog = false
+                launchInAppReview(context) { Prefs.setHasRatedApp(context, true) }
             }
         )
     }
 
     LaunchedEffect(isPremium) {
         while (true) {
-            delay(25000)
+            delay(AD_ROTATION_DELAY_MS)
             adIndex = (adIndex + 1) % currentAds.size
         }
     }
@@ -253,23 +266,15 @@ fun MainScreen(
                     loopCount++
                 }
                 val finalUri = android.net.Uri.parse(currentUrl)
-                val com = finalUri.getQueryParameter("com")
-                val link = finalUri.getQueryParameter("link")
-                val rawAlias = com ?: link ?: finalUri.lastPathSegment ?: ""
-                val resolvedPass = finalUri.getQueryParameter("pass") ?: ""
-                if (rawAlias.isNotEmpty() && rawAlias.length >= 5) {
-                    val isLink = com == null && (link != null || currentUrl.contains("snote.fun"))
-                    Pair(if (isLink) "link:$rawAlias" else rawAlias, resolvedPass)
+                val parsed = parseAliasFromUri(finalUri, currentUrl)
+                if (parsed.rawAlias.isNotEmpty() && parsed.rawAlias.length >= 5) {
+                    Pair(if (parsed.isLink) "link:${parsed.rawAlias}" else parsed.rawAlias, parsed.pass)
                 } else null
             } catch (e: Exception) {
                 val uri = android.net.Uri.parse(currentUrl)
-                val com = uri.getQueryParameter("com")
-                val link = uri.getQueryParameter("link")
-                val rawAlias = com ?: link ?: uri.lastPathSegment ?: ""
-                val resolvedPass = uri.getQueryParameter("pass") ?: ""
-                if (rawAlias.isNotEmpty()) {
-                    val isLink = com == null && (link != null || currentUrl.contains("snote.fun"))
-                    Pair(if (isLink) "link:$rawAlias" else rawAlias, resolvedPass)
+                val parsed = parseAliasFromUri(uri, currentUrl)
+                if (parsed.rawAlias.isNotEmpty()) {
+                    Pair(if (parsed.isLink) "link:${parsed.rawAlias}" else parsed.rawAlias, parsed.pass)
                 } else null
             }
         }
@@ -286,16 +291,13 @@ fun MainScreen(
         haptic.performHapticFeedback(HapticFeedbackType.LongPress)
         isEncrypting = true
         val imageBase64 = selectedImageUri?.let { ImageUtils.prepareForUpload(context, it) }
-        secretWebView.encrypt(finalParamsText, imageBase64) { result ->
+        val encryptFn = encryptOverride ?: secretWebView::encrypt
+        encryptFn(finalParamsText, imageBase64) { result ->
             isEncrypting = false
             if (result.startsWith("http")) {
                 haptic.performHapticFeedback(HapticFeedbackType.TextHandleMove)
                 generatedLink = result
-                generatedAlias = if (result.contains("com=")) {
-                    result.substringAfter("com=").substringBefore("&").take(12) + "..."
-                } else if (result.contains("link=")) {
-                    result.substringAfter("link=").take(8)
-                } else "Link Ready"
+                generatedAlias = formatGeneratedAlias(result)
                 if (result.contains("snote.fun") && result.contains("link=")) {
                     val alias = result.substringAfter("link=").substringBefore("&").take(5)
                     clipboard.setText(AnnotatedString(alias))
@@ -365,7 +367,7 @@ fun MainScreen(
             }
             decryptDone = false
             decryptError = ""
-            delay(100)
+            delay(DEEP_LINK_DECRYPT_DELAY_MS)
             if (decryptInput.length >= 5 || decryptInput.startsWith("http")) doDecrypt()
             onDeepLinkConsumed()
         }
@@ -373,7 +375,7 @@ fun MainScreen(
 
     LaunchedEffect(decryptDone) {
         if (decryptDone) {
-            countdown = 60
+            countdown = DECRYPT_COUNTDOWN_SECONDS
             while (countdown > 0) {
                 delay(1000)
                 countdown--
@@ -650,27 +652,51 @@ fun MainScreen(
     }
 
     if (showFullscreenImage && decryptedImage != null) {
-        Dialog(
-            onDismissRequest = { showFullscreenImage = false },
-            properties = DialogProperties(usePlatformDefaultWidth = false)
+        FullscreenImageDialog(
+            image = decryptedImage!!,
+            haptic = haptic,
+            onDismiss = { showFullscreenImage = false }
+        )
+    }
+}
+
+@Composable
+private fun RateDialog(onDismiss: () -> Unit, onConfirm: () -> Unit) {
+    AlertDialog(
+        onDismissRequest = onDismiss,
+        title = { Text(stringResource(R.string.rate_dialog_title)) },
+        text = { Text(stringResource(R.string.rate_dialog_message)) },
+        confirmButton = { TextButton(onClick = onConfirm) { Text(stringResource(R.string.rate_dialog_confirm)) } },
+        dismissButton = { TextButton(onClick = onDismiss) { Text(stringResource(R.string.rate_dialog_dismiss)) } }
+    )
+}
+
+@Composable
+private fun FullscreenImageDialog(
+    image: Bitmap,
+    haptic: androidx.compose.ui.hapticfeedback.HapticFeedback,
+    onDismiss: () -> Unit
+) {
+    Dialog(
+        onDismissRequest = onDismiss,
+        properties = DialogProperties(usePlatformDefaultWidth = false)
+    ) {
+        Box(
+            modifier = Modifier
+                .fillMaxSize()
+                .background(MaterialTheme.colorScheme.background)
+                .clickable {
+                    haptic.performHapticFeedback(HapticFeedbackType.LongPress)
+                    onDismiss()
+                },
+            contentAlignment = Alignment.Center
         ) {
-            Box(
-                modifier = Modifier
-                    .fillMaxSize()
-                    .background(MaterialTheme.colorScheme.background)
-                    .clickable {
-                        haptic.performHapticFeedback(HapticFeedbackType.LongPress)
-                        showFullscreenImage = false
-                    },
-                contentAlignment = Alignment.Center
-            ) {
-                Image(
-                    bitmap = decryptedImage!!.asImageBitmap(),
-                    contentDescription = null,
-                    contentScale = ContentScale.Fit,
-                    modifier = Modifier.fillMaxSize()
-                )
-            }
+            Image(
+                bitmap = image.asImageBitmap(),
+                contentDescription = null,
+                contentScale = ContentScale.Fit,
+                modifier = Modifier.fillMaxSize()
+            )
         }
     }
 }
@@ -775,12 +801,6 @@ fun FooterNote() {
             }
         }
     }
-}
-
-private tailrec fun android.content.Context.findActivity(): android.app.Activity? = when (this) {
-    is android.app.Activity -> this
-    is android.content.ContextWrapper -> baseContext.findActivity()
-    else -> null
 }
 
 private fun launchInAppReview(context: android.content.Context, onDone: () -> Unit) {

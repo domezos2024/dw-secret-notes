@@ -137,65 +137,92 @@ private fun WidgetEncryptScreen(appWidgetId: Int, onDismiss: () -> Unit) {
                 verticalArrangement = Arrangement.spacedBy(12.dp)
             ) {
                 if (generatedLink.isEmpty()) {
-                    OutlinedTextField(
-                        value = inputText,
-                        onValueChange = { inputText = it },
-                        placeholder = { Text(stringResource(R.string.hint_enter_text)) },
-                        modifier = Modifier.fillMaxWidth().focusRequester(focusRequester),
-                        colors = OutlinedTextFieldDefaults.colors(
-                            focusedBorderColor = MaterialTheme.colorScheme.primary,
-                            unfocusedBorderColor = MaterialTheme.colorScheme.outline
-                        ),
-                        shape = RoundedCornerShape(10.dp)
+                    WidgetEncryptInputContent(
+                        inputText = inputText,
+                        onInputTextChange = { inputText = it },
+                        errorText = errorText,
+                        isEncrypting = isEncrypting,
+                        focusRequester = focusRequester,
+                        onEncrypt = { doEncrypt() }
                     )
-                    if (errorText.isNotEmpty()) {
-                        Text(errorText, color = MaterialTheme.colorScheme.error)
-                    }
-                    Button(
-                        onClick = { doEncrypt() },
-                        enabled = !isEncrypting && inputText.isNotBlank(),
-                        modifier = Modifier.fillMaxWidth(),
-                        colors = ButtonDefaults.buttonColors(
-                            containerColor = MaterialTheme.colorScheme.secondary,
-                            contentColor = MaterialTheme.colorScheme.onSecondary
-                        ),
-                        shape = RoundedCornerShape(10.dp)
-                    ) {
-                        Text(
-                            text = stringResource(R.string.btn_encrypt),
-                            fontWeight = FontWeight.Bold
-                        )
-                    }
                 } else {
-                    OutlinedTextField(
-                        value = generatedLink,
-                        onValueChange = {},
-                        readOnly = true,
-                        label = { Text(stringResource(R.string.label_encrypted_link)) },
-                        modifier = Modifier.fillMaxWidth(),
-                        colors = OutlinedTextFieldDefaults.colors(
-                            focusedBorderColor = MaterialTheme.colorScheme.primary,
-                            unfocusedBorderColor = MaterialTheme.colorScheme.outline
-                        ),
-                        shape = RoundedCornerShape(10.dp),
-                        singleLine = true
+                    WidgetEncryptResultContent(
+                        generatedLink = generatedLink,
+                        onShare = { shareLink() }
                     )
-                    Button(
-                        onClick = { shareLink() },
-                        modifier = Modifier.fillMaxWidth(),
-                        colors = ButtonDefaults.buttonColors(
-                            containerColor = MaterialTheme.colorScheme.secondary,
-                            contentColor = MaterialTheme.colorScheme.onSecondary
-                        ),
-                        shape = RoundedCornerShape(10.dp)
-                    ) {
-                        Text(
-                            text = stringResource(R.string.btn_share),
-                            fontWeight = FontWeight.Bold
-                        )
-                    }
                 }
             }
         }
+    }
+}
+
+@Composable
+private fun WidgetEncryptInputContent(
+    inputText: String,
+    onInputTextChange: (String) -> Unit,
+    errorText: String,
+    isEncrypting: Boolean,
+    focusRequester: FocusRequester,
+    onEncrypt: () -> Unit
+) {
+    OutlinedTextField(
+        value = inputText,
+        onValueChange = onInputTextChange,
+        placeholder = { Text(stringResource(R.string.hint_enter_text)) },
+        modifier = Modifier.fillMaxWidth().focusRequester(focusRequester),
+        colors = OutlinedTextFieldDefaults.colors(
+            focusedBorderColor = MaterialTheme.colorScheme.primary,
+            unfocusedBorderColor = MaterialTheme.colorScheme.outline
+        ),
+        shape = RoundedCornerShape(10.dp)
+    )
+    if (errorText.isNotEmpty()) {
+        Text(errorText, color = MaterialTheme.colorScheme.error)
+    }
+    Button(
+        onClick = onEncrypt,
+        enabled = !isEncrypting && inputText.isNotBlank(),
+        modifier = Modifier.fillMaxWidth(),
+        colors = ButtonDefaults.buttonColors(
+            containerColor = MaterialTheme.colorScheme.secondary,
+            contentColor = MaterialTheme.colorScheme.onSecondary
+        ),
+        shape = RoundedCornerShape(10.dp)
+    ) {
+        Text(
+            text = stringResource(R.string.btn_encrypt),
+            fontWeight = FontWeight.Bold
+        )
+    }
+}
+
+@Composable
+private fun WidgetEncryptResultContent(generatedLink: String, onShare: () -> Unit) {
+    OutlinedTextField(
+        value = generatedLink,
+        onValueChange = {},
+        readOnly = true,
+        label = { Text(stringResource(R.string.label_encrypted_link)) },
+        modifier = Modifier.fillMaxWidth(),
+        colors = OutlinedTextFieldDefaults.colors(
+            focusedBorderColor = MaterialTheme.colorScheme.primary,
+            unfocusedBorderColor = MaterialTheme.colorScheme.outline
+        ),
+        shape = RoundedCornerShape(10.dp),
+        singleLine = true
+    )
+    Button(
+        onClick = onShare,
+        modifier = Modifier.fillMaxWidth(),
+        colors = ButtonDefaults.buttonColors(
+            containerColor = MaterialTheme.colorScheme.secondary,
+            contentColor = MaterialTheme.colorScheme.onSecondary
+        ),
+        shape = RoundedCornerShape(10.dp)
+    ) {
+        Text(
+            text = stringResource(R.string.btn_share),
+            fontWeight = FontWeight.Bold
+        )
     }
 }

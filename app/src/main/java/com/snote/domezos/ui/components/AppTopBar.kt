@@ -45,6 +45,8 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.hapticfeedback.HapticFeedbackType
 import androidx.compose.ui.platform.LocalHapticFeedback
 import androidx.compose.ui.res.painterResource
@@ -109,104 +111,164 @@ fun AppTopBar(
                     }
                 )
                 HorizontalDivider(modifier = Modifier.padding(vertical = 4.dp), color = MaterialTheme.colorScheme.outline.copy(alpha = 0.2f))
-                DropdownMenuItem(
-                    text = { Text(stringResource(R.string.nav_help), color = MaterialTheme.colorScheme.onSurface) },
-                    leadingIcon = { Icon(Icons.Default.Info, null, tint = MaterialTheme.colorScheme.primary) },
-                    onClick = { menuExpanded = false; if (currentRoute != Screen.Help.route) onNavigate(Screen.Help.route) }
+                NavMenuItem(
+                    label = stringResource(R.string.nav_help),
+                    icon = Icons.Default.Info,
+                    tint = MaterialTheme.colorScheme.primary,
+                    targetRoute = Screen.Help.route,
+                    currentRoute = currentRoute,
+                    onNavigate = onNavigate,
+                    onDismiss = { menuExpanded = false }
                 )
-                DropdownMenuItem(
-                    text = { Text(stringResource(R.string.nav_premium), color = MaterialTheme.colorScheme.onSurface) },
-                    leadingIcon = { Icon(Icons.Default.Star, null, tint = MaterialTheme.colorScheme.secondary) },
-                    onClick = { menuExpanded = false; if (currentRoute != Screen.Premium.route) onNavigate(Screen.Premium.route) }
+                NavMenuItem(
+                    label = stringResource(R.string.nav_premium),
+                    icon = Icons.Default.Star,
+                    tint = MaterialTheme.colorScheme.secondary,
+                    targetRoute = Screen.Premium.route,
+                    currentRoute = currentRoute,
+                    onNavigate = onNavigate,
+                    onDismiss = { menuExpanded = false }
                 )
-                DropdownMenuItem(
-                    text = { Text(stringResource(R.string.nav_language), color = MaterialTheme.colorScheme.onSurface) },
-                    leadingIcon = { Icon(Icons.Default.Translate, null, tint = MaterialTheme.colorScheme.primary) },
-                    onClick = { menuExpanded = false; if (currentRoute != Screen.Language.route) onNavigate(Screen.Language.route) }
+                NavMenuItem(
+                    label = stringResource(R.string.nav_language),
+                    icon = Icons.Default.Translate,
+                    tint = MaterialTheme.colorScheme.primary,
+                    targetRoute = Screen.Language.route,
+                    currentRoute = currentRoute,
+                    onNavigate = onNavigate,
+                    onDismiss = { menuExpanded = false }
                 )
-                DropdownMenuItem(
-                    text = { Text(stringResource(R.string.nav_tinyurl), color = MaterialTheme.colorScheme.onSurface) },
-                    leadingIcon = { Icon(Icons.Default.Star, null, tint = MaterialTheme.colorScheme.primary) },
-                    onClick = { menuExpanded = false; if (currentRoute != Screen.TinyUrl.route) onNavigate(Screen.TinyUrl.route) }
+                NavMenuItem(
+                    label = stringResource(R.string.nav_tinyurl),
+                    icon = Icons.Default.Star,
+                    tint = MaterialTheme.colorScheme.primary,
+                    targetRoute = Screen.TinyUrl.route,
+                    currentRoute = currentRoute,
+                    onNavigate = onNavigate,
+                    onDismiss = { menuExpanded = false }
                 )
-                DropdownMenuItem(
-                    text = { Text(stringResource(R.string.nav_info), color = MaterialTheme.colorScheme.onSurface) },
-                    leadingIcon = { Icon(Icons.Default.Info, null, tint = MaterialTheme.colorScheme.primary) },
-                    onClick = { menuExpanded = false; if (currentRoute != Screen.Info.route) onNavigate(Screen.Info.route) }
+                NavMenuItem(
+                    label = stringResource(R.string.nav_info),
+                    icon = Icons.Default.Info,
+                    tint = MaterialTheme.colorScheme.primary,
+                    targetRoute = Screen.Info.route,
+                    currentRoute = currentRoute,
+                    onNavigate = onNavigate,
+                    onDismiss = { menuExpanded = false }
                 )
-                DropdownMenuItem(
-                    text = { Text(stringResource(R.string.nav_tip), color = MaterialTheme.colorScheme.onSurface) },
-                    leadingIcon = { Icon(Icons.Default.Coffee, null, tint = MaterialTheme.colorScheme.secondary) },
-                    onClick = { menuExpanded = false; if (currentRoute != Screen.Tip.route) onNavigate(Screen.Tip.route) }
+                NavMenuItem(
+                    label = stringResource(R.string.nav_tip),
+                    icon = Icons.Default.Coffee,
+                    tint = MaterialTheme.colorScheme.secondary,
+                    targetRoute = Screen.Tip.route,
+                    currentRoute = currentRoute,
+                    onNavigate = onNavigate,
+                    onDismiss = { menuExpanded = false }
                 )
             }
             if (showThemeSheet) {
-                ModalBottomSheet(
-                    onDismissRequest = { showThemeSheet = false },
-                    containerColor = MaterialTheme.colorScheme.surface
-                ) {
-                    Column(modifier = Modifier.padding(horizontal = 16.dp).padding(bottom = 24.dp)) {
-                        Text(
-                            text = stringResource(R.string.theme_selection_title),
-                            style = MaterialTheme.typography.titleMedium,
-                            color = MaterialTheme.colorScheme.onSurface,
-                            modifier = Modifier.padding(bottom = 12.dp)
+                ThemePickerBottomSheet(
+                    currentThemeId = currentThemeId,
+                    haptic = haptic,
+                    onThemeChanged = onThemeChanged,
+                    onDismiss = { showThemeSheet = false }
+                )
+            }
+        },
+        colors = TopAppBarDefaults.topAppBarColors(containerColor = MaterialTheme.colorScheme.surface)
+    )
+}
+
+@Composable
+private fun NavMenuItem(
+    label: String,
+    icon: ImageVector,
+    tint: Color,
+    targetRoute: String,
+    currentRoute: String?,
+    onNavigate: (String) -> Unit,
+    onDismiss: () -> Unit
+) {
+    DropdownMenuItem(
+        text = { Text(label, color = MaterialTheme.colorScheme.onSurface) },
+        leadingIcon = { Icon(icon, null, tint = tint) },
+        onClick = {
+            onDismiss()
+            if (currentRoute != targetRoute) onNavigate(targetRoute)
+        }
+    )
+}
+
+@OptIn(ExperimentalMaterial3Api::class)
+@Composable
+private fun ThemePickerBottomSheet(
+    currentThemeId: String,
+    haptic: androidx.compose.ui.hapticfeedback.HapticFeedback,
+    onThemeChanged: (String) -> Unit,
+    onDismiss: () -> Unit
+) {
+    ModalBottomSheet(
+        onDismissRequest = onDismiss,
+        containerColor = MaterialTheme.colorScheme.surface
+    ) {
+        Column(modifier = Modifier.padding(horizontal = 16.dp).padding(bottom = 24.dp)) {
+            Text(
+                text = stringResource(R.string.theme_selection_title),
+                style = MaterialTheme.typography.titleMedium,
+                color = MaterialTheme.colorScheme.onSurface,
+                modifier = Modifier.padding(bottom = 12.dp)
+            )
+            LazyVerticalGrid(
+                columns = GridCells.Fixed(2),
+                horizontalArrangement = Arrangement.spacedBy(10.dp),
+                verticalArrangement = Arrangement.spacedBy(10.dp),
+                modifier = Modifier.height(420.dp)
+            ) {
+                items(ALL_THEMES) { theme ->
+                    val isSelected = theme.id == currentThemeId
+                    Card(
+                        onClick = {
+                            haptic.performHapticFeedback(HapticFeedbackType.LongPress)
+                            onDismiss()
+                            onThemeChanged(theme.id)
+                        },
+                        modifier = Modifier.fillMaxWidth(),
+                        shape = RoundedCornerShape(12.dp),
+                        colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surfaceVariant),
+                        border = BorderStroke(
+                            if (isSelected) 2.dp else 1.dp,
+                            if (isSelected) MaterialTheme.colorScheme.primary else MaterialTheme.colorScheme.outline.copy(alpha = 0.3f)
                         )
-                        LazyVerticalGrid(
-                            columns = GridCells.Fixed(2),
-                            horizontalArrangement = Arrangement.spacedBy(10.dp),
-                            verticalArrangement = Arrangement.spacedBy(10.dp),
-                            modifier = Modifier.height(420.dp)
-                        ) {
-                            items(ALL_THEMES) { theme ->
-                                val isSelected = theme.id == currentThemeId
-                                Card(
-                                    onClick = {
-                                        haptic.performHapticFeedback(HapticFeedbackType.LongPress)
-                                        showThemeSheet = false
-                                        onThemeChanged(theme.id)
-                                    },
-                                    modifier = Modifier.fillMaxWidth(),
-                                    shape = RoundedCornerShape(12.dp),
-                                    colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surfaceVariant),
-                                    border = BorderStroke(
-                                        if (isSelected) 2.dp else 1.dp,
-                                        if (isSelected) MaterialTheme.colorScheme.primary else MaterialTheme.colorScheme.outline.copy(alpha = 0.3f)
+                    ) {
+                        Column {
+                            Row(modifier = Modifier.fillMaxWidth().height(36.dp)) {
+                                Box(modifier = Modifier.weight(2f).height(36.dp).background(theme.colorScheme.background))
+                                Box(modifier = Modifier.weight(1f).height(36.dp).background(theme.colorScheme.primary))
+                                Box(modifier = Modifier.weight(1f).height(36.dp).background(theme.colorScheme.secondary))
+                            }
+                            Row(
+                                modifier = Modifier.fillMaxWidth().padding(10.dp),
+                                horizontalArrangement = Arrangement.SpaceBetween,
+                                verticalAlignment = Alignment.CenterVertically
+                            ) {
+                                Text(
+                                    text = stringResource(theme.nameRes),
+                                    style = MaterialTheme.typography.labelLarge,
+                                    color = MaterialTheme.colorScheme.onSurface
+                                )
+                                if (isSelected) {
+                                    Icon(
+                                        imageVector = Icons.Default.Check,
+                                        contentDescription = null,
+                                        tint = MaterialTheme.colorScheme.primary,
+                                        modifier = Modifier.size(16.dp)
                                     )
-                                ) {
-                                    Column {
-                                        Row(modifier = Modifier.fillMaxWidth().height(36.dp)) {
-                                            Box(modifier = Modifier.weight(2f).height(36.dp).background(theme.colorScheme.background))
-                                            Box(modifier = Modifier.weight(1f).height(36.dp).background(theme.colorScheme.primary))
-                                            Box(modifier = Modifier.weight(1f).height(36.dp).background(theme.colorScheme.secondary))
-                                        }
-                                        Row(
-                                            modifier = Modifier.fillMaxWidth().padding(10.dp),
-                                            horizontalArrangement = Arrangement.SpaceBetween,
-                                            verticalAlignment = Alignment.CenterVertically
-                                        ) {
-                                            Text(
-                                                text = stringResource(theme.nameRes),
-                                                style = MaterialTheme.typography.labelLarge,
-                                                color = MaterialTheme.colorScheme.onSurface
-                                            )
-                                            if (isSelected) {
-                                                Icon(
-                                                    imageVector = Icons.Default.Check,
-                                                    contentDescription = null,
-                                                    tint = MaterialTheme.colorScheme.primary,
-                                                    modifier = Modifier.size(16.dp)
-                                                )
-                                            }
-                                        }
-                                    }
                                 }
                             }
                         }
                     }
                 }
             }
-        },
-        colors = TopAppBarDefaults.topAppBarColors(containerColor = MaterialTheme.colorScheme.surface)
-    )
+        }
+    }
 }

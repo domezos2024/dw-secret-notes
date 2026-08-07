@@ -8,6 +8,7 @@ import android.net.Uri
 import android.os.Build
 import android.provider.MediaStore
 import android.util.Base64
+import android.util.Log
 import java.io.ByteArrayOutputStream
 import kotlin.math.max
 
@@ -44,17 +45,17 @@ object ImageUtils {
                 MediaStore.Images.Media.getBitmap(context.contentResolver, uri)
             }
             if (full == null) {
-                android.util.Log.e("ImageUtils", "decodeScaledBitmap: decode returned null for $uri")
+                Log.e("ImageUtils", "decodeScaledBitmap: decode returned null for $uri")
                 return null
             }
             scaleDown(full)
         } catch (e: Exception) {
-            android.util.Log.e("ImageUtils", "decodeScaledBitmap: exception for $uri", e)
+            Log.e("ImageUtils", "decodeScaledBitmap: exception for $uri", e)
             null
         }
     }
 
-    private fun calculateInSampleSize(width: Int, height: Int, maxEdge: Int): Int {
+    internal fun calculateInSampleSize(width: Int, height: Int, maxEdge: Int): Int {
         var inSampleSize = 1
         val longestEdge = max(width, height)
         while (longestEdge / (inSampleSize * 2) >= maxEdge) {
@@ -68,10 +69,10 @@ object ImageUtils {
             val cleanBase64 = if (base64.contains(",")) base64.substringAfter(",") else base64
             val bytes = Base64.decode(cleanBase64, Base64.DEFAULT)
             val bitmap = BitmapFactory.decodeByteArray(bytes, 0, bytes.size)
-            if (bitmap == null) android.util.Log.e("ImageUtils", "BitmapFactory returned null")
+            if (bitmap == null) Log.e("ImageUtils", "BitmapFactory returned null")
             bitmap
         } catch (e: Exception) {
-            android.util.Log.e("ImageUtils", "Error decoding base64", e)
+            Log.e("ImageUtils", "Error decoding base64", e)
             null
         }
     }
