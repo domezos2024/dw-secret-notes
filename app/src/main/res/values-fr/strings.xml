@@ -7,7 +7,9 @@
     <string name="nav_premium">Premium</string>
     <string name="nav_language">Langue</string>
     <string name="hint_enter_text">Entrez votre texte</string>
+    <string name="hint_enter_text_optional">Entrez votre texte (facultatif)</string>
     <string name="btn_encrypt">Chiffrer</string>
+    <string name="btn_attach_image">Joindre une image (facultatif)</string>
     <string name="label_encrypted_link">Lien pour le texte chiffré</string>
     <string name="btn_copy">Copier dans le presse-papiers</string>
     <string name="btn_share">Partager</string>
@@ -28,6 +30,7 @@
     <string name="label_your_alias">VOTRE ALIAS</string>
     <string name="error_not_found">Message non trouvé ou déjà supprimé.</string>
     <string name="error_decrypt_failed">Échec du déchiffrement. Mauvaise clé ?</string>
+    <string name="error_activity_context_not_found">Erreur : contexte d\'activité introuvable</string>
     <string name="help_title">Aide &amp; FAQ</string>
     <string name="help_how_title">Comment ça marche</string>
     <string name="help_how_body">Saisissez votre message secret, appuyez sur Chiffrer et partagez le lien généré. Le destinataire ouvre le lien dans l\'application et le message est déchiffré via AES 256 bits — une seule fois. Après lecture, il est supprimé définitivement et irrévocablement du serveur.</string>
@@ -72,6 +75,7 @@
     <string name="premium_sub_offer_cancel">Annulez via Google Play avant la fin de l\'essai pour éviter d\'être facturé</string>
     <string name="premium_offer_title">Détails de l\'achat</string>
     <string name="premium_offer_price">Prix : 1,79 € pour 30 jours d\'accès Premium</string>
+    <string name="premium_offer_price_fmt">Prix : %1$s pour 30 jours d\'accès Premium</string>
     <string name="premium_offer_duration">Accès valable 30 jours à compter de la date d\'achat</string>
     <string name="premium_offer_no_renewal">NE se renouvelle PAS automatiquement — achat unique</string>
     <string name="premium_offer_optional">Premium est optionnel — l\'app fonctionne gratuitement sans lui</string>

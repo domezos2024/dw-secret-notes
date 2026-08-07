@@ -7,7 +7,9 @@
     <string name="nav_premium">Premium</string>
     <string name="nav_language">Idioma</string>
     <string name="hint_enter_text">Digite seu texto</string>
+    <string name="hint_enter_text_optional">Digite seu texto (opcional)</string>
     <string name="btn_encrypt">Criptografar</string>
+    <string name="btn_attach_image">Anexar imagem (opcional)</string>
     <string name="label_encrypted_link">Link para texto criptografado</string>
     <string name="btn_copy">Copiar para a área de transferência</string>
     <string name="btn_share">Compartilhar</string>
@@ -28,6 +30,7 @@
     <string name="label_your_alias">SEU ALIAS</string>
     <string name="error_not_found">Mensagem não encontrada ou já apagada.</string>
     <string name="error_decrypt_failed">Falha na descriptografia. Chave errada?</string>
+    <string name="error_activity_context_not_found">Erro: contexto da atividade não encontrado</string>
     <string name="help_title">Ajuda &amp; FAQ</string>
     <string name="help_how_title">Como funciona</string>
     <string name="help_how_body">Digite sua mensagem secreta, toque em Criptografar e compartilhe o link gerado. O destinatário abre o link no app e a mensagem é descriptografada via AES 256 bits — apenas uma vez. Após a leitura, é removida de forma permanente e irrevogável do servidor.</string>
@@ -72,6 +75,7 @@
     <string name="premium_sub_offer_cancel">Cancele pelo Google Play antes do fim do período de teste para evitar cobrança</string>
     <string name="premium_offer_title">Detalhes da Compra</string>
     <string name="premium_offer_price">Preço: €1,79 por 30 dias de acesso Premium</string>
+    <string name="premium_offer_price_fmt">Preço: %1$s por 30 dias de acesso Premium</string>
     <string name="premium_offer_duration">Acesso válido por 30 dias a partir da data de compra</string>
     <string name="premium_offer_no_renewal">NÃO renova automaticamente — compra única</string>
     <string name="premium_offer_optional">Premium é opcional — o app funciona gratuitamente sem ele</string>
