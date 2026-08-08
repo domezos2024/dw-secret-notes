@@ -1,0 +1,133 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>dw Secret Notes</title>
+  <link rel="stylesheet" href="css/themes.css" />
+  <link rel="stylesheet" href="css/base.css" />
+  <link rel="manifest" href="manifest.webapp.json" />
+  <meta name="theme-color" content="#050D1F" />
+</head>
+<body>
+  <div class="app-shell">
+    <header class="app-header">
+      <a href="index.php" class="brand">
+        <span class="dot"></span>
+        <span data-i18n="app_name">dw Secret Notes</span>
+      </a>
+      <nav class="app-nav">
+        <a class="icon-btn" href="help.php" data-i18n="nav_help">Help</a>
+        <a class="icon-btn" href="info.php" data-i18n="nav_info">Info</a>
+        <button class="icon-btn" id="settingsToggle" data-i18n="nav_language" type="button">Language</button>
+      </nav>
+    </header>
+
+    <section class="card hidden" id="settingsCard">
+      <h2 data-i18n="language_title">Select Language</h2>
+      <p class="status-text" data-i18n="language_subtitle"></p>
+      <div class="picker-grid" id="languagePicker"></div>
+      <h2 style="margin-top: 24px" data-i18n="theme_selection_title">Choose Theme</h2>
+      <div class="picker-grid" id="themePicker"></div>
+    </section>
+
+    <div class="tabs" role="tablist">
+      <button class="tab-btn" id="tabEncryptBtn" role="tab" aria-selected="true" data-i18n="btn_encrypt" type="button">Encrypt</button>
+      <button class="tab-btn" id="tabDecryptBtn" role="tab" aria-selected="false" data-i18n="btn_decrypt" type="button">Decrypt</button>
+    </div>
+
+    <section class="panel active" id="encryptPanel">
+      <div class="hero-section">
+        <h1 data-i18n="hero_title">Secure, self-destructing messages.</h1>
+        <p class="subtitle" data-i18n="hero_subtitle">Encrypted directly in your browser.</p>
+      </div>
+
+      <div class="card">
+        <div class="field">
+          <textarea id="encryptText" data-i18n-placeholder="hint_enter_text"></textarea>
+        </div>
+        <div class="image-attach">
+          <label class="file-btn" for="imageInput" data-i18n="btn_attach_image">Attach image (optional)</label>
+          <input type="file" id="imageInput" accept="image/*" class="hidden" />
+        </div>
+        <div class="image-preview" id="imagePreview">
+          <img id="imagePreviewImg" alt="" />
+          <button type="button" id="removeImageBtn" data-i18n="btn_remove_image">Remove image</button>
+        </div>
+        <button class="btn btn-primary" id="encryptBtn" data-i18n="btn_generate_link" type="button">Generate secret link</button>
+        <div class="status-text" id="encryptStatus"></div>
+      </div>
+
+      <div class="trust-indicators">
+        <div class="trust-item">
+          <span class="trust-icon">🔒</span>
+          <div>
+            <div class="trust-title" data-i18n="trust_e2e_title">End-to-End encrypted</div>
+            <div class="trust-desc" data-i18n="trust_e2e_desc">The server cannot read your message; the password is only in the link.</div>
+          </div>
+        </div>
+        <div class="trust-item">
+          <span class="trust-icon">🔥</span>
+          <div>
+            <div class="trust-title" data-i18n="trust_burn_title">Self-destructing</div>
+            <div class="trust-desc" data-i18n="trust_burn_desc">The message is permanently deleted after the first read.</div>
+          </div>
+        </div>
+        <div class="trust-item">
+          <span class="trust-icon">🙈</span>
+          <div>
+            <div class="trust-title" data-i18n="trust_anon_title">100% Anonymous</div>
+            <div class="trust-desc" data-i18n="trust_anon_desc">No registration required, no traces.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card hidden" id="encryptResultCard">
+        <h2 class="status-text success" data-i18n="success_encrypted">Message encrypted successfully!</h2>
+        <label class="field-label" data-i18n="label_encrypted_link">Link for encrypted text</label>
+        <span class="result-link" id="resultLink"></span>
+        <div class="btn-row">
+          <button class="btn btn-secondary" id="copyLinkBtn" data-i18n="btn_copy" type="button">Copy</button>
+          <button class="btn btn-secondary" id="shareLinkBtn" data-i18n="btn_share" type="button">Share</button>
+        </div>
+        <p><span class="alias-chip" id="aliasChip"></span></p>
+        <button class="btn btn-secondary" id="newMessageBtn" data-i18n="btn_new_message" type="button">New Message</button>
+      </div>
+    </section>
+
+    <section class="panel" id="decryptPanel">
+      <div class="card" id="decryptFormCard">
+        <p class="status-text" data-i18n="decrypt_hint_body"></p>
+        <div class="field">
+          <input type="text" id="decryptInput" data-i18n-placeholder="hint_decrypt_link" />
+        </div>
+        <button class="btn btn-primary" id="decryptBtn" data-i18n="btn_read_message" type="button">Read message</button>
+        <div class="status-text" id="decryptStatus"></div>
+      </div>
+
+      <div class="card hidden" id="decryptResultCard">
+        <h2 data-i18n="label_secret_message">SECRET MESSAGE</h2>
+        <div class="secret-text hidden" id="secretText"></div>
+        <img class="secret-image hidden" id="secretImage" alt="" />
+        <div class="countdown-banner hidden" id="countdownBanner"></div>
+        <div class="destroyed-banner hidden" id="destroyedBanner" data-i18n="note_destroyed"></div>
+        <button class="btn btn-secondary hidden" id="readAnotherBtn" data-i18n="btn_read_another" type="button">Read another message</button>
+      </div>
+    </section>
+
+    <footer class="app-footer">
+      <div><a href="https://domezos-ware.org" data-i18n="footer_website">https://domezos-ware.org</a></div>
+      <div data-i18n="footer_copyright">© 2026 DoMeZos-Ware</div>
+    </footer>
+  </div>
+
+  <div class="toast" id="toast"></div>
+
+  <script type="module" src="js/main.js"></script>
+  <script>
+    if ("serviceWorker" in navigator) {
+      navigator.serviceWorker.register("/sw.js");
+    }
+  </script>
+</body>
+</html>

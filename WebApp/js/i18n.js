@@ -33,7 +33,9 @@ let currentStrings = {};
 let currentLang = DEFAULT_LANG;
 
 async function fetchLocale(tag) {
-  const res = await fetch(`i18n/${tag}.json`);
+  // Resolve relative to this module's own location, not the page's URL, so
+  // it works the same from pages at any depth (e.g. msges/view.html).
+  const res = await fetch(new URL(`../i18n/${tag}.json`, import.meta.url));
   if (!res.ok) throw new Error(`Locale not found: ${tag}`);
   return res.json();
 }

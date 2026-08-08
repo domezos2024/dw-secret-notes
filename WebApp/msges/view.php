@@ -1,0 +1,104 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>dw Secret Notes — Read Message</title>
+  <link rel="stylesheet" href="../css/themes.css" />
+  <link rel="stylesheet" href="../css/base.css" />
+  <link rel="manifest" href="../manifest.webapp.json" />
+  <meta name="theme-color" content="#050D1F" />
+  <style>
+    /* Additional styling for the decrypt-from-link flow */
+    .decrypt-link-container {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      margin: 2rem auto;
+      max-width: 600px;
+    }
+    .decrypt-icon {
+      text-align: center;
+      font-size: 3rem;
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); opacity: 1; }
+      50% { transform: scale(1.1); opacity: 0.8; }
+    }
+    .secret-content {
+      min-height: 200px;
+    }
+    .countdown {
+      text-align: center;
+      font-weight: bold;
+      color: var(--success);
+      margin-top: 1rem;
+    }
+    .destroyed-notice {
+      text-align: center;
+      background: var(--danger);
+      color: white;
+      padding: 1.5rem;
+      border-radius: 8px;
+      margin: 1rem 0;
+    }
+  </style>
+</head>
+<body>
+  <div class="app-shell">
+    <header class="app-header">
+      <a href="../index.php" class="brand">
+        <span class="dot"></span>
+        <span data-i18n="app_name">dw Secret Notes</span>
+      </a>
+      <nav class="app-nav">
+        <a class="icon-btn" href="../index.php" data-i18n="cd_back">Back</a>
+        <button class="icon-btn" id="settingsToggle" data-i18n="nav_language" type="button">Language</button>
+      </nav>
+    </header>
+
+    <section class="card hidden" id="settingsCard">
+      <h2 data-i18n="language_title">Select Language</h2>
+      <p class="status-text" data-i18n="language_subtitle"></p>
+      <div class="picker-grid" id="languagePicker"></div>
+      <h2 style="margin-top: 24px" data-i18n="theme_selection_title">Choose Theme</h2>
+      <div class="picker-grid" id="themePicker"></div>
+    </section>
+
+    <div class="decrypt-link-container">
+      <div class="card">
+        <div class="decrypt-icon">🔐</div>
+        <h1 style="text-align: center" data-i18n="label_secret_message">SECRET MESSAGE</h1>
+        <div class="status-text" id="decryptStatus"></div>
+      </div>
+
+      <div class="card hidden" id="resultCard">
+        <div class="secret-text hidden" id="secretText"></div>
+        <img class="secret-image hidden" id="secretImage" alt="" style="max-width: 100%; border-radius: 8px; margin: 1rem 0" />
+        <div class="countdown hidden" id="countdownBanner"></div>
+        <div class="destroyed-notice hidden" id="destroyedBanner" data-i18n="note_destroyed"></div>
+      </div>
+
+      <div class="card">
+        <button class="btn btn-secondary" id="backBtn" data-i18n="btn_new_message" type="button">Back to Main</button>
+      </div>
+    </div>
+
+    <footer class="app-footer">
+      <div><a href="https://domezos-ware.org" data-i18n="footer_website">https://domezos-ware.org</a></div>
+      <div data-i18n="footer_copyright">© 2026 DoMeZos-Ware</div>
+    </footer>
+  </div>
+
+  <div class="toast" id="toast"></div>
+
+  <script type="module" src="../js/view.js"></script>
+
+  <script>
+    if ("serviceWorker" in navigator) {
+      navigator.serviceWorker.register("../sw.js");
+    }
+  </script>
+</body>
+</html>

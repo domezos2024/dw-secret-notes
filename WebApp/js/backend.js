@@ -39,7 +39,27 @@
  */
 
 const STORE_ENDPOINT = "https://domezos-ware.org/api/msg_store.php";
-const RESULT_LONG_HOST = "https://domezos-ware.org/msges/view.php";
+
+// Determine the result host: use a link relative to the current page while
+// testing locally, the live server otherwise.
+function getResultLongHost() {
+  const host = window.location.hostname;
+  const protocol = window.location.protocol;
+  const pathname = window.location.pathname;
+  const currentExt = pathname.endsWith(".php") || pathname.includes(".php/") ? "php" : "html";
+
+  // Use a page-relative link for localhost, 127.0.0.1, or file:// protocol so
+  // local testing never has to hit the real domezos-ware.org server.
+  if (host === "localhost" || host === "127.0.0.1" || protocol === "file:") {
+    const pageDir = pathname.substring(0, pathname.lastIndexOf("/"));
+    return `${protocol}//${host}${pageDir}/msges/view.${currentExt}`;
+  }
+
+  // Live server for production - always .php
+  return "https://domezos-ware.org/msges/view.php";
+}
+
+const RESULT_LONG_HOST = getResultLongHost();
 const SHORT_LINK_HOST = "https://snote.fun";
 export const DEFAULT_PASSPHRASE = "dw_secret_notes_passphrase_2026";
 
