@@ -3,8 +3,7 @@
   "nav_help": "Bantuan",
   "nav_info": "Info",
   "nav_language": "Bahasa",
-
-  "hint_enter_text": "Masukkan teks Anda",
+  "hint_enter_text": "Tulis rahasia Anda di sini... (Teks Anda dienkripsi secara lokal di perangkat Anda dan tidak pernah dikirim dalam teks biasa).",
   "hint_enter_text_optional": "Masukkan teks Anda (opsional)",
   "btn_encrypt": "Enkripsi",
   "btn_attach_image": "Lampirkan gambar (opsional)",
@@ -17,8 +16,7 @@
   "error_share_unavailable": "Tidak ada aplikasi yang tersedia untuk membagikan tautan ini.",
   "success_encrypted": "Pesan berhasil dienkripsi!",
   "label_your_alias": "ALIAS ANDA",
-
-  "decrypt_hint_body": "Tempel tautan atau alias yang diterima untuk membaca pesan terenkripsi.",
+  "decrypt_hint_body": "Apakah Anda menerima tautan aman (mis., snote.fun)? Rekatkan di sini untuk membaca pesan. Peringatan: Pesan akan hancur dengan sendirinya setelah dibuka!",
   "hint_decrypt_link": "Tautan atau alias",
   "btn_decrypt": "Dekripsi",
   "label_decrypting": "Mendekripsi…",
@@ -32,10 +30,8 @@
   "error_decrypt_failed": "Dekripsi gagal. Kunci salah?",
   "error_invalid_link": "Tautan tidak valid. Silakan periksa dan coba lagi.",
   "error_network": "Tidak dapat menghubungi server. Periksa koneksi Anda dan coba lagi.",
-
   "symbol_success": "OK",
   "symbol_warning": "!",
-
   "help_title": "Bantuan & FAQ",
   "help_how_title": "Cara kerjanya",
   "help_how_body": "Ketik pesan rahasia Anda, ketuk Enkripsi, dan bagikan tautan yang dihasilkan. Penerima membuka tautan dan pesan didekripsi menggunakan AES 256-bit — sekali saja. Setelah dibaca, pesan dihapus secara permanen dari server.",
@@ -49,16 +45,13 @@
   "help_faq_a3": "Pengguna Premium mendapatkan tautan yang sangat pendek dan mudah diingat (hanya 5 digit dinamis setelah snote.fun/), dimungkinkan oleh database yang aman dan terenkripsi.",
   "help_faq_q4": "Bisakah Premium dipulihkan setelah instalasi ulang atau reset?",
   "help_faq_a4": "Tidak. Premium terikat pada token perangkat anonim tunggal yang dibuat baru setiap kali instalasi. Kami sengaja tidak menyimpan data pribadi dan tidak dapat melacak perangkat.",
-
   "info_title": "Tentang",
   "info_crypto_note": "Pesan dienkripsi dengan AES 256-bit (standar bank). Tautan yang menghancurkan diri sendiri menjamin rahasia Anda hilang selamanya setelah dibaca sekali.",
   "info_web_note": "Fitur Premium dan Tip hanya tersedia di aplikasi Android dan tidak ditawarkan di versi web ini.",
   "footer_website": "https://domezos-ware.org",
   "footer_copyright": "© 2026 DoMeZos-Ware",
-
   "language_title": "Pilih Bahasa",
   "language_subtitle": "Pilih bahasa pilihan Anda",
-
   "theme_selection_title": "Pilih Tema",
   "theme_classic": "Biru Klasik",
   "theme_dark": "Mode Gelap",
@@ -77,6 +70,15 @@
   "theme_electric": "Ungu Elektrik",
   "theme_ghost": "Abu-abu Hantu",
   "theme_solarized": "Solarized Gelap",
-
-  "cd_back": "Kembali"
+  "cd_back": "Kembali",
+  "hero_title": "Pesan aman yang terhapus dengan sendirinya.",
+  "hero_subtitle": "Dienkripsi langsung di browser Anda.",
+  "trust_e2e_title": "Dienkripsi End-to-End",
+  "trust_e2e_desc": "Server tidak dapat membaca pesan Anda; kata sandi hanya ada di dalam tautan.",
+  "trust_burn_title": "Penghancuran diri",
+  "trust_burn_desc": "Pesan dihapus secara permanen setelah pembacaan pertama.",
+  "trust_anon_title": "100% Anonim",
+  "trust_anon_desc": "Tidak perlu mendaftar, tidak ada jejak.",
+  "btn_generate_link": "Buat tautan rahasia",
+  "btn_read_message": "Baca pesan"
 }

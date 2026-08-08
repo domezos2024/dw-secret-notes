@@ -37,6 +37,11 @@
     </div>
 
     <section class="panel active" id="encryptPanel">
+      <div class="hero-section">
+        <h1 data-i18n="hero_title">Secure, self-destructing messages.</h1>
+        <p class="subtitle" data-i18n="hero_subtitle">Encrypted directly in your browser.</p>
+      </div>
+
       <div class="card">
         <div class="field">
           <textarea id="encryptText" data-i18n-placeholder="hint_enter_text"></textarea>
@@ -49,8 +54,32 @@
           <img id="imagePreviewImg" alt="" />
           <button type="button" id="removeImageBtn" data-i18n="btn_remove_image">Remove image</button>
         </div>
-        <button class="btn btn-primary" id="encryptBtn" data-i18n="btn_encrypt" type="button">Encrypt</button>
+        <button class="btn btn-primary" id="encryptBtn" data-i18n="btn_generate_link" type="button">Generate secret link</button>
         <div class="status-text" id="encryptStatus"></div>
+      </div>
+
+      <div class="trust-indicators">
+        <div class="trust-item">
+          <span class="trust-icon">🔒</span>
+          <div>
+            <div class="trust-title" data-i18n="trust_e2e_title">End-to-End encrypted</div>
+            <div class="trust-desc" data-i18n="trust_e2e_desc">The server cannot read your message; the password is only in the link.</div>
+          </div>
+        </div>
+        <div class="trust-item">
+          <span class="trust-icon">🔥</span>
+          <div>
+            <div class="trust-title" data-i18n="trust_burn_title">Self-destructing</div>
+            <div class="trust-desc" data-i18n="trust_burn_desc">The message is permanently deleted after the first read.</div>
+          </div>
+        </div>
+        <div class="trust-item">
+          <span class="trust-icon">🙈</span>
+          <div>
+            <div class="trust-title" data-i18n="trust_anon_title">100% Anonymous</div>
+            <div class="trust-desc" data-i18n="trust_anon_desc">No registration required, no traces.</div>
+          </div>
+        </div>
       </div>
 
       <div class="card hidden" id="encryptResultCard">
@@ -72,7 +101,7 @@
         <div class="field">
           <input type="text" id="decryptInput" data-i18n-placeholder="hint_decrypt_link" />
         </div>
-        <button class="btn btn-primary" id="decryptBtn" data-i18n="btn_decrypt" type="button">Decrypt</button>
+        <button class="btn btn-primary" id="decryptBtn" data-i18n="btn_read_message" type="button">Read message</button>
         <div class="status-text" id="decryptStatus"></div>
       </div>
 

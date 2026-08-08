@@ -3,8 +3,7 @@
   "nav_help": "Aide",
   "nav_info": "Infos",
   "nav_language": "Langue",
-
-  "hint_enter_text": "Entrez votre texte",
+  "hint_enter_text": "Écrivez votre secret ici... (Votre texte est chiffré localement sur votre appareil et n'est jamais envoyé en clair).",
   "hint_enter_text_optional": "Entrez votre texte (facultatif)",
   "btn_encrypt": "Chiffrer",
   "btn_attach_image": "Joindre une image (facultatif)",
@@ -17,8 +16,7 @@
   "error_share_unavailable": "Aucune application disponible pour partager ce lien.",
   "success_encrypted": "Message chiffré avec succès !",
   "label_your_alias": "VOTRE ALIAS",
-
-  "decrypt_hint_body": "Collez le lien ou l'alias reçu pour lire le message chiffré.",
+  "decrypt_hint_body": "Avez-vous reçu un lien sécurisé (ex: snote.fun) ? Collez-le ici pour lire le message. Attention : le message s'autodétruira après ouverture !",
   "hint_decrypt_link": "Lien ou alias",
   "btn_decrypt": "Déchiffrer",
   "label_decrypting": "Déchiffrement…",
@@ -32,10 +30,8 @@
   "error_decrypt_failed": "Échec du déchiffrement. Mauvaise clé ?",
   "error_invalid_link": "Lien invalide. Veuillez vérifier et réessayer.",
   "error_network": "Impossible de joindre le serveur. Vérifiez votre connexion et réessayez.",
-
   "symbol_success": "OK",
   "symbol_warning": "!",
-
   "help_title": "Aide & FAQ",
   "help_how_title": "Comment ça marche",
   "help_how_body": "Saisissez votre message secret, appuyez sur Chiffrer et partagez le lien généré. Le destinataire ouvre le lien et le message est déchiffré via AES 256 bits — une seule fois. Après lecture, il est supprimé définitivement et irrévocablement du serveur.",
@@ -49,16 +45,13 @@
   "help_faq_a3": "Les utilisateurs Premium bénéficient de liens extrêmement courts et faciles à retenir (seulement 5 chiffres dynamiques après snote.fun/), rendus possibles par une base de données sécurisée et chiffrée en arrière-plan.",
   "help_faq_q4": "Le Premium peut-il être restauré après une réinstallation ou une réinitialisation ?",
   "help_faq_a4": "Non. Le Premium est lié à un jeton d'appareil anonyme unique généré à chaque installation. Nous ne stockons intentionnellement aucune donnée personnelle et ne pouvons pas suivre les appareils.",
-
   "info_title": "À propos",
   "info_crypto_note": "Les messages sont chiffrés avec AES 256 bits (standard bancaire). Les liens auto-destructibles garantissent que vos secrets disparaissent à jamais après une seule lecture.",
   "info_web_note": "Les fonctionnalités Premium et Pourboire sont disponibles uniquement dans l'application Android et ne sont pas proposées dans cette version web.",
   "footer_website": "https://domezos-ware.org",
   "footer_copyright": "© 2026 DoMeZos-Ware",
-
   "language_title": "Choisir la langue",
   "language_subtitle": "Choisissez votre langue préférée",
-
   "theme_selection_title": "Choisir le thème",
   "theme_classic": "Bleu Classique",
   "theme_dark": "Mode Sombre",
@@ -77,6 +70,15 @@
   "theme_electric": "Violet Électrique",
   "theme_ghost": "Gris Fantôme",
   "theme_solarized": "Solarized Sombre",
-
-  "cd_back": "Retour"
+  "cd_back": "Retour",
+  "hero_title": "Messages sécurisés et autodestructibles.",
+  "hero_subtitle": "Chiffrés directement dans votre navigateur.",
+  "trust_e2e_title": "Chiffrement de bout en bout",
+  "trust_e2e_desc": "Le serveur ne peut pas lire votre message ; le mot de passe est uniquement dans le lien.",
+  "trust_burn_title": "Autodestructible",
+  "trust_burn_desc": "Le message est définitivement supprimé après la première lecture.",
+  "trust_anon_title": "100% Anonyme",
+  "trust_anon_desc": "Aucune inscription requise, aucune trace.",
+  "btn_generate_link": "Générer le lien secret",
+  "btn_read_message": "Lire le message"
 }

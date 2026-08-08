@@ -3,8 +3,7 @@
   "nav_help": "帮助",
   "nav_info": "关于",
   "nav_language": "语言",
-
-  "hint_enter_text": "请输入文本",
+  "hint_enter_text": "在此处写下您的秘密...（您的文本在设备上本地加密，绝不会以明文形式发送）。",
   "hint_enter_text_optional": "请输入文本（可选）",
   "btn_encrypt": "加密",
   "btn_attach_image": "添加图片（可选）",
@@ -17,8 +16,7 @@
   "error_share_unavailable": "没有可用于分享此链接的应用。",
   "success_encrypted": "消息加密成功！",
   "label_your_alias": "您的别名",
-
-  "decrypt_hint_body": "粘贴收到的链接或别名以阅读加密消息。",
+  "decrypt_hint_body": "您收到了安全链接（例如 snote.fun）吗？将其粘贴到此处以阅读消息。警告：消息打开后将自毁！",
   "hint_decrypt_link": "链接或别名",
   "btn_decrypt": "解密",
   "label_decrypting": "解密中...",
@@ -32,10 +30,8 @@
   "error_decrypt_failed": "解密失败。密钥错误？",
   "error_invalid_link": "链接无效，请检查后重试。",
   "error_network": "无法连接到服务器。请检查网络连接后重试。",
-
   "symbol_success": "确定",
   "symbol_warning": "!",
-
   "help_title": "帮助与常见问题",
   "help_how_title": "工作原理",
   "help_how_body": "输入您的秘密消息，点击“加密”，然后分享生成的链接。接收者打开链接，消息将使用 AES 256 位加密解密 — 仅限一次。阅读后，消息将从服务器永久且不可恢复地删除。",
@@ -49,16 +45,13 @@
   "help_faq_a3": "高级版用户可获得极短且易记的链接（snote.fun/ 后仅 5 位动态数字），这得益于后台安全加密的数据库。",
   "help_faq_q4": "重新安装或重置后可以恢复高级版吗？",
   "help_faq_a4": "不可以。高级版与单个匿名设备令牌绑定，该令牌会在每次安装时重新生成。我们不会存储任何个人数据，也无法追踪设备。",
-
   "info_title": "关于应用",
   "info_crypto_note": "消息使用 AES 256 位（银行标准）加密。自毁链接可确保您的秘密在阅读一次后永远消失。",
   "info_web_note": "高级版和打赏功能仅在安卓应用中提供，本网页版不包含这些功能。",
   "footer_website": "https://domezos-ware.org",
   "footer_copyright": "© 2026 DoMeZos-Ware",
-
   "language_title": "选择语言",
   "language_subtitle": "选择您的首选语言",
-
   "theme_selection_title": "选择主题",
   "theme_classic": "经典蓝",
   "theme_dark": "深色模式",
@@ -77,6 +70,15 @@
   "theme_electric": "电光紫",
   "theme_ghost": "幽灵灰",
   "theme_solarized": "曝光暗色",
-
-  "cd_back": "返回"
+  "cd_back": "返回",
+  "hero_title": "安全的阅后即焚消息。",
+  "hero_subtitle": "直接在您的浏览器中加密。",
+  "trust_e2e_title": "端到端加密",
+  "trust_e2e_desc": "服务器无法读取您的消息；密码仅包含在链接中。",
+  "trust_burn_title": "阅后即焚",
+  "trust_burn_desc": "消息在首次阅读后将被永久删除。",
+  "trust_anon_title": "100% 匿名",
+  "trust_anon_desc": "无需注册，不留痕迹。",
+  "btn_generate_link": "生成秘密链接",
+  "btn_read_message": "阅读消息"
 }

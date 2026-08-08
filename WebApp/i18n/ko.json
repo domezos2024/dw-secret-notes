@@ -3,8 +3,7 @@
   "nav_help": "도움말",
   "nav_info": "정보",
   "nav_language": "언어",
-
-  "hint_enter_text": "텍스트를 입력하세요",
+  "hint_enter_text": "여기에 비밀을 작성하세요... (텍스트는 기기에서 로컬로 암호화되며 일반 텍스트로 전송되지 않습니다).",
   "hint_enter_text_optional": "텍스트를 입력하세요 (선택 사항)",
   "btn_encrypt": "암호화하기",
   "btn_attach_image": "이미지 첨부 (선택 사항)",
@@ -17,8 +16,7 @@
   "error_share_unavailable": "이 링크를 공유할 수 있는 앱이 없습니다.",
   "success_encrypted": "메시지가 성공적으로 암호화되었습니다!",
   "label_your_alias": "귀하의 별칭",
-
-  "decrypt_hint_body": "수신된 링크나 별칭을 붙여넣어 암호화된 메시지를 읽으세요.",
+  "decrypt_hint_body": "안전한 링크(예: snote.fun)를 받으셨나요? 여기에 붙여넣어 메시지를 읽어보세요. 주의: 메시지는 열어본 후 자동으로 파기됩니다!",
   "hint_decrypt_link": "링크 또는 별칭",
   "btn_decrypt": "복호화하기",
   "label_decrypting": "복호화 중…",
@@ -32,10 +30,8 @@
   "error_decrypt_failed": "복호화 실패. 잘못된 키입니까?",
   "error_invalid_link": "유효하지 않은 링크입니다. 확인 후 다시 시도해 주세요.",
   "error_network": "서버에 연결할 수 없습니다. 연결을 확인하고 다시 시도해 주세요.",
-
   "symbol_success": "확인",
   "symbol_warning": "!",
-
   "help_title": "도움말 및 FAQ",
   "help_how_title": "작동 방식",
   "help_how_body": "비밀 메시지를 입력하고 암호화를 누른 다음 생성된 링크를 공유하세요. 수신자가 링크를 열면 메시지가 AES 256비트로 복호화됩니다 — 한 번만. 읽은 후에는 서버에서 영구적으로 삭제됩니다.",
@@ -49,16 +45,13 @@
   "help_faq_a3": "프리미엄 사용자는 매우 짧고 기억하기 쉬운 링크(snote.fun/ 뒤에 5자리 숫자만)를 받을 수 있으며, 이는 안전하게 암호화된 데이터베이스를 통해 가능합니다.",
   "help_faq_q4": "재설치 또는 초기화 후 Premium을 복구할 수 있나요?",
   "help_faq_a4": "아니요. Premium은 설치할 때마다 새로 생성되는 단일 익명 기기 토큰에 연결됩니다. 저희는 의도적으로 개인 데이터를 저장하지 않으며 기기를 추적할 수 없습니다.",
-
   "info_title": "앱 정보",
   "info_crypto_note": "메시지는 AES 256비트(은행 표준)로 암호화됩니다. 자동 삭제 링크는 한 번 읽으면 비밀이 영원히 사라지도록 보장합니다.",
   "info_web_note": "프리미엄 및 팁 기능은 Android 앱에서만 제공되며 이 웹 버전에서는 제공되지 않습니다.",
   "footer_website": "https://domezos-ware.org",
   "footer_copyright": "© 2026 DoMeZos-Ware",
-
   "language_title": "언어 선택",
   "language_subtitle": "선호하는 언어를 선택하세요",
-
   "theme_selection_title": "테마 선택",
   "theme_classic": "클래식 블루",
   "theme_dark": "다크 모드",
@@ -77,6 +70,15 @@
   "theme_electric": "일렉트릭 바이올렛",
   "theme_ghost": "고스트 그레이",
   "theme_solarized": "솔라라이즈드 다크",
-
-  "cd_back": "뒤로"
+  "cd_back": "뒤로",
+  "hero_title": "안전한 자동 파기 메시지.",
+  "hero_subtitle": "브라우저에서 직접 암호화됩니다.",
+  "trust_e2e_title": "종단간 암호화",
+  "trust_e2e_desc": "서버는 메시지를 읽을 수 없으며 암호는 링크에만 있습니다.",
+  "trust_burn_title": "자동 파기",
+  "trust_burn_desc": "메시지는 처음 읽은 후 영구적으로 삭제됩니다.",
+  "trust_anon_title": "100% 익명성",
+  "trust_anon_desc": "가입이 필요 없고 흔적도 남지 않습니다.",
+  "btn_generate_link": "비밀 링크 생성",
+  "btn_read_message": "메시지 읽기"
 }

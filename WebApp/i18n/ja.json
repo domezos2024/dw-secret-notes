@@ -3,8 +3,7 @@
   "nav_help": "ヘルプ",
   "nav_info": "情報",
   "nav_language": "言語",
-
-  "hint_enter_text": "テキストを入力してください",
+  "hint_enter_text": "ここに秘密を入力してください...（テキストはデバイス上で暗号化され、平文で送信されることはありません）。",
   "hint_enter_text_optional": "テキストを入力してください（任意）",
   "btn_encrypt": "暗号化する",
   "btn_attach_image": "画像を添付（任意）",
@@ -17,8 +16,7 @@
   "error_share_unavailable": "共有できるアプリが見つかりません。",
   "success_encrypted": "暗号化に成功しました！",
   "label_your_alias": "あなたのエイリアス",
-
-  "decrypt_hint_body": "受け取ったリンクまたはエイリアスを貼り付けて、メッセージを読みます。",
+  "decrypt_hint_body": "安全なリンク（snote.funなど）を受け取りましたか？ここに貼り付けてメッセージを読んでください。注意：開封後、メッセージは自己消滅します！",
   "hint_decrypt_link": "リンクまたはエイリアス",
   "btn_decrypt": "復号化する",
   "label_decrypting": "復号中…",
@@ -32,10 +30,8 @@
   "error_decrypt_failed": "復号に失敗しました。キーが間違っていませんか？",
   "error_invalid_link": "無効なリンクです。確認してもう一度お試しください。",
   "error_network": "サーバーに接続できませんでした。接続を確認してもう一度お試しください。",
-
   "symbol_success": "OK",
   "symbol_warning": "!",
-
   "help_title": "ヘルプとFAQ",
   "help_how_title": "使い方",
   "help_how_body": "秘密のメッセージを入力し、「暗号化」をタップしてリンクを共有します。相手がリンクを開くとメッセージが復号されます。閲覧後、サーバーから完全に削除されます。",
@@ -49,16 +45,13 @@
   "help_faq_a3": "プレミアムユーザーは、非常に短く覚えやすいリンク（snote.fun/の後にわずか5桁）を利用できます。これは安全な暗号化データベースによって実現されています。",
   "help_faq_q4": "再インストールまたはリセット後にPremiumを復元できますか？",
   "help_faq_a4": "いいえ。Premiumはインストールごとに新しく生成される単一の匿名デバイストークンに結びついています。個人データを意図的に保存せず、デバイスを追跡することもできません。",
-
   "info_title": "アプリについて",
   "info_crypto_note": "メッセージはAES 256ビット（銀行標準）で暗号化されます。自己破壊リンクにより、秘密は一度読むと永遠に消えることが保証されます。",
   "info_web_note": "プレミアムおよびチップ機能はAndroidアプリでのみ利用可能で、このWeb版では提供されません。",
   "footer_website": "https://domezos-ware.org",
   "footer_copyright": "© 2026 DoMeZos-Ware",
-
   "language_title": "言語を選択",
   "language_subtitle": "言語を選択してください",
-
   "theme_selection_title": "テーマを選択",
   "theme_classic": "クラシックブルー",
   "theme_dark": "ダークモード",
@@ -77,6 +70,15 @@
   "theme_electric": "エレクトリックバイオレット",
   "theme_ghost": "ゴーストグレー",
   "theme_solarized": "ソラライズドダーク",
-
-  "cd_back": "戻る"
+  "cd_back": "戻る",
+  "hero_title": "安全な自己消滅型メッセージ。",
+  "hero_subtitle": "ブラウザ内で直接暗号化されます。",
+  "trust_e2e_title": "エンドツーエンド暗号化",
+  "trust_e2e_desc": "サーバーはメッセージを解読できません。パスワードはリンク内にのみ存在します。",
+  "trust_burn_title": "自己消滅",
+  "trust_burn_desc": "メッセージは最初の開封後に完全に削除されます。",
+  "trust_anon_title": "100%匿名",
+  "trust_anon_desc": "登録不要、痕跡も残りません。",
+  "btn_generate_link": "秘密のリンクを作成",
+  "btn_read_message": "メッセージを読む"
 }

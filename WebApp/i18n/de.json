@@ -3,8 +3,7 @@
   "nav_help": "Hilfe",
   "nav_info": "Info",
   "nav_language": "Sprache",
-
-  "hint_enter_text": "Geben Sie Ihren Text ein",
+  "hint_enter_text": "Schreibe dein Geheimnis hier... (Dein Text wird lokal auf deinem Gerät verschlüsselt und nicht im Klartext übertragen).",
   "hint_enter_text_optional": "Text eingeben (optional)",
   "btn_encrypt": "Verschlüsseln",
   "btn_attach_image": "Bild anhängen (optional)",
@@ -17,8 +16,7 @@
   "error_share_unavailable": "Keine App zum Teilen dieses Links verfügbar.",
   "success_encrypted": "Nachricht erfolgreich verschlüsselt!",
   "label_your_alias": "DEIN ALIAS",
-
-  "decrypt_hint_body": "Fügen Sie den empfangenen Link oder Alias ein, um die verschlüsselte Nachricht zu lesen.",
+  "decrypt_hint_body": "Hast du einen sicheren Link (z. B. snote.fun) erhalten? Füge ihn hier ein, um die Nachricht zu lesen. Achtung: Nach dem Öffnen zerstört sich die Nachricht selbst!",
   "hint_decrypt_link": "Link oder Alias",
   "btn_decrypt": "Entschlüsseln",
   "label_decrypting": "Entschlüsseln…",
@@ -32,10 +30,8 @@
   "error_decrypt_failed": "Entschlüsselung fehlgeschlagen. Falscher Schlüssel?",
   "error_invalid_link": "Ungültiger Link. Bitte überprüfen und erneut versuchen.",
   "error_network": "Der Server konnte nicht erreicht werden. Bitte Verbindung prüfen und erneut versuchen.",
-
   "symbol_success": "OK",
   "symbol_warning": "!",
-
   "help_title": "Hilfe & FAQ",
   "help_how_title": "So funktioniert es",
   "help_how_body": "Tippen Sie Ihre Geheimbotschaft ein, tippen Sie auf Verschlüsseln und teilen Sie den generierten Link. Der Empfänger öffnet den Link und die Nachricht wird mittels AES 256 Bit entschlüsselt – einmalig. Danach ist sie für immer und unwiderruflich gelöscht.",
@@ -49,16 +45,13 @@
   "help_faq_a3": "Premium-Nutzer erhalten extrem kurze, merkbare Links (nur 5 dynamische Ziffern nach snote.fun/), die durch eine sichere, verschlüsselte Datenbank im Hintergrund ermöglicht werden.",
   "help_faq_q4": "Kann Premium nach einer Neuinstallation oder einem Reset wiederhergestellt werden?",
   "help_faq_a4": "Nein. Premium ist an ein einziges anonymes Geräte-Token gebunden, das bei jeder Installation neu generiert wird. Wir speichern bewusst keine personenbezogenen Daten und können Geräte nicht nachverfolgen.",
-
   "info_title": "Über die App",
   "info_crypto_note": "Nachrichten werden mit AES 256 Bit (Bankenstandard) verschlüsselt. Selbstzerstörende Links garantieren, dass Ihre Geheimnisse nach einmaligem Lesen für immer verschwinden.",
   "info_web_note": "Premium- und Trinkgeld-Funktionen sind nur in der Android-App verfügbar und werden in dieser Web-Version nicht angeboten.",
   "footer_website": "https://domezos-ware.org",
   "footer_copyright": "© 2026 DoMeZos-Ware",
-
   "language_title": "Sprache auswählen",
   "language_subtitle": "Wählen Sie Ihre bevorzugte Sprache",
-
   "theme_selection_title": "Theme wählen",
   "theme_classic": "Klassisch Blau",
   "theme_dark": "Dunkler Modus",
@@ -77,6 +70,15 @@
   "theme_electric": "Elektrisches Violett",
   "theme_ghost": "Geistergrau",
   "theme_solarized": "Solarized Dunkel",
-
-  "cd_back": "Zurück"
+  "cd_back": "Zurück",
+  "hero_title": "Sichere, selbstzerstörende Nachrichten.",
+  "hero_subtitle": "Direkt in deinem Browser verschlüsselt.",
+  "trust_e2e_title": "Ende-zu-Ende verschlüsselt",
+  "trust_e2e_desc": "Der Server kann deine Nachricht nicht lesen, da das Passwort nur im Link steckt.",
+  "trust_burn_title": "Selbstzerstörend",
+  "trust_burn_desc": "Nach dem ersten Lesen wird die Nachricht dauerhaft und unwiderruflich gelöscht.",
+  "trust_anon_title": "100% Anonym",
+  "trust_anon_desc": "Keine Anmeldung nötig, keine Spuren.",
+  "btn_generate_link": "Geheimen Link generieren",
+  "btn_read_message": "Nachricht lesen"
 }

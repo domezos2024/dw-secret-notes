@@ -3,8 +3,7 @@
   "nav_help": "Aiuto",
   "nav_info": "Info",
   "nav_language": "Lingua",
-
-  "hint_enter_text": "Inserisci il tuo testo",
+  "hint_enter_text": "Scrivi qui il tuo segreto... (Il testo viene crittografato localmente sul dispositivo e non viene mai inviato in chiaro).",
   "hint_enter_text_optional": "Inserisci il tuo testo (opzionale)",
   "btn_encrypt": "Cripta",
   "btn_attach_image": "Allega immagine (opzionale)",
@@ -17,8 +16,7 @@
   "error_share_unavailable": "Nessuna app disponibile per condividere questo link.",
   "success_encrypted": "Messaggio criptato con successo!",
   "label_your_alias": "IL TUO ALIAS",
-
-  "decrypt_hint_body": "Incolla il link o l'alias ricevuto per leggere il messaggio criptato.",
+  "decrypt_hint_body": "Hai ricevuto un link sicuro (es. snote.fun)? Incollalo qui per leggere il messaggio. Attenzione: Il messaggio si autodistruggerà dopo l'apertura!",
   "hint_decrypt_link": "Link o alias",
   "btn_decrypt": "Decripta",
   "label_decrypting": "Decrittazione…",
@@ -32,10 +30,8 @@
   "error_decrypt_failed": "Decriptazione fallita. Chiave errata?",
   "error_invalid_link": "Link non valido. Controlla e riprova.",
   "error_network": "Impossibile raggiungere il server. Controlla la connessione e riprova.",
-
   "symbol_success": "OK",
   "symbol_warning": "!",
-
   "help_title": "Aiuto & FAQ",
   "help_how_title": "Come funziona",
   "help_how_body": "Scrivi il tuo messaggio segreto, tocca Cripta e condividi il link generato. Il destinatario apre il link e il messaggio viene decriptato tramite AES 256 bit, solo una volta. Dopo la lettura, viene rimosso in modo permanente e irrevocabile dal server.",
@@ -49,16 +45,13 @@
   "help_faq_a3": "Gli utenti Premium ottengono link estremamente brevi e facili da ricordare (solo 5 cifre dinamiche dopo snote.fun/), resi possibili da un database sicuro e criptato in background.",
   "help_faq_q4": "Il Premium può essere ripristinato dopo una reinstallazione o un reset?",
   "help_faq_a4": "No. Il Premium è legato a un singolo token dispositivo anonimo che viene generato ad ogni installazione. Non conserviamo intenzionalmente dati personali e non possiamo tracciare i dispositivi.",
-
   "info_title": "Informazioni",
   "info_crypto_note": "I messaggi sono criptati con AES 256 bit (standard bancario). I link autodistruttivi garantiscono che i tuoi segreti scompaiano per sempre dopo una sola lettura.",
   "info_web_note": "Le funzioni Premium e Mancia sono disponibili solo nell'app Android e non sono offerte in questa versione web.",
   "footer_website": "https://domezos-ware.org",
   "footer_copyright": "© 2026 DoMeZos-Ware",
-
   "language_title": "Seleziona lingua",
   "language_subtitle": "Scegli la tua lingua preferita",
-
   "theme_selection_title": "Scegli Tema",
   "theme_classic": "Blu Classico",
   "theme_dark": "Modalità Scura",
@@ -77,6 +70,15 @@
   "theme_electric": "Viola Elettrico",
   "theme_ghost": "Grigio Fantasma",
   "theme_solarized": "Solarized Dark",
-
-  "cd_back": "Indietro"
+  "cd_back": "Indietro",
+  "hero_title": "Messaggi sicuri che si autodistruggono.",
+  "hero_subtitle": "Crittografati direttamente nel tuo browser.",
+  "trust_e2e_title": "Crittografia End-to-End",
+  "trust_e2e_desc": "Il server non può leggere il tuo messaggio; la password è contenuta solo nel link.",
+  "trust_burn_title": "Autodistruttivo",
+  "trust_burn_desc": "Il messaggio viene eliminato in modo permanente dopo la prima lettura.",
+  "trust_anon_title": "100% Anonimo",
+  "trust_anon_desc": "Nessuna registrazione, nessuna traccia.",
+  "btn_generate_link": "Genera link segreto",
+  "btn_read_message": "Leggi il messaggio"
 }

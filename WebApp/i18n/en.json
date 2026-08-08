@@ -3,8 +3,7 @@
   "nav_help": "Help",
   "nav_info": "Info",
   "nav_language": "Language",
-
-  "hint_enter_text": "Enter your text",
+  "hint_enter_text": "Write your secret here... (Your text is encrypted locally on your device and never sent in plain text).",
   "hint_enter_text_optional": "Enter your text (optional)",
   "btn_encrypt": "Encrypt",
   "btn_attach_image": "Attach image (optional)",
@@ -17,8 +16,7 @@
   "error_share_unavailable": "No app available to share this link.",
   "success_encrypted": "Message encrypted successfully!",
   "label_your_alias": "YOUR ALIAS",
-
-  "decrypt_hint_body": "Paste the received link or alias to read the encrypted message.",
+  "decrypt_hint_body": "Did you receive a secure link (e.g., snote.fun)? Paste it here to read the message. Warning: The message will self-destruct after opening!",
   "hint_decrypt_link": "Link or alias",
   "btn_decrypt": "Decrypt",
   "label_decrypting": "Decrypting…",
@@ -32,10 +30,8 @@
   "error_decrypt_failed": "Decryption failed. Wrong key?",
   "error_invalid_link": "Invalid link. Please check and try again.",
   "error_network": "Could not reach the server. Please check your connection and try again.",
-
   "symbol_success": "OK",
   "symbol_warning": "!",
-
   "help_title": "Help & FAQ",
   "help_how_title": "How it works",
   "help_how_body": "Type your secret message, tap Encrypt, and share the generated link. The recipient opens the link and the message is decrypted using AES 256-bit — once only. After reading, it is permanently and irrevocably deleted from the server.",
@@ -49,16 +45,13 @@
   "help_faq_a3": "Premium users get extremely short, memorable links (only 5 dynamic digits after snote.fun/), made possible by a secure, encrypted database in the background.",
   "help_faq_q4": "Can Premium be restored after reinstallation or a reset?",
   "help_faq_a4": "No. Premium is tied to a single anonymous device token that is generated fresh on every installation. We intentionally store no personal data and cannot track devices.",
-
   "info_title": "About",
   "info_crypto_note": "Messages are encrypted with AES 256-bit (bank standard). Self-destructing links guarantee that your secrets disappear forever after reading once.",
   "info_web_note": "Premium and Tip features are only available in the Android app and are not offered in this web version.",
   "footer_website": "https://domezos-ware.org",
   "footer_copyright": "© 2026 DoMeZos-Ware",
-
   "language_title": "Select Language",
   "language_subtitle": "Choose your preferred language",
-
   "theme_selection_title": "Choose Theme",
   "theme_classic": "Classic Blue",
   "theme_dark": "Dark Mode",
@@ -77,6 +70,15 @@
   "theme_electric": "Electric Violet",
   "theme_ghost": "Ghost Gray",
   "theme_solarized": "Solarized Dark",
-
-  "cd_back": "Back"
+  "cd_back": "Back",
+  "hero_title": "Secure, self-destructing messages.",
+  "hero_subtitle": "Encrypted directly in your browser.",
+  "trust_e2e_title": "End-to-End encrypted",
+  "trust_e2e_desc": "The server cannot read your message; the password is only in the link.",
+  "trust_burn_title": "Self-destructing",
+  "trust_burn_desc": "The message is permanently deleted after the first read.",
+  "trust_anon_title": "100% Anonymous",
+  "trust_anon_desc": "No registration required, no traces.",
+  "btn_generate_link": "Generate secret link",
+  "btn_read_message": "Read message"
 }
