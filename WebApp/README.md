@@ -16,10 +16,35 @@ zu laden und auszuführen.
 ## Deployment
 
 1. Lade den kompletten Inhalt dieses Ordners (`index.html`, `help.html`, `info.html`, `css/`,
-   `js/`, `i18n/`) auf deinen Webserver hoch — egal ob Domain-Root oder Unterordner, alle Pfade
-   sind relativ.
+   `js/`, `i18n/`, `manifest.webapp.json`) auf deinen Webserver hoch — egal ob Domain-Root oder
+   Unterordner, alle Pfade sind relativ.
 2. Fertig. Es gibt keinen Build-Schritt, keine `package.json`, keine Server-seitige Logik, die auf
    deinem Server laufen müsste.
+
+Live deployt unter `https://domezos-ware.org/index.html` (die bestehende `index.php` auf der
+Domain-Wurzel bleibt bewusst unangetastet, siehe nächster Abschnitt).
+
+## "Als App installieren" (PWA) — parallel zu index.php
+
+`domezos-ware.org` bietet bereits über `index.php` + `/manifest.json` + `/sw.js` eine
+installierbare App ("Zum Startbildschirm hinzufügen"). Diese Web-Version bekommt ihre **eigene**,
+unabhängige Installierbarkeit, ohne die bestehende anzufassen:
+
+- `manifest.webapp.json` (neu, eigene Datei — überschreibt/verändert die bestehende
+  `/manifest.json` nicht) definiert `"id": "/index.html"` und `"start_url": "/index.html"`, sodass
+  Browser dies als eigenständige, von der `index.php`-App unterscheidbare App behandeln
+  (unterschiedliche `start_url`/`id` = unterschiedliche Installationsidentität, auch bei
+  überlappendem `scope: "/"`).
+- `index.html`, `help.html` und `info.html` verlinken alle auf `manifest.webapp.json` und
+  registrieren denselben, bereits vorhandenen `/sw.js` (ein einfacher Passthrough-Service-Worker
+  ohne app-spezifische Caching-Logik — unproblematisch, von beiden Apps geteilt zu werden).
+- Icons werden von den bestehenden `/assets/app_icon_192.png` / `_512.png` wiederverwendet (gleiches
+  Marken-Icon wie die `index.php`-App); `theme_color`/`background_color` sind auf die eigene
+  Farbgebung (`#050D1F`, Classic-Theme-Hintergrund) gesetzt, damit sich Splash-Screen/Taskleiste
+  optisch von der bestehenden App unterscheiden.
+- Wer will, kann `manifest.webapp.json` einfach löschen bzw. die `<link rel="manifest">`-Zeilen
+  entfernen, um die Installierbarkeit der Web-App-Version wieder auszuschalten — `index.php` und
+  ihre App-Installation sind davon zu keinem Zeitpunkt betroffen.
 
 ## Backend-Protokoll (live gegen den Produktivserver verifiziert)
 

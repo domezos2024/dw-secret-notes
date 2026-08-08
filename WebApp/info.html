@@ -6,6 +6,8 @@
   <title>dw Secret Notes — Info</title>
   <link rel="stylesheet" href="css/themes.css" />
   <link rel="stylesheet" href="css/base.css" />
+  <link rel="manifest" href="manifest.webapp.json" />
+  <meta name="theme-color" content="#050D1F" />
 </head>
 <body>
   <div class="app-shell">
@@ -37,5 +39,10 @@
   </div>
 
   <script type="module" src="js/info.js"></script>
+  <script>
+    if ("serviceWorker" in navigator) {
+      navigator.serviceWorker.register("/sw.js");
+    }
+  </script>
 </body>
 </html>

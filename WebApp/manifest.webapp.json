@@ -1,0 +1,23 @@
+{
+  "id": "/index.html",
+  "name": "dw Secret Notes",
+  "short_name": "dw Notes",
+  "description": "Send self-destructing encrypted notes from any browser.",
+  "start_url": "/index.html",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#050D1F",
+  "theme_color": "#050D1F",
+  "icons": [
+    {
+      "src": "/assets/app_icon_192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/assets/app_icon_512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
