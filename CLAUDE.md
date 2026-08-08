@@ -17,8 +17,17 @@ one-time link. There is no local database and no local encryption — the app is
    `Android` JavaScript interface (`AndroidInterface.sendAnswer` / `sendImage`) with the
    decrypted content. Notes decrypted in-app auto-clear from the UI after 60 seconds
    (`MainScreen`'s countdown), matching the backend's self-destruct behavior.
-3. All server calls are backend-driven business logic; **the actual crypto happens server-side**,
-   not in this repo.
+3. **Correction (verified 2026-08-08 against the live backend, see `WebApp/README.md`): the actual
+   crypto does NOT happen server-side.** `android_be_encrypt.php` and `view_api.php` return an HTML
+   page containing an embedded `<script type="module">` — it's that script, executing inside the
+   WebView's JS engine, that does the real work: it generates a random passphrase, derives an
+   AES-256-GCM key from it via PBKDF2 (`salt="salt"`, 100000 iterations, SHA-256), encrypts/decrypts
+   the note (and optional image) client-side with the Web Crypto API, and only then talks to the
+   server (`api/msg_store.php`, action `save`/`get`/`unlink`) to store/fetch/delete the ciphertext.
+   The server only ever sees ciphertext + IV, never plaintext or the derived key. None of this crypto
+   logic lives in this Kotlin repo — it's shipped to the client fresh on every encrypt/decrypt call
+   as part of that HTML/JS response — but it is *not* server-side crypto either; don't describe or
+   reimplement it as such. `WebApp/js/backend.js` reimplements this exact client-side protocol.
 
 The app also handles deep links (`https://domezos-ware.org/msges/view.php` and
 `https://snote.fun/...`) and a plain-text `ACTION_SEND` share target, so a note link shared from
@@ -100,5 +109,7 @@ than relying on `./gradlew test`.
   `dw_prefs`) — don't create additional `SharedPreferences` files.
 - German inline comments/strings appear in a few places (e.g. `AndroidManifest.xml` intent-filter
   comments) — this is a German-market app (domezos-ware.org), bilingual comments are normal here.
-- Don't add a backend/crypto abstraction layer in-app — by design, all crypto and storage is
-  server-side; the app's job is UI + thin HTTP/WebView bridge.
+- Don't add a backend/crypto abstraction layer in-app — by design, the app's own job is UI + thin
+  HTTP/WebView bridge; the actual crypto is client-side JS shipped down from the backend on each
+  call (see the correction in "What this app is" above) and storage is server-side, but neither
+  lives in this Kotlin codebase.
