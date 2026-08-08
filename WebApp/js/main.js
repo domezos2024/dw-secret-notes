@@ -1,7 +1,7 @@
 import { parseAliasFromInput } from "./aliasParser.js";
 import { resizeImageToBase64 } from "./imageUtils.js";
 import { toImageSrc } from "./imageUtils.js";
-import { encryptNote, decryptNote, DEFAULT_PASSPHRASE, BackendUnreachableError, buildDecryptUrl } from "./backend.js";
+import { encryptNote, decryptNote, BackendUnreachableError } from "./backend.js";
 import { THEMES, getSavedTheme, applyTheme, renderThemePicker } from "./theme.js";
 import { LANGUAGES, getSavedLanguage, setSavedLanguage, loadLocale, t, tPlural, applyTranslations } from "./i18n.js";
 
@@ -97,14 +97,11 @@ $("encryptBtn").addEventListener("click", async () => {
   const rawText = $("encryptText").value.trim();
   if (!rawText && !pendingImageBase64) return;
 
-  // Mirrors MainScreen.doEncrypt: send a single space when only an image is attached.
-  const finalText = !rawText && pendingImageBase64 ? " " : rawText;
-
   $("encryptBtn").disabled = true;
   setStatus($("encryptStatus"), "…");
 
   try {
-    const result = await encryptNote(finalText, pendingImageBase64);
+    const result = await encryptNote(rawText, pendingImageBase64);
     if (result.ok) {
       $("resultLink").textContent = result.link;
       $("aliasChip").textContent = formatGeneratedAlias(result.link);
@@ -115,7 +112,7 @@ $("encryptBtn").addEventListener("click", async () => {
       $("imageInput").value = "";
       $("imagePreview").classList.remove("active");
     } else {
-      setStatus($("encryptStatus"), result.message, "error");
+      setStatus($("encryptStatus"), t("error_network"), "error");
     }
   } catch (err) {
     if (err instanceof BackendUnreachableError) {
@@ -189,8 +186,7 @@ async function decryptParsed(parsed) {
   setStatus($("decryptStatus"), t("label_decrypting"));
 
   try {
-    const pass = parsed.pass || DEFAULT_PASSPHRASE;
-    const result = await decryptNote(parsed.alias, pass, parsed.isShortLink);
+    const result = await decryptNote(parsed.alias, parsed.pass, parsed.isShortLink);
     if (result.ok) {
       showDecryptedResult(result.text, result.image);
       setStatus($("decryptStatus"), "");
@@ -200,10 +196,7 @@ async function decryptParsed(parsed) {
     }
   } catch (err) {
     if (err instanceof BackendUnreachableError) {
-      const legacyUrl = buildDecryptUrl(parsed.alias, parsed.pass || DEFAULT_PASSPHRASE, parsed.isShortLink);
       setStatus($("decryptStatus"), t("error_network"), "error");
-      console.warn("Backend unreachable via fetch(), falling back to legacy page:", legacyUrl);
-      window.open(legacyUrl, "_blank", "noopener");
     } else {
       console.error(err);
       setStatus($("decryptStatus"), String(err), "error");
