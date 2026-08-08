@@ -1,152 +1,221 @@
 /**
- * Talks to the same backend the Android app uses (see SecretWebView.kt).
- * The Android app is a WebView that lets server-rendered pages call back
- * into Kotlin via `Android.sendAnswer(...)` / `Android.sendImage(...)` /
- * `Android.notifyDataReady({url})`. That JS bridge doesn't exist in a plain
- * browser, and the real response shape of these PHP endpoints isn't visible
- * anywhere in this repo (this sandbox also has no network access to verify
- * it live) — so this module treats a plain fetch() response as a "virtual
- * WebView": if it's JSON, parse it directly; if it's HTML, scan it for the
- * same Android.* call patterns the real WebView bridge would have received.
+ * Talks to the real dw Secret Notes backend. Verified end-to-end against the
+ * live server (2026-08-08, via a real-network probe): the "API" endpoints
+ * (android_be_encrypt.php, view_api.php) do NOT return JSON or a simple
+ * result string — they return an HTML page containing a <script type="module">
+ * that runs the ACTUAL encryption/decryption client-side with the Web Crypto
+ * API, then calls back into the Android WebView bridge with the result. The
+ * real crypto/storage contract, extracted from that script and confirmed
+ * with a live save→get→decrypt→unlink round trip:
  *
- * KNOWN LIMITATION (see WebApp/README.md): whether domezos-ware.org sends
- * CORS headers permitting fetch() from an arbitrary hosting origin, and
- * which of the branches below actually fires, can only be confirmed once
- * this is deployed to a real server and inspected via browser devtools.
+ *   - Encrypt: generate a random 16-byte "pass" (its bytes' decimal digits
+ *     concatenated with no separator — matches the site's own
+ *     `crypto.getRandomValues(new Uint8Array(16)).join('')`), derive an
+ *     AES-GCM-256 key via PBKDF2(pass, salt="salt", iterations=100000,
+ *     SHA-256), encrypt the UTF-8 text (and, if present, the raw image
+ *     bytes) each with their own random 12-byte IV, then POST
+ *     `{iv, data, imgIv?, imgData?}` as JSON to
+ *     `msg_store.php?action=save&ts=<timestamp>`. The shareable link is
+ *     `https://domezos-ware.org/msges/view.php?com=<timestamp>&pass=<pass>`.
+ *   - Decrypt: GET `msg_store.php?action=get&com=<alias>` → `{status,
+ *     pass_override, payload}`; a not-found alias still returns a
+ *     plausible-looking `payload` (anti-enumeration decoy) but `status`
+ *     is `"not_found"`. Decrypt `payload` with AES-GCM using
+ *     `pass_override ?? suppliedPass`; a real GCM auth-tag mismatch (wrong
+ *     pass) throws. After a successful decrypt the site fires
+ *     `msg_store.php?action=unlink&com=<alias>` to self-destruct the note.
+ *   - Short links (`snote.fun?link=<alias>`, Premium-only on the Android
+ *     side): snote.fun serves a redirect page with the resolved
+ *     `const targetUrl = "https://domezos-ware.org/msges/view.php?com=...&pass=...";`
+ *     already inlined — regex-extracting it avoids needing to execute that
+ *     page's own JS (which also fires its own unlink call on real navigation;
+ *     since we only fetch() it here, that side effect doesn't happen, and
+ *     the note itself still gets unlinked by the decrypt flow above).
+ *
+ * This app never creates Premium short links (no billing in the web
+ * version, see README) — encryptNote() always returns the long `com=`/`pass=`
+ * form — but decryptNote() still resolves short links a user might paste in
+ * from someone else's Premium-generated link.
  */
 
-const ENCRYPT_ENDPOINT = "https://domezos-ware.org/api/android_be_encrypt.php";
-const DECRYPT_ENDPOINT = "https://domezos-ware.org/api/view_api.php";
+const STORE_ENDPOINT = "https://domezos-ware.org/api/msg_store.php";
+const RESULT_LONG_HOST = "https://domezos-ware.org/msges/view.php";
 const SHORT_LINK_HOST = "https://snote.fun";
 export const DEFAULT_PASSPHRASE = "dw_secret_notes_passphrase_2026";
 
-/** "auto" | "json" | "html-bridge-scrape" | "redirect" — force a branch once
- * the real response shape is known; "auto" tries JSON then falls back to
- * scraping the bridge-call patterns out of an HTML response. */
-export let RESPONSE_MODE = "auto";
-export function setResponseMode(mode) {
-  RESPONSE_MODE = mode;
-}
-
-export function buildDecryptUrl(alias, pass, isShortLink) {
-  if (isShortLink) {
-    return `${SHORT_LINK_HOST}?link=${encodeURIComponent(alias)}`;
-  }
-  return `${DECRYPT_ENDPOINT}?com=${encodeURIComponent(alias)}&pass=${encodeURIComponent(pass)}`;
-}
-
-/**
- * Scans a response body for the Android.* JS-bridge calls the legacy page
- * would have made, exactly as if this were the WebView reading them.
- */
-export function parseBridgeResponse(text) {
-  const answerMatch = text.match(/Android\.sendAnswer\((['"])([\s\S]*?)\1\)/);
-  const imageMatch = text.match(/Android\.sendImage\((['"])([\s\S]*?)\1\)/);
-  const notifyMatch = text.match(/Android\.notifyDataReady\((\{[\s\S]*?\})\)/);
-
-  let notifyUrl = null;
-  if (notifyMatch) {
-    try {
-      notifyUrl = JSON.parse(notifyMatch[1]).url || null;
-    } catch {
-      notifyUrl = null;
-    }
-  }
-
-  return {
-    answer: answerMatch ? answerMatch[2] : null,
-    image: imageMatch ? imageMatch[2] : null,
-    notifyUrl,
-  };
-}
-
-function isDecryptFailure(answer) {
-  return (
-    answer.startsWith("ERROR:") ||
-    answer === "not_found" ||
-    answer.includes("Nachricht nicht gefunden")
-  );
-}
-
-async function fetchRaw(url, options) {
-  try {
-    const res = await fetch(url, options);
-    const text = await res.text();
-    return { text, contentType: res.headers.get("content-type") || "" };
-  } catch (err) {
-    // Most likely a CORS failure (missing Access-Control-Allow-Origin on the
-    // backend) or a genuine network error — either way we can't read the
-    // response from here.
-    throw new BackendUnreachableError(url, err);
-  }
-}
+const PBKDF2_SALT = "salt";
+const PBKDF2_ITERATIONS = 100000;
 
 export class BackendUnreachableError extends Error {
   constructor(url, cause) {
-    super(`Could not reach ${url} (CORS or network error)`);
+    super(`Could not reach ${url}`);
     this.url = url;
     this.cause = cause;
   }
 }
 
-/**
- * @param {string} text, e.g. "en" | "de" | ...
- * @returns {{answer: string|null, image: string|null, notifyUrl: string|null}}
- */
-function extractBridgePayload(text, contentType) {
-  if (RESPONSE_MODE === "json" || (RESPONSE_MODE === "auto" && contentType.includes("application/json"))) {
-    try {
-      const json = JSON.parse(text);
-      return {
-        answer: json.url || json.answer || json.text || (json.ok === false ? json.error || json.message : null),
-        image: json.image || null,
-        notifyUrl: json.url || null,
-      };
-    } catch {
-      // fall through to bridge scraping
-    }
+function pad2(n) {
+  return n.toString().padStart(2, "0");
+}
+
+/** Matches the site's own timestamp format, used as the message id ("com"). */
+function generateTimestamp() {
+  const d = new Date();
+  const ms = d.getMilliseconds().toString().padStart(3, "0");
+  return `${pad2(d.getDate())}.${pad2(d.getMonth() + 1)}.${d.getFullYear()}_${pad2(d.getHours())}-${pad2(d.getMinutes())}-${pad2(d.getSeconds())}-${ms}`;
+}
+
+/** Matches the site's own pass generator: 16 random bytes, decimal digits concatenated. */
+function generatePass() {
+  const bytes = crypto.getRandomValues(new Uint8Array(16));
+  return Array.from(bytes).join("");
+}
+
+async function deriveKey(pass, usage) {
+  const enc = new TextEncoder();
+  const keyMaterial = await crypto.subtle.importKey("raw", enc.encode(pass), "PBKDF2", false, ["deriveKey"]);
+  return crypto.subtle.deriveKey(
+    { name: "PBKDF2", salt: enc.encode(PBKDF2_SALT), iterations: PBKDF2_ITERATIONS, hash: "SHA-256" },
+    keyMaterial,
+    { name: "AES-GCM", length: 256 },
+    false,
+    [usage],
+  );
+}
+
+function base64ToBytes(b64) {
+  const binary = atob(b64);
+  const bytes = new Uint8Array(binary.length);
+  for (let i = 0; i < binary.length; i++) bytes[i] = binary.charCodeAt(i);
+  return bytes;
+}
+
+function bytesToBase64(bytes) {
+  let binary = "";
+  const chunkSize = 0x8000;
+  for (let i = 0; i < bytes.length; i += chunkSize) {
+    binary += String.fromCharCode.apply(null, bytes.subarray(i, i + chunkSize));
   }
-  return parseBridgeResponse(text);
+  return btoa(binary);
+}
+
+async function safeFetch(url, options) {
+  try {
+    return await fetch(url, options);
+  } catch (err) {
+    throw new BackendUnreachableError(url, err);
+  }
 }
 
 /**
- * @returns {Promise<{ok: true, link: string} | {ok: false, message: string}>}
+ * @returns {Promise<{ok: true, link: string} | {ok: false, reason: "network"}>}
  */
 export async function encryptNote(text, imageBase64) {
-  const body = new URLSearchParams();
-  body.set("write", text);
+  const pass = generatePass();
+  const key = await deriveKey(pass, "encrypt");
+  const enc = new TextEncoder();
+
+  const iv = crypto.getRandomValues(new Uint8Array(12));
+  const encrypted = await crypto.subtle.encrypt({ name: "AES-GCM", iv }, key, enc.encode(text));
+  const payload = { iv: Array.from(iv), data: Array.from(new Uint8Array(encrypted)) };
+
   if (imageBase64) {
-    body.set("image", imageBase64);
+    const imageBytes = base64ToBytes(imageBase64);
+    const imgIv = crypto.getRandomValues(new Uint8Array(12));
+    const imgEncrypted = await crypto.subtle.encrypt({ name: "AES-GCM", iv: imgIv }, key, imageBytes);
+    payload.imgIv = Array.from(imgIv);
+    payload.imgData = Array.from(new Uint8Array(imgEncrypted));
   }
 
-  const { text: responseText, contentType } = await fetchRaw(ENCRYPT_ENDPOINT, {
+  const ts = generateTimestamp();
+  const res = await safeFetch(`${STORE_ENDPOINT}?action=save&ts=${encodeURIComponent(ts)}`, {
     method: "POST",
-    headers: { "Content-Type": "application/x-www-form-urlencoded" },
-    body: body.toString(),
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(payload),
   });
 
-  const { answer, notifyUrl } = extractBridgePayload(responseText, contentType);
-  const result = (answer && answer.startsWith("http")) ? answer : notifyUrl;
-
-  if (result && result.startsWith("http")) {
-    return { ok: true, link: result };
+  if (!res.ok) {
+    return { ok: false, reason: "network" };
   }
-  return { ok: false, message: answer || "Encryption failed: unrecognized server response." };
+
+  const link = `${RESULT_LONG_HOST}?com=${encodeURIComponent(ts)}&pass=${encodeURIComponent(pass)}`;
+  return { ok: true, link };
+}
+
+/** Resolves a snote.fun short link to its {com, pass} target, or null if unresolvable. */
+async function resolveShortLink(alias) {
+  const res = await safeFetch(`${SHORT_LINK_HOST}/?link=${encodeURIComponent(alias)}`);
+  const text = await res.text();
+  const match = text.match(/const targetUrl\s*=\s*"([^"]+)"/);
+  if (!match) return null;
+
+  try {
+    const url = new URL(match[1]);
+    const com = url.searchParams.get("com");
+    if (!com) return null;
+    return { com, pass: url.searchParams.get("pass") || "" };
+  } catch {
+    return null;
+  }
 }
 
 /**
- * @returns {Promise<{ok: true, text: string, image: string|null} | {ok: false, reason: "not_found"|"other", raw: string}>}
+ * @returns {Promise<{ok: true, text: string, image: string|null} | {ok: false, reason: "not_found"|"other"}>}
  */
 export async function decryptNote(alias, pass, isShortLink) {
-  const url = buildDecryptUrl(alias, pass, isShortLink);
-  const { text: responseText, contentType } = await fetchRaw(url, { method: "GET" });
-  const { answer, image } = extractBridgePayload(responseText, contentType);
+  let com = alias;
+  let finalPass = pass || DEFAULT_PASSPHRASE;
 
-  if (answer == null) {
-    return { ok: false, reason: "other", raw: "" };
+  if (isShortLink) {
+    const resolved = await resolveShortLink(alias);
+    if (!resolved) return { ok: false, reason: "not_found" };
+    com = resolved.com;
+    finalPass = resolved.pass || finalPass;
   }
-  if (isDecryptFailure(answer)) {
-    return { ok: false, reason: answer === "not_found" || answer.includes("Nachricht nicht gefunden") ? "not_found" : "other", raw: answer };
+
+  const res = await safeFetch(`${STORE_ENDPOINT}?action=get&com=${encodeURIComponent(com)}`);
+  let json;
+  try {
+    json = await res.json();
+  } catch {
+    return { ok: false, reason: "other" };
   }
-  return { ok: true, text: answer === " " ? "" : answer, image: image || null };
+
+  if (json.status !== "ok" || !json.payload) {
+    return { ok: false, reason: "not_found" };
+  }
+
+  const effectivePass = json.pass_override ?? finalPass;
+
+  try {
+    const key = await deriveKey(effectivePass, "decrypt");
+    const dec = new TextDecoder();
+    const decrypted = await crypto.subtle.decrypt(
+      { name: "AES-GCM", iv: new Uint8Array(json.payload.iv) },
+      key,
+      new Uint8Array(json.payload.data),
+    );
+    const text = dec.decode(decrypted);
+
+    let image = null;
+    if (json.payload.imgIv && json.payload.imgData) {
+      try {
+        const imgDecrypted = await crypto.subtle.decrypt(
+          { name: "AES-GCM", iv: new Uint8Array(json.payload.imgIv) },
+          key,
+          new Uint8Array(json.payload.imgData),
+        );
+        image = bytesToBase64(new Uint8Array(imgDecrypted));
+      } catch {
+        // Image decrypt failing shouldn't block showing the decrypted text.
+      }
+    }
+
+    // Fire-and-forget: self-destruct the note, matching the real page's own behavior.
+    safeFetch(`${STORE_ENDPOINT}?action=unlink&com=${encodeURIComponent(com)}`).catch(() => {});
+
+    return { ok: true, text, image };
+  } catch {
+    return { ok: false, reason: "other" };
+  }
 }

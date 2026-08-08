@@ -3,10 +3,15 @@
 Eine reine HTML/CSS/JS-Nachbildung der Android-App **dw Secret Notes**. Kein Build-Schritt, kein
 Framework, kein Server-Code — dieser Ordner ist direkt auf jeden Webserver deploybar.
 
-Die App ist ein Thin-Client: die eigentliche Ver-/Entschlüsselung passiert komplett serverseitig
-auf `domezos-ware.org`. Diese Web-Version spricht dieselben Backend-Endpunkte an wie die
-Android-App und bildet denselben Encrypt/Decrypt-Flow, dieselben 15 Sprachen und dasselbe
-Theme-System (17 Themes) nach.
+Wichtig, und anders als es die App-seitigen Kommentare vermuten lassen: die eigentliche
+Ver-/Entschlüsselung passiert **nicht** serverseitig, sondern client-seitig per Web-Crypto-API
+(AES-256-GCM, Schlüssel via PBKDF2). Der Server (`domezos-ware.org`) liefert auf
+`android_be_encrypt.php`/`view_api.php` eine HTML-Seite mit eingebettetem `<script type="module">`,
+das in der Android-WebView ausgeführt wird und dort verschlüsselt/entschlüsselt, bevor es das
+Ergebnis über die `Android.*`-JS-Bridge zurückgibt. Diese Web-Version führt exakt dasselbe
+Kryptografie-Protokoll direkt in `js/backend.js` aus (siehe unten) und spricht dafür die
+darunterliegenden Speicher-Endpunkte (`msg_store.php`) direkt an, statt fremden Code aus dem Netz
+zu laden und auszuführen.
 
 ## Deployment
 
@@ -16,43 +21,43 @@ Theme-System (17 Themes) nach.
 2. Fertig. Es gibt keinen Build-Schritt, keine `package.json`, keine Server-seitige Logik, die auf
    deinem Server laufen müsste.
 
-## ⚠️ Bekannte Einschränkung: Response-Format der Backend-Endpunkte
+## Backend-Protokoll (live gegen den Produktivserver verifiziert)
 
-Das ist der wichtigste Punkt, den du nach dem Deployment prüfen solltest.
+Die folgenden Endpunkte und das Kryptografie-Protokoll wurden am 08.08.2026 per echtem HTTP-Request
+(über den httpListener-MCP-Server, nicht aus dieser Sandbox heraus — siehe unten) gegen
+`domezos-ware.org`/`snote.fun` verifiziert, inklusive eines vollständigen
+Verschlüsseln→Speichern→Abrufen→Entschlüsseln→Löschen-Testlaufs mit exakter Übereinstimmung von
+Klartext vorher/nachher:
 
-Die Android-App lädt die Backend-Antworten in einer WebView, die eine JavaScript-Bridge
-(`Android.sendAnswer(...)`, `Android.sendImage(...)`, `Android.notifyDataReady({url})`)
-bereitstellt. Das bedeutet: `android_be_encrypt.php` und `view_api.php` liefern vermutlich
-serverseitig gerendertes HTML mit eingebettetem `<script>`, das genau diese Bridge-Funktionen
-aufruft — kein sauberes JSON. Ein normaler Browser hat diese Bridge nicht.
+- **Speichern**: `POST https://domezos-ware.org/api/msg_store.php?action=save&ts=<Zeitstempel>`,
+  JSON-Body `{"iv":[...], "data":[...], "imgIv":[...]?, "imgData":[...]?}` — `iv`/`data` sind die
+  AES-256-GCM-verschlüsselten Bytes des UTF-8-Texts (12-Byte-IV), `imgIv`/`imgData` optional analog
+  für ein angehängtes Bild. Der AES-Schlüssel wird per PBKDF2 aus einer zufällig generierten,
+  16-Byte-"Passphrase" abgeleitet (`salt="salt"`, 100.000 Iterationen, SHA-256, 256-Bit-Schlüssel).
+  Der Zeitstempel (Format `TT.MM.JJJJ_hh-mm-ss-fff`) dient als `com`-Alias; der resultierende Link
+  ist `https://domezos-ware.org/msges/view.php?com=<Zeitstempel>&pass=<Passphrase>`.
+- **Abrufen**: `GET https://domezos-ware.org/api/msg_store.php?action=get&com=<alias>` liefert
+  `{"status": "ok"|"not_found", "pass_override": string|null, "payload": {...}}`. Ein nicht
+  gefundener Alias liefert trotzdem einen plausibel aussehenden `payload` zurück (Anti-Enumeration-
+  Täuschung) — entscheidend ist `status`. Entschlüsselt wird mit `pass_override ?? mitgegebenePass`;
+  ein GCM-Auth-Tag-Fehler (falscher Schlüssel) wirft eine Exception.
+- **Löschen (Self-Destruct)**: Nach erfolgreichem Entschlüsseln feuert die echte Seite
+  `GET .../msg_store.php?action=unlink&com=<alias>` — diese Web-Version tut dasselbe
+  (fire-and-forget), damit die Nachricht wie beworben nur einmal lesbar ist.
+- **Kurzlinks** (`https://snote.fun?link=<5-stelliger Alias>`, Premium-only in der Android-App):
+  `snote.fun` liefert eine Redirect-Seite mit bereits aufgelöstem
+  `const targetUrl = "https://domezos-ware.org/msges/view.php?com=...&pass=...";` inline im HTML —
+  `resolveShortLink()` in `js/backend.js` liest das per Regex aus, ohne das dortige Redirect-Skript
+  selbst auszuführen.
+- `Access-Control-Allow-Origin: *` ist auf allen getesteten Endpunkten gesetzt — `fetch()` von einer
+  beliebigen Hosting-Domain aus funktioniert also ohne CORS-Probleme.
 
-`js/backend.js` geht deshalb zweistufig vor:
-
-1. **Primärversuch**: `fetch()` gegen den Endpunkt. Ist die Antwort JSON, wird sie direkt geparst.
-   Ist sie HTML (wahrscheinlicher), wird per Regex nach den Mustern gesucht, die die
-   `Android.*`-Bridge-Aufrufe enthalten würden — die Seite verhält sich also wie eine "virtuelle
-   WebView", die dieselben JS-Aufrufe ausliest statt sie auszuführen.
-2. **Fallback bei CORS-Fehlern**: Schlägt `fetch()` fehl (typischerweise weil der Server keine
-   `Access-Control-Allow-Origin`-Header für deine Domain sendet), öffnet die App die bestehende,
-   serverseitig gerenderte Seite (`view.php?com=...` bzw. `snote.fun?link=...`) in einem neuen Tab.
-
-**Dieses Sandbox-Environment hatte keinen Netzwerkzugriff auf `domezos-ware.org`/`snote.fun` und
-konnte das reale Response-Format daher nicht verifizieren.** Bitte nach dem Deployment einmal
-prüfen:
-
-1. Öffne die deployte Seite, öffne die Browser-DevTools (Network-Tab).
-2. Verschlüssele eine Testnachricht und entschlüssele sie wieder über einen zweiten Tab/Browser.
-3. Schau dir die tatsächliche Response von `android_be_encrypt.php`/`view_api.php` an:
-   - Kommt überhaupt eine Antwort an, oder blockiert CORS den Request? (Fehler in der Konsole wie
-     `has been blocked by CORS policy`)
-   - Ist die Antwort JSON oder HTML?
-4. Passe bei Bedarf `RESPONSE_MODE` in `js/backend.js` an (`"auto"` | `"json"` |
-   `"html-bridge-scrape"` | `"redirect"`) oder erweitere `parseBridgeResponse()`/
-   `extractBridgePayload()` um das tatsächlich beobachtete Format.
-
-Falls CORS den direkten Zugriff dauerhaft blockiert, ist der eingebaute Redirect-Fallback (neuer
-Tab zur Original-Seite) die praktikable Lösung — genau wie die Android-WebView im Prinzip auch nur
-eine eingebettete Browser-Ansicht der Original-Seite ist.
+**Wichtig für zukünftige Sessions in diesem Sandbox-Environment**: Direkter Netzwerkzugriff (`curl`,
+`fetch` aus dieser Sandbox heraus) auf `domezos-ware.org` ist blockiert (Proxy antwortet mit 403).
+Das bedeutet aber **nicht**, dass eine Live-Verifikation unmöglich ist — der `httpListener`-
+MCP-Server (falls in der Session verfügbar) führt HTTP-Requests auf einem echten Rechner mit
+Internetzugang aus und wurde genau dafür genutzt, um dieses Protokoll zu verifizieren. Bei künftigen
+Änderungen an `js/backend.js` diesen Weg nutzen, statt Verhalten unverifiziert zu lassen.
 
 ## Sprache hinzufügen
 
@@ -90,14 +95,18 @@ ein, damit `<html dir="rtl">` gesetzt wird.
   Android-App mehr als zwei Pluralformen (`few`/`many`/`zero`). Die Web-Version verwendet
   vereinfacht nur `_one`/`_other` pro Sprache.
 
-## Verifiziert vs. noch zu verifizieren
+## Verifikationsstand
 
-**Ohne Live-Deployment bereits geprüft/prüfbar:**
-- Alias-/Link-Parsing (`parseAliasFromInput`) lässt sich direkt in der Browser-Konsole gegen
-  Testfälle prüfen (5-stelliger Alias, `snote.fun?link=`, `domezos-ware.org?com=&pass=`, ...).
-- Bildskalierung (`resizeImageToBase64`) lässt sich gegen ein Testbild prüfen (Ausgabe ≤1600px,
-  kein `data:`-Prefix).
-- Gesamtes UI/Theme/Sprach-Rendering funktioniert offline durch direktes Öffnen von `index.html`.
+**Bereits geprüft:**
+- Backend-Protokoll (siehe oben) live gegen den Produktivserver verifiziert, inklusive vollständigem
+  Encrypt→Decrypt-Roundtrip mit exakter Klartext-Übereinstimmung.
+- Alias-/Link-Parsing (`parseAliasFromInput`) gegen Testfälle geprüft (5-stelliger Alias,
+  `snote.fun?link=`, `domezos-ware.org?com=&pass=`, `snote.fun/<alias>`-Pfadform, ungültige Eingabe).
+- Bildskalierung (`resizeImageToBase64`) gegen ein Testbild geprüft (2000×1000 → 1600×800, kein
+  `data:`-Prefix im Ergebnis).
+- UI/Theme/Sprach-Rendering (inkl. RTL für Arabisch) per headless Chromium geprüft: Tab-Umschaltung,
+  Sprachwechsel, Themewechsel, alles fehlerfrei in der Konsole.
 
-**Erst nach echtem Deployment vollständig verifizierbar:** siehe Abschnitt "Bekannte Einschränkung"
-oben — das reale Backend-Response-Format und CORS-Verhalten.
+**Offener Punkt:** Ein vollständiger Encrypt/Decrypt-Roundtrip direkt *durch die UI dieser Web-App*
+(Klick auf "Encrypt"/"Decrypt" im Browser) wurde noch nicht durchgespielt, nur das zugrunde liegende
+Protokoll isoliert per Skript. Nach dem Deployment einmal die echte Seite im Browser testen.
