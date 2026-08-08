@@ -1,0 +1,244 @@
+/* Theme palettes ported from AppThemes.kt / Color.kt (Android app).
+   Each theme defines a fixed set of custom properties; dark themes get a
+   near-white text color, the single light theme gets near-black text —
+   this replaces the runtime WCAG contrast-search the app does for a
+   fixed set of 17 known themes. */
+
+:root,
+[data-theme="classic"] {
+  --bg: #050d1f;
+  --surface: #091428;
+  --surface-2: #0d1e3a;
+  --primary: #00d4ff;
+  --primary-contrast: #00131a;
+  --secondary: #f0c040;
+  --text: #f0f4ff;
+  --text-muted: #8899bb;
+  --border: #12294f;
+  --danger: #ff5577;
+  --success: #00ffaa;
+}
+
+[data-theme="dark"] {
+  --bg: #121212;
+  --surface: #1e1e1e;
+  --surface-2: #262626;
+  --primary: #00d4ff;
+  --primary-contrast: #00131a;
+  --secondary: #f0c040;
+  --text: #f2f2f5;
+  --text-muted: #9aa0a6;
+  --border: #333333;
+  --danger: #ff5577;
+  --success: #00ffaa;
+}
+
+[data-theme="light"] {
+  --bg: #f7f7fa;
+  --surface: #ffffff;
+  --surface-2: #f0f0f3;
+  --primary: #0077a6;
+  --primary-contrast: #ffffff;
+  --secondary: #b8860b;
+  --text: #1a1a1a;
+  --text-muted: #5a5a5f;
+  --border: #dddde3;
+  --danger: #d32f2f;
+  --success: #1b8a5a;
+}
+
+[data-theme="midnight"] {
+  --bg: #0f0817;
+  --surface: #1b0e29;
+  --surface-2: #241335;
+  --primary: #bb86fc;
+  --primary-contrast: #1a0b2e;
+  --secondary: #03dac6;
+  --text: #f2f2f5;
+  --text-muted: #a18cc4;
+  --border: #33204a;
+  --danger: #ff5577;
+  --success: #03dac6;
+}
+
+[data-theme="forest"] {
+  --bg: #081009;
+  --surface: #0f1f12;
+  --surface-2: #16301a;
+  --primary: #81c784;
+  --primary-contrast: #08240b;
+  --secondary: #fff176;
+  --text: #f2f2f5;
+  --text-muted: #9cbf9e;
+  --border: #1e3a22;
+  --danger: #ff6b6b;
+  --success: #81c784;
+}
+
+[data-theme="ocean"] {
+  --bg: #010b13;
+  --surface: #031a29;
+  --surface-2: #05283d;
+  --primary: #4fc3f7;
+  --primary-contrast: #00202e;
+  --secondary: #ffb74d;
+  --text: #f2f2f5;
+  --text-muted: #7fa8bc;
+  --border: #0a3550;
+  --danger: #ff5577;
+  --success: #4fc3f7;
+}
+
+[data-theme="cyberpunk"] {
+  --bg: #050505;
+  --surface: #1a001a;
+  --surface-2: #26002b;
+  --primary: #fcee09;
+  --primary-contrast: #1a1a00;
+  --secondary: #00e5ff;
+  --text: #f5f5f5;
+  --text-muted: #b8a6c9;
+  --border: #3a0040;
+  --danger: #ff3860;
+  --success: #00e5ff;
+}
+
+[data-theme="dracula"] {
+  --bg: #282a36;
+  --surface: #343746;
+  --surface-2: #3e4157;
+  --primary: #bd93f9;
+  --primary-contrast: #1e1f29;
+  --secondary: #ff79c6;
+  --text: #f8f8f2;
+  --text-muted: #b0b3c6;
+  --border: #454864;
+  --danger: #ff5555;
+  --success: #50fa7b;
+}
+
+[data-theme="sunset"] {
+  --bg: #1a0f0e;
+  --surface: #2e1a17;
+  --surface-2: #3d231f;
+  --primary: #ff7043;
+  --primary-contrast: #2e0e00;
+  --secondary: #ffca28;
+  --text: #f5eded;
+  --text-muted: #c9a79c;
+  --border: #4a2c26;
+  --danger: #ff5252;
+  --success: #ffca28;
+}
+
+[data-theme="nordic"] {
+  --bg: #232935;
+  --surface: #3b4252;
+  --surface-2: #434c5e;
+  --primary: #88c0d0;
+  --primary-contrast: #1b2129;
+  --secondary: #a3be8c;
+  --text: #eceff4;
+  --text-muted: #a9b4c6;
+  --border: #4c566a;
+  --danger: #bf616a;
+  --success: #a3be8c;
+}
+
+[data-theme="matrix"] {
+  --bg: #000000;
+  --surface: #001500;
+  --surface-2: #002400;
+  --primary: #00ff41;
+  --primary-contrast: #001a00;
+  --secondary: #00cc33;
+  --text: #e8ffec;
+  --text-muted: #5fbf74;
+  --border: #0a3a0f;
+  --danger: #ff3131;
+  --success: #00ff41;
+}
+
+[data-theme="sakura"] {
+  --bg: #1d0a14;
+  --surface: #2d111e;
+  --surface-2: #3b1729;
+  --primary: #ffb7c5;
+  --primary-contrast: #330b18;
+  --secondary: #d4875a;
+  --text: #fdeff3;
+  --text-muted: #c79aa8;
+  --border: #4a2033;
+  --danger: #ff6b81;
+  --success: #ffb7c5;
+}
+
+[data-theme="golden"] {
+  --bg: #140f07;
+  --surface: #251c0d;
+  --surface-2: #332612;
+  --primary: #d4af37;
+  --primary-contrast: #241a00;
+  --secondary: #c8960c;
+  --text: #f5efd9;
+  --text-muted: #c7b78a;
+  --border: #493617;
+  --danger: #ff6b4a;
+  --success: #d4af37;
+}
+
+[data-theme="ruby"] {
+  --bg: #1a0407;
+  --surface: #2e070d;
+  --surface-2: #3d0b13;
+  --primary: #e0115f;
+  --primary-contrast: #2e0013;
+  --secondary: #ff8c42;
+  --text: #f7e6ea;
+  --text-muted: #c98a97;
+  --border: #4a0f1d;
+  --danger: #ff4d6d;
+  --success: #ff8c42;
+}
+
+[data-theme="electric"] {
+  --bg: #0d001a;
+  --surface: #1a0033;
+  --surface-2: #250047;
+  --primary: #b44dff;
+  --primary-contrast: #16002b;
+  --secondary: #00ffff;
+  --text: #f1e8ff;
+  --text-muted: #b99fdd;
+  --border: #3a0066;
+  --danger: #ff4d8d;
+  --success: #00ffff;
+}
+
+[data-theme="ghost"] {
+  --bg: #1c1c1e;
+  --surface: #2c2c2e;
+  --surface-2: #363638;
+  --primary: #98989d;
+  --primary-contrast: #1c1c1e;
+  --secondary: #636366;
+  --text: #f2f2f5;
+  --text-muted: #a5a5aa;
+  --border: #48484a;
+  --danger: #ff6b6b;
+  --success: #98989d;
+}
+
+[data-theme="solarized"] {
+  --bg: #002b36;
+  --surface: #073642;
+  --surface-2: #0a4552;
+  --primary: #268bd2;
+  --primary-contrast: #00212b;
+  --secondary: #b58900;
+  --text: #eee8d5;
+  --text-muted: #93a1a1;
+  --border: #0d5566;
+  --danger: #dc322f;
+  --success: #859900;
+}
