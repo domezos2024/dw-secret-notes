@@ -80,5 +80,14 @@
   "trust_anon_title": "100% Anonymous",
   "trust_anon_desc": "No registration required, no traces.",
   "btn_generate_link": "Generate secret link",
-  "btn_read_message": "Read message"
+  "btn_read_message": "Read message",
+  "nav_impressum": "Impressum",
+  "impressum_title": "Impressum",
+  "impressum_operator_title": "Operator according to §5 TMG",
+  "impressum_name": "Michael Bergfeld",
+  "impressum_street": "Am Sommerberg 48",
+  "impressum_city": "97816 Lohr a. Main",
+  "impressum_country": "Germany",
+  "impressum_email_label": "Email",
+  "impressum_email": "info@domezos-ware.de"
 }

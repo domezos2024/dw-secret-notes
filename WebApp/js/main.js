@@ -23,7 +23,7 @@ function normalizeInternalLinks() {
   document.querySelectorAll('a[href]').forEach(link => {
     const href = link.getAttribute('href');
     // Replace .html with .php or vice versa, but only for relative links
-    if (href.includes(`index.${otherExt}`) || href.includes(`help.${otherExt}`) || href.includes(`info.${otherExt}`)) {
+    if (href.includes(`index.${otherExt}`) || href.includes(`help.${otherExt}`) || href.includes(`info.${otherExt}`) || href.includes(`impressum.${otherExt}`)) {
       const newHref = href.replace(`.${otherExt}`, `.${ext}`);
       link.setAttribute('href', newHref);
     }

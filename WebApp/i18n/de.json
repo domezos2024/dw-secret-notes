@@ -80,5 +80,14 @@
   "trust_anon_title": "100% Anonym",
   "trust_anon_desc": "Keine Anmeldung nötig, keine Spuren.",
   "btn_generate_link": "Geheimen Link generieren",
-  "btn_read_message": "Nachricht lesen"
+  "btn_read_message": "Nachricht lesen",
+  "nav_impressum": "Impressum",
+  "impressum_title": "Impressum",
+  "impressum_operator_title": "Anbieter gemäß §5 TMG",
+  "impressum_name": "Michael Bergfeld",
+  "impressum_street": "Am Sommerberg 48",
+  "impressum_city": "97816 Lohr a. Main",
+  "impressum_country": "Deutschland",
+  "impressum_email_label": "E-Mail",
+  "impressum_email": "info@domezos-ware.de"
 }

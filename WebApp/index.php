@@ -19,6 +19,7 @@
       <nav class="app-nav">
         <a class="icon-btn" href="help.php" data-i18n="nav_help">Help</a>
         <a class="icon-btn" href="info.php" data-i18n="nav_info">Info</a>
+        <a class="icon-btn" href="impressum.php" data-i18n="nav_impressum">Impressum</a>
         <button class="icon-btn" id="settingsToggle" data-i18n="nav_language" type="button">Language</button>
       </nav>
     </header>
