@@ -106,7 +106,6 @@ import com.snote.domezos.ui.components.SecretWebView
 private const val PASSPHRASE = "dw_secret_notes_passphrase_2026"
 
 private const val DECRYPT_COUNTDOWN_SECONDS = 60
-private const val AD_ROTATION_DELAY_MS = 25000L
 private const val DEEP_LINK_DECRYPT_DELAY_MS = 100L
 
 private val AD_RES_IDS = listOf(
@@ -114,22 +113,13 @@ private val AD_RES_IDS = listOf(
     R.string.ad_6, R.string.ad_7, R.string.ad_8, R.string.ad_9, R.string.ad_10
 )
 
-private val PREMIUM_RES_IDS = listOf(
-    R.string.premium_active_1, R.string.premium_active_2, R.string.premium_active_3,
-    R.string.premium_active_4, R.string.premium_active_5, R.string.premium_active_6,
-    R.string.premium_active_7, R.string.premium_active_8, R.string.premium_active_9,
-    R.string.premium_active_10
-)
+internal data class ParsedAlias(val rawAlias: String, val pass: String)
 
-internal data class ParsedAlias(val rawAlias: String, val isLink: Boolean, val pass: String)
-
-internal fun parseAliasFromUri(uri: android.net.Uri, currentUrl: String): ParsedAlias {
+internal fun parseAliasFromUri(uri: android.net.Uri): ParsedAlias {
     val comParam = uri.getQueryParameter("com")
-    val linkParam = uri.getQueryParameter("link")
-    val rawAlias = comParam ?: linkParam ?: uri.lastPathSegment ?: ""
+    val rawAlias = comParam ?: uri.lastPathSegment ?: ""
     val pass = uri.getQueryParameter("pass") ?: ""
-    val isLink = comParam == null && (linkParam != null || currentUrl.contains("snote.fun"))
-    return ParsedAlias(rawAlias, isLink, pass)
+    return ParsedAlias(rawAlias, pass)
 }
 
 internal fun formatGeneratedAlias(result: String): String = when {
@@ -146,7 +136,6 @@ fun MainScreen(
     onDeepLinkConsumed: () -> Unit = {},
     onThemeChanged: (String) -> Unit = {},
     currentThemeId: String = "classic",
-    isPremium: Boolean = false,
     showRatePrompt: Boolean = false,
     // Test-only seam: lets tests fake the backend's encrypt response (e.g. a short snote.fun
     // link) without going through the real SecretWebView/network. Production call sites never
@@ -176,12 +165,8 @@ fun MainScreen(
     var selectedImagePreview by remember { mutableStateOf<Bitmap?>(null) }
     var decryptedImage by remember { mutableStateOf<Bitmap?>(null) }
     var showFullscreenImage by remember { mutableStateOf(false) }
-    var adIndex by remember { mutableIntStateOf(0) }
-    val currentAds = remember(isPremium) { if (isPremium) PREMIUM_RES_IDS else AD_RES_IDS }
-    val adTitle = if (isPremium) stringResource(R.string.premium_active_title) else stringResource(R.string.ad_title)
-    val adSymbol = if (isPremium) "✅" else "⭐"
     var showRateDialog by remember { mutableStateOf(showRatePrompt) }
-
+    
     if (showRateDialog) {
         RateDialog(
             onDismiss = {
@@ -194,13 +179,6 @@ fun MainScreen(
                 launchInAppReview(context) { Prefs.setHasRatedApp(context, true) }
             }
         )
-    }
-
-    LaunchedEffect(isPremium) {
-        while (true) {
-            delay(AD_ROTATION_DELAY_MS)
-            adIndex = (adIndex + 1) % currentAds.size
-        }
     }
 
     AndroidView(factory = { secretWebView }, modifier = Modifier.size(1.dp))
@@ -217,9 +195,9 @@ fun MainScreen(
     suspend fun resolveLink(input: String): Pair<String, String>? {
         var currentUrl = input.trim()
         if (currentUrl.length == 5 && !currentUrl.contains("://") && !currentUrl.contains(".")) {
-            return Pair("link:$currentUrl", "")
+            return Pair(currentUrl, "")
         }
-        if (!currentUrl.startsWith("http") && (currentUrl.contains("snote.fun") || currentUrl.contains("domezos-ware.org"))) {
+        if (!currentUrl.startsWith("http") && (currentUrl.contains("domezos-ware.org"))) {
             currentUrl = "https://$currentUrl"
         }
         if (!currentUrl.startsWith("http")) {
@@ -227,27 +205,14 @@ fun MainScreen(
         }
         val initialUri = try { android.net.Uri.parse(currentUrl) } catch (e: Exception) { null }
         val pass = initialUri?.getQueryParameter("pass") ?: if (currentUrl.contains("pass=")) currentUrl.substringAfter("pass=").substringBefore("&") else ""
-        val isSnote = currentUrl.contains("snote.fun")
-        var extractedAlias: String? = initialUri?.getQueryParameter("link") ?: initialUri?.getQueryParameter("com")
-        var isLinkType = isSnote || currentUrl.contains("link=")
+        var extractedAlias: String? = initialUri?.getQueryParameter("com")
         if (extractedAlias == null) {
-            if (currentUrl.contains("link=")) {
-                extractedAlias = currentUrl.substringAfter("link=").substringBefore("&")
-                isLinkType = true
-            } else if (currentUrl.contains("com=")) {
+            if (currentUrl.contains("com=")) {
                 extractedAlias = currentUrl.substringAfter("com=").substringBefore("&")
-                isLinkType = false
-            } else if (isSnote && currentUrl.contains("snote.fun/")) {
-                val path = initialUri?.path?.trim('/') ?: currentUrl.substringAfter("snote.fun/").substringBefore("?").substringBefore("/")
-                if (path.isNotEmpty() && path.length >= 5) {
-                    extractedAlias = path
-                    isLinkType = true
-                }
             }
         }
         if (extractedAlias != null && extractedAlias.length >= 5) {
-            val finalIsLink = if (isSnote && !currentUrl.contains("com=")) true else isLinkType
-            return Pair(if (finalIsLink) "link:$extractedAlias" else extractedAlias, pass)
+            return Pair(extractedAlias, pass)
         }
         return withContext(Dispatchers.IO) {
             try {
@@ -266,15 +231,15 @@ fun MainScreen(
                     loopCount++
                 }
                 val finalUri = android.net.Uri.parse(currentUrl)
-                val parsed = parseAliasFromUri(finalUri, currentUrl)
+                val parsed = parseAliasFromUri(finalUri)
                 if (parsed.rawAlias.isNotEmpty() && parsed.rawAlias.length >= 5) {
-                    Pair(if (parsed.isLink) "link:${parsed.rawAlias}" else parsed.rawAlias, parsed.pass)
+                    Pair(parsed.rawAlias, parsed.pass)
                 } else null
             } catch (e: Exception) {
                 val uri = android.net.Uri.parse(currentUrl)
-                val parsed = parseAliasFromUri(uri, currentUrl)
+                val parsed = parseAliasFromUri(uri)
                 if (parsed.rawAlias.isNotEmpty()) {
-                    Pair(if (parsed.isLink) "link:${parsed.rawAlias}" else parsed.rawAlias, parsed.pass)
+                    Pair(parsed.rawAlias, parsed.pass)
                 } else null
             }
         }
@@ -298,10 +263,6 @@ fun MainScreen(
                 haptic.performHapticFeedback(HapticFeedbackType.TextHandleMove)
                 generatedLink = result
                 generatedAlias = formatGeneratedAlias(result)
-                if (result.contains("snote.fun") && result.contains("link=")) {
-                    val alias = result.substringAfter("link=").substringBefore("&").take(5)
-                    clipboard.setText(AnnotatedString(alias))
-                }
                 encryptDone = true
                 selectedImageUri = null
                 selectedImagePreview = null
@@ -484,15 +445,6 @@ fun MainScreen(
                         SuccessBanner(stringResource(R.string.success_encrypted))
                         GlassCard {
                             Column(verticalArrangement = Arrangement.spacedBy(12.dp)) {
-                                if (isPremium) {
-                                    Column(
-                                        modifier = Modifier.fillMaxWidth().clip(RoundedCornerShape(8.dp)).background(MaterialTheme.colorScheme.primaryContainer).padding(12.dp),
-                                        horizontalAlignment = Alignment.CenterHorizontally
-                                    ) {
-                                        Text(text = stringResource(R.string.label_your_alias), style = MaterialTheme.typography.labelSmall, color = MaterialTheme.colorScheme.onSurfaceVariant)
-                                        Text(text = generatedAlias, style = MaterialTheme.typography.headlineMedium, color = MaterialTheme.colorScheme.primary, fontWeight = FontWeight.Bold)
-                                    }
-                                }
                                 OutlinedTextField(
                                     value = generatedLink,
                                     onValueChange = {},
@@ -645,7 +597,6 @@ fun MainScreen(
                     }
                 }
             }
-            PremiumAdBox(title = adTitle, text = stringResource(currentAds[adIndex]), symbol = adSymbol, onClick = { onNavigate(Screen.Premium.route) })
             Spacer(Modifier.height(8.dp))
             FooterNote()
         }
@@ -696,36 +647,6 @@ private fun FullscreenImageDialog(
                 contentDescription = null,
                 contentScale = ContentScale.Fit,
                 modifier = Modifier.fillMaxSize()
-            )
-        }
-    }
-}
-
-@Composable
-fun PremiumAdBox(title: String, text: String, symbol: String, onClick: () -> Unit) {
-    Card(
-        modifier = Modifier.fillMaxWidth().padding(vertical = 8.dp).clickable { onClick() },
-        shape = RoundedCornerShape(12.dp),
-        colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.secondary.copy(alpha = 0.1f)),
-        border = androidx.compose.foundation.BorderStroke(1.dp, MaterialTheme.colorScheme.secondary.copy(alpha = 0.3f))
-    ) {
-        Row(
-            modifier = Modifier.fillMaxWidth().padding(16.dp),
-            verticalAlignment = Alignment.CenterVertically,
-            horizontalArrangement = Arrangement.SpaceBetween
-        ) {
-            Row(verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(12.dp)) {
-                Text(symbol, style = MaterialTheme.typography.headlineSmall)
-                Column {
-                    Text(title, style = MaterialTheme.typography.labelSmall, color = MaterialTheme.colorScheme.tertiary, fontWeight = FontWeight.Bold)
-                    Text(text, style = MaterialTheme.typography.bodyMedium, color = MaterialTheme.colorScheme.onSurface)
-                }
-            }
-            Icon(
-                imageVector = Icons.AutoMirrored.Filled.ArrowForwardIos,
-                contentDescription = null,
-                modifier = Modifier.size(14.dp),
-                tint = MaterialTheme.colorScheme.onSurfaceVariant
             )
         }
     }

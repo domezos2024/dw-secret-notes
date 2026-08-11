@@ -5,7 +5,5 @@ sealed class Screen(val route: String) {
     data object Main     : Screen("main")
     data object Help     : Screen("help")
     data object Info     : Screen("info")
-    data object Premium  : Screen("premium")
-    data object TinyUrl  : Screen("tinyurl")
-    data object Tip      : Screen("tip")
+    data object TinyUrl  : Screen("tinyUrl")
 }

@@ -16,46 +16,26 @@ import org.robolectric.annotation.Config
 class LinkParsingTest {
 
     @Test
-    fun `com param wins over link param and is not treated as a link`() {
+       fun `com param wins over link param`() {
         val url = "https://domezos-ware.org/msges/view.php?com=abc12&pass=secret"
-        val parsed = parseAliasFromUri(Uri.parse(url), url)
+        val parsed = parseAliasFromUri(Uri.parse(url))
 
         assertEquals("abc12", parsed.rawAlias)
         assertEquals("secret", parsed.pass)
-        assertFalse(parsed.isLink)
     }
 
     @Test
-    fun `link param on snote fun is treated as a link`() {
-        val url = "https://snote.fun?link=xyz99"
-        val parsed = parseAliasFromUri(Uri.parse(url), url)
-
-        assertEquals("xyz99", parsed.rawAlias)
-        assertEquals("", parsed.pass)
-        assertTrue(parsed.isLink)
-    }
-
-    @Test
-    fun `snote fun host without explicit link param still resolves as a link via lastPathSegment`() {
-        val url = "https://snote.fun/abcde"
-        val parsed = parseAliasFromUri(Uri.parse(url), url)
-
-        assertEquals("abcde", parsed.rawAlias)
-        assertTrue(parsed.isLink)
-    }
-
-    @Test
-    fun `missing com, link params and path segment yields empty alias`() {
+    fun `missing com param and path segment yields empty alias`() {
         val url = "https://domezos-ware.org"
-        val parsed = parseAliasFromUri(Uri.parse(url), url)
+        val parsed = parseAliasFromUri(Uri.parse(url))
 
         assertEquals("", parsed.rawAlias)
     }
 
     @Test
-    fun `missing com and link params falls back to the last path segment`() {
+    fun `missing com param falls back to the last path segment`() {
         val url = "https://domezos-ware.org/msges/view.php"
-        val parsed = parseAliasFromUri(Uri.parse(url), url)
+        val parsed = parseAliasFromUri(Uri.parse(url))
 
         assertEquals("view.php", parsed.rawAlias)
     }
@@ -63,7 +43,7 @@ class LinkParsingTest {
     @Test
     fun `pass defaults to empty string when absent`() {
         val url = "https://domezos-ware.org/msges/view.php?com=abc12"
-        val parsed = parseAliasFromUri(Uri.parse(url), url)
+        val parsed = parseAliasFromUri(Uri.parse(url))
 
         assertEquals("", parsed.pass)
     }
@@ -75,13 +55,7 @@ class LinkParsingTest {
     }
 
     @Test
-    fun `formatGeneratedAlias truncates link alias to 8 chars`() {
-        val result = "https://snote.fun?link=abcdefghij"
-        assertEquals("abcdefgh", formatGeneratedAlias(result))
-    }
-
-    @Test
-    fun `formatGeneratedAlias falls back when neither com nor link present`() {
+    fun `formatGeneratedAlias falls back when com not present`() {
         val result = "https://domezos-ware.org/msges/view.php"
         assertEquals("Link Ready", formatGeneratedAlias(result))
     }

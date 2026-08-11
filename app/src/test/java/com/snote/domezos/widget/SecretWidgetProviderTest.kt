@@ -54,7 +54,7 @@ class SecretWidgetProviderTest {
     @Test
     fun `result state shows the saved link and hides idle container`() {
         val appWidgetId = createWidget()
-        val savedLink = "https://snote.fun?link=abc12"
+        val savedLink = "https://domezos-ware.org?com=abc12"
         Prefs.setWidgetLink(context, appWidgetId, savedLink)
 
         SecretWidgetProvider.updateWidget(context, appWidgetManager, appWidgetId)
@@ -81,7 +81,7 @@ class SecretWidgetProviderTest {
     @Test
     fun `onDeleted clears the saved widget link for each removed id`() {
         val appWidgetId = 104
-        Prefs.setWidgetLink(context, appWidgetId, "https://snote.fun?link=abc12")
+        Prefs.setWidgetLink(context, appWidgetId, "https://domezos-ware.org?com=abc12")
 
         SecretWidgetProvider().onDeleted(context, intArrayOf(appWidgetId))
 

@@ -5,14 +5,11 @@ import androidx.compose.runtime.LaunchedEffect
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import com.snote.domezos.billing.BillingHelper
 import com.snote.domezos.ui.screens.HelpScreen
 import com.snote.domezos.ui.screens.InfoScreen
 import com.snote.domezos.ui.screens.LanguageScreen
 import com.snote.domezos.ui.screens.MainScreen
-import com.snote.domezos.ui.screens.PremiumScreen
 import com.snote.domezos.ui.screens.TinyUrlScreen
-import com.snote.domezos.ui.screens.TipScreen
 
 @Composable
 fun AppNavigation(
@@ -21,10 +18,7 @@ fun AppNavigation(
     initialDecryptInput: String? = null,
     onDeepLinkConsumed: () -> Unit = {},
     onThemeChanged: (String) -> Unit = {},
-    currentThemeId: String = "classic",
-    isPremium: Boolean = false,
-    onPremiumChanged: (Boolean) -> Unit = {},
-    billingHelper: BillingHelper? = null
+    currentThemeId: String = "classic"
 ) {
     val navController = rememberNavController()
     val start = if (startWithLanguagePicker) Screen.Language.route else Screen.Main.route
@@ -66,7 +60,6 @@ fun AppNavigation(
                 onDeepLinkConsumed = onDeepLinkConsumed,
                 onThemeChanged = onThemeChanged,
                 currentThemeId = currentThemeId,
-                isPremium = isPremium,
                 showRatePrompt = showRatePrompt
             )
         }
@@ -88,32 +81,11 @@ fun AppNavigation(
                 currentThemeId = currentThemeId
             )
         }
-
-        composable(Screen.Premium.route) {
-            PremiumScreen(
-                onNavigate = navigateTo,
-                onBack     = backToMain,
-                onThemeChanged = onThemeChanged,
-                currentThemeId = currentThemeId,
-                isPremium = isPremium,
-                onPremiumChanged = onPremiumChanged,
-                billingHelper = billingHelper
-            )
-        }
-
+        
         composable(Screen.TinyUrl.route) {
             TinyUrlScreen(
-                onBack = backToMain,
                 onNavigate = navigateTo,
-                onThemeChanged = onThemeChanged,
-                currentThemeId = currentThemeId
-            )
-        }
-
-        composable(Screen.Tip.route) {
-            TipScreen(
-                onBack = backToMain,
-                onNavigate = navigateTo,
+                onBack     = backToMain,
                 onThemeChanged = onThemeChanged,
                 currentThemeId = currentThemeId
             )

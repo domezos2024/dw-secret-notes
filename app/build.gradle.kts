@@ -71,7 +71,6 @@ dependencies {
     implementation(libs.compose.material3)
     implementation(libs.compose.material.icons.extended)
     implementation(libs.navigation.compose)
-    implementation(libs.billing)
     implementation(libs.review.ktx)
     implementation(libs.splashscreen)
     implementation(libs.datastore.preferences)

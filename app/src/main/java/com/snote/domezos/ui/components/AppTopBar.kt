@@ -121,28 +121,10 @@ fun AppTopBar(
                     onDismiss = { menuExpanded = false }
                 )
                 NavMenuItem(
-                    label = stringResource(R.string.nav_premium),
-                    icon = Icons.Default.Star,
-                    tint = MaterialTheme.colorScheme.secondary,
-                    targetRoute = Screen.Premium.route,
-                    currentRoute = currentRoute,
-                    onNavigate = onNavigate,
-                    onDismiss = { menuExpanded = false }
-                )
-                NavMenuItem(
                     label = stringResource(R.string.nav_language),
                     icon = Icons.Default.Translate,
                     tint = MaterialTheme.colorScheme.primary,
                     targetRoute = Screen.Language.route,
-                    currentRoute = currentRoute,
-                    onNavigate = onNavigate,
-                    onDismiss = { menuExpanded = false }
-                )
-                NavMenuItem(
-                    label = stringResource(R.string.nav_tinyurl),
-                    icon = Icons.Default.Star,
-                    tint = MaterialTheme.colorScheme.primary,
-                    targetRoute = Screen.TinyUrl.route,
                     currentRoute = currentRoute,
                     onNavigate = onNavigate,
                     onDismiss = { menuExpanded = false }
@@ -157,10 +139,10 @@ fun AppTopBar(
                     onDismiss = { menuExpanded = false }
                 )
                 NavMenuItem(
-                    label = stringResource(R.string.nav_tip),
-                    icon = Icons.Default.Coffee,
-                    tint = MaterialTheme.colorScheme.secondary,
-                    targetRoute = Screen.Tip.route,
+                    label = "TinyURL",
+                    icon = Icons.Default.Star,
+                    tint = MaterialTheme.colorScheme.primary,
+                    targetRoute = Screen.TinyUrl.route,
                     currentRoute = currentRoute,
                     onNavigate = onNavigate,
                     onDismiss = { menuExpanded = false }

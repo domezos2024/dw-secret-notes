@@ -9,9 +9,6 @@ object Prefs {
     private const val KEY_LANG = "selected_language"
     private const val KEY_THEME = "selected_theme"
     private const val KEY_DEVICE_TOKEN = "device_token"
-    private const val KEY_IS_PREMIUM = "is_premium"
-    private const val KEY_PREMIUM_SOURCE = "premium_source" // "none", "inapp", "subscription"
-    private const val KEY_TIP_COUNT = "tip_count"
     private const val KEY_WIDGET_LINK_PREFIX = "widget_link_"
     private const val KEY_HAS_RATED_APP = "has_rated_app"
     private const val KEY_RUN_COUNT = "run_count"
@@ -35,18 +32,6 @@ object Prefs {
             p.edit { putString(KEY_DEVICE_TOKEN, token) }
         }
         return token
-    }
-    fun isPremium(ctx: Context): Boolean = prefs(ctx).getBoolean(KEY_IS_PREMIUM, false)
-    fun setPremium(ctx: Context, active: Boolean) {
-        prefs(ctx).edit { putBoolean(KEY_IS_PREMIUM, active) }
-    }
-    fun getPremiumSource(ctx: Context): String = prefs(ctx).getString(KEY_PREMIUM_SOURCE, "none") ?: "none"
-    fun setPremiumSource(ctx: Context, source: String) {
-        prefs(ctx).edit { putString(KEY_PREMIUM_SOURCE, source) }
-    }
-    fun getTipCount(ctx: Context): Int = prefs(ctx).getInt(KEY_TIP_COUNT, 0)
-    fun incrementTipCount(ctx: Context, amount: Int = 1) {
-        prefs(ctx).edit { putInt(KEY_TIP_COUNT, getTipCount(ctx) + amount) }
     }
     fun getWidgetLink(ctx: Context, appWidgetId: Int): String? = prefs(ctx).getString("$KEY_WIDGET_LINK_PREFIX$appWidgetId", null)
     fun setWidgetLink(ctx: Context, appWidgetId: Int, link: String) {

@@ -49,28 +49,6 @@ class PrefsTest {
         assertTrue(first.endsWith("-app"))
     }
 
-    @Test
-    fun `premium defaults to false and can be toggled`() {
-        assertFalse(Prefs.isPremium(context))
-        Prefs.setPremium(context, true)
-        assertTrue(Prefs.isPremium(context))
-        Prefs.setPremium(context, false)
-        assertFalse(Prefs.isPremium(context))
-    }
-
-    @Test
-    fun `premium source defaults to none`() {
-        assertEquals("none", Prefs.getPremiumSource(context))
-    }
-
-    @Test
-    fun `tip count increments by given amount and defaults to zero`() {
-        assertEquals(0, Prefs.getTipCount(context))
-        Prefs.incrementTipCount(context)
-        assertEquals(1, Prefs.getTipCount(context))
-        Prefs.incrementTipCount(context, 3)
-        assertEquals(4, Prefs.getTipCount(context))
-    }
 
     @Test
     fun `widget link is scoped per widget id`() {

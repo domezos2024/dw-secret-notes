@@ -22,7 +22,6 @@ class SecretWebView(context: Context) : WebView(context) {
     companion object {
         private const val ENCRYPT_ENDPOINT = "https://domezos-ware.org/api/android_be_encrypt.php"
         private const val DECRYPT_ENDPOINT = "https://domezos-ware.org/api/view_api.php"
-        private const val SHORT_LINK_HOST = "https://snote.fun"
     }
 
     @SuppressLint("SetJavaScriptEnabled")
@@ -67,11 +66,7 @@ class SecretWebView(context: Context) : WebView(context) {
     }
 
     private fun buildDecryptUrl(alias: String, pass: String): String {
-        val isLink = alias.startsWith("link:")
-        val cleanAlias = if (isLink) alias.substring(5) else alias
-        if (isLink) {
-            return "$SHORT_LINK_HOST?link=$cleanAlias"
-        }
+        val cleanAlias = if (alias.startsWith("link:")) alias.substring(5) else alias
         val encodedAlias = URLEncoder.encode(cleanAlias, "UTF-8")
         val encodedPass = URLEncoder.encode(pass, "UTF-8")
         return "$DECRYPT_ENDPOINT?com=$encodedAlias&pass=$encodedPass"
