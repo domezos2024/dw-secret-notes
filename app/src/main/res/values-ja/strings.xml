@@ -38,10 +38,6 @@
     <string name="help_faq_a1">いいえ。復号後、直ちにサーバーから削除されます。</string>
     <string name="help_faq_q2">リンクをなくした場合はどうなりますか？</string>
     <string name="help_faq_a2">復元は不可能です。バックアップはありません。相手が読むまでリンクを大切に保管してください。</string>
-    <string name="help_faq_q3">アカウントは必要ですか？</string>
-    <string name="help_faq_a3">基本機能にアカウントは不要です。プレミアム会員はカスタムエイリアス、パスワード保護などの機能を利用できます。</string>
-    <string name="help_faq_q4">再インストールまたはリセット後にPremiumを復元できますか？</string>
-    <string name="help_faq_a4">いいえ。Premiumはインストールごとに新しく生成される単一の匿名デバイストークンに結びついています。個人データを意図的に保存せず、デバイスを追跡することもできません。アプリがアンインストール、リセット、または新しいデバイスに移動された場合、Premiumは復元できず、再度購入が必要です。</string>
     <string name="info_title">アプリについて</string>
     <string name="info_version_label">バージョン</string>
     <string name="info_developer_label">開発者</string>
@@ -124,6 +120,32 @@
 • 最大閲覧数の設定
 • 詳細な統計</string>
     <string name="tinyurl_btn_web">ウェブサイトにアクセス</string>
+    <string name="tinyurl2_headline">リンクを瞬時に短縮</string>
+    <string name="tinyurl2_intro">長いURLを貼り付けるだけで、snote.funでホストされた見やすく共有しやすい短縮リンクを取得できます。4日間有効です。</string>
+    <string name="tinyurl2_open_button">snote.fun/tinyURLを開く</string>
+    <string name="tinyurl2_tier_free_title">アカウントなし</string>
+    <string name="tinyurl2_tier_free_badge">無料・アカウント不要</string>
+    <string name="tinyurl2_tier_free_item1">snote.fun/XXXXXにリンクを短縮</string>
+    <string name="tinyurl2_tier_free_item2">リンクは4日後に期限切れ</string>
+    <string name="tinyurl2_tier_free_item3">登録不要</string>
+    <string name="tinyurl2_tier_reg_title">登録ユーザー</string>
+    <string name="tinyurl2_tier_reg_badge">無料・アカウントあり</string>
+    <string name="tinyurl2_tier_reg_item1">リンクは20日後に期限切れ</string>
+    <string name="tinyurl2_tier_reg_item2">各リンクにQRコード</string>
+    <string name="tinyurl2_tier_reg_item3">基本的なリンク統計</string>
+    <string name="tinyurl2_tier_reg_item4">作成したすべてのリンクの概要</string>
+    <string name="tinyurl2_tier_premium_title">プレミアム</string>
+    <string name="tinyurl2_tier_premium_badge">★ プレミアム</string>
+    <string name="tinyurl2_tier_premium_item1">登録ユーザーの全機能</string>
+    <string name="tinyurl2_tier_premium_item2">有効期限のカスタマイズ（日数指定または無期限）</string>
+    <string name="tinyurl2_tier_premium_item3">パスワード保護されたリンク</string>
+    <string name="tinyurl2_tier_premium_item4">高度な統計（クリック数など）</string>
+    <string name="tinyurl2_tier_premium_item5">リンクにカスタムエイリアス</string>
+    <string name="tinyurl2_tier_premium_item6">自動無効化までのクリック数制限</string>
+    <string name="tinyurl2_how_it_works_title">使い方</string>
+    <string name="tinyurl2_step1">長いURLを入力欄に貼り付けます。</string>
+    <string name="tinyurl2_step2">TinyURL ↗をクリック — 数秒でリンクが完成します。</string>
+    <string name="tinyurl2_step3">短縮リンクをコピー、共有、または開きます。</string>
     <string name="footer_website">https://domezos-ware.org</string>
     <string name="footer_copyright">© 2026 DoMeZos-Ware</string>
     <string name="footer_rate_prompt">アプリを気に入っていただけましたか？評価をお願いします！</string>

@@ -39,10 +39,6 @@
     <string name="help_faq_a1">नहीं। संदेश पहली डिक्रिप्शन के तुरंत बाद खुद को नष्ट कर देते हैं और सर्वर से अपरिवर्तनीय रूप से हटा दिए जाते हैं।</string>
     <string name="help_faq_q2">अगर मैं लिंक खो दूँ तो क्या होगा?</string>
     <string name="help_faq_a2">संदेश को रिकवर नहीं किया जा सकता है। कोई बैकअप नहीं है। चूंकि संदेश खोलने के बाद खुद को हटा देता है, इसलिए अधिकतम गोपनीयता की गारंटी है।</string>
-    <string name="help_faq_q3">प्रीमियम सुविधा क्या प्रदान करती है?</string>
-    <string name="help_faq_a3">प्रीमियम उपयोगकर्ताओं को अत्यंत छोटे, यादगार लिंक मिलते हैं (snote.fun/ के बाद केवल 5 गतिशील अंक), जो पृष्ठभूमि में एक सुरक्षित, एन्क्रिप्टेड डेटाबेस द्वारा संभव बनाया गया है।</string>
-    <string name="help_faq_q4">क्या Premium को पुनः इंस्टॉलेशन या रीसेट के बाद बहाल किया जा सकता है?</string>
-    <string name="help_faq_a4">नहीं। Premium एक अकेले गुमनाम डिवाइस टोकन से जुड़ा हुआ है जो हर इंस्टॉलेशन पर नया बनाया जाता है। हम जानबूझकर कोई व्यक्तिगत डेटा संग्रहीत नहीं करते और डिवाइस को ट्रैक नहीं कर सकते। अगर ऐप अनइंस्टॉल, रीसेट या नए डिवाइस पर ले जाया जाए, तो Premium वापस नहीं किया जा सकता और फिर से खरीदना होगा।</string>
     <string name="info_title">ऐप के बारे में</string>
     <string name="info_version_label">संस्करण</string>
     <string name="info_developer_label">डेवलपर</string>
@@ -125,6 +121,32 @@
 • अधिकतम दृश्य सेट करें
 • विस्तृत आंकड़े</string>
     <string name="tinyurl_btn_web">वेबसाइट पर जाएं</string>
+    <string name="tinyurl2_headline">अपने लिंक तुरंत छोटे करें</string>
+    <string name="tinyurl2_intro">कोई भी लंबा URL पेस्ट करें और एक साफ़, साझा करने योग्य छोटा लिंक पाएं — snote.fun पर होस्ट किया गया और 4 दिनों तक सक्रिय।</string>
+    <string name="tinyurl2_open_button">snote.fun/tinyURL खोलें</string>
+    <string name="tinyurl2_tier_free_title">बिना खाते के</string>
+    <string name="tinyurl2_tier_free_badge">मुफ़्त · बिना खाता</string>
+    <string name="tinyurl2_tier_free_item1">लिंक को snote.fun/XXXXX में छोटा करें</string>
+    <string name="tinyurl2_tier_free_item2">लिंक 4 दिनों बाद समाप्त हो जाता है</string>
+    <string name="tinyurl2_tier_free_item3">पंजीकरण आवश्यक नहीं</string>
+    <string name="tinyurl2_tier_reg_title">पंजीकृत उपयोगकर्ता</string>
+    <string name="tinyurl2_tier_reg_badge">मुफ़्त · खाते के साथ</string>
+    <string name="tinyurl2_tier_reg_item1">लिंक 20 दिनों बाद समाप्त हो जाते हैं</string>
+    <string name="tinyurl2_tier_reg_item2">हर लिंक के लिए QR कोड</string>
+    <string name="tinyurl2_tier_reg_item3">मूल लिंक आँकड़े</string>
+    <string name="tinyurl2_tier_reg_item4">बनाए गए सभी लिंक का अवलोकन</string>
+    <string name="tinyurl2_tier_premium_title">प्रीमियम</string>
+    <string name="tinyurl2_tier_premium_badge">★ प्रीमियम</string>
+    <string name="tinyurl2_tier_premium_item1">पंजीकृत की सभी सुविधाएं शामिल</string>
+    <string name="tinyurl2_tier_premium_item2">कस्टम समाप्ति (दिन या असीमित)</string>
+    <string name="tinyurl2_tier_premium_item3">पासवर्ड-सुरक्षित लिंक</string>
+    <string name="tinyurl2_tier_premium_item4">उन्नत आँकड़े (क्लिक गिनती और अधिक)</string>
+    <string name="tinyurl2_tier_premium_item5">लिंक में कस्टम उपनाम</string>
+    <string name="tinyurl2_tier_premium_item6">स्वतः निष्क्रिय होने तक क्लिक सीमा</string>
+    <string name="tinyurl2_how_it_works_title">यह कैसे काम करता है</string>
+    <string name="tinyurl2_step1">अपना लंबा URL फ़ील्ड में पेस्ट करें।</string>
+    <string name="tinyurl2_step2">TinyURL ↗ पर क्लिक करें — आपका लिंक सेकंडों में तैयार हो जाएगा।</string>
+    <string name="tinyurl2_step3">अपना छोटा लिंक कॉपी करें, साझा करें या खोलें।</string>
     <string name="footer_website">https://domezos-ware.org</string>
     <string name="footer_copyright">© 2026 DoMeZos-Ware</string>
     <string name="footer_rate_prompt">ऐप पसंद आ रहा है? हमें रेट करें!</string>

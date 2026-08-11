@@ -32,8 +32,6 @@ fun HelpScreen(onNavigate: (String) -> Unit, onBack: () -> Unit, onThemeChanged:
             HelpSection(title = stringResource(R.string.help_security_title), body = stringResource(R.string.help_security_body))
             HelpSection(title = stringResource(R.string.help_faq_q1), body = stringResource(R.string.help_faq_a1))
             HelpSection(title = stringResource(R.string.help_faq_q2), body = stringResource(R.string.help_faq_a2))
-            HelpSection(title = stringResource(R.string.help_faq_q3), body = stringResource(R.string.help_faq_a3))
-            HelpSection(title = stringResource(R.string.help_faq_q4), body = stringResource(R.string.help_faq_a4))
             Spacer(Modifier.height(8.dp))
             FooterNote()
         }

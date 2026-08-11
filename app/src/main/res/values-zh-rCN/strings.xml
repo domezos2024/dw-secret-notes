@@ -39,10 +39,6 @@
     <string name="help_faq_a1">不可以。消息在解密后会立即从服务器中删除。</string>
     <string name="help_faq_q2">如果我丢失了链接会怎样？</string>
     <string name="help_faq_a2">消息无法恢复。没有备份。请妥善保管链接，直到接收者阅读完毕。</string>
-    <string name="help_faq_q3">我需要账户吗？</string>
-    <string name="help_faq_a3">基本使用不需要账户。高级版用户可享受自定义别名、密码保护等额外功能。</string>
-    <string name="help_faq_q4">重新安装或重置后可以恢复高级版吗？</string>
-    <string name="help_faq_a4">不可以。高级版与单个匿名设备令牌绑定，该令牌会在每次安装时重新生成。我们不会存储任何个人数据，也无法追踪设备。如果卸载应用、重置设备或更换新设备，高级版将无法恢复，需要重新购买。</string>
     <string name="info_title">关于应用</string>
     <string name="info_version_label">版本</string>
     <string name="info_developer_label">开发者</string>
@@ -125,6 +121,32 @@
 • 设置最大查看次数
 • 详细统计数据</string>
     <string name="tinyurl_btn_web">访问网站</string>
+    <string name="tinyurl2_headline">即刻缩短您的链接</string>
+    <string name="tinyurl2_intro">粘贴任意长链接，获得一个简洁、可分享的短链接——托管于 snote.fun，有效期 4 天。</string>
+    <string name="tinyurl2_open_button">打开 snote.fun/tinyURL</string>
+    <string name="tinyurl2_tier_free_title">无需账号</string>
+    <string name="tinyurl2_tier_free_badge">免费 · 无需账号</string>
+    <string name="tinyurl2_tier_free_item1">将链接缩短为 snote.fun/XXXXX</string>
+    <string name="tinyurl2_tier_free_item2">链接 4 天后过期</string>
+    <string name="tinyurl2_tier_free_item3">无需注册</string>
+    <string name="tinyurl2_tier_reg_title">注册用户</string>
+    <string name="tinyurl2_tier_reg_badge">免费 · 需要账号</string>
+    <string name="tinyurl2_tier_reg_item1">链接 20 天后过期</string>
+    <string name="tinyurl2_tier_reg_item2">每个链接均附带二维码</string>
+    <string name="tinyurl2_tier_reg_item3">基础链接统计</string>
+    <string name="tinyurl2_tier_reg_item4">所有已创建链接的总览</string>
+    <string name="tinyurl2_tier_premium_title">高级版</string>
+    <string name="tinyurl2_tier_premium_badge">★ 高级版</string>
+    <string name="tinyurl2_tier_premium_item1">包含注册用户的全部功能</string>
+    <string name="tinyurl2_tier_premium_item2">自定义有效期（天数或永久）</string>
+    <string name="tinyurl2_tier_premium_item3">密码保护链接</string>
+    <string name="tinyurl2_tier_premium_item4">高级统计（点击次数等）</string>
+    <string name="tinyurl2_tier_premium_item5">链接自定义别名</string>
+    <string name="tinyurl2_tier_premium_item6">自动停用前的点击次数限制</string>
+    <string name="tinyurl2_how_it_works_title">使用方法</string>
+    <string name="tinyurl2_step1">将您的长链接粘贴到输入框中。</string>
+    <string name="tinyurl2_step2">点击 TinyURL ↗ —— 几秒钟内即可生成短链接。</string>
+    <string name="tinyurl2_step3">复制、分享或打开您的短链接。</string>
     <string name="footer_website">https://domezos-ware.org</string>
     <string name="footer_copyright">(c) 2026 DoMeZos-Ware</string>
     <string name="footer_rate_prompt">喜欢这款应用吗？给我们评分吧！</string>

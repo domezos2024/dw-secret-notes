@@ -40,10 +40,6 @@
     <string name="help_faq_a1">Non. Les messages s\'autodétruisent immédiatement après le premier déchiffrement et sont irrévocablement supprimés du serveur.</string>
     <string name="help_faq_q2">Que se passe-t-il si je perds le lien ?</string>
     <string name="help_faq_a2">Le message ne peut pas être récupéré. Il n\'y a pas de sauvegarde. Comme le message se supprime après ouverture, une discrétion maximale est garantie.</string>
-    <string name="help_faq_q3">Que propose la fonction Premium ?</string>
-    <string name="help_faq_a3">Les utilisateurs Premium bénéficient de liens extrêmement courts et faciles à retenir (seulement 5 chiffres dynamiques aprs snote.fun/), rendus possibles par une base de données sécurisée et chiffrée en arrière-plan.</string>
-    <string name="help_faq_q4">Le Premium peut-il être restauré après une réinstallation ou une réinitialisation?</string>
-    <string name="help_faq_a4">Non. Le Premium est lié à un jeton d\'appareil anonyme unique généré à chaque installation. Nous ne stockons intentionnellement aucune donnée personnelle et ne pouvons pas suivre les appareils. Si l\'application est désinstallée, réinitialisée ou déplacée vers un nouvel appareil, le Premium ne peut pas être récupéré et doit être acheté à nouveau.</string>
     <string name="info_title">À propos</string>
     <string name="info_version_label">Version</string>
     <string name="info_developer_label">Développeur</string>
@@ -126,6 +122,32 @@
 • Définir le nombre maximal de vues
 • Statistiques détaillées</string>
     <string name="tinyurl_btn_web">Visiter le site web</string>
+    <string name="tinyurl2_headline">Raccourcissez vos liens instantanément</string>
+    <string name="tinyurl2_intro">Collez n\'importe quelle URL longue et obtenez un lien court, propre et partageable — hébergé sur snote.fun et actif pendant 4 jours.</string>
+    <string name="tinyurl2_open_button">Ouvrir snote.fun/tinyURL</string>
+    <string name="tinyurl2_tier_free_title">Sans compte</string>
+    <string name="tinyurl2_tier_free_badge">Gratuit · Sans compte</string>
+    <string name="tinyurl2_tier_free_item1">Raccourcir les liens en snote.fun/XXXXX</string>
+    <string name="tinyurl2_tier_free_item2">Le lien expire après 4 jours</string>
+    <string name="tinyurl2_tier_free_item3">Aucune inscription requise</string>
+    <string name="tinyurl2_tier_reg_title">Utilisateur inscrit</string>
+    <string name="tinyurl2_tier_reg_badge">Gratuit · Avec compte</string>
+    <string name="tinyurl2_tier_reg_item1">Les liens expirent après 20 jours</string>
+    <string name="tinyurl2_tier_reg_item2">Code QR pour chaque lien</string>
+    <string name="tinyurl2_tier_reg_item3">Statistiques de base des liens</string>
+    <string name="tinyurl2_tier_reg_item4">Aperçu de tous les liens créés</string>
+    <string name="tinyurl2_tier_premium_title">Premium</string>
+    <string name="tinyurl2_tier_premium_badge">★ Premium</string>
+    <string name="tinyurl2_tier_premium_item1">Tout ce qui est inclus dans Inscrit</string>
+    <string name="tinyurl2_tier_premium_item2">Expiration personnalisée (jours ou illimité)</string>
+    <string name="tinyurl2_tier_premium_item3">Liens protégés par mot de passe</string>
+    <string name="tinyurl2_tier_premium_item4">Statistiques avancées (clics et plus)</string>
+    <string name="tinyurl2_tier_premium_item5">Alias personnalisé dans le lien</string>
+    <string name="tinyurl2_tier_premium_item6">Limite de clics jusqu\'à la désactivation automatique</string>
+    <string name="tinyurl2_how_it_works_title">Comment ça marche</string>
+    <string name="tinyurl2_step1">Collez votre URL longue dans le champ.</string>
+    <string name="tinyurl2_step2">Cliquez sur TinyURL ↗ — votre lien est prêt en quelques secondes.</string>
+    <string name="tinyurl2_step3">Copiez, partagez ou ouvrez votre lien court.</string>
     <string name="footer_website">https://domezos-ware.org</string>
     <string name="footer_copyright">© 2026 DoMeZos-Ware</string>
     <string name="footer_rate_prompt">Vous aimez l’application ? Notez-nous !</string>

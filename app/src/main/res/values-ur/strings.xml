@@ -39,10 +39,6 @@
     <string name="help_faq_a1">نہیں۔ پیغامات پہلی ڈیکرپشن کے فوراً بعد خود کو تباہ کر دیتے ہیں اور سرور سے ناقابل واپسی طور پر حذف کر دیے جاتے ہیں۔</string>
     <string name="help_faq_q2">اگر میں لنک کھو دوں تو کیا ہوگا؟</string>
     <string name="help_faq_a2">پیغام کو بحال نہیں کیا جا سکتا۔ کوئی بیک اپ نہیں ہے۔ چونکہ پیغام کھولنے کے بعد خود کو حذف کر دیتا ہے، اس لیے زیادہ سے زیادہ رازداری کی ضمانت دی جاتی ہے۔</string>
-    <string name="help_faq_q3">پریمیم فیچر کیا پیش کرتا ہے؟</string>
-    <string name="help_faq_a3">پریمیم صارفین کو انتہائی مختصر، یادگار لنکس ملتے ہیں (snote.fun/ کے بعد صرف 5 متحرک ہندسے)، جو پس منظر میں ایک محفوظ، انکرپٹڈ ڈیٹا بیس کے ذریعے ممکن ہوا ہے۔</string>
-    <string name="help_faq_q4">کیا دوبارہ انسٹال یا ری سیٹ کے بعد Premium بحال ہو سکتا ہے؟</string>
-    <string name="help_faq_a4">نہیں۔ Premium ایک واحد گمنام ڈیوائس ٹوکن سے جڑا ہوا ہے جو ہر انسٹالیشن پر نئے سرے سے بنایا جاتا ہے۔ ہم جان بوجھ کر کوئی ذاتی ڈیٹا محفوظ نہیں کرتے اور ڈیوائسز کو ٹریک نہیں کر سکتے۔ اگر ایپ انسٹال سے ہٹائی جائے، ری سیٹ کی جائے یا نئے ڈیوائس پر منتقل کی جائے تو Premium بحال نہیں ہو سکتا اور دوبارہ خریدنا ہوگا۔</string>
     <string name="info_title">ایپ کے بارے میں</string>
     <string name="info_version_label">ورژن</string>
     <string name="info_developer_label">ڈیولپر</string>
@@ -125,6 +121,32 @@
 • زیادہ سے زیادہ ویوز سیٹ کریں
 • تفصیلی اعداد و شمار</string>
     <string name="tinyurl_btn_web">ویب سائٹ دیکھیں</string>
+    <string name="tinyurl2_headline">اپنے لنکس فوری طور پر مختصر کریں</string>
+    <string name="tinyurl2_intro">کوئی بھی لمبا URL پیسٹ کریں اور ایک صاف، قابلِ اشتراک مختصر لنک حاصل کریں — snote.fun پر میزبانی شدہ اور 4 دن تک فعال۔</string>
+    <string name="tinyurl2_open_button">snote.fun/tinyURL کھولیں</string>
+    <string name="tinyurl2_tier_free_title">اکاؤنٹ کے بغیر</string>
+    <string name="tinyurl2_tier_free_badge">مفت · بغیر اکاؤنٹ</string>
+    <string name="tinyurl2_tier_free_item1">لنکس کو snote.fun/XXXXX میں مختصر کریں</string>
+    <string name="tinyurl2_tier_free_item2">لنک 4 دن بعد ختم ہو جاتا ہے</string>
+    <string name="tinyurl2_tier_free_item3">رجسٹریشن کی ضرورت نہیں</string>
+    <string name="tinyurl2_tier_reg_title">رجسٹرڈ صارف</string>
+    <string name="tinyurl2_tier_reg_badge">مفت · اکاؤنٹ کے ساتھ</string>
+    <string name="tinyurl2_tier_reg_item1">لنکس 20 دن بعد ختم ہو جاتے ہیں</string>
+    <string name="tinyurl2_tier_reg_item2">ہر لنک کے لیے QR کوڈ</string>
+    <string name="tinyurl2_tier_reg_item3">بنیادی لنک اعداد و شمار</string>
+    <string name="tinyurl2_tier_reg_item4">تمام بنائے گئے لنکس کا جائزہ</string>
+    <string name="tinyurl2_tier_premium_title">پریمیم</string>
+    <string name="tinyurl2_tier_premium_badge">★ پریمیم</string>
+    <string name="tinyurl2_tier_premium_item1">رجسٹرڈ کی تمام خصوصیات شامل</string>
+    <string name="tinyurl2_tier_premium_item2">اپنی مرضی کی میعاد (دن یا لامحدود)</string>
+    <string name="tinyurl2_tier_premium_item3">پاس ورڈ سے محفوظ لنکس</string>
+    <string name="tinyurl2_tier_premium_item4">جدید اعداد و شمار (کلک کی تعداد وغیرہ)</string>
+    <string name="tinyurl2_tier_premium_item5">لنک میں اپنی مرضی کا عرفی نام</string>
+    <string name="tinyurl2_tier_premium_item6">خودکار غیر فعال ہونے تک کلک کی حد</string>
+    <string name="tinyurl2_how_it_works_title">یہ کیسے کام کرتا ہے</string>
+    <string name="tinyurl2_step1">اپنا لمبا URL خانے میں پیسٹ کریں۔</string>
+    <string name="tinyurl2_step2">TinyURL ↗ پر کلک کریں — آپ کا لنک سیکنڈوں میں تیار ہو جائے گا۔</string>
+    <string name="tinyurl2_step3">اپنا مختصر لنک کاپی، شیئر یا اوپن کریں۔</string>
     <string name="footer_website">https://domezos-ware.org</string>
     <string name="footer_copyright">(c) 2026 DoMeZos-Ware</string>
     <string name="footer_rate_prompt">ایپ پسند آ رہی ہے؟ ہمیں ریٹ کریں!</string>

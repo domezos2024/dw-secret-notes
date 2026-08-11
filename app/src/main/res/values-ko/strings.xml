@@ -38,10 +38,6 @@
     <string name="help_faq_a1">아니요. 메시지는 복호화된 즉시 서버에서 삭제됩니다.</string>
     <string name="help_faq_q2">링크를 잃어버리면 어떻게 되나요?</string>
     <string name="help_faq_a2">메시지를 복구할 수 없습니다. 백업이 없습니다. 수신자가 읽을 때까지 링크를 안전하게 보관하세요.</string>
-    <string name="help_faq_q3">계정이 필요합니까?</string>
-    <string name="help_faq_a3">기본적인 사용에는 계정이 필요하지 않습니다. 프리미엄 사용자는 맞춤 별칭, 비밀번호 보호 및 더 긴 보관 기간과 같은 추가 기능을 이용할 수 있습니다.</string>
-    <string name="help_faq_q4">재설치 또는 초기화 후 Premium을 복구할 수 있나요?</string>
-    <string name="help_faq_a4">아니요. Premium은 설치할 때마다 새로 생성되는 단일 익명 기기 토큰에 연결됩니다. 저희는 의도적으로 개인 데이터를 저장하지 않으며 기기를 추적할 수 없습니다. 앱이 삭제, 초기화되거나 새 기기로 이동되면 Premium을 복구할 수 없으며 다시 구매해야 합니다.</string>
     <string name="info_title">앱 정보</string>
     <string name="info_version_label">버전</string>
     <string name="info_developer_label">개발자</string>
@@ -124,6 +120,32 @@
 • 최대 조회수 설정
 • 상세 통계</string>
     <string name="tinyurl_btn_web">웹사이트 방문</string>
+    <string name="tinyurl2_headline">링크를 즉시 단축하세요</string>
+    <string name="tinyurl2_intro">긴 URL을 붙여넣으면 snote.fun에서 호스팅되는 깔끔하고 공유하기 쉬운 짧은 링크를 4일 동안 사용할 수 있습니다.</string>
+    <string name="tinyurl2_open_button">snote.fun/tinyURL 열기</string>
+    <string name="tinyurl2_tier_free_title">계정 없이</string>
+    <string name="tinyurl2_tier_free_badge">무료 · 계정 불필요</string>
+    <string name="tinyurl2_tier_free_item1">snote.fun/XXXXX로 링크 단축</string>
+    <string name="tinyurl2_tier_free_item2">링크는 4일 후 만료</string>
+    <string name="tinyurl2_tier_free_item3">가입 불필요</string>
+    <string name="tinyurl2_tier_reg_title">등록된 사용자</string>
+    <string name="tinyurl2_tier_reg_badge">무료 · 계정 필요</string>
+    <string name="tinyurl2_tier_reg_item1">링크는 20일 후 만료</string>
+    <string name="tinyurl2_tier_reg_item2">모든 링크에 QR 코드 제공</string>
+    <string name="tinyurl2_tier_reg_item3">기본 링크 통계</string>
+    <string name="tinyurl2_tier_reg_item4">생성한 모든 링크 개요</string>
+    <string name="tinyurl2_tier_premium_title">프리미엄</string>
+    <string name="tinyurl2_tier_premium_badge">★ 프리미엄</string>
+    <string name="tinyurl2_tier_premium_item1">등록 사용자의 모든 기능 포함</string>
+    <string name="tinyurl2_tier_premium_item2">사용자 지정 만료(일수 또는 무제한)</string>
+    <string name="tinyurl2_tier_premium_item3">비밀번호로 보호된 링크</string>
+    <string name="tinyurl2_tier_premium_item4">고급 통계(클릭 수 등)</string>
+    <string name="tinyurl2_tier_premium_item5">링크에 사용자 지정 별칭</string>
+    <string name="tinyurl2_tier_premium_item6">자동 비활성화까지의 클릭 제한</string>
+    <string name="tinyurl2_how_it_works_title">이용 방법</string>
+    <string name="tinyurl2_step1">긴 URL을 입력란에 붙여넣으세요.</string>
+    <string name="tinyurl2_step2">TinyURL ↗을 클릭하세요 — 몇 초 안에 링크가 생성됩니다.</string>
+    <string name="tinyurl2_step3">단축 링크를 복사, 공유 또는 열어보세요.</string>
     <string name="footer_website">https://domezos-ware.org</string>
     <string name="footer_copyright">© 2026 DoMeZos-Ware</string>
     <string name="footer_rate_prompt">앱이 마음에 드시나요? 평가해 주세요!</string>

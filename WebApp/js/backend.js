@@ -24,7 +24,7 @@
  *     `pass_override ?? suppliedPass`; a real GCM auth-tag mismatch (wrong
  *     pass) throws. After a successful decrypt the site fires
  *     `msg_store.php?action=unlink&com=<alias>` to self-destruct the note.
- *   - Short links (`snote.fun?link=<alias>`, Premium-only on the Android
+ *   - Short links (`snote.fun?link=<alias>`, on the Android
  *     side): snote.fun serves a redirect page with the resolved
  *     `const targetUrl = "https://domezos-ware.org/msges/view.php?com=...&pass=...";`
  *     already inlined — regex-extracting it avoids needing to execute that
@@ -32,10 +32,10 @@
  *     since we only fetch() it here, that side effect doesn't happen, and
  *     the note itself still gets unlinked by the decrypt flow above).
  *
- * This app never creates Premium short links (no billing in the web
+ * This app never creates short links (in the web
  * version, see README) — encryptNote() always returns the long `com=`/`pass=`
  * form — but decryptNote() still resolves short links a user might paste in
- * from someone else's Premium-generated link.
+ * from someone else's generated link.
  */
 
 const STORE_ENDPOINT = "https://domezos-ware.org/api/msg_store.php";

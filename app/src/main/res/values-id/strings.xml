@@ -38,10 +38,6 @@
     <string name="help_faq_a1">Tidak. Pesan menghancurkan diri sendiri segera setelah dekripsi pertama dan dihapus secara permanen dari server.</string>
     <string name="help_faq_q2">Apa yang terjadi jika saya kehilangan tautannya?</string>
     <string name="help_faq_a2">Pesan tidak dapat dipulihkan. Tidak ada cadangan. Karena pesan menghapus dirinya sendiri setelah dibuka, diskresi maksimal dijamin.</string>
-    <string name="help_faq_q3">Apa yang ditawarkan fitur Premium?</string>
-    <string name="help_faq_a3">Pengguna Premium mendapatkan tautan yang sangat pendek dan mudah diingat (hanya 5 digit dinamis setelah snote.fun/), dimungkinkan oleh database yang aman dan terenkripsi di latar belakang.</string>
-    <string name="help_faq_q4">Bisakah Premium dipulihkan setelah instalasi ulang atau reset?</string>
-    <string name="help_faq_a4">Tidak. Premium terikat pada token perangkat anonim tunggal yang dibuat baru setiap kali instalasi. Kami sengaja tidak menyimpan data pribadi dan tidak dapat melacak perangkat. Jika aplikasi dihapus, direset, atau dipindahkan ke perangkat baru, Premium tidak dapat dipulihkan dan harus dibeli lagi.</string>
     <string name="info_title">Tentang</string>
     <string name="info_version_label">Versi</string>
     <string name="info_developer_label">Pengembang</string>
@@ -124,6 +120,32 @@
 • Tetapkan tampilan maksimum
 • Statistik terperinci</string>
     <string name="tinyurl_btn_web">Kunjungi Situs Web</string>
+    <string name="tinyurl2_headline">Persingkat Tautan Anda Secara Instan</string>
+    <string name="tinyurl2_intro">Tempel URL panjang apa pun dan dapatkan tautan pendek yang bersih dan mudah dibagikan — dihosting di snote.fun dan aktif selama 4 hari.</string>
+    <string name="tinyurl2_open_button">Buka snote.fun/tinyURL</string>
+    <string name="tinyurl2_tier_free_title">Tanpa Akun</string>
+    <string name="tinyurl2_tier_free_badge">Gratis · Tanpa Akun</string>
+    <string name="tinyurl2_tier_free_item1">Persingkat tautan menjadi snote.fun/XXXXX</string>
+    <string name="tinyurl2_tier_free_item2">Tautan kedaluwarsa setelah 4 hari</string>
+    <string name="tinyurl2_tier_free_item3">Tidak perlu registrasi</string>
+    <string name="tinyurl2_tier_reg_title">Pengguna Terdaftar</string>
+    <string name="tinyurl2_tier_reg_badge">Gratis · Dengan Akun</string>
+    <string name="tinyurl2_tier_reg_item1">Tautan kedaluwarsa setelah 20 hari</string>
+    <string name="tinyurl2_tier_reg_item2">Kode QR untuk setiap tautan</string>
+    <string name="tinyurl2_tier_reg_item3">Statistik tautan dasar</string>
+    <string name="tinyurl2_tier_reg_item4">Ringkasan semua tautan yang dibuat</string>
+    <string name="tinyurl2_tier_premium_title">Premium</string>
+    <string name="tinyurl2_tier_premium_badge">★ Premium</string>
+    <string name="tinyurl2_tier_premium_item1">Semua fitur Terdaftar</string>
+    <string name="tinyurl2_tier_premium_item2">Kedaluwarsa kustom (hari atau tanpa batas)</string>
+    <string name="tinyurl2_tier_premium_item3">Tautan dilindungi kata sandi</string>
+    <string name="tinyurl2_tier_premium_item4">Statistik lanjutan (jumlah klik &amp; lainnya)</string>
+    <string name="tinyurl2_tier_premium_item5">Alias kustom pada tautan</string>
+    <string name="tinyurl2_tier_premium_item6">Batas klik hingga nonaktif otomatis</string>
+    <string name="tinyurl2_how_it_works_title">Cara Kerjanya</string>
+    <string name="tinyurl2_step1">Tempel URL panjang Anda ke dalam kolom.</string>
+    <string name="tinyurl2_step2">Klik TinyURL ↗ — tautan Anda siap dalam hitungan detik.</string>
+    <string name="tinyurl2_step3">Salin, bagikan, atau buka tautan pendek Anda.</string>
     <string name="footer_website">https://domezos-ware.org</string>
     <string name="footer_copyright">© 2026 DoMeZos-Ware</string>
     <string name="footer_rate_prompt">Suka dengan aplikasi ini? Beri kami rating!</string>

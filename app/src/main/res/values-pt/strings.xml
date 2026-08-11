@@ -40,10 +40,6 @@
     <string name="help_faq_a1">Não. As mensagens autodestroem-se imediatamente após a primeira descriptografia e são apagadas irrevogavelmente do servidor.</string>
     <string name="help_faq_q2">O que acontece se eu perder o link?</string>
     <string name="help_faq_a2">A mensagem não pode ser recuperada. Não há backup. Como a mensagem se apaga após a abertura, a máxima discrição é garantida.</string>
-    <string name="help_faq_q3">O que oferece a função Premium?</string>
-    <string name="help_faq_a3">Usuários Premium recebem links extremamente curtos e fáceis de lembrar (apenas 5 dígitos dinâmicos após snote.fun/), possibilitados por um banco de dados seguro e criptografado em segundo plano.</string>
-    <string name="help_faq_q4">O Premium pode ser restaurado após reinstalação ou redefinição?</string>
-    <string name="help_faq_a4">Não. O Premium está vinculado a um único token de dispositivo anónimo que é gerado de novo em cada instalação. Intencionalmente não armazenamos dados pessoais e não podemos rastrear dispositivos. Se a aplicação for desinstalada, redefinida ou movida para um novo dispositivo, o Premium não pode ser recuperado e deve ser comprado novamente.</string>
     <string name="info_title">Sobre o App</string>
     <string name="info_version_label">Versão</string>
     <string name="info_developer_label">Desenvolvedor</string>
@@ -126,6 +122,32 @@
 • Definir visualizações máximas
 • Estatísticas détaillées</string>
     <string name="tinyurl_btn_web">Visitar website</string>
+    <string name="tinyurl2_headline">Encurte seus links instantaneamente</string>
+    <string name="tinyurl2_intro">Cole qualquer URL longa e obtenha um link curto e compartilhável — hospedado em snote.fun e ativo por 4 dias.</string>
+    <string name="tinyurl2_open_button">Abrir snote.fun/tinyURL</string>
+    <string name="tinyurl2_tier_free_title">Sem conta</string>
+    <string name="tinyurl2_tier_free_badge">Grátis · Sem conta</string>
+    <string name="tinyurl2_tier_free_item1">Encurtar links para snote.fun/XXXXX</string>
+    <string name="tinyurl2_tier_free_item2">O link expira após 4 dias</string>
+    <string name="tinyurl2_tier_free_item3">Nenhum registro necessário</string>
+    <string name="tinyurl2_tier_reg_title">Usuário registrado</string>
+    <string name="tinyurl2_tier_reg_badge">Grátis · Com conta</string>
+    <string name="tinyurl2_tier_reg_item1">Links expiram após 20 dias</string>
+    <string name="tinyurl2_tier_reg_item2">Código QR para cada link</string>
+    <string name="tinyurl2_tier_reg_item3">Estatísticas básicas do link</string>
+    <string name="tinyurl2_tier_reg_item4">Visão geral de todos os links criados</string>
+    <string name="tinyurl2_tier_premium_title">Premium</string>
+    <string name="tinyurl2_tier_premium_badge">★ Premium</string>
+    <string name="tinyurl2_tier_premium_item1">Tudo do plano Registrado</string>
+    <string name="tinyurl2_tier_premium_item2">Expiração personalizada (dias ou ilimitado)</string>
+    <string name="tinyurl2_tier_premium_item3">Links protegidos por senha</string>
+    <string name="tinyurl2_tier_premium_item4">Estatísticas avançadas (contagem de cliques e mais)</string>
+    <string name="tinyurl2_tier_premium_item5">Alias personalizado no link</string>
+    <string name="tinyurl2_tier_premium_item6">Limite de cliques até a desativação automática</string>
+    <string name="tinyurl2_how_it_works_title">Como funciona</string>
+    <string name="tinyurl2_step1">Cole sua URL longa no campo.</string>
+    <string name="tinyurl2_step2">Clique em TinyURL ↗ — seu link fica pronto em segundos.</string>
+    <string name="tinyurl2_step3">Copie, compartilhe ou abra seu link curto.</string>
     <string name="footer_website">https://domezos-ware.org</string>
     <string name="footer_copyright">© 2026 DoMeZos-Ware</string>
     <string name="footer_rate_prompt">Gostando do app? Avalie-nos!</string>

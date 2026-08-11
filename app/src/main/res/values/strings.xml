@@ -39,10 +39,6 @@
     <string name="help_faq_a1">No. Messages self-destruct immediately after the first decryption and are irrevocably deleted from the server.</string>
     <string name="help_faq_q2">What happens if I lose the link?</string>
     <string name="help_faq_a2">The message cannot be recovered. There is no backup. Since the message deletes itself after opening, maximum discretion is guaranteed.</string>
-    <string name="help_faq_q3">What does the Premium feature offer?</string>
-    <string name="help_faq_a3">Premium users get extremely short, memorable links (only 5 dynamic digits after snote.fun/), made possible by a secure, encrypted database in the background.</string>
-    <string name="help_faq_q4">Can Premium be restored after reinstallation or a reset?</string>
-    <string name="help_faq_a4">No. Premium is tied to a single anonymous device token that is generated fresh on every installation. We intentionally store no personal data and cannot track devices. If the app is uninstalled, reset, or moved to a new device, Premium cannot be recovered and must be purchased again.</string>
     <string name="info_title">About</string>
     <string name="info_version_label">Version</string>
     <string name="info_developer_label">Developer</string>
@@ -125,6 +121,32 @@
 • Set max views
 • Detailed statistics</string>
     <string name="tinyurl_btn_web">Visit Website</string>
+    <string name="tinyurl2_headline">Shrink Your Links Instantly</string>
+    <string name="tinyurl2_intro">Paste any long URL and get a clean, shareable short link — hosted on snote.fun and active for 4 days.</string>
+    <string name="tinyurl2_open_button">Open snote.fun/tinyURL</string>
+    <string name="tinyurl2_tier_free_title">Without Account</string>
+    <string name="tinyurl2_tier_free_badge">Free · No Account</string>
+    <string name="tinyurl2_tier_free_item1">Shorten links to snote.fun/XXXXX</string>
+    <string name="tinyurl2_tier_free_item2">Link expires after 4 days</string>
+    <string name="tinyurl2_tier_free_item3">No registration required</string>
+    <string name="tinyurl2_tier_reg_title">Registered User</string>
+    <string name="tinyurl2_tier_reg_badge">Free · With Account</string>
+    <string name="tinyurl2_tier_reg_item1">Links expire after 20 days</string>
+    <string name="tinyurl2_tier_reg_item2">QR code for every link</string>
+    <string name="tinyurl2_tier_reg_item3">Basic link statistics</string>
+    <string name="tinyurl2_tier_reg_item4">Overview of all created links</string>
+    <string name="tinyurl2_tier_premium_title">Premium</string>
+    <string name="tinyurl2_tier_premium_badge">★ Premium</string>
+    <string name="tinyurl2_tier_premium_item1">Everything from Registered</string>
+    <string name="tinyurl2_tier_premium_item2">Custom expiry (days or unlimited)</string>
+    <string name="tinyurl2_tier_premium_item3">Password-protected links</string>
+    <string name="tinyurl2_tier_premium_item4">Advanced stats (click count &amp; more)</string>
+    <string name="tinyurl2_tier_premium_item5">Custom alias in the link</string>
+    <string name="tinyurl2_tier_premium_item6">Click limit until auto-deactivation</string>
+    <string name="tinyurl2_how_it_works_title">How It Works</string>
+    <string name="tinyurl2_step1">Paste your long URL into the field.</string>
+    <string name="tinyurl2_step2">Click TinyURL ↗ — your link is ready in seconds.</string>
+    <string name="tinyurl2_step3">Copy, share, or open your short link.</string>
     <string name="footer_website">https://domezos-ware.org</string>
     <string name="footer_copyright">© 2026 DoMeZos-Ware</string>
     <string name="footer_rate_prompt">Enjoying the app? Rate us!</string>

@@ -43,10 +43,6 @@
     <string name="help_faq_a1">لا. تدمر الرسائل نفسها تلقائياً بعد فك التشفير الأول ويتم حذفها نهائياً من الخادم.</string>
     <string name="help_faq_q2">ماذا يحدث إذا فقدت الرابط؟</string>
     <string name="help_faq_a2">لا يمكن استعادة الرسالة. لا يوجد نسخة احتياطية. بما أن الرسالة تحذف نفسها بعد الفتح، فإن أقصى درجات السرية مضمونة.</string>
-    <string name="help_faq_q3">ماذا تقدم ميزة بريميوم؟</string>
-    <string name="help_faq_a3">يحصل مستخدمو بريميوم على روابط قصيرة جداً وسهلة التذكر (5 أرقام فقط بعد snote.fun/)، بفضل قاعدة بيانات آمنة ومشفرة في الخلفية.</string>
-    <string name="help_faq_q4">هل يمكن استعادة Premium بعد إعادة التثبيت أو إعادة الضبط؟</string>
-    <string name="help_faq_a4">لا. يرتبط Premium برمز جهاز مجهول الهوية واحد يتم إنشاؤه من جديد عند كل تثبيت. نحن نتعمد عدم تخزين أي بيانات شخصية ولا يمكننا تتبع الأجهزة. إذا تمت إزالة التثبيت أو إعادة الضبط أو نقل التطبيق إلى جهاز جديد، فلا يمكن استرداد Premium ويجب شراؤه مرة أخرى.</string>
     <string name="info_title">حول التطبيق</string>
     <string name="info_version_label">الإصدار</string>
     <string name="info_developer_label">المطور</string>
@@ -129,6 +125,32 @@
 • تعيين الحد الأقصى للمشاهدات
 • إحصائيات مفصلة</string>
     <string name="tinyurl_btn_web">زيارة الموقع الإلكتروني</string>
+    <string name="tinyurl2_headline">اختصر روابطك فورًا</string>
+    <string name="tinyurl2_intro">الصق أي رابط طويل واحصل على رابط قصير ونظيف وقابل للمشاركة — مستضاف على snote.fun ونشط لمدة 4 أيام.</string>
+    <string name="tinyurl2_open_button">فتح snote.fun/tinyURL</string>
+    <string name="tinyurl2_tier_free_title">بدون حساب</string>
+    <string name="tinyurl2_tier_free_badge">مجاني · بدون حساب</string>
+    <string name="tinyurl2_tier_free_item1">اختصار الروابط إلى snote.fun/XXXXX</string>
+    <string name="tinyurl2_tier_free_item2">تنتهي صلاحية الرابط بعد 4 أيام</string>
+    <string name="tinyurl2_tier_free_item3">لا حاجة للتسجيل</string>
+    <string name="tinyurl2_tier_reg_title">مستخدم مسجّل</string>
+    <string name="tinyurl2_tier_reg_badge">مجاني · بحساب</string>
+    <string name="tinyurl2_tier_reg_item1">تنتهي صلاحية الروابط بعد 20 يومًا</string>
+    <string name="tinyurl2_tier_reg_item2">رمز QR لكل رابط</string>
+    <string name="tinyurl2_tier_reg_item3">إحصائيات أساسية للروابط</string>
+    <string name="tinyurl2_tier_reg_item4">نظرة عامة على جميع الروابط التي تم إنشاؤها</string>
+    <string name="tinyurl2_tier_premium_title">بريميوم</string>
+    <string name="tinyurl2_tier_premium_badge">★ بريميوم</string>
+    <string name="tinyurl2_tier_premium_item1">كل ما في باقة المستخدم المسجّل</string>
+    <string name="tinyurl2_tier_premium_item2">مدة صلاحية مخصصة (بالأيام أو غير محدودة)</string>
+    <string name="tinyurl2_tier_premium_item3">روابط محمية بكلمة مرور</string>
+    <string name="tinyurl2_tier_premium_item4">إحصائيات متقدمة (عدد النقرات والمزيد)</string>
+    <string name="tinyurl2_tier_premium_item5">اسم مستعار مخصص في الرابط</string>
+    <string name="tinyurl2_tier_premium_item6">حد للنقرات حتى إلغاء التفعيل التلقائي</string>
+    <string name="tinyurl2_how_it_works_title">كيف يعمل</string>
+    <string name="tinyurl2_step1">الصق رابطك الطويل في الحقل.</string>
+    <string name="tinyurl2_step2">اضغط على TinyURL ↗ — سيصبح رابطك جاهزًا خلال ثوانٍ.</string>
+    <string name="tinyurl2_step3">انسخ رابطك القصير أو شاركه أو افتحه.</string>
     <string name="footer_website">https://domezos-ware.org</string>
     <string name="footer_copyright">© 2026 DoMeZos-Ware</string>
     <string name="footer_rate_prompt">هل يعجبك التطبيق؟ قيّمنا!</string>
