@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" ?>
+<?xml version="1.0" ?>
 <resources>
     <string name="app_name">dw خفیہ نوٹس</string>
     <string name="menu_more">مزید</string>
@@ -121,24 +121,6 @@
     <string name="theme_ghost">گھوسٹ گرے</string>
     <string name="theme_solarized">سولرائزڈ ڈارک</string>
     <string name="theme_selection_title">تھیم منتخب کریں</string>
-
-    <string name="nav_tip">حمایت</string>
-    <string name="tip_title">ایپ کی حمایت کریں</string>
-    <string name="tip_subtitle">مجھے کافی پلائیں ☕</string>
-    <string name="tip_what_title">یہ کیا ہے؟</string>
-    <string name="tip_what_body">یہ پریمیم فیچر کی خریداری نہیں ہے۔ یہ اس ایپ کے جاری اخراجات کو پورا کرنے میں مدد کے لیے مکمل طور پر رضاکارانہ ٹپ ہے۔ آپ کو بدلے میں بالکل کچھ نہیں ملے گا — صرف اس ایپ کو زندہ رکھنے کا اچھا احساس۔</string>
-    <string name="tip_costs_title">ماہانہ آپریٹنگ اخراجات</string>
-    <string name="tip_cost_server">سرور (Strato): €9.00 / مہینہ</string>
-    <string name="tip_cost_database">ڈیٹا بیس: €3.00 / مہینہ</string>
-    <string name="tip_cost_ssl">SSL سرٹیفکیٹ: €4.00 / مہینہ</string>
-    <string name="tip_cost_maintenance">دیکھ بھال اور ترقی: انمول</string>
-    <string name="tip_anonymous_title">مکمل گمنام</string>
-    <string name="tip_anonymous_body">آپ کی ٹپ 100% گمنام ہے۔ ہم نہیں جانتے آپ کون ہیں، کوئی ذاتی ڈیٹا اکٹھا نہیں کرتے، اور ٹپ کو آپ کے ڈیوائس سے جوڑنے کا کوئی طریقہ نہیں ہے۔</string>
-    <string name="tip_price_info">فی ٹپ %1$s — کئی بار بھیج سکتے ہیں!</string>
-    <string name="tip_disclaimer">آپ کو کوئی فیچر، انلاک یا انعام نہیں ملے گا۔ یہ صرف ایپ چلانے کے لیے ایک رضاکارانہ تعاون ہے۔ دل کی گہرائیوں سے شکریہ!</string>
-    <string name="tip_btn_send">ٹپ بھیجیں — %1$s</string>
-    <string name="tip_sent_count">بھیجی گئی ٹپ: %d — شکریہ! ❤</string>
-    <string name="tip_purchase_error">خریداری ناکام ہوگئی۔ براہ کرم دوبارہ کوشش کریں۔</string>
 
     <string name="widget_description">ہوم اسکرین سے تیزی سے ایک پیغام خفیہ کریں اور شیئر لنک حاصل کریں</string>
     <string name="widget_launcher_description">dw Secret Notes کھولتا ہے</string>

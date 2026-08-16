@@ -122,24 +122,6 @@
     <string name="theme_light">Light Mode</string>
     <string name="theme_selection_title">Choose Theme</string>
 
-    <string name="nav_tip">Support</string>
-    <string name="tip_title">Support the App</string>
-    <string name="tip_subtitle">Buy me a coffee ☕</string>
-    <string name="tip_what_title">What is this?</string>
-    <string name="tip_what_body">This is NOT a purchase of a premium feature. It is a completely voluntary tip to help cover the ongoing running costs of this app. You will receive absolutely nothing in return — only the good feeling of keeping this app alive.</string>
-    <string name="tip_costs_title">Monthly Running Costs</string>
-    <string name="tip_cost_server">Server (Strato): €9.00 / month</string>
-    <string name="tip_cost_database">Database: €3.00 / month</string>
-    <string name="tip_cost_ssl">SSL Certificate: €4.00 / month</string>
-    <string name="tip_cost_maintenance">Maintenance &amp; Development: priceless</string>
-    <string name="tip_anonymous_title">Completely Anonymous</string>
-    <string name="tip_anonymous_body" formatted="false">Your tip is 100% anonymous. We do not know who you are, collect no personal data, and have no way to connect the tip to your device.</string>
-    <string name="tip_price_info">%1$s per tip — feel free to send multiple!</string>
-    <string name="tip_disclaimer">You will NOT receive any feature, unlock, or reward. This is purely a voluntary contribution to keep the app running. Thank you from the heart!</string>
-    <string name="tip_btn_send">Send Tip — %1$s</string>
-    <string name="tip_sent_count">Tips sent: %d — Thank you! ❤</string>
-    <string name="tip_purchase_error">Purchase failed. Please try again.</string>
-
     <string name="widget_description">Quickly encrypt a message and get a share link from your home screen</string>
     <string name="widget_launcher_description">Opens dw Secret Notes</string>
 </resources>

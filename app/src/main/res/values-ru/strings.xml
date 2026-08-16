@@ -124,24 +124,6 @@
     <string name="theme_solarized">Соляризованный темный</string>
     <string name="theme_selection_title">Выбрать тему</string>
 
-    <string name="nav_tip">Поддержать</string>
-    <string name="tip_title">Поддержать приложение</string>
-    <string name="tip_subtitle">Угостить меня кофе ☕</string>
-    <string name="tip_what_title">Что это?</string>
-    <string name="tip_what_body">Это НЕ покупка премиум-функции. Это добровольные чаевые для покрытия текущих расходов на содержание приложения. Вы не получите ничего взамен — только приятное ощущение от того, что это приложение продолжает жить.</string>
-    <string name="tip_costs_title">Ежемесячные расходы</string>
-    <string name="tip_cost_server">Сервер (Strato): €9,00 / мес.</string>
-    <string name="tip_cost_database">База данных: €3,00 / мес.</string>
-    <string name="tip_cost_ssl">SSL-сертификат: €4,00 / мес.</string>
-    <string name="tip_cost_maintenance">Обслуживание и разработка: бесценно</string>
-    <string name="tip_anonymous_title">Полностью анонимно</string>
-    <string name="tip_anonymous_body" formatted="false">Ваши чаевые на 100% анонимны. Мы не знаем, кто вы, не собираем личные данные и не можем связать чаевые с вашим устройством.</string>
-    <string name="tip_price_info">%1$s за одни чаевые — можно отправить несколько!</string>
-    <string name="tip_disclaimer">Вы НЕ получите никаких функций, разблокировок или вознаграждений. Это исключительно добровольный вклад в поддержание работы приложения. Сердечное спасибо!</string>
-    <string name="tip_btn_send">Отправить чаевые — %1$s</string>
-    <string name="tip_sent_count">Отправлено чаевых: %d — Спасибо! ❤</string>
-    <string name="tip_purchase_error">Покупка не удалась. Попробуйте снова.</string>
-
     <string name="widget_description">Быстро зашифруйте сообщение и получите ссылку для отправки прямо с главного экрана</string>
     <string name="widget_launcher_description">Открывает dw Secret Notes</string>
 </resources>

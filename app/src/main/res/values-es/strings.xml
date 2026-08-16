@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" ?>
+<?xml version="1.0" ?>
 <resources>
     <string name="app_name">dw Notas Secretas</string>
     <string name="menu_more">Más</string>
@@ -122,24 +122,6 @@
     <string name="theme_ghost">Gris Fantasma</string>
     <string name="theme_solarized">Solarized Oscuro</string>
     <string name="theme_selection_title">Elegir tema</string>
-
-    <string name="nav_tip">Apoyar</string>
-    <string name="tip_title">Apoyar la App</string>
-    <string name="tip_subtitle">Invítame a un café ☕</string>
-    <string name="tip_what_title">¿Qué es esto?</string>
-    <string name="tip_what_body">Esto NO es la compra de una función premium. Es una propina completamente voluntaria para ayudar a cubrir los costes de funcionamiento de esta app. No recibirás absolutamente nada a cambio — solo la buena sensación de mantener viva esta app.</string>
-    <string name="tip_costs_title">Costes mensuales</string>
-    <string name="tip_cost_server">Servidor (Strato): 9,00 € / mes</string>
-    <string name="tip_cost_database">Base de datos: 3,00 € / mes</string>
-    <string name="tip_cost_ssl">Certificado SSL: 4,00 € / mes</string>
-    <string name="tip_cost_maintenance">Mantenimiento y desarrollo: incalculable</string>
-    <string name="tip_anonymous_title">Completamente anónimo</string>
-    <string name="tip_anonymous_body" formatted="false">Tu propina es 100 % anónima. No sabemos quién eres, no recopilamos datos personales y no tenemos forma de vincular la propina a tu dispositivo.</string>
-    <string name="tip_price_info">%1$s por propina — ¡siéntete libre de enviar varias!</string>
-    <string name="tip_disclaimer">NO recibirás ninguna función, desbloqueo ni recompensa. Es únicamente una contribución voluntaria para mantener la app en funcionamiento. ¡Gracias de corazón!</string>
-    <string name="tip_btn_send">Enviar propina — %1$s</string>
-    <string name="tip_sent_count">Propinas enviadas: %d — ¡Gracias! ❤</string>
-    <string name="tip_purchase_error">La compra falló. Inténtalo de nuevo.</string>
 
     <string name="widget_description">Cifra rápidamente un mensaje y obtén un enlace para compartir desde tu pantalla de inicio</string>
     <string name="widget_launcher_description">Abre dw Secret Notes</string>

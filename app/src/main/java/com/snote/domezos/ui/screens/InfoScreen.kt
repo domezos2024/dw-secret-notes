@@ -34,7 +34,7 @@ fun InfoScreen(onNavigate: (String) -> Unit, onBack: () -> Unit, onThemeChanged:
                 HorizontalDivider(color = MaterialTheme.colorScheme.outline.copy(alpha = 0.3f), modifier = Modifier.padding(vertical = 6.dp))
                 InfoRow(label = stringResource(R.string.info_website_label), value = Backend.HOST)
                 HorizontalDivider(color = MaterialTheme.colorScheme.outline.copy(alpha = 0.3f), modifier = Modifier.padding(vertical = 6.dp))
-                InfoRow(label = stringResource(R.string.info_license_label), value = "Proprietary")
+                InfoRow(label = stringResource(R.string.info_license_label), value = "MIT")
             }
             Card(
                 modifier = Modifier.fillMaxWidth(),

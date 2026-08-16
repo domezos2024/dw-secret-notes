@@ -123,24 +123,6 @@
     <string name="theme_solarized">Solarized Dark</string>
     <string name="theme_selection_title">Scegli Tema</string>
 
-    <string name="nav_tip">Supporta</string>
-    <string name="tip_title">Supporta l\'App</string>
-    <string name="tip_subtitle">Offrimi un caffè ☕</string>
-    <string name="tip_what_title">Cos\'è questo?</string>
-    <string name="tip_what_body">Questo NON è l\'acquisto di una funzionalità premium. È una mancia completamente volontaria per contribuire a coprire i costi operativi dell\'app. Non riceverai assolutamente nulla in cambio — solo la bella sensazione di tenere in vita questa app.</string>
-    <string name="tip_costs_title">Costi mensili</string>
-    <string name="tip_cost_server">Server (Strato): 9,00 € / mese</string>
-    <string name="tip_cost_database">Database: 3,00 € / mese</string>
-    <string name="tip_cost_ssl">Certificato SSL: 4,00 € / mese</string>
-    <string name="tip_cost_maintenance">Manutenzione e sviluppo: impagabile</string>
-    <string name="tip_anonymous_title">Completamente anonimo</string>
-    <string name="tip_anonymous_body" formatted="false">La tua mancia è 100% anonima. Non sappiamo chi sei, non raccogliamo dati personali e non abbiamo modo di collegare la mancia al tuo dispositivo.</string>
-    <string name="tip_price_info">%1$s per mancia — sentiti libero di inviarne più di una!</string>
-    <string name="tip_disclaimer">NON riceverai nessuna funzionalità, sblocco o ricompensa. È puramente un contributo volontario per mantenere l\'app in funzione. Grazie di cuore!</string>
-    <string name="tip_btn_send">Invia mancia — %1$s</string>
-    <string name="tip_sent_count">Mance inviate: %d — Grazie! ❤</string>
-    <string name="tip_purchase_error">Acquisto non riuscito. Riprova.</string>
-
     <string name="widget_description">Cifra rapidamente un messaggio e ottieni un link da condividere direttamente dalla schermata Home</string>
     <string name="widget_launcher_description">Apre dw Secret Notes</string>
 </resources>

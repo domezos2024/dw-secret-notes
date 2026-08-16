@@ -122,24 +122,6 @@
     <string name="theme_solarized">सोलराइज्ड डार्क</string>
     <string name="theme_selection_title">थीम चुनें</string>
 
-    <string name="nav_tip">सहायता</string>
-    <string name="tip_title">ऐप को सहायता दें</string>
-    <string name="tip_subtitle">मुझे एक कॉफी पिलाएं ☕</string>
-    <string name="tip_what_title">यह क्या है?</string>
-    <string name="tip_what_body">यह प्रीमियम सुविधा की खरीद नहीं है। यह इस ऐप की चालू लागत को कवर करने में मदद के लिए पूरी तरह से स्वैच्छिक टिप है। आपको बदले में बिल्कुल कुछ नहीं मिलेगा — केवल यह ऐप जीवित रखने का अच्छा एहसास।</string>
-    <string name="tip_costs_title">मासिक परिचालन लागत</string>
-    <string name="tip_cost_server">सर्वर (Strato): €9.00 / माह</string>
-    <string name="tip_cost_database">डेटाबेस: €3.00 / माह</string>
-    <string name="tip_cost_ssl">SSL प्रमाणपत्र: €4.00 / माह</string>
-    <string name="tip_cost_maintenance">रखरखाव और विकास: अमूल्य</string>
-    <string name="tip_anonymous_title">पूरी तरह गुमनाम</string>
-    <string name="tip_anonymous_body" formatted="false">आपकी टिप 100% गुमनाम है। हम नहीं जानते आप कौन हैं, कोई व्यक्तिगत डेटा नहीं एकत्र करते, और टिप को आपके डिवाइस से जोड़ने का कोई तरीका नहीं है।</string>
-    <string name="tip_price_info">प्रति टिप %1$s — कई बार भेज सकते हैं!</string>
-    <string name="tip_disclaimer">आपको कोई सुविधा, अनलॉक या इनाम नहीं मिलेगा। यह केवल ऐप चलाने के लिए एक स्वैच्छिक योगदान है। दिल से धन्यवाद!</string>
-    <string name="tip_btn_send">टिप भेजें — %1$s</string>
-    <string name="tip_sent_count">भेजी गई टिप: %d — धन्यवाद! ❤</string>
-    <string name="tip_purchase_error">खरीद विफल रही। कृपया पुनः प्रयास करें।</string>
-
     <string name="widget_description">होम स्क्रीन से जल्दी से एक संदेश एन्क्रिप्ट करें और शेयर लिंक प्राप्त करें</string>
     <string name="widget_launcher_description">dw Secret Notes खोलता है</string>
 </resources>

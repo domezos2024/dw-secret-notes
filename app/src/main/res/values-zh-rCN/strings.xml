@@ -122,24 +122,6 @@
     <string name="theme_solarized">曝光暗色</string>
     <string name="theme_selection_title">选择主题</string>
 
-    <string name="nav_tip">支持</string>
-    <string name="tip_title">支持本应用</string>
-    <string name="tip_subtitle">请我喝杯咖啡 ☕</string>
-    <string name="tip_what_title">这是什么？</string>
-    <string name="tip_what_body">这不是购买高级功能。这是一笔完全自愿的小费，用于帮助支付本应用的日常运营费用。您不会得到任何回报——只有让这个应用继续运行的美好感受。</string>
-    <string name="tip_costs_title">每月运营费用</string>
-    <string name="tip_cost_server">服务器 (Strato)：€9.00 / 月</string>
-    <string name="tip_cost_database">数据库：€3.00 / 月</string>
-    <string name="tip_cost_ssl">SSL 证书：€4.00 / 月</string>
-    <string name="tip_cost_maintenance">维护和开发：无价</string>
-    <string name="tip_anonymous_title">完全匿名</string>
-    <string name="tip_anonymous_body">您的小费是 100% 匿名的。我们不知道您是谁，不收集任何个人数据，也无法将小费与您的设备关联。</string>
-    <string name="tip_price_info">每笔小费 %1$s — 欢迎多次打赏！</string>
-    <string name="tip_disclaimer">您不会获得任何功能、解锁或奖励。这纯粹是一项自愿贡献，用于维持应用的正常运行。衷心感谢！</string>
-    <string name="tip_btn_send">发送小费 — %1$s</string>
-    <string name="tip_sent_count">已发送小费：%d — 谢谢！❤</string>
-    <string name="tip_purchase_error">购买失败，请重试。</string>
-
     <string name="widget_description">直接在主屏幕上快速加密一条消息并获取分享链接</string>
     <string name="widget_launcher_description">打开 dw Secret Notes</string>
 </resources>

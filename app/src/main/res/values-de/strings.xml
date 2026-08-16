@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" ?>
+<?xml version="1.0" ?>
 <resources>
     <string name="app_name">dw Geheime Notizen</string>
     <string name="menu_more">Mehr</string>
@@ -121,24 +121,6 @@
     <string name="theme_ghost">Geistergrau</string>
     <string name="theme_solarized">Solarized Dunkel</string>
     <string name="theme_selection_title">Theme wählen</string>
-
-    <string name="nav_tip">Unterstützen</string>
-    <string name="tip_title">App unterstützen</string>
-    <string name="tip_subtitle">Einen Kaffee ausgeben ☕</string>
-    <string name="tip_what_title">Was ist das?</string>
-    <string name="tip_what_body">Dies ist KEIN Kauf einer Premium-Funktion. Es handelt sich um ein freiwilliges Trinkgeld, das hilft, die laufenden Betriebskosten dieser App zu decken. Du erhältst absolut nichts dafür — nur das gute Gefühl, diese App am Leben zu erhalten.</string>
-    <string name="tip_costs_title">Monatliche Betriebskosten</string>
-    <string name="tip_cost_server">Server (Strato): 9,00 € / Monat</string>
-    <string name="tip_cost_database">Datenbank: 3,00 € / Monat</string>
-    <string name="tip_cost_ssl">SSL-Zertifikat: 4,00 € / Monat</string>
-    <string name="tip_cost_maintenance">Wartung &amp; Entwicklung: unbezahlbar</string>
-    <string name="tip_anonymous_title">Vollständig anonym</string>
-    <string name="tip_anonymous_body" formatted="false">Dein Trinkgeld ist 100 % anonym. Wir wissen nicht, wer du bist, erfassen keine personenbezogenen Daten und haben keine Möglichkeit, das Trinkgeld mit deinem Gerät zu verknüpfen.</string>
-    <string name="tip_price_info">%1$s pro Einheit — gerne auch mehrmals!</string>
-    <string name="tip_disclaimer">Du erhältst KEINE Funktion, kein Upgrade und keine Belohnung. Dies ist ein rein freiwilliger Beitrag, um die App am Laufen zu halten. Von Herzen Danke!</string>
-    <string name="tip_btn_send">Trinkgeld senden — %1$s</string>
-    <string name="tip_sent_count">Gesendete Trinkgelder: %d — Danke! ❤</string>
-    <string name="tip_purchase_error">Kauf fehlgeschlagen. Bitte versuche es erneut.</string>
 
     <string name="widget_description">Verschlüsselt schnell eine Nachricht und erstellt einen Teilen-Link direkt vom Startbildschirm</string>
     <string name="widget_launcher_description">Öffnet dw Geheime Notizen</string>

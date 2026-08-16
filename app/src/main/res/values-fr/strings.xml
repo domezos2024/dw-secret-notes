@@ -123,24 +123,6 @@
     <string name="theme_solarized">Solarized Sombre</string>
     <string name="theme_selection_title">Choisir le thème</string>
 
-    <string name="nav_tip">Soutenir</string>
-    <string name="tip_title">Soutenir l\'App</string>
-    <string name="tip_subtitle">Offrez-moi un café ☕</string>
-    <string name="tip_what_title">Qu\'est-ce que c\'est ?</string>
-    <string name="tip_what_body">Ceci N\'EST PAS l\'achat d\'une fonctionnalité premium. C\'est un pourboire entièrement volontaire pour aider à couvrir les coûts de fonctionnement de cette application. Vous ne recevrez absolument rien en retour — juste la bonne sensation de maintenir cette application en vie.</string>
-    <string name="tip_costs_title">Coûts mensuels</string>
-    <string name="tip_cost_server">Serveur (Strato) : 9,00 € / mois</string>
-    <string name="tip_cost_database">Base de données : 3,00 € / mois</string>
-    <string name="tip_cost_ssl">Certificat SSL : 4,00 € / mois</string>
-    <string name="tip_cost_maintenance">Maintenance et développement : inestimable</string>
-    <string name="tip_anonymous_title">Complètement anonyme</string>
-    <string name="tip_anonymous_body" formatted="false">Votre pourboire est 100 % anonyme. Nous ne savons pas qui vous êtes, ne collectons aucune donnée personnelle et n\'avons aucun moyen de relier le pourboire à votre appareil.</string>
-    <string name="tip_price_info">%1$s par pourboire — n\'hésitez pas à en envoyer plusieurs !</string>
-    <string name="tip_disclaimer">Vous ne recevrez AUCUNE fonctionnalité, déverrouillage ou récompense. Il s\'agit uniquement d\'une contribution volontaire pour maintenir l\'application en fonctionnement. Merci du fond du cœur !</string>
-    <string name="tip_btn_send">Envoyer un pourboire — %1$s</string>
-    <string name="tip_sent_count">Pourboires envoyés : %d — Merci ! ❤</string>
-    <string name="tip_purchase_error">Échec de l\'achat. Veuillez réessayer.</string>
-
     <string name="widget_description">Chiffrez rapidement un message et obtenez un lien de partage depuis votre écran d\'accueil</string>
     <string name="widget_launcher_description">Ouvre dw Secret Notes</string>
 </resources>

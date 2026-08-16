@@ -82,7 +82,7 @@ Ein einfacher Referenzbildschirm mit:
 - **Version** — die genaue Versionsnummer der installierten App.
 - **Entwickler** — Michael Bergfeld.
 - **Website** — domezos-ware.com.
-- **Lizenz** — Proprietär (d. h. der Code ist nicht Open Source).
+- **Lizenz** — MIT (Open Source).
 - Ein kurzer Hinweis, der wiederholt, dass alles mit AES-256-Bit-Verschlüsselung geschützt ist und selbstzerstörende Links garantieren, dass deine Geheimnisse nach dem einmaligen Lesen für immer verschwinden.
 
 ---

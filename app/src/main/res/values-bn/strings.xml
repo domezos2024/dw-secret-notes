@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" ?>
+<?xml version="1.0" ?>
 <resources>
     <string name="app_name">dw গোপন নোট</string>
     <string name="menu_more">আরও</string>
@@ -121,24 +121,6 @@
     <string name="theme_ghost">ঘোস্ট গ্রে</string>
     <string name="theme_solarized">সোলারাইজড ডার্ক</string>
     <string name="theme_selection_title">থিম চয়ন করুন</string>
-
-    <string name="nav_tip">সহায়তা</string>
-    <string name="tip_title">অ্যাপ সহায়তা করুন</string>
-    <string name="tip_subtitle">আমাকে কফি কিনে দিন ☕</string>
-    <string name="tip_what_title">এটা কী?</string>
-    <string name="tip_what_body">এটা প্রিমিয়াম ফিচার কেনা নয়। এটি এই অ্যাপের চলমান খরচ মেটাতে সাহায্য করার জন্য সম্পূর্ণ স্বেচ্ছামূলক টিপ। আপনি বিনিময়ে একেবারে কিছুই পাবেন না — শুধু এই অ্যাপকে বাঁচিয়ে রাখার ভালো অনুভূতি।</string>
-    <string name="tip_costs_title">মাসিক পরিচালন ব্যয়</string>
-    <string name="tip_cost_server">সার্ভার (Strato): €9.00 / মাস</string>
-    <string name="tip_cost_database">ডেটাবেস: €3.00 / মাস</string>
-    <string name="tip_cost_ssl">SSL সার্টিফিকেট: €4.00 / মাস</string>
-    <string name="tip_cost_maintenance">রক্ষণাবেক্ষণ ও উন্নয়ন: অমূল্য</string>
-    <string name="tip_anonymous_title">সম্পূর্ণ বেনামী</string>
-    <string name="tip_anonymous_body" formatted="false">আপনার টিপ ১০০% বেনামী। আমরা জানি না আপনি কে, কোনো ব্যক্তিগত তথ্য সংগ্রহ করি না এবং টিপকে আপনার ডিভাইসের সাথে সংযুক্ত করার কোনো উপায় নেই।</string>
-    <string name="tip_price_info">প্রতি টিপ %1$s — একাধিকবার পাঠাতে পারেন!</string>
-    <string name="tip_disclaimer">আপনি কোনো ফিচার, আনলক বা পুরস্কার পাবেন না। এটি শুধুমাত্র অ্যাপ চালু রাখার জন্য একটি স্বেচ্ছামূলক অবদান। আন্তরিক ধন্যবাদ!</string>
-    <string name="tip_btn_send">টিপ পাঠান — %1$s</string>
-    <string name="tip_sent_count">পাঠানো টিপ: %d — ধন্যবাদ! ❤</string>
-    <string name="tip_purchase_error">ক্রয় ব্যর্থ হয়েছে। আবার চেষ্টা করুন।</string>
 
     <string name="widget_description">হোম স্ক্রিন থেকে দ্রুত একটি বার্তা এনক্রিপ্ট করুন এবং শেয়ার লিঙ্ক পান</string>
     <string name="widget_launcher_description">dw Secret Notes খোলে</string>

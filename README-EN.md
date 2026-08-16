@@ -82,7 +82,7 @@ A simple reference screen listing:
 - **Version** — the exact version number of the app you have installed.
 - **Developer** — Michael Bergfeld.
 - **Website** — domezos-ware.com.
-- **License** — Proprietary (i.e., the code is not open-source).
+- **License** — MIT (open-source).
 - A short note reiterating that everything is protected with AES-256-bit encryption and that self-destructing links guarantee your secrets disappear forever after being read once.
 
 ---

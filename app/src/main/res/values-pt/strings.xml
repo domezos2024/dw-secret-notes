@@ -123,24 +123,6 @@
     <string name="theme_solarized">Solarized Escuro</string>
     <string name="theme_selection_title">Escolher Tema</string>
 
-    <string name="nav_tip">Apoiar</string>
-    <string name="tip_title">Apoiar o App</string>
-    <string name="tip_subtitle">Pague-me um café ☕</string>
-    <string name="tip_what_title">O que é isso?</string>
-    <string name="tip_what_body">Isto NÃO é a compra de uma funcionalidade premium. É uma gorjeta completamente voluntária para ajudar a cobrir os custos operacionais contínuos deste app. Não receberá absolutamente nada em troca — apenas a boa sensação de manter este app vivo.</string>
-    <string name="tip_costs_title">Custos Mensais</string>
-    <string name="tip_cost_server">Servidor (Strato): 9,00 € / mês</string>
-    <string name="tip_cost_database">Base de dados: 3,00 € / mês</string>
-    <string name="tip_cost_ssl">Certificado SSL: 4,00 € / mês</string>
-    <string name="tip_cost_maintenance">Manutenção e desenvolvimento: inestimável</string>
-    <string name="tip_anonymous_title">Completamente Anónimo</string>
-    <string name="tip_anonymous_body" formatted="false">A sua gorjeta é 100% anónima. Não sabemos quem é, não recolhemos dados pessoais e não temos forma de ligar a gorjeta ao seu dispositivo.</string>
-    <string name="tip_price_info">%1$s por gorjeta — fique à vontade para enviar várias!</string>
-    <string name="tip_disclaimer">NÃO receberá nenhuma funcionalidade, desbloqueio ou recompensa. É puramente uma contribuição voluntária para manter o app a funcionar. Muito obrigado de coração!</string>
-    <string name="tip_btn_send">Enviar gorjeta — %1$s</string>
-    <string name="tip_sent_count">Gorjetas enviadas: %d — Obrigado! ❤</string>
-    <string name="tip_purchase_error">Falha na compra. Tente novamente.</string>
-
     <string name="widget_description">Cifre rapidamente uma mensagem e obtenha um link para compartilhar direto da tela inicial</string>
     <string name="widget_launcher_description">Abre o dw Secret Notes</string>
 </resources>

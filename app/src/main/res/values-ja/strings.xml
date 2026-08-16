@@ -121,24 +121,6 @@
     <string name="theme_solarized">ソラライズドダーク</string>
     <string name="theme_selection_title">テーマを選択</string>
 
-    <string name="nav_tip">サポート</string>
-    <string name="tip_title">アプリをサポート</string>
-    <string name="tip_subtitle">コーヒーをおごってください ☕</string>
-    <string name="tip_what_title">これは何ですか？</string>
-    <string name="tip_what_body">これはプレミアム機能の購入ではありません。このアプリの運営コストをカバーするための、完全に任意のチップです。見返りとして何も受け取れません — このアプリを存続させるという満足感だけです。</string>
-    <string name="tip_costs_title">月間運営コスト</string>
-    <string name="tip_cost_server">サーバー (Strato)：€9.00 / 月</string>
-    <string name="tip_cost_database">データベース：€3.00 / 月</string>
-    <string name="tip_cost_ssl">SSL 証明書：€4.00 / 月</string>
-    <string name="tip_cost_maintenance">メンテナンスと開発：プライスレス</string>
-    <string name="tip_anonymous_title">完全匿名</string>
-    <string name="tip_anonymous_body" formatted="false">チップは 100% 匿名です。誰であるかを知らず、個人データを収集せず、チップをデバイスに紐づける手段もありません。</string>
-    <string name="tip_price_info">1 チップ %1$s — 何度でも送れます！</string>
-    <string name="tip_disclaimer">機能のアンロックや報酬は一切ありません。アプリの運営を維持するための純粋な任意の貢献です。心よりお礼申し上げます！</string>
-    <string name="tip_btn_send">チップを送る — %1$s</string>
-    <string name="tip_sent_count">送ったチップ数：%d — ありがとう！❤</string>
-    <string name="tip_purchase_error">購入に失敗しました。もう一度お試しください。</string>
-
     <string name="widget_description">ホーム画面からメッセージをすばやく暗号化して共有リンクを取得します</string>
     <string name="widget_launcher_description">dw Secret Notes を開きます</string>
 </resources>

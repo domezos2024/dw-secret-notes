@@ -126,24 +126,6 @@
     <string name="theme_solarized">سولارايزد داكن</string>
     <string name="theme_selection_title">اختر المظهر</string>
 
-    <string name="nav_tip">دعم</string>
-    <string name="tip_title">دعم التطبيق</string>
-    <string name="tip_subtitle">اشترِ لي قهوة ☕</string>
-    <string name="tip_what_title">ما هذا؟</string>
-    <string name="tip_what_body">هذا ليس شراءً لميزة مميزة. إنه إكرامية طوعية تمامًا للمساعدة في تغطية تكاليف التشغيل المستمرة لهذا التطبيق. لن تحصل على أي شيء في المقابل — فقط الشعور الجيد بإبقاء هذا التطبيق حيًا.</string>
-    <string name="tip_costs_title">تكاليف التشغيل الشهرية</string>
-    <string name="tip_cost_server">الخادم (Strato): €9.00 / شهر</string>
-    <string name="tip_cost_database">قاعدة البيانات: €3.00 / شهر</string>
-    <string name="tip_cost_ssl">شهادة SSL: €4.00 / شهر</string>
-    <string name="tip_cost_maintenance">الصيانة والتطوير: لا يقدر بثمن</string>
-    <string name="tip_anonymous_title">مجهول الهوية تمامًا</string>
-    <string name="tip_anonymous_body" formatted="false">إكراميتك مجهولة الهوية بنسبة 100٪. لا نعرف من أنت، ولا نجمع أي بيانات شخصية، وليس لدينا أي طريقة لربط الإكرامية بجهازك.</string>
-    <string name="tip_price_info">%1$s لكل إكرامية — لا تتردد في إرسال عدة مرات!</string>
-    <string name="tip_disclaimer">لن تحصل على أي ميزة أو إلغاء قفل أو مكافأة. هذه مساهمة طوعية بحتة للحفاظ على التطبيق. شكرًا جزيلًا من القلب!</string>
-    <string name="tip_btn_send">أرسل إكرامية — %1$s</string>
-    <string name="tip_sent_count">الإكراميات المرسلة: %d — شكرًا! ❤</string>
-    <string name="tip_purchase_error">فشلت عملية الشراء. يرجى المحاولة مرة أخرى.</string>
-
     <string name="widget_description">شفّر رسالة بسرعة واحصل على رابط للمشاركة من الشاشة الرئيسية</string>
     <string name="widget_launcher_description">يفتح dw Secret Notes</string>
 </resources>

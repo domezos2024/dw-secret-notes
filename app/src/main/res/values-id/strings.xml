@@ -121,24 +121,6 @@
     <string name="theme_solarized">Solarized Gelap</string>
     <string name="theme_selection_title">Pilih Tema</string>
 
-    <string name="nav_tip">Dukung</string>
-    <string name="tip_title">Dukung Aplikasi Ini</string>
-    <string name="tip_subtitle">Belikan aku kopi ☕</string>
-    <string name="tip_what_title">Apa ini?</string>
-    <string name="tip_what_body">Ini BUKAN pembelian fitur premium. Ini adalah tip sukarela untuk membantu menanggung biaya operasional aplikasi ini. Anda tidak akan mendapatkan apa pun sebagai balasan — hanya perasaan baik karena menjaga aplikasi ini tetap hidup.</string>
-    <string name="tip_costs_title">Biaya Operasional Bulanan</string>
-    <string name="tip_cost_server">Server (Strato): €9,00 / bulan</string>
-    <string name="tip_cost_database">Database: €3,00 / bulan</string>
-    <string name="tip_cost_ssl">Sertifikat SSL: €4,00 / bulan</string>
-    <string name="tip_cost_maintenance">Pemeliharaan &amp; Pengembangan: tak ternilai</string>
-    <string name="tip_anonymous_title">Sepenuhnya Anonim</string>
-    <string name="tip_anonymous_body" formatted="false">Tip Anda 100% anonim. Kami tidak tahu siapa Anda, tidak mengumpulkan data pribadi, dan tidak memiliki cara untuk menghubungkan tip dengan perangkat Anda.</string>
-    <string name="tip_price_info">%1$s per tip — silakan kirim beberapa kali!</string>
-    <string name="tip_disclaimer">Anda TIDAK akan mendapatkan fitur, buka kunci, atau hadiah apa pun. Ini murni kontribusi sukarela untuk menjaga aplikasi tetap berjalan. Terima kasih dari lubuk hati yang paling dalam!</string>
-    <string name="tip_btn_send">Kirim Tip — %1$s</string>
-    <string name="tip_sent_count">Tip terkirim: %d — Terima kasih! ❤</string>
-    <string name="tip_purchase_error">Pembelian gagal. Silakan coba lagi.</string>
-
     <string name="widget_description">Enkripsi pesan dengan cepat dan dapatkan tautan berbagi langsung dari layar utama</string>
     <string name="widget_launcher_description">Membuka dw Secret Notes</string>
 </resources>

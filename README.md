@@ -24,6 +24,7 @@ dw Secret Notes lets you send end-to-end encrypted messages via a simple shareab
 7. [Technical Overview](#technical-overview)
 8. [Build Variant](#build-variant)
 9. [Public Backend API](#public-backend-api)
+10. [License](#license)
 
 ---
 
@@ -289,4 +290,11 @@ The backend (`WebApp/api/`) can be used by other apps/clients, not just this And
 
 ---
 
-*© 2026 domezos-ware.com — Michael Bergfeld. All rights reserved.*
+## License
+
+MIT — see [LICENSE](LICENSE). This covers the Android app and the `WebApp/` client; the code is
+free to use, modify, and redistribute.
+
+---
+
+*© 2026 domezos-ware.com — Michael Bergfeld*

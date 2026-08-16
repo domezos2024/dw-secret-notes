@@ -124,8 +124,6 @@ ein, damit `<html dir="rtl">` gesetzt wird.
   (`redirect: "manual"` liefert aus Cross-Origin-Gründen keine lesbare `Location`), daher gibt
   `js/aliasParser.js` bei einem nicht direkt auflösbaren Link eine "ungültiger Link"-Meldung
   zurück, statt Redirects zu folgen.
-- **Premium/Tip**: Die Google-Play-Billing-Features (Premium-Freischaltung, Tip-Jar) sind bewusst
-  nicht nachgebaut — es gibt kein Zahlungssystem im Web. `info.html` weist kurz darauf hin.
 - **Vollständige ICU-Pluralformen**: Einige Sprachen (z. B. Arabisch, Russisch) haben in der
   Android-App mehr als zwei Pluralformen (`few`/`many`/`zero`). Die Web-Version verwendet
   vereinfacht nur `_one`/`_other` pro Sprache.
