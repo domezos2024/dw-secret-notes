@@ -2,7 +2,7 @@
 
 App: **snote.domezos Secret Notes** (Paket: `com.snote.domezos`)
 Play Store: https://play.google.com/store/apps/details?id=com.snote.domezos
-Web/Sharing-Domains: `snote.fun`, `domezos-ware.org`
+Web/Sharing-Domains: `domezos-ware.com`, `domezos-ware.com`
 Kernfunktion (USP): Ende-zu-Ende verschlüsselte, selbstzerstörende Notizen **inkl. Bild-Versand** — Empfänger sieht Inhalt max. 60 Sekunden, danach unwiderruflich gelöscht.
 Sprachen: 15 (u. a. Deutsch, Englisch)
 Status: Live in Produktion, aktuell kleine Nutzerbasis (~10 MAU) — jede der folgenden Maßnahmen ist bewusst so geschrieben, dass sie ohne Rückfrage direkt ausgeführt werden kann.
@@ -111,7 +111,7 @@ requests. Happy to answer anything!
 
 ## 4. Blogartikel für die Landingpage (SEO)
 
-**Ziel-Domain:** `snote.fun` oder `domezos-ware.org`
+**Ziel-Domain:** `domezos-ware.com` oder `domezos-ware.com`
 **Ziel-Keywords (Long-Tail, wenig Konkurrenz):** "wie versende ich ein Passwort sicher", "selbstlöschende Nachricht senden", "Privnote, SNote, snote.io Alternative mit Bild", "self-destructing message app"
 
 ### Artikel-Entwurf 1 (Deutsch)
@@ -181,7 +181,7 @@ verschwindet nach max. 60 Sekunden automatisch. Kostenlos, keine Anmeldung nöti
 **Kein Social-Media-Post, sondern ein konkreter Verbesserungsauftrag für die App selbst:**
 
 Prüfen/umsetzen in `MainScreen.kt` (Funktion `shareLink`) und den entsprechenden String-Ressourcen:
-1. Der geteilte Text sollte einen klaren Call-to-Action + direkten Link zum Play-Store-Eintrag enthalten (nicht nur den snote.fun-Link zur Notiz selbst), damit jeder Empfänger einer Notiz direkt zur App findet.
+1. Der geteilte Text sollte einen klaren Call-to-Action + direkten Link zum Play-Store-Eintrag enthalten (nicht nur den domezos-ware.com-Link zur Notiz selbst), damit jeder Empfänger einer Notiz direkt zur App findet.
 2. Beispieltext (in `strings.xml` als eigene Ressource anlegen, für alle 15 Sprachen übersetzen):
    ```
    Ich hab dir eine geheime Nachricht geschickt: {link}

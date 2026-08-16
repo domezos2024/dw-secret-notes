@@ -87,10 +87,10 @@ All prices you see are fetched live from Google Play and shown in your own local
 
 ## 6. TinyURL screen
 
-This screen explains a separate, related feature: shortening any long web link down to just 5 characters, hosted on the developer's own website (snote.fun). It shows:
+This screen explains a separate, related feature: shortening any long web link down to just 5 characters, hosted on the developer's own website (domezos-ware.com). It shows:
 - A short description of the feature.
 - A box describing the Premium version of TinyURL (e.g. links that never expire), with its own separate monthly price.
-- A **"Open in browser"** button that takes you to the snote.fun website in your phone's browser to actually create a short link (this part happens outside the app).
+- A **"Open in browser"** button that takes you to the domezos-ware.com website in your phone's browser to actually create a short link (this part happens outside the app).
 
 ---
 
@@ -99,7 +99,7 @@ This screen explains a separate, related feature: shortening any long web link d
 A simple reference screen listing:
 - **Version** — the exact version number of the app you have installed.
 - **Developer** — Michael Bergfeld.
-- **Website** — snote.fun.
+- **Website** — domezos-ware.com.
 - **License** — Proprietary (i.e., the code is not open-source).
 - A short note reiterating that everything is protected with AES-256-bit encryption and that self-destructing links guarantee your secrets disappear forever after being read once.
 
@@ -134,4 +134,4 @@ You can add two small widgets to your phone's home screen (outside the app itsel
 
 ---
 
-*Website: snote.fun*
+*Website: domezos-ware.com*

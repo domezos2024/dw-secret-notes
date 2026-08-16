@@ -52,7 +52,7 @@
     </div>
 
     <footer class="app-footer">
-      <div><a href="https://domezos-ware.org" data-i18n="footer_website">https://domezos-ware.org</a></div>
+      <div><a href="https://domezos-ware.com" data-i18n="footer_website">https://domezos-ware.com</a></div>
       <div data-i18n="footer_copyright">© 2026 DoMeZos-Ware</div>
     </footer>
   </div>

@@ -16,7 +16,7 @@
  *     bytes) each with their own random 12-byte IV, then POST
  *     `{iv, data, imgIv?, imgData?}` as JSON to
  *     `msg_store.php?action=save&ts=<timestamp>`. The shareable link is
- *     `https://domezos-ware.org/msges/view.php?com=<timestamp>&pass=<pass>`.
+ *     `https://domezos-ware.com/msges/view.php?com=<timestamp>&pass=<pass>`.
  *   - Decrypt: GET `msg_store.php?action=get&com=<alias>` → `{status,
  *     pass_override, payload}`; a not-found alias still returns a
  *     plausible-looking `payload` (anti-enumeration decoy) but `status`
@@ -24,9 +24,9 @@
  *     `pass_override ?? suppliedPass`; a real GCM auth-tag mismatch (wrong
  *     pass) throws. After a successful decrypt the site fires
  *     `msg_store.php?action=unlink&com=<alias>` to self-destruct the note.
- *   - Short links (`snote.fun?link=<alias>`, on the Android
- *     side): snote.fun serves a redirect page with the resolved
- *     `const targetUrl = "https://domezos-ware.org/msges/view.php?com=...&pass=...";`
+ *   - Short links (`domezos-ware.com?link=<alias>`, on the Android
+ *     side): domezos-ware.com serves a redirect page with the resolved
+ *     `const targetUrl = "https://domezos-ware.com/msges/view.php?com=...&pass=...";`
  *     already inlined — regex-extracting it avoids needing to execute that
  *     page's own JS (which also fires its own unlink call on real navigation;
  *     since we only fetch() it here, that side effect doesn't happen, and
@@ -38,7 +38,9 @@
  * from someone else's generated link.
  */
 
-const STORE_ENDPOINT = "https://domezos-ware.org/api/msg_store.php";
+import { APP_BASE_URL } from "./config.js";
+
+const STORE_ENDPOINT = `${APP_BASE_URL}/api/msg_store.php`;
 
 // Determine the result host: use a link relative to the current page while
 // testing locally, the live server otherwise.
@@ -49,18 +51,18 @@ function getResultLongHost() {
   const currentExt = pathname.endsWith(".php") || pathname.includes(".php/") ? "php" : "html";
 
   // Use a page-relative link for localhost, 127.0.0.1, or file:// protocol so
-  // local testing never has to hit the real domezos-ware.org server.
+  // local testing never has to hit the real domezos-ware.com server.
   if (host === "localhost" || host === "127.0.0.1" || protocol === "file:") {
     const pageDir = pathname.substring(0, pathname.lastIndexOf("/"));
     return `${protocol}//${host}${pageDir}/msges/view.${currentExt}`;
   }
 
   // Live server for production - always .php
-  return "https://domezos-ware.org/msges/view.php";
+  return `${APP_BASE_URL}/msges/view.php`;
 }
 
 const RESULT_LONG_HOST = getResultLongHost();
-const SHORT_LINK_HOST = "https://snote.fun";
+const SHORT_LINK_HOST = APP_BASE_URL;
 export const DEFAULT_PASSPHRASE = "dw_secret_notes_passphrase_2026";
 
 const PBKDF2_SALT = "salt";
@@ -162,7 +164,7 @@ export async function encryptNote(text, imageBase64) {
   return { ok: true, link };
 }
 
-/** Resolves a snote.fun short link to its {com, pass} target, or null if unresolvable. */
+/** Resolves a domezos-ware.com short link to its {com, pass} target, or null if unresolvable. */
 async function resolveShortLink(alias) {
   const res = await safeFetch(`${SHORT_LINK_HOST}/?link=${encodeURIComponent(alias)}`);
   const text = await res.text();

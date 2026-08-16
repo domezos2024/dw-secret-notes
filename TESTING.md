@@ -76,14 +76,14 @@ php -S localhost:8000
    - Random 12-byte IVs for each data piece
    - Derives AES-256-GCM key via PBKDF2(pass, "salt", 100k iterations, SHA-256)
 3. Encrypts text and image with their own IVs
-4. POSTs `{iv, data, imgIv?, imgData?}` to `https://domezos-ware.org/api/msg_store.php?action=save`
+4. POSTs `{iv, data, imgIv?, imgData?}` to `https://domezos-ware.com/api/msg_store.php?action=save`
 5. Backend returns timestamp as message ID (`com` parameter)
 6. Link generated: `{RESULT_HOST}/msges/view.{ext}?com={timestamp}&pass={password}`
 
 ### Decryption (Local - Both Versions)
 1. User navigates to view link with `com` and `pass` parameters
 2. Page loads and calls `backend.js:decryptNote(com, pass, false)`
-3. GETs message from `https://domezos-ware.org/api/msg_store.php?action=get&com={com}`
+3. GETs message from `https://domezos-ware.com/api/msg_store.php?action=get&com={com}`
 4. Client-side: derives same key from password + "salt" + PBKDF2
 5. Decrypts message using AES-256-GCM with stored IV
 6. Displays plaintext message
@@ -99,7 +99,7 @@ php -S localhost:8000
 - HTML version uses `.html`, PHP version uses `.php` automatically
 
 ### Production Mode (Automatic)
-- When running from any other host, links point to `https://domezos-ware.org/msges/view.php`
+- When running from any other host, links point to `https://domezos-ware.com/msges/view.php`
 - Backend storage always uses live server (no local database)
 
 ## Testing Checklist
@@ -127,12 +127,12 @@ php -S localhost:8000
 ## Troubleshooting
 
 ### CORS Issues
-- Local file:// may block cross-origin requests to domezos-ware.org
+- Local file:// may block cross-origin requests to domezos-ware.com
 - Solution: Use PHP server or configure browser CORS locally
 
 ### Links Not Working
 - Check browser console for errors (F12)
-- Verify message storage endpoint reachable: `https://domezos-ware.org/api/msg_store.php`
+- Verify message storage endpoint reachable: `https://domezos-ware.com/api/msg_store.php`
 - Verify `com` and `pass` parameters in URL are correct
 
 ### Language/Theme Not Loading
@@ -148,7 +148,7 @@ php -S localhost:8000
 ## Notes
 
 - **Crypto is 100% client-side** — no backend processing of plaintext
-- **No local database** — messages stored on domezos-ware.org
+- **No local database** — messages stored on domezos-ware.com
 - **Self-destructing** — messages deleted after first read
 - **Languages & Themes** — Fully supported in both versions
 - **PBKDF2 iterations** — 100,000 (industry standard for key derivation)

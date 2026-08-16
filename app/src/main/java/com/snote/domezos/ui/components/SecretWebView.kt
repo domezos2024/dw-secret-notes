@@ -5,7 +5,7 @@ import android.content.Context
 import android.webkit.JavascriptInterface
 import android.webkit.WebView
 import android.webkit.WebViewClient
-import com.snote.domezos.data.Prefs
+import com.snote.domezos.data.Backend
 import org.json.JSONObject
 import java.net.URLEncoder
 
@@ -20,8 +20,8 @@ class SecretWebView(context: Context) : WebView(context) {
     }
 
     companion object {
-        private const val ENCRYPT_ENDPOINT = "https://domezos-ware.org/api/android_be_encrypt.php"
-        private const val DECRYPT_ENDPOINT = "https://domezos-ware.org/api/view_api.php"
+        private const val ENCRYPT_ENDPOINT = "${Backend.BASE_URL}/api/android_be_encrypt.php"
+        private const val DECRYPT_ENDPOINT = "${Backend.BASE_URL}/api/view_api.php"
     }
 
     @SuppressLint("SetJavaScriptEnabled")
@@ -73,9 +73,6 @@ class SecretWebView(context: Context) : WebView(context) {
     }
 
     inner class AndroidInterface {
-        @JavascriptInterface
-        fun getToken(): String = Prefs.getDeviceToken(context)
-
         @JavascriptInterface
         fun notifyDataReady(json: String) {
             try {

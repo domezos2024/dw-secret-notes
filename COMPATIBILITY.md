@@ -84,8 +84,8 @@ function getResultLongHost() {
   //    → HTML generates: /WebApp/msges/view.html
   //    → PHP generates: /WebApp_php/msges/view.php
   
-  // 2. Live server (domezos-ware.org)
-  //    → Always generates: https://domezos-ware.org/msges/view.php
+  // 2. Live server (domezos-ware.com)
+  //    → Always generates: https://domezos-ware.com/msges/view.php
 }
 ```
 
@@ -117,17 +117,17 @@ View:    http://localhost:8000/WebApp_php/msges/view.php
 
 ### Scenario 4: Live Server (Mixed content)
 ```
-Server:  https://domezos-ware.org/webapp/
+Server:  https://domezos-ware.com/webapp/
 Files:   index.html, index.php, help.html, help.php, info.html, info.php,
          msges/view.html, msges/view.php
 
-User accesses: https://domezos-ware.org/webapp/index.html
+User accesses: https://domezos-ware.com/webapp/index.html
 Links:   Normalized to index.html, help.html, info.html
-Encrypt: Generates link https://domezos-ware.org/webapp/msges/view.html
+Encrypt: Generates link https://domezos-ware.com/webapp/msges/view.html
 
-User accesses: https://domezos-ware.org/webapp/index.php  
+User accesses: https://domezos-ware.com/webapp/index.php  
 Links:   Normalized to index.php, help.php, info.php
-Encrypt: Generates link https://domezos-ware.org/msges/view.php
+Encrypt: Generates link https://domezos-ware.com/msges/view.php
 ```
 
 ## Crypto Compatibility
@@ -135,7 +135,7 @@ Encrypt: Generates link https://domezos-ware.org/msges/view.php
 **IMPORTANT**: All versions use **identical client-side encryption**:
 - AES-256-GCM encryption (Web Crypto API)
 - PBKDF2 key derivation (100,000 iterations)
-- Same backend storage: `https://domezos-ware.org/api/msg_store.php`
+- Same backend storage: `https://domezos-ware.com/api/msg_store.php`
 - Messages encrypted in WebApp can be decrypted in WebApp_php (and vice versa)
 
 ## Deployment on Live Server

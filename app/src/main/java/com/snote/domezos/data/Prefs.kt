@@ -8,7 +8,6 @@ object Prefs {
     private const val FILE = "dw_prefs"
     private const val KEY_LANG = "selected_language"
     private const val KEY_THEME = "selected_theme"
-    private const val KEY_DEVICE_TOKEN = "device_token"
     private const val KEY_WIDGET_LINK_PREFIX = "widget_link_"
     private const val KEY_HAS_RATED_APP = "has_rated_app"
     private const val KEY_RUN_COUNT = "run_count"
@@ -22,16 +21,6 @@ object Prefs {
     fun setTheme(ctx: Context, theme: String) {
         prefs(ctx).edit { putString(KEY_THEME, theme) }
         com.snote.domezos.widget.WidgetRefresher.refreshAll(ctx)
-    }
-    fun getDeviceToken(ctx: Context): String {
-        val p = prefs(ctx)
-        var token = p.getString(KEY_DEVICE_TOKEN, null)
-        if (token == null) {
-            val uuid = java.util.UUID.randomUUID().toString()
-            token = "$uuid-app"
-            p.edit { putString(KEY_DEVICE_TOKEN, token) }
-        }
-        return token
     }
     fun getWidgetLink(ctx: Context, appWidgetId: Int): String? = prefs(ctx).getString("$KEY_WIDGET_LINK_PREFIX$appWidgetId", null)
     fun setWidgetLink(ctx: Context, appWidgetId: Int, link: String) {

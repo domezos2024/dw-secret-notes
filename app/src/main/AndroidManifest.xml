@@ -29,23 +29,23 @@
                 <data android:mimeType="text/plain" />
             </intent-filter>
 
-            <!-- domezos-ware.org: nur view.php Nachrichten-Links -->
+            <!-- domezos-ware.com: view.php Nachrichten-Links -->
             <intent-filter android:autoVerify="true">
                 <action android:name="android.intent.action.VIEW" />
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
                 <data android:scheme="https"
-                      android:host="domezos-ware.org"
+                      android:host="${backendHost}"
                       android:pathPrefix="/msges/view.php" />
             </intent-filter>
 
-            <!-- snote.fun: https://snote.fun?link=ABCDE (Query-Param-Format) -->
+            <!-- domezos-ware.com: https://domezos-ware.com?link=ABCDE (Kurzlink Query-Param-Format) -->
             <intent-filter android:autoVerify="true">
                 <action android:name="android.intent.action.VIEW" />
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
                 <data android:scheme="https"
-                      android:host="snote.fun"
+                      android:host="${backendHost}"
                       android:path="/" />
             </intent-filter>
 

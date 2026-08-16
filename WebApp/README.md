@@ -5,7 +5,7 @@ Framework, kein Server-Code — dieser Ordner ist direkt auf jeden Webserver dep
 
 Wichtig, und anders als es die App-seitigen Kommentare vermuten lassen: die eigentliche
 Ver-/Entschlüsselung passiert **nicht** serverseitig, sondern client-seitig per Web-Crypto-API
-(AES-256-GCM, Schlüssel via PBKDF2). Der Server (`domezos-ware.org`) liefert auf
+(AES-256-GCM, Schlüssel via PBKDF2). Der Server (`domezos-ware.com`) liefert auf
 `android_be_encrypt.php`/`view_api.php` eine HTML-Seite mit eingebettetem `<script type="module">`,
 das in der Android-WebView ausgeführt wird und dort verschlüsselt/entschlüsselt, bevor es das
 Ergebnis über die `Android.*`-JS-Bridge zurückgibt. Diese Web-Version führt exakt dasselbe
@@ -21,12 +21,12 @@ zu laden und auszuführen.
 2. Fertig. Es gibt keinen Build-Schritt, keine `package.json`, keine Server-seitige Logik, die auf
    deinem Server laufen müsste.
 
-Live deployt unter `https://domezos-ware.org/index.html` (die bestehende `index.php` auf der
+Live deployt unter `https://domezos-ware.com/index.html` (die bestehende `index.php` auf der
 Domain-Wurzel bleibt bewusst unangetastet, siehe nächster Abschnitt).
 
 ## "Als App installieren" (PWA) — parallel zu index.php
 
-`domezos-ware.org` bietet bereits über `index.php` + `/manifest.json` + `/sw.js` eine
+`domezos-ware.com` bietet bereits über `index.php` + `/manifest.json` + `/sw.js` eine
 installierbare App ("Zum Startbildschirm hinzufügen"). Diese Web-Version bekommt ihre **eigene**,
 unabhängige Installierbarkeit, ohne die bestehende anzufassen:
 
@@ -50,18 +50,18 @@ unabhängige Installierbarkeit, ohne die bestehende anzufassen:
 
 Die folgenden Endpunkte und das Kryptografie-Protokoll wurden am 08.08.2026 per echtem HTTP-Request
 (über den httpListener-MCP-Server, nicht aus dieser Sandbox heraus — siehe unten) gegen
-`domezos-ware.org`/`snote.fun` verifiziert, inklusive eines vollständigen
+`domezos-ware.com` verifiziert, inklusive eines vollständigen
 Verschlüsseln→Speichern→Abrufen→Entschlüsseln→Löschen-Testlaufs mit exakter Übereinstimmung von
 Klartext vorher/nachher:
 
-- **Speichern**: `POST https://domezos-ware.org/api/msg_store.php?action=save&ts=<Zeitstempel>`,
+- **Speichern**: `POST https://domezos-ware.com/api/msg_store.php?action=save&ts=<Zeitstempel>`,
   JSON-Body `{"iv":[...], "data":[...], "imgIv":[...]?, "imgData":[...]?}` — `iv`/`data` sind die
   AES-256-GCM-verschlüsselten Bytes des UTF-8-Texts (12-Byte-IV), `imgIv`/`imgData` optional analog
   für ein angehängtes Bild. Der AES-Schlüssel wird per PBKDF2 aus einer zufällig generierten,
   16-Byte-"Passphrase" abgeleitet (`salt="salt"`, 100.000 Iterationen, SHA-256, 256-Bit-Schlüssel).
   Der Zeitstempel (Format `TT.MM.JJJJ_hh-mm-ss-fff`) dient als `com`-Alias; der resultierende Link
-  ist `https://domezos-ware.org/msges/view.php?com=<Zeitstempel>&pass=<Passphrase>`.
-- **Abrufen**: `GET https://domezos-ware.org/api/msg_store.php?action=get&com=<alias>` liefert
+  ist `https://domezos-ware.com/msges/view.php?com=<Zeitstempel>&pass=<Passphrase>`.
+- **Abrufen**: `GET https://domezos-ware.com/api/msg_store.php?action=get&com=<alias>` liefert
   `{"status": "ok"|"not_found", "pass_override": string|null, "payload": {...}}`. Ein nicht
   gefundener Alias liefert trotzdem einen plausibel aussehenden `payload` zurück (Anti-Enumeration-
   Täuschung) — entscheidend ist `status`. Entschlüsselt wird mit `pass_override ?? mitgegebenePass`;
@@ -69,16 +69,16 @@ Klartext vorher/nachher:
 - **Löschen (Self-Destruct)**: Nach erfolgreichem Entschlüsseln feuert die echte Seite
   `GET .../msg_store.php?action=unlink&com=<alias>` — diese Web-Version tut dasselbe
   (fire-and-forget), damit die Nachricht wie beworben nur einmal lesbar ist.
-- **Kurzlinks** (`https://snote.fun?link=<5-stelliger Alias>`, Premium-only in der Android-App):
-  `snote.fun` liefert eine Redirect-Seite mit bereits aufgelöstem
-  `const targetUrl = "https://domezos-ware.org/msges/view.php?com=...&pass=...";` inline im HTML —
+- **Kurzlinks** (`https://domezos-ware.com?link=<5-stelliger Alias>`, Premium-only in der Android-App):
+  `domezos-ware.com` liefert eine Redirect-Seite mit bereits aufgelöstem
+  `const targetUrl = "https://domezos-ware.com/msges/view.php?com=...&pass=...";` inline im HTML —
   `resolveShortLink()` in `js/backend.js` liest das per Regex aus, ohne das dortige Redirect-Skript
   selbst auszuführen.
 - `Access-Control-Allow-Origin: *` ist auf allen getesteten Endpunkten gesetzt — `fetch()` von einer
   beliebigen Hosting-Domain aus funktioniert also ohne CORS-Probleme.
 
 **Wichtig für zukünftige Sessions in diesem Sandbox-Environment**: Direkter Netzwerkzugriff (`curl`,
-`fetch` aus dieser Sandbox heraus) auf `domezos-ware.org` ist blockiert (Proxy antwortet mit 403).
+`fetch` aus dieser Sandbox heraus) auf `domezos-ware.com` ist blockiert (Proxy antwortet mit 403).
 Das bedeutet aber **nicht**, dass eine Live-Verifikation unmöglich ist — der `httpListener`-
 MCP-Server (falls in der Session verfügbar) führt HTTP-Requests auf einem echten Rechner mit
 Internetzugang aus und wurde genau dafür genutzt, um dieses Protokoll zu verifizieren. Bei künftigen
@@ -126,7 +126,7 @@ ein, damit `<html dir="rtl">` gesetzt wird.
 - Backend-Protokoll (siehe oben) live gegen den Produktivserver verifiziert, inklusive vollständigem
   Encrypt→Decrypt-Roundtrip mit exakter Klartext-Übereinstimmung.
 - Alias-/Link-Parsing (`parseAliasFromInput`) gegen Testfälle geprüft (5-stelliger Alias,
-  `snote.fun?link=`, `domezos-ware.org?com=&pass=`, `snote.fun/<alias>`-Pfadform, ungültige Eingabe).
+  `domezos-ware.com?link=`, `domezos-ware.com?com=&pass=`, `domezos-ware.com/<alias>`-Pfadform, ungültige Eingabe).
 - Bildskalierung (`resizeImageToBase64`) gegen ein Testbild geprüft (2000×1000 → 1600×800, kein
   `data:`-Prefix im Ergebnis).
 - UI/Theme/Sprach-Rendering (inkl. RTL für Arabisch) per headless Chromium geprüft: Tab-Umschaltung,

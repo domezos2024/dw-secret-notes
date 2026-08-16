@@ -14,6 +14,7 @@ configure<com.android.build.api.dsl.ApplicationExtension> {
         versionCode     = 43
         versionName     = "4.6"
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        manifestPlaceholders["backendHost"] = "domezos-ware.com"
     }
 
     buildTypes {

@@ -7,6 +7,7 @@ import android.widget.TextView
 import androidx.compose.ui.graphics.toArgb
 import androidx.test.core.app.ApplicationProvider
 import com.snote.domezos.R
+import com.snote.domezos.data.Backend
 import com.snote.domezos.data.Prefs
 import com.snote.domezos.ui.theme.ClassicTheme
 import org.junit.Assert.assertEquals
@@ -54,7 +55,7 @@ class SecretWidgetProviderTest {
     @Test
     fun `result state shows the saved link and hides idle container`() {
         val appWidgetId = createWidget()
-        val savedLink = "https://domezos-ware.org?com=abc12"
+        val savedLink = "${Backend.BASE_URL}?com=abc12"
         Prefs.setWidgetLink(context, appWidgetId, savedLink)
 
         SecretWidgetProvider.updateWidget(context, appWidgetManager, appWidgetId)
@@ -81,7 +82,7 @@ class SecretWidgetProviderTest {
     @Test
     fun `onDeleted clears the saved widget link for each removed id`() {
         val appWidgetId = 104
-        Prefs.setWidgetLink(context, appWidgetId, "https://domezos-ware.org?com=abc12")
+        Prefs.setWidgetLink(context, appWidgetId, "${Backend.BASE_URL}?com=abc12")
 
         SecretWidgetProvider().onDeleted(context, intArrayOf(appWidgetId))
 

@@ -97,6 +97,7 @@ import org.json.JSONObject
 import java.net.HttpURLConnection
 import java.net.URL
 import com.snote.domezos.R
+import com.snote.domezos.data.Backend
 import com.snote.domezos.data.ImageUtils
 import com.snote.domezos.data.Prefs
 import com.snote.domezos.navigation.Screen
@@ -137,7 +138,7 @@ fun MainScreen(
     onThemeChanged: (String) -> Unit = {},
     currentThemeId: String = "classic",
     showRatePrompt: Boolean = false,
-    // Test-only seam: lets tests fake the backend's encrypt response (e.g. a short snote.fun
+    // Test-only seam: lets tests fake the backend's encrypt response (e.g. a short domezos-ware.com
     // link) without going through the real SecretWebView/network. Production call sites never
     // pass this, so default behavior (secretWebView.encrypt) is unchanged.
     encryptOverride: ((text: String, imageBase64: String?, callback: (String) -> Unit) -> Unit)? = null
@@ -197,7 +198,7 @@ fun MainScreen(
         if (currentUrl.length == 5 && !currentUrl.contains("://") && !currentUrl.contains(".")) {
             return Pair(currentUrl, "")
         }
-        if (!currentUrl.startsWith("http") && (currentUrl.contains("domezos-ware.org"))) {
+        if (!currentUrl.startsWith("http") && currentUrl.contains(Backend.HOST)) {
             currentUrl = "https://$currentUrl"
         }
         if (!currentUrl.startsWith("http")) {

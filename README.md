@@ -37,7 +37,7 @@ dw Secret Notes lets you send end-to-end encrypted messages via a simple shareab
 | Share links via any app | ✅ | ✅ |
 | Receive & decrypt messages | ✅ | ✅ |
 | Long-form encrypted link | ✅ | ✅ |
-| Short 5-digit link (snote.fun/XXXXX) | — | ✅ |
+| Short 5-digit link (domezos-ware.com/XXXXX) | — | ✅ |
 | Alias display after encryption | — | ✅ |
 | 15 visual themes | ✅ | ✅ |
 | 15 languages | ✅ | ✅ |
@@ -105,9 +105,9 @@ A rotating banner at the bottom promotes Premium features (or shows motivational
 
    | Format | Example |
    |---|---|
-   | Full URL | `https://domezos-ware.org/api/...?com=XXXXX` |
-   | Short URL | `https://snote.fun?link=XXXXX` |
-   | Short path | `snote.fun/XXXXX` |
+   | Full URL | `https://domezos-ware.com/api/...?com=XXXXX` |
+   | Short URL | `https://domezos-ware.com?link=XXXXX` |
+   | Short path | `domezos-ware.com/XXXXX` |
    | 5-char alias | `AB1C2` |
    | Password-protected | `XXXXX\|password` |
 
@@ -129,7 +129,7 @@ A rotating banner at the bottom promotes Premium features (or shows motivational
 
 ### Premium
 
-Premium unlocks **short 5-digit snote.fun links** and the alias display after encryption.
+Premium unlocks **short 5-digit domezos-ware.com links** and the alias display after encryption.
 
 **To purchase:**
 
@@ -147,9 +147,9 @@ Tap **Restore Purchase** on the Premium screen. The app queries Google Play for 
 
 ### TinyURL
 
-Menu (⋮) → **TinyURL** shows information about the snote.fun URL shortener service.
+Menu (⋮) → **TinyURL** shows information about the domezos-ware.com URL shortener service.
 
-- Shorten any long URL to a 5-character alias at snote.fun.
+- Shorten any long URL to a 5-character alias at domezos-ware.com.
 - Premium features: eternal links, custom aliases, password protection, QR codes, dashboard, max-views limit, statistics.
 - Tap **Visit Website** to open the service in your browser.
 
@@ -202,8 +202,8 @@ The chosen theme is persisted across restarts.
 
 The app registers as a handler for the following URL patterns:
 
-- `https://domezos-ware.org/...` — standard encrypted links
-- `https://snote.fun/...` — short Premium links
+- `https://domezos-ware.com/msges/view.php?...` — standard encrypted links
+- `https://domezos-ware.com?link=...` — short Premium links
 
 Tapping a matching link anywhere on your device (browser, chat, email) opens the app and auto-decrypts the message.
 
@@ -307,4 +307,4 @@ The project ships a single build variant, distributed exclusively through the Go
 
 ---
 
-*© 2026 snote.fun — Michael Bergfeld. All rights reserved.*
+*© 2026 domezos-ware.com — Michael Bergfeld. All rights reserved.*

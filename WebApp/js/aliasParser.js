@@ -7,6 +7,8 @@
  * so an unresolvable link returns null here instead (documented parity gap).
  */
 
+import { APP_HOST } from "./config.js";
+
 const BARE_ALIAS_RE = /^[A-Za-z0-9]{5}$/;
 
 /**
@@ -22,8 +24,8 @@ export function parseAliasFromInput(rawInput) {
     return { alias: input, pass: "", isShortLink: true };
   }
 
-  // 2. Prepend https:// if it looks like one of our hosts but has no scheme.
-  if (!/^https?:\/\//i.test(input) && (input.includes("snote.fun") || input.includes("domezos-ware.org"))) {
+  // 2. Prepend https:// if it looks like our host but has no scheme.
+  if (!/^https?:\/\//i.test(input) && input.includes(APP_HOST)) {
     input = "https://" + input;
   }
 
@@ -44,7 +46,7 @@ export function parseAliasFromInput(rawInput) {
   }
 
   const pass = url.searchParams.get("pass") || "";
-  const isSnote = url.hostname.includes("snote.fun");
+  const isHost = url.hostname.includes(APP_HOST);
   const comParam = url.searchParams.get("com");
   const linkParam = url.searchParams.get("link");
 
@@ -54,7 +56,7 @@ export function parseAliasFromInput(rawInput) {
   if (linkParam) {
     return { alias: linkParam, pass, isShortLink: true };
   }
-  if (isSnote) {
+  if (isHost) {
     const path = url.pathname.replace(/^\/+|\/+$/g, "");
     if (path.length >= 5) {
       return { alias: path, pass, isShortLink: true };

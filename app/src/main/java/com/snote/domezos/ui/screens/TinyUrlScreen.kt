@@ -35,6 +35,7 @@ import androidx.compose.ui.unit.sp
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleEventObserver
 import com.snote.domezos.R
+import com.snote.domezos.data.Backend
 import com.snote.domezos.ui.components.AppTopBar
 
 @Composable
@@ -47,7 +48,7 @@ fun TinyUrlScreen(
     val context = LocalContext.current
     val scrollState = rememberScrollState()
 
-    // Site colors — matches the :root custom properties on snote.fun/tinyURL.html
+    // Site colors — matches the :root custom properties on domezos-ware.com/tinyURL.html
     val navy900 = Color(0xFF050d1f)
     val navy800 = Color(0xFF091428)
     val navy700 = Color(0xFF0d1e3a)
@@ -134,7 +135,7 @@ fun TinyUrlScreen(
 
                     // Header Section
                     Text(
-                        text = "snote.fun",
+                        text = Backend.HOST,
                         color = white,
                         fontSize = 24.sp,
                         fontWeight = FontWeight.Bold,
@@ -160,6 +161,7 @@ fun TinyUrlScreen(
 
                     Button(
                         onClick = {
+                            // tinyURL.html only exists on snote.fun (domezos-ware.com/tinyURL.html 404s) — verified live, keep as-is.
                             val intent = Intent(Intent.ACTION_VIEW, Uri.parse("https://snote.fun/tinyURL.html"))
                             context.startActivity(intent)
                         },

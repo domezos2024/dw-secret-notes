@@ -42,25 +42,16 @@ class PrefsTest {
     }
 
     @Test
-    fun `device token is generated once and stable across calls`() {
-        val first = Prefs.getDeviceToken(context)
-        val second = Prefs.getDeviceToken(context)
-        assertEquals(first, second)
-        assertTrue(first.endsWith("-app"))
-    }
-
-
-    @Test
     fun `widget link is scoped per widget id`() {
-        Prefs.setWidgetLink(context, appWidgetId = 1, link = "https://snote.fun?link=abc12")
-        Prefs.setWidgetLink(context, appWidgetId = 2, link = "https://snote.fun?link=xyz99")
+        Prefs.setWidgetLink(context, appWidgetId = 1, link = "${Backend.BASE_URL}?link=abc12")
+        Prefs.setWidgetLink(context, appWidgetId = 2, link = "${Backend.BASE_URL}?link=xyz99")
 
-        assertEquals("https://snote.fun?link=abc12", Prefs.getWidgetLink(context, 1))
-        assertEquals("https://snote.fun?link=xyz99", Prefs.getWidgetLink(context, 2))
+        assertEquals("${Backend.BASE_URL}?link=abc12", Prefs.getWidgetLink(context, 1))
+        assertEquals("${Backend.BASE_URL}?link=xyz99", Prefs.getWidgetLink(context, 2))
 
         Prefs.clearWidgetLink(context, 1)
         assertNull(Prefs.getWidgetLink(context, 1))
-        assertEquals("https://snote.fun?link=xyz99", Prefs.getWidgetLink(context, 2))
+        assertEquals("${Backend.BASE_URL}?link=xyz99", Prefs.getWidgetLink(context, 2))
     }
 
     @Test

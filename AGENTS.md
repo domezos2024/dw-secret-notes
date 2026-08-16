@@ -9,11 +9,11 @@ Compose) for sending self-destructing encrypted "secret notes" (text and/or a si
 one-time link. There is no local database and no local encryption — the app is a thin client:
 
 1. **Encrypt**: `MainScreen` posts the note (and optional base64 image) to a hidden 1dp `WebView`
-   (`SecretWebView`), which `POST`s to `https://domezos-ware.org/api/android_be_encrypt.php`. The
+   (`SecretWebView`), which `POST`s to `https://domezos-ware.com/api/android_be_encrypt.php`. The
    backend PHP does the actual encryption/storage and returns a one-time link
-   (`domezos-ware.org/msges/view.php?...` or the short `snote.fun?link=...` form).
+   (`domezos-ware.com/msges/view.php?...` or the short `domezos-ware.com?link=...` form).
 2. **Decrypt**: the reverse — `SecretWebView.decrypt()` loads `view_api.php?com=...&pass=...` (or
-   `snote.fun?link=...`) and the JS running in that page calls back into Kotlin via the
+   `domezos-ware.com?link=...`) and the JS running in that page calls back into Kotlin via the
    `Android` JavaScript interface (`AndroidInterface.sendAnswer` / `sendImage`) with the
    decrypted content. Notes decrypted in-app auto-clear from the UI after 60 seconds
    (`MainScreen`'s countdown), matching the backend's self-destruct behavior.
@@ -29,9 +29,10 @@ one-time link. There is no local database and no local encryption — the app is
    as part of that HTML/JS response — but it is *not* server-side crypto either; don't describe or
    reimplement it as such. `WebApp/js/backend.js` reimplements this exact client-side protocol.
 
-The app also handles deep links (`https://domezos-ware.org/msges/view.php` and
-`https://snote.fun/...`) and a plain-text `ACTION_SEND` share target, so a note link shared from
-elsewhere opens straight into the decrypt flow (see `MainActivity.extractAliasFromIntent`).
+The app also handles deep links (`https://domezos-ware.com/msges/view.php` and the short
+`https://domezos-ware.com?link=...` form) and a plain-text `ACTION_SEND` share target, so a note
+link shared from elsewhere opens straight into the decrypt flow (see
+`MainActivity.extractAliasFromIntent`).
 
 ## Module / package layout
 
@@ -108,7 +109,7 @@ than relying on `./gradlew test`.
 - All persisted state goes through `Prefs` (single object, `SharedPreferences` under
   `dw_prefs`) — don't create additional `SharedPreferences` files.
 - German inline comments/strings appear in a few places (e.g. `AndroidManifest.xml` intent-filter
-  comments) — this is a German-market app (domezos-ware.org), bilingual comments are normal here.
+  comments) — this is a German-market app (domezos-ware.com), bilingual comments are normal here.
 - Don't add a backend/crypto abstraction layer in-app — by design, the app's own job is UI + thin
   HTTP/WebView bridge; the actual crypto is client-side JS shipped down from the backend on each
   call (see the correction in "What this app is" above) and storage is server-side, but neither

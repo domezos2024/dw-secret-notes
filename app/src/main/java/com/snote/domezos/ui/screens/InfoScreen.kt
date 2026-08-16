@@ -11,6 +11,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import com.snote.domezos.BuildConfig
 import com.snote.domezos.R
+import com.snote.domezos.data.Backend
 import com.snote.domezos.ui.components.AppTopBar
 import com.snote.domezos.ui.theme.*
 
@@ -31,7 +32,7 @@ fun InfoScreen(onNavigate: (String) -> Unit, onBack: () -> Unit, onThemeChanged:
                 HorizontalDivider(color = MaterialTheme.colorScheme.outline.copy(alpha = 0.3f), modifier = Modifier.padding(vertical = 6.dp))
                 InfoRow(label = stringResource(R.string.info_developer_label), value = "Michael Bergfeld")
                 HorizontalDivider(color = MaterialTheme.colorScheme.outline.copy(alpha = 0.3f), modifier = Modifier.padding(vertical = 6.dp))
-                InfoRow(label = stringResource(R.string.info_website_label), value = "domezos-ware.org")
+                InfoRow(label = stringResource(R.string.info_website_label), value = Backend.HOST)
                 HorizontalDivider(color = MaterialTheme.colorScheme.outline.copy(alpha = 0.3f), modifier = Modifier.padding(vertical = 6.dp))
                 InfoRow(label = stringResource(R.string.info_license_label), value = "Proprietary")
             }

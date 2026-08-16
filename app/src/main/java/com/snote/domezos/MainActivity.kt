@@ -15,6 +15,7 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.graphics.toArgb
+import com.snote.domezos.data.Backend
 import com.snote.domezos.data.LocaleManager
 import com.snote.domezos.data.Prefs
 import com.snote.domezos.navigation.AppNavigation
@@ -113,7 +114,7 @@ class MainActivity : ComponentActivity() {
 
     private fun extractAliasFromUri(data: android.net.Uri): String? {
         return when (data.host) {
-            "domezos-ware.org" -> {
+            Backend.HOST -> {
                 val com = data.getQueryParameter("com") ?: return null
                 val pass = data.getQueryParameter("pass")
                 if (!pass.isNullOrEmpty()) "$com|$pass" else com
