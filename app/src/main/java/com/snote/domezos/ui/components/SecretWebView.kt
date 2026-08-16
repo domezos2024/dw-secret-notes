@@ -37,6 +37,7 @@ class SecretWebView(context: Context) : WebView(context) {
         try {
             val body = buildString {
                 append("write=").append(URLEncoder.encode(text, "UTF-8"))
+                append("&apikey=").append(Backend.API_KEY)
                 if (!imageBase64.isNullOrEmpty()) {
                     append("&image=").append(URLEncoder.encode(imageBase64, "UTF-8"))
                 }
@@ -69,7 +70,7 @@ class SecretWebView(context: Context) : WebView(context) {
         val cleanAlias = if (alias.startsWith("link:")) alias.substring(5) else alias
         val encodedAlias = URLEncoder.encode(cleanAlias, "UTF-8")
         val encodedPass = URLEncoder.encode(pass, "UTF-8")
-        return "$DECRYPT_ENDPOINT?com=$encodedAlias&pass=$encodedPass"
+        return "$DECRYPT_ENDPOINT?com=$encodedAlias&pass=$encodedPass&apikey=${Backend.API_KEY}"
     }
 
     inner class AndroidInterface {

@@ -1,8 +1,10 @@
 <?php
 declare(strict_types=1);
 require_once __DIR__ . '/config.php';
+require_once __DIR__ . '/auth.php';
 
 date_default_timezone_set('Europe/Berlin');
+$apiKey = enforceApiAccess();
 
 $dir = __DIR__ . '/../msges/';
 $days = 4;
@@ -38,6 +40,7 @@ http_response_code(200);
 
 <script type="module">
 const API_BASE = <?= json_encode(APP_BASE_URL) ?>;
+const API_KEY = <?= json_encode($apiKey) ?>;
 
 function pad(n) { return n.toString().padStart(2, '0'); }
 
@@ -90,7 +93,7 @@ async function encryptAndSend(text, imageB64) {
         const ts = getTimestamp();
         const res = await fetch(`${API_BASE}/api/msg_store.php?action=save&ts=${encodeURIComponent(ts)}`, {
             method: "POST",
-            headers: { "Content-Type": "application/json" },
+            headers: { "Content-Type": "application/json", "X-API-Key": API_KEY },
             body: JSON.stringify(payload)
         });
         if (!res.ok) { notifyAndroid("Encrypt failed. Bad Internet Connection?"); return; }

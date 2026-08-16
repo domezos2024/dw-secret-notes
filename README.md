@@ -14,33 +14,28 @@ dw Secret Notes lets you send end-to-end encrypted messages via a simple shareab
    - [Home Screen](#home-screen)
    - [Encrypt a Message](#encrypt-a-message)
    - [Decrypt a Message](#decrypt-a-message)
-   - [Premium](#premium)
    - [TinyURL](#tinyurl)
    - [Language](#language)
    - [Themes](#themes)
    - [Help & Info](#help--info)
 4. [Deep Links & Sharing](#deep-links--sharing)
 5. [Security](#security)
-6. [Premium — Purchase Details](#premium--purchase-details)
-7. [Supported Languages](#supported-languages)
-8. [Technical Overview](#technical-overview)
-9. [Build Variant](#build-variant)
+6. [Supported Languages](#supported-languages)
+7. [Technical Overview](#technical-overview)
+8. [Build Variant](#build-variant)
+9. [Public Backend API](#public-backend-api)
 
 ---
 
 ## Features
 
-| Feature | Free | Premium |
-|---|:---:|:---:|
-| Encrypt messages with AES 256-bit | ✅ | ✅ |
-| Self-destructing links (read once) | ✅ | ✅ |
-| Share links via any app | ✅ | ✅ |
-| Receive & decrypt messages | ✅ | ✅ |
-| Long-form encrypted link | ✅ | ✅ |
-| Short 5-digit link (domezos-ware.com/XXXXX) | — | ✅ |
-| Alias display after encryption | — | ✅ |
-| 15 visual themes | ✅ | ✅ |
-| 15 languages | ✅ | ✅ |
+- Encrypt messages with AES 256-bit
+- Self-destructing links (read once)
+- Share links via any app
+- Receive & decrypt messages
+- Long-form encrypted link
+- 15 visual themes
+- 15 languages
 
 ---
 
@@ -77,7 +72,7 @@ The home screen is divided into two sections separated by a horizontal divider:
 - **Top half — Encrypt:** Compose and encrypt a new secret message.
 - **Bottom half — Decrypt:** Paste a link or alias to read a message sent to you.
 
-A rotating banner at the bottom promotes Premium features (or shows motivational messages for existing Premium users). Tapping the banner navigates to the Premium screen.
+A rotating banner at the bottom highlights security features of the app (encryption, self-destruction, short links).
 
 ---
 
@@ -90,7 +85,6 @@ A rotating banner at the bottom promotes Premium features (or shows motivational
    - The generated link appears in a read-only field.
    - **Copy** — copies the link to the clipboard and clears the form.
    - **Share** — opens the system share sheet so you can send the link via any app.
-   - If you are a Premium user, your short 5-digit alias is also shown and automatically copied.
 5. Tap **New Message** to start over.
 
 > The link can only be decrypted inside dw Secret Notes. Once opened and decrypted, it is gone forever.
@@ -127,31 +121,15 @@ A rotating banner at the bottom promotes Premium features (or shows motivational
 
 ---
 
-### Premium
-
-Premium unlocks **short 5-digit domezos-ware.com links** and the alias display after encryption.
-
-**To purchase:**
-
-1. Open the menu (⋮ top right) → **Premium**.
-2. Review the offer details (price, duration, terms).
-3. Tap **Get Premium Now**.
-4. Complete the Google Play in-app purchase flow.
-5. After a successful purchase, the screen shows **PREMIUM ACTIVE** and all Premium features are immediately enabled.
-
-**To restore a previous purchase:**
-
-Tap **Restore Purchase** on the Premium screen. The app queries Google Play for existing purchases linked to your account.
-
----
-
 ### TinyURL
 
 Menu (⋮) → **TinyURL** shows information about the domezos-ware.com URL shortener service.
 
 - Shorten any long URL to a 5-character alias at domezos-ware.com.
-- Premium features: eternal links, custom aliases, password protection, QR codes, dashboard, max-views limit, statistics.
-- Tap **Visit Website** to open the service in your browser.
+- Optional tiers (without account / with account / paid) exist on the shortener website itself —
+  unrelated to this app's own billing, which was removed (see below).
+- Tap **Open domezos-ware.com/tinyURL** to open the service in your browser (this specific page is
+  still hosted on `snote.fun`, verified live — everything else is on `domezos-ware.com`).
 
 ---
 
@@ -203,7 +181,7 @@ The chosen theme is persisted across restarts.
 The app registers as a handler for the following URL patterns:
 
 - `https://domezos-ware.com/msges/view.php?...` — standard encrypted links
-- `https://domezos-ware.com?link=...` — short Premium links
+- `https://domezos-ware.com?link=...` — short links
 
 Tapping a matching link anywhere on your device (browser, chat, email) opens the app and auto-decrypts the message.
 
@@ -222,26 +200,12 @@ Tapping a matching link anywhere on your device (browser, chat, email) opens the
 | Deletion policy | Immediate and permanent on first successful decryption |
 | Screenshot protection | `FLAG_SECURE` — app hidden in Recents, screenshots blocked |
 | Transport | HTTPS only |
-| Request authentication | Per-device token + HMAC-SHA256 signed API requests |
+| Request authentication | Backend API requires an API key (`X-API-Key` header or `apikey` param) — see [Public Backend API](#public-backend-api) |
 
 **Known limitations:**
 
 - The recipient must use dw Secret Notes to decrypt. The link cannot be opened in a browser.
 - If the connection drops mid-decryption, the server may delete the message before it is displayed. It cannot be recovered.
-
----
-
-## Premium — Purchase Details
-
-> As required by Google Play subscription policy, all terms are also shown on the Premium screen inside the app.
-
-| Item | Detail |
-|---|---|
-| Price | €1.79 |
-| Access period | 30 days from date of purchase |
-| Auto-renewal | **No** — this is a one-time purchase. It does not renew automatically. |
-| Required to use the app | **No** — core features (encrypt, decrypt) are free and unlimited. |
-| Restore | Tap "Restore Purchase" on the Premium screen. |
 
 ---
 
@@ -258,7 +222,6 @@ English · Deutsch · Español · 中文 (简体) · हिन्दी · ال�
 | Language | Kotlin |
 | UI framework | Jetpack Compose + Material 3 |
 | Navigation | Compose Navigation |
-| Billing | Google Play Billing Library 7.1.1 |
 | Encryption bridge | WebView JavaScript interface → server-side PHP API |
 | Persistence | SharedPreferences |
 | Deep links | Android Intent filters + URI parsing |
@@ -272,22 +235,27 @@ English · Deutsch · Español · 中文 (简体) · हिन्दी · ال�
 app/src/main/java/com/snote/domezos/
 ├── MainActivity.kt                 Entry point, deep link handling
 ├── DwApplication.kt                Locale application at startup
-├── billing/
-│   └── BillingHelper.kt            Google Play Billing integration
 ├── data/
-│   ├── BackendClient.kt            HMAC-signed API handshake
-│   ├── LocaleManager.kt            Locale context creation
-│   └── Prefs.kt                    SharedPreferences wrapper
+│   ├── Backend.kt                  Backend host + first-party API key (single source of truth)
+│   ├── ImageUtils.kt                Bitmap scaling / base64 helpers
+│   ├── LocaleManager.kt             Locale context creation
+│   └── Prefs.kt                     SharedPreferences wrapper
 ├── navigation/
-│   ├── AppNavigation.kt            NavHost with all routes
-│   └── Screen.kt                   Sealed class for type-safe routes
+│   ├── AppNavigation.kt             NavHost with all routes
+│   └── Screen.kt                    Sealed class for type-safe routes
+├── util/
+│   └── ContextExt.kt                Activity-lookup extension
+├── widget/
+│   ├── SecretWidgetProvider.kt      Home-screen quick-capture widget
+│   ├── LauncherWidgetProvider.kt    Launcher-icon widget
+│   ├── WidgetEncryptActivity.kt     Transparent capture activity for widgets
+│   └── WidgetRefresher.kt           Pushes theme/state updates to widgets
 └── ui/
     ├── components/
     │   ├── AppTopBar.kt             Top bar with navigation menu and theme picker
     │   └── SecretWebView.kt         Encryption / decryption WebView bridge
     ├── screens/
     │   ├── MainScreen.kt            Encrypt + Decrypt home screen
-    │   ├── PremiumScreen.kt         Premium purchase screen
     │   ├── TinyUrlScreen.kt         TinyURL info screen
     │   ├── LanguageScreen.kt        Language picker
     │   ├── HelpScreen.kt            Help & FAQ
@@ -303,7 +271,21 @@ app/src/main/java/com/snote/domezos/
 
 ## Build Variant
 
-The project ships a single build variant, distributed exclusively through the Google Play Store. Premium purchases use Google Play in-app purchase (Billing).
+The project ships a single build variant, distributed exclusively through the Google Play Store. There is no in-app purchasing or billing — the app is fully free.
+
+---
+
+## Public Backend API
+
+The backend (`WebApp/api/`) can be used by other apps/clients, not just this Android app:
+
+- Every request needs a valid API key — send it as header `X-API-Key: <key>` (preferred) or,
+  where a caller can't set custom headers, as a request param `apikey=<key>`.
+- Keys are issued manually for now (open an issue/PR). Rate limits are tiered
+  (`free` / `trusted` / `internal`), conservatively sized for standard shared hosting — see
+  `WebApp/api/auth.php` for the exact numbers and `WebApp/api/data/keys.example.php` for the
+  key-file format.
+- Endpoints and the crypto protocol are documented in [`WebApp/README.md`](WebApp/README.md).
 
 ---
 

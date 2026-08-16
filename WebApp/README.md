@@ -69,13 +69,23 @@ Klartext vorher/nachher:
 - **Löschen (Self-Destruct)**: Nach erfolgreichem Entschlüsseln feuert die echte Seite
   `GET .../msg_store.php?action=unlink&com=<alias>` — diese Web-Version tut dasselbe
   (fire-and-forget), damit die Nachricht wie beworben nur einmal lesbar ist.
-- **Kurzlinks** (`https://domezos-ware.com?link=<5-stelliger Alias>`, Premium-only in der Android-App):
-  `domezos-ware.com` liefert eine Redirect-Seite mit bereits aufgelöstem
+- **Kurzlinks** (`https://domezos-ware.com?link=<5-stelliger Alias>`): `domezos-ware.com` liefert
+  eine Redirect-Seite mit bereits aufgelöstem
   `const targetUrl = "https://domezos-ware.com/msges/view.php?com=...&pass=...";` inline im HTML —
   `resolveShortLink()` in `js/backend.js` liest das per Regex aus, ohne das dortige Redirect-Skript
-  selbst auszuführen.
+  selbst auszuführen. Die automatische Kurzlink-Erzeugung war früher an Premium gekoppelt; seit der
+  Premium-Entfernung erzeugt der Encrypt-Flow nur noch den langen `view.php`-Link.
 - `Access-Control-Allow-Origin: *` ist auf allen getesteten Endpunkten gesetzt — `fetch()` von einer
   beliebigen Hosting-Domain aus funktioniert also ohne CORS-Probleme.
+- **API-Key + Rate-Limiting**: `android_be_encrypt.php`, `view_api.php` und `msg_store.php` verlangen
+  seit dem Public-Repo-Vorbereitung einen gültigen Key, entweder als Header `X-API-Key: <key>` oder
+  (WebView-Limitation, `postUrl()`/`loadUrl()` unterstützen keine Custom-Header) als Request-Param
+  `apikey=<key>`. Ohne/mit ungültigem Key → `401`. Key-Verwaltung und Limits: siehe
+  `api/auth.php` + `api/data/keys.example.php`; echte Keys leben in `api/data/keys.php`
+  (gitignored, nie committen). Tiers: `internal` (App/Web-App, 120/Min · 50.000/Tag), `trusted`
+  (manuell hochgestufte Contributor, 30/Min · 5.000/Tag), `free` (Standard für externe Nutzer,
+  10/Min · 1.000/Tag) — konservativ dimensioniert für Standard-Shared-Hosting ohne dokumentierte
+  Concurrency-Grenzen. Bei Überschreitung: `429` + `Retry-After`-Header.
 
 **Wichtig für zukünftige Sessions in diesem Sandbox-Environment**: Direkter Netzwerkzugriff (`curl`,
 `fetch` aus dieser Sandbox heraus) auf `domezos-ware.com` ist blockiert (Proxy antwortet mit 403).

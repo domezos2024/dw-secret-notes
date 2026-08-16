@@ -23,7 +23,6 @@ Der Hauptbildschirm ist in zwei Hälften geteilt: **die obere Hälfte zum Versen
 - **Button "Encrypt" (Verschlüsseln)** — Sobald du etwas eingegeben (oder ein Bild angehängt) hast, tippst du auf diesen Button. Die App verschlüsselt deine Nachricht mit bankenüblicher AES-256-Verschlüsselung und lädt nur die verschlüsselte, unlesbare Version auf den Server hoch — dein Originaltext verlässt dein Handy niemals im lesbaren Klartext.
 
 Nach dem Verschlüsseln zeigt der Bildschirm das Ergebnis:
-- **Dein Alias** (nur für Premium-Nutzer) — ein kurzer, gut merkbarer Code, der deine Nachricht kennzeichnet.
 - **Link-Feld** — der geheime Link, den du teilen musst. Es ist schreibgeschützt (du kannst dort nichts eintippen).
 - **Button "Copy" (Kopieren)** — kopiert den Link in die Zwischenablage, damit du ihn überall einfügen kannst.
 - **Button "Share" (Teilen)** — öffnet das normale Teilen-Menü deines Handys (WhatsApp, E-Mail, SMS usw.) mit dem bereits eingefügten Link.
@@ -41,7 +40,7 @@ Nach erfolgreicher Entschlüsselung siehst du:
 
 ### Die Box am unteren Rand
 
-Unter beiden Bereichen gibt es eine kleine hervorgehobene Box (eine Werbung für Premium, oder — falls du Premium bereits gekauft hast — eine kleine Dankeschön-Nachricht). Ein Tipp darauf führt dich zum Premium-Bildschirm (Abschnitt 3).
+Unter beiden Bereichen gibt es eine kleine hervorgehobene Box, die abwechselnd kurze Hinweise zu den Sicherheitsmerkmalen der App zeigt (Verschlüsselungsstärke, Selbstzerstörung usw.).
 
 ---
 
@@ -53,11 +52,9 @@ Tippe auf die drei Punkte oben rechts auf jedem Bildschirm, um ein Dropdown-Men�
 |---|---|
 | **Choose Theme (Design wählen)** | Öffnet ein zweites Menü mit 16 Farbdesigns (z. B. Classic Blue, Midnight Purple, Forest Green, Cyberpunk Neon, Dracula Dark, Dunkelmodus, Hellmodus und mehr). Tippe eines an, um sofort die ganze App umzufärben. |
 | **Help (Hilfe)** | Öffnet den Hilfe- & FAQ-Bildschirm (siehe Abschnitt 4). |
-| **Premium** | Öffnet den Premium-Bildschirm, auf dem du Zusatzfunktionen freischalten kannst (siehe Abschnitt 5). |
 | **Language (Sprache)** | Öffnet erneut die Sprachauswahl, damit du die Sprache der App jederzeit wechseln kannst. |
-| **TinyURL** | Öffnet einen Bildschirm zum Verkürzen langer Web-Links (siehe Abschnitt 6). |
-| **Info** | Öffnet den Über-die-App-Bildschirm mit Version, Entwickler und rechtlichen Infos (siehe Abschnitt 7). |
-| **Support** | Öffnet den "Spendier mir einen Kaffee"-Unterstützungs-Bildschirm (siehe Abschnitt 8). |
+| **TinyURL** | Öffnet einen Bildschirm zum Verkürzen langer Web-Links (siehe Abschnitt 5). |
+| **Info** | Öffnet den Über-die-App-Bildschirm mit Version, Entwickler und rechtlichen Infos (siehe Abschnitt 6). |
 
 ---
 
@@ -66,35 +63,20 @@ Tippe auf die drei Punkte oben rechts auf jedem Bildschirm, um ein Dropdown-Men�
 Eine einfache FAQ-Seite, die in klarer Sprache erklärt:
 - **Wie es funktioniert** — Nachricht eingeben, auf Verschlüsseln tippen, Link teilen; der Empfänger öffnet ihn, die Nachricht wird einmal entschlüsselt und danach unwiderruflich gelöscht.
 - **Sicherheit** — alles wird mit AES 256-Bit verschlüsselt, demselben Standard, den Banken und Regierungen verwenden. Der Server speichert immer nur die verschlüsselte Version, dein Originaltext verlässt dein Handy nie.
-- **FAQ-Fragen** wie: "Kann die Nachricht zweimal gelesen werden?" (Nein — sie zerstört sich nach dem ersten Lesen selbst), "Kann eine gelöschte Nachricht wiederhergestellt werden?" (Nein, es gibt kein Backup), "Wie sehen Premium-Links aus?" (Kurze, gut merkbare 5-stellige Codes) und "Ist Premium an mein Konto gebunden?" (Nein — Premium ist anonym nur an dein Gerät gebunden; bei einer Neuinstallation oder einem Gerätewechsel musst du es erneut kaufen, da die App bewusst keine persönlichen Kontodaten speichert).
+- **FAQ-Fragen** wie: "Kann die Nachricht zweimal gelesen werden?" (Nein — sie zerstört sich nach dem ersten Lesen selbst), und "Kann eine gelöschte Nachricht wiederhergestellt werden?" (Nein, es gibt kein Backup).
 
 ---
 
-## 5. Premium-Bildschirm
-
-Premium ist ein optionales Upgrade, das du kaufen kannst. Dieser Bildschirm zeigt:
-- **Eine Funktionsliste** mit einem Häkchen neben jedem Vorteil: unbegrenzte Nachrichten, kurze, gut merkbare 5-stellige Links, eine sichere verschlüsselte Link-Datenbank, AES-256-Bit-Verschlüsselung und selbstzerstörende Nachrichten.
-- **Zwei antippbare Plan-Karten zur Auswahl:**
-  - **Monatsplan** — ein Einmalkauf (trotz des Namens ein einmaliger Kauf, kein wiederkehrendes Abo) mit deutlich angezeigtem Preis.
-  - **Abo-Plan** — ein wiederkehrendes Abonnement, oft mit einem Badge für eine kostenlose Testphase auf der Karte, mit dem Preis pro Monat.
-- Je nachdem, welche Plan-Karte du ausgewählt hast, erklärt eine Detailbox darunter genau, was du bekommst: den Preis, die Dauer, ob es sich automatisch verlängert, und dass alles freiwillig ist.
-- **Der Kaufen-Button** unten (sein Text ändert sich je nach Auswahl: "Abonnieren" oder eine Einmalkauf-Bezeichnung) öffnet den offiziellen Bezahlbildschirm von Google Play. Besitzt du Premium bereits, ist dieser Button deaktiviert und zeigt einfach "Premium Active" an.
-- Kleingedrucktes ganz unten verlinkt zu den Kaufbedingungen.
-
-Alle angezeigten Preise werden live von Google Play abgerufen und in deiner eigenen lokalen Währung angezeigt — sie sind niemals fest einprogrammiert, sodass sie für dein Land immer korrekt sind.
-
----
-
-## 6. TinyURL-Bildschirm
+## 5. TinyURL-Bildschirm
 
 Dieser Bildschirm erklärt eine separate, verwandte Funktion: das Verkürzen jedes beliebigen langen Web-Links auf nur 5 Zeichen, gehostet auf der eigenen Website des Entwicklers (domezos-ware.com). Er zeigt:
 - Eine kurze Beschreibung der Funktion.
-- Eine Box mit der Premium-Version von TinyURL (z. B. Links, die niemals ablaufen), mit eigenem, separatem monatlichem Preis.
-- Einen Button **"Im Browser öffnen"**, der dich zur domezos-ware.com-Website in deinem Handy-Browser bringt, um dort tatsächlich einen Kurzlink zu erstellen (dieser Teil findet außerhalb der App statt).
+- Infos zu den kostenlosen/registrierten/bezahlten Stufen der externen Kurzlink-Website selbst — unabhängig vom Bezahlmodell dieser App, das es nicht (mehr) gibt.
+- Einen Button **"Öffnen"**, der dich zur domezos-ware.com-Website in deinem Handy-Browser bringt, um dort tatsächlich einen Kurzlink zu erstellen (dieser Teil findet außerhalb der App statt).
 
 ---
 
-## 7. Info-Bildschirm (Über die App)
+## 6. Info-Bildschirm (Über die App)
 
 Ein einfacher Referenzbildschirm mit:
 - **Version** — die genaue Versionsnummer der installierten App.
@@ -105,19 +87,7 @@ Ein einfacher Referenzbildschirm mit:
 
 ---
 
-## 8. Support-Bildschirm ("Spendier mir einen Kaffee")
-
-Dieser Bildschirm ist eine **reine, freiwillige Spende** — wichtig zu verstehen: sie schaltet nichts frei. Er existiert nur, damit Leute, die die App mögen, helfen können, sie am Laufen zu halten. Er zeigt:
-- **Was das ist** — eine klare Erklärung, dass dies kein Kauf irgendeiner Funktion ist; du bekommst nichts dafür zurück außer dem guten Gefühl, die App zu unterstützen.
-- **Laufende Kosten** — eine transparente Aufschlüsselung dessen, was den Dienst tatsächlich monatlich Geld kostet (z. B. der Server, die Datenbank, das SSL-Zertifikat und Wartung/Weiterentwicklung).
-- **Anonym** — ein Hinweis, dass dein Trinkgeld in keiner Weise mit deiner Identität verknüpft wird.
-- **Der Trinkgeld-Preis**, live von Google Play in deiner lokalen Währung angezeigt.
-- **Ein Disclaimer**, der noch einmal klarstellt, dass keine Funktion, Freischaltung oder Belohnung im Gegenzug gewährt wird.
-- **Button "Send tip" (Trinkgeld senden)** — öffnet den Bezahlbildschirm von Google Play, um das kleine einmalige Trinkgeld zu senden. Hast du schon einmal gespendet, zeigt ein kleines grünes Abzeichen darüber, wie oft du die App bereits unterstützt hast.
-
----
-
-## 9. Homescreen-Widgets
+## 7. Homescreen-Widgets
 
 Du kannst zwei kleine Widgets zu deinem Homescreen hinzufügen (außerhalb der App selbst), indem du lange auf deinen Homescreen drückst und "Widgets" wählst:
 - **Schnell-Verschlüsseln-Widget** — lässt dich direkt vom Homescreen aus eine Nachricht eintippen und einen Teilen-Link erhalten, ohne die App überhaupt vollständig zu öffnen.
@@ -125,12 +95,12 @@ Du kannst zwei kleine Widgets zu deinem Homescreen hinzufügen (außerhalb der A
 
 ---
 
-## 10. Warum ist das sicher? (einfach erklärt)
+## 8. Warum ist das sicher? (einfach erklärt)
 
 - Deine Nachricht wird mit **AES-256** verschlüsselt — derselben Verschlüsselungsstärke, die Banken und Regierungen verwenden — bevor sie überhaupt dein Handy verlässt.
 - Der Server speichert immer nur die verschlüsselte, unlesbare Version.
 - In dem Moment, in dem jemand die Nachricht öffnet und liest, wird sie **unwiderruflich und endgültig gelöscht** — es gibt keine Möglichkeit, sie ein zweites Mal zu lesen, und es existiert nirgendwo ein Backup.
-- Der Premium-Status ist an einen anonymen, auf deinem Gerät erzeugten Code gebunden, nicht an deinen Namen, deine E-Mail oder ein persönliches Konto — die App kann also nicht nachverfolgen, wer du bist.
+- Die App ist komplett kostenlos, ohne Konto und ohne In-App-Käufe — es gibt nichts, worüber man dich nachverfolgen könnte.
 
 ---
 

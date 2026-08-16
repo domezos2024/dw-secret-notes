@@ -1,9 +1,11 @@
 <?php
 declare(strict_types=1);
 require_once __DIR__ . '/config.php';
+require_once __DIR__ . '/auth.php';
 
 date_default_timezone_set('Europe/Berlin');
 header('Content-Type: application/json; charset=utf-8');
+enforceApiAccess();
 
 const MSG_HONEYPOT_FILE = '16.11.2025_18-03-49-200.txt';
 const MSG_HONEYPOT_PASS = '1671330142412131832322139820315246110200182';

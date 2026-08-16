@@ -1,8 +1,10 @@
 <?php
 declare(strict_types=1);
 require_once __DIR__ . '/config.php';
+require_once __DIR__ . '/auth.php';
 
 date_default_timezone_set('Europe/Berlin');
+$apiKey = enforceApiAccess();
 
 $com = $_GET['com'] ?? '';
 $pass = $_GET['pass'] ?? '';
@@ -14,6 +16,7 @@ $pass = $_GET['pass'] ?? '';
     <!-- Minimales Interface für die App -->
     <script type="module">
         const API_BASE = <?= json_encode(APP_BASE_URL) ?>;
+        const API_KEY = <?= json_encode($apiKey) ?>;
         const com = <?= json_encode($com) ?>;
         const urlPass = decodeURIComponent("<?= $pass ?>");
 
@@ -29,7 +32,9 @@ $pass = $_GET['pass'] ?? '';
         // Gleiche Crypto-Logik wie in msges/view.php, Daten kommen aus api/msg_store.php
         async function decrypt() {
             try {
-                const res = await fetch(`${API_BASE}/api/msg_store.php?action=get&com=${encodeURIComponent(com)}`);
+                const res = await fetch(`${API_BASE}/api/msg_store.php?action=get&com=${encodeURIComponent(com)}`, {
+                    headers: { "X-API-Key": API_KEY }
+                });
                 const json = await res.json();
                 const payload = json.payload;
                 const pass = json.pass_override ?? urlPass;
@@ -69,7 +74,9 @@ $pass = $_GET['pass'] ?? '';
                 }
 
                 // Unlink Aufruf
-                fetch(`${API_BASE}/api/msg_store.php?action=unlink&com=${encodeURIComponent(com)}`);
+                fetch(`${API_BASE}/api/msg_store.php?action=unlink&com=${encodeURIComponent(com)}`, {
+                    headers: { "X-API-Key": API_KEY }
+                });
             } catch (err) {
                 if (window.Android && window.Android.sendAnswer) {
                     window.Android.sendAnswer("ERROR: Decryption failed");

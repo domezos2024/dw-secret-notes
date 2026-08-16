@@ -21,3 +21,8 @@ app/google/release/
 
 # Log
 *.log
+
+# WebApp API secrets — real keys/rate-limit counters, never committed.
+# See WebApp/api/data/keys.example.php for the format.
+WebApp/api/data/keys.php
+WebApp/api/data/ratelimit/

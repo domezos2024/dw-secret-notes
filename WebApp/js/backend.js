@@ -38,7 +38,9 @@
  * from someone else's generated link.
  */
 
-import { APP_BASE_URL } from "./config.js";
+import { APP_BASE_URL, APP_API_KEY } from "./config.js";
+
+const API_HEADERS = { "X-API-Key": APP_API_KEY };
 
 const STORE_ENDPOINT = `${APP_BASE_URL}/api/msg_store.php`;
 
@@ -152,7 +154,7 @@ export async function encryptNote(text, imageBase64) {
   const ts = generateTimestamp();
   const res = await safeFetch(`${STORE_ENDPOINT}?action=save&ts=${encodeURIComponent(ts)}`, {
     method: "POST",
-    headers: { "Content-Type": "application/json" },
+    headers: { "Content-Type": "application/json", ...API_HEADERS },
     body: JSON.stringify(payload),
   });
 
@@ -195,7 +197,7 @@ export async function decryptNote(alias, pass, isShortLink) {
     finalPass = resolved.pass || finalPass;
   }
 
-  const res = await safeFetch(`${STORE_ENDPOINT}?action=get&com=${encodeURIComponent(com)}`);
+  const res = await safeFetch(`${STORE_ENDPOINT}?action=get&com=${encodeURIComponent(com)}`, { headers: API_HEADERS });
   let json;
   try {
     json = await res.json();
@@ -234,7 +236,7 @@ export async function decryptNote(alias, pass, isShortLink) {
     }
 
     // Fire-and-forget: self-destruct the note, matching the real page's own behavior.
-    safeFetch(`${STORE_ENDPOINT}?action=unlink&com=${encodeURIComponent(com)}`).catch(() => {});
+    safeFetch(`${STORE_ENDPOINT}?action=unlink&com=${encodeURIComponent(com)}`, { headers: API_HEADERS }).catch(() => {});
 
     return { ok: true, text, image };
   } catch {
