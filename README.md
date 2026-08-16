@@ -1,4 +1,12 @@
-# dw Secret Notes
+﻿# dw Secret Notes
+
+[![MIT License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
+[![Android](https://img.shields.io/badge/Android-26%2B-brightgreen.svg?logo=android)](https://play.google.com/store/apps/details?id=com.snote.domezos)
+[![Kotlin](https://img.shields.io/badge/Kotlin-2.2-blue.svg?logo=kotlin)](https://kotlinlang.org)
+[![Jetpack Compose](https://img.shields.io/badge/Jetpack%20Compose-latest-blue?logo=jetpackcompose)](https://developer.android.com/jetpack/compose)
+[![contributors-welcome](https://img.shields.io/badge/contributors-welcome-orange.svg)](CONTRIBUTING.md)
+[![GitHub issues](https://img.shields.io/github/issues/domezos2024/dw-secret-notes)](https://github.com/domezos2024/dw-secret-notes/issues)
+[![Play Store](https://img.shields.io/badge/Play%20Store-Download-blue?logo=googleplay)](https://play.google.com/store/apps/details?id=com.snote.domezos)
 
 **Encrypted self-destructing messages — read once, gone forever.**
 
@@ -31,10 +39,11 @@ dw Secret Notes lets you send end-to-end encrypted messages via a simple shareab
 
 ## Features
 
-- Encrypt messages with AES 256-bit
+- End-to-end encrypted with AES-256-GCM (client-side, PBKDF2 key derivation)
 - Self-destructing links (read once)
 - Share links via any app
 - Receive & decrypt messages
+- Image support — share encrypted photos, not just text
 - Long-form encrypted link
 - 15 visual themes
 - 15 languages
@@ -48,7 +57,7 @@ Sender                          Server                        Recipient
   │                               │                               │
   │  1. Type secret message       │                               │
   │  2. Tap Encrypt               │                               │
-  │──────── AES 256-bit ─────────▶│  Stores encrypted ciphertext  │
+  │──── AES-256-GCM (WebView) ───▶│  Stores ciphertext + IV only  │
   │◀──────── link / alias ────────│                               │
   │                               │                               │
   │  3. Share the link            │                               │
@@ -61,7 +70,9 @@ Sender                          Server                        Recipient
   │                               │  Message gone forever ✓       │
 ```
 
-No plaintext ever leaves your device before encryption. The server only ever sees ciphertext. After the first successful decryption, the entry is deleted — there is no backup.
+No plaintext ever leaves your device before encryption. The server only ever sees ciphertext + IV. After the first successful decryption, the entry is deleted — there is no backup.
+
+> **Architecture note:** The actual crypto runs client-side inside a WebView (Web Crypto API / AES-256-GCM, PBKDF2 with 100 000 iterations). The server stores and deletes ciphertext but never has access to keys or plaintext. See `WebApp/js/backend.js` for the crypto protocol.
 
 ---
 
@@ -197,8 +208,9 @@ Tapping a matching link anywhere on your device (browser, chat, email) opens the
 
 | Property | Detail |
 |---|---|
-| Encryption algorithm | AES 256-bit CBC |
-| Storage | Ciphertext only — no plaintext is ever stored |
+| Encryption algorithm | AES-256-GCM (client-side, via Web Crypto API in WebView) |
+| Key derivation | PBKDF2 — SHA-256, 100 000 iterations |
+| Storage | Ciphertext + IV only — no plaintext is ever stored |
 | Deletion policy | Immediate and permanent on first successful decryption |
 | Screenshot protection | `FLAG_SECURE` — app hidden in Recents, screenshots blocked |
 | Transport | HTTPS only |
@@ -224,7 +236,7 @@ English · Deutsch · Español · 中文 (简体) · हिन्दी · ال�
 | Language | Kotlin |
 | UI framework | Jetpack Compose + Material 3 |
 | Navigation | Compose Navigation |
-| Encryption bridge | WebView JavaScript interface → server-side PHP API |
+| Encryption bridge | WebView JavaScript interface → client-side Web Crypto API (AES-256-GCM) |
 | Persistence | SharedPreferences |
 | Deep links | Android Intent filters + URI parsing |
 | Locale | `createConfigurationContext` per-request |
