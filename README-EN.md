@@ -14,6 +14,14 @@ Send text or images via a one-time link. The recipient reads the message once in
 
 ---
 
+## Screens & Usage
+
+| Encrypt | Link generated | Decrypt (60s countdown) | Dark theme |
+|---|---|---|---|
+| ![Encrypt screen](docs/screenshots/main-encrypt.png) | ![Link generated](docs/screenshots/link-generated.png) | ![Decrypt countdown](docs/screenshots/decrypt-countdown.png) | ![Dark theme](docs/screenshots/theme-dark.png) |
+
+---
+
 ## Features
 
 - AES-256-GCM encryption (client-side, PBKDF2 key derivation)

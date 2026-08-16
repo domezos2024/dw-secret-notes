@@ -4,6 +4,14 @@ Ende-zu-Ende-verschlüsselte Nachrichten (Text oder Bild), die sich nach einmali
 
 ---
 
+## Screenshots
+
+| Verschlüsseln | Link erzeugt | Entschlüsseln (60s-Countdown) | Dunkles Theme |
+|---|---|---|---|
+| ![Encrypt](docs/screenshots/main-encrypt.png) | ![Link](docs/screenshots/link-generated.png) | ![Decrypt](docs/screenshots/decrypt-countdown.png) | ![Dark Theme](docs/screenshots/theme-dark.png) |
+
+---
+
 ## Beim ersten Start
 
 **Sprachauswahl** (15 Sprachen) erscheint. Tippen und bestätigen. Später jederzeit über Menü → **Language** ändern.
