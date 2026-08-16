@@ -10,6 +10,8 @@ declare(strict_types=1);
  * liegen in data/keys.php (gitignored, nie committen). Vorlage: data/keys.example.php.
  */
 
+// 'free' ist selbstbedienbar (Issue/PR). 'trusted'/'internal' sind kostenpflichtig — Preis wird
+// per Kontaktaufnahme individuell vereinbart, siehe README.md "Public Backend API".
 const RATE_TIERS = [
     'internal' => ['per_minute' => 120, 'per_day' => 50000],
     'trusted'  => ['per_minute' => 30,  'per_day' => 5000],

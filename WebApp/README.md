@@ -83,9 +83,11 @@ Klartext vorher/nachher:
   `apikey=<key>`. Ohne/mit ungültigem Key → `401`. Key-Verwaltung und Limits: siehe
   `api/auth.php` + `api/data/keys.example.php`; echte Keys leben in `api/data/keys.php`
   (gitignored, nie committen). Tiers: `internal` (App/Web-App, 120/Min · 50.000/Tag), `trusted`
-  (manuell hochgestufte Contributor, 30/Min · 5.000/Tag), `free` (Standard für externe Nutzer,
-  10/Min · 1.000/Tag) — konservativ dimensioniert für Standard-Shared-Hosting ohne dokumentierte
-  Concurrency-Grenzen. Bei Überschreitung: `429` + `Retry-After`-Header.
+  (30/Min · 5.000/Tag), `free` (Standard für externe Nutzer, 10/Min · 1.000/Tag) — konservativ
+  dimensioniert für Standard-Shared-Hosting ohne dokumentierte Concurrency-Grenzen. Bei
+  Überschreitung: `429` + `Retry-After`-Header. `free` wird formlos vergeben (Issue/PR); `trusted`
+  und `internal` sind kostenpflichtig — Preis wird individuell per Kontakt vereinbart, da höhere
+  Quotas auf dem einzelnen Shared-Hosting-Server echte Mehrkosten verursachen.
 
 **Wichtig für zukünftige Sessions in diesem Sandbox-Environment**: Direkter Netzwerkzugriff (`curl`,
 `fetch` aus dieser Sandbox heraus) auf `domezos-ware.com` ist blockiert (Proxy antwortet mit 403).

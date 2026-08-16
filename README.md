@@ -24,7 +24,8 @@ dw Secret Notes lets you send end-to-end encrypted messages via a simple shareab
 7. [Technical Overview](#technical-overview)
 8. [Build Variant](#build-variant)
 9. [Public Backend API](#public-backend-api)
-10. [License](#license)
+10. [Support This Project](#support-this-project)
+11. [License](#license)
 
 ---
 
@@ -282,11 +283,26 @@ The backend (`WebApp/api/`) can be used by other apps/clients, not just this And
 
 - Every request needs a valid API key — send it as header `X-API-Key: <key>` (preferred) or,
   where a caller can't set custom headers, as a request param `apikey=<key>`.
-- Keys are issued manually for now (open an issue/PR). Rate limits are tiered
-  (`free` / `trusted` / `internal`), conservatively sized for standard shared hosting — see
-  `WebApp/api/auth.php` for the exact numbers and `WebApp/api/data/keys.example.php` for the
-  key-file format.
+- Rate limits are tiered (`free` / `trusted` / `internal`), conservatively sized for standard
+  shared hosting — see `WebApp/api/auth.php` for the exact numbers and
+  `WebApp/api/data/keys.example.php` for the key-file format.
+- **`free`** — self-serve, no cost. Open an issue/PR to get a key.
+- **`trusted`** / **`internal`** — higher limits, paid. This runs on a single shared-hosting
+  server, so meaningfully higher quotas mean real added cost on my end. Contact me
+  (michaelbergfeld1982@gmail.com) to discuss your use case and agree on a price.
 - Endpoints and the crypto protocol are documented in [`WebApp/README.md`](WebApp/README.md).
+
+---
+
+## Support This Project
+
+This app and its backend are free, open-source, and ad-free — but the live server
+(domezos-ware.com), database, and ongoing backend maintenance/development aren't. If you'd like
+to help carry a part of those running costs, a tip is very welcome and appreciated:
+
+**[paypal.me/domezos1982](https://paypal.me/domezos1982)**
+
+Thank you!
 
 ---
 
