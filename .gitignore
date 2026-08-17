@@ -26,3 +26,6 @@ app/google/release/
 # See WebApp/api/data/keys.example.php for the format.
 WebApp/api/data/keys.php
 WebApp/api/data/ratelimit/
+
+# Claude Code local instructions — never public
+CLAUDE.md
