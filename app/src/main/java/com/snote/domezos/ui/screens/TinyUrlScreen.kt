@@ -34,6 +34,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleEventObserver
+import androidx.lifecycle.compose.LocalLifecycleOwner
 import com.snote.domezos.R
 import com.snote.domezos.data.Backend
 import com.snote.domezos.ui.components.AppTopBar
@@ -62,7 +63,7 @@ fun TinyUrlScreen(
 
     // Only animate the entrance while this screen is actually the foreground —
     // avoids burning frames on an unseen composable if the app is backgrounded mid-transition.
-    val lifecycleOwner = LocalLifecycleOwner.current
+    val lifecycleOwner = androidx.lifecycle.compose.LocalLifecycleOwner.current
     var isForeground by remember { mutableStateOf(true) }
     DisposableEffect(lifecycleOwner) {
         val observer = LifecycleEventObserver { _, event ->
