@@ -30,7 +30,9 @@ class MainActivity : ComponentActivity() {
 
     companion object {
         private val URL_REGEX   = """(https?://\S+)""".toRegex()
-        private val ALIAS_REGEX = """\b([A-Za-z0-9]{5})\b""".toRegex()
+        // Matches a bare "com" timestamp alias, e.g. 17.08.2026_04-15-16-700 (as generated
+        // by the backend), or a bare 5-char alias from an older/short-form link.
+        private val ALIAS_REGEX = """\b(\d{2}\.\d{2}\.\d{4}_\d{2}-\d{2}-\d{2}-\d{3}|[A-Za-z0-9]{5})\b""".toRegex()
         private const val RATE_PROMPT_RUN_COUNT = 3
     }
 

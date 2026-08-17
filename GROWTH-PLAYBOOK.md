@@ -138,7 +138,7 @@ snote.domezos Secret Notes — send a message or photo that deletes itself after
 • E2E encrypted AES-256 — nobody but the recipient can read it, not even us
 • Self-destructing: permanently destroyed after the timer
 • Share photos, not just text — most Privnote-style tools don't support images
-• No account — generate a link or 5-char code, send via WhatsApp/email/SMS
+• No account — generate a link, send via WhatsApp/email/SMS
 • Free, 15 languages
 
 If you've used Privnote, One-Time Secret, or Burn Note — snote.domezos does the same plus image support.
@@ -155,7 +155,7 @@ snote.domezos Secret Notes – verschicke eine Nachricht oder ein Foto, das sich
 • E2E-verschlüsselt AES-256 – nur der Empfänger kann lesen, nicht einmal wir
 • Selbstzerstörend: Notiz/Bild nach Timer-Ablauf unwiderruflich gelöscht
 • Auch Bilder teilen – die meisten Privnote-ähnlichen Tools können das nicht
-• Kein Account – Link oder 5-stelligen Code per WhatsApp/E-Mail/SMS senden
+• Kein Account – Link per WhatsApp/E-Mail/SMS senden
 • Kostenlos, 15 Sprachen
 
 Kennst du Privnote, One-Time Secret oder Burn Note? snote.domezos macht dasselbe – inklusive Bildversand.
@@ -169,7 +169,7 @@ Kennst du Privnote, One-Time Secret oder Burn Note? snote.domezos macht dasselbe
 • Cifrado E2E AES-256 — solo el destinatario puede leer, ni siquiera nosotros
 • Autodestructiva: eliminada permanentemente al expirar el temporizador
 • Comparte también fotos — la mayoría de herramientas tipo Privnote no lo permiten
-• Sin cuenta — enlace o código de 5 caracteres por WhatsApp/correo/SMS
+• Sin cuenta — solo un enlace por WhatsApp/correo/SMS
 • Gratis, 15 idiomas
 ```
 
@@ -181,7 +181,7 @@ Kennst du Privnote, One-Time Secret oder Burn Note? snote.domezos macht dasselbe
 • Chiffrement E2E AES-256 — seul le destinataire peut lire, même pas nous
 • Autodestruction: supprimée définitivement à l'expiration du minuteur
 • Partagez aussi des photos — la plupart des outils Privnote ne le permettent pas
-• Sans compte — lien ou code 5 caractères par WhatsApp/e-mail/SMS
+• Sans compte — juste un lien par WhatsApp/e-mail/SMS
 • Gratuit, 15 langues
 ```
 
@@ -193,7 +193,7 @@ Kennst du Privnote, One-Time Secret oder Burn Note? snote.domezos macht dasselbe
 • Crittografia E2E AES-256 — solo il destinatario può leggere, nemmeno noi
 • Autodistruzione: eliminata definitivamente allo scadere del timer
 • Condividi anche foto — la maggior parte dei tool tipo Privnote non lo consente
-• Nessun account — link o codice 5 caratteri via WhatsApp/email/SMS
+• Nessun account — solo un link via WhatsApp/email/SMS
 • Gratis, 15 lingue
 ```
 
@@ -205,7 +205,7 @@ Kennst du Privnote, One-Time Secret oder Burn Note? snote.domezos macht dasselbe
 • Criptografia E2E AES-256 — só o destinatário consegue ler, nem mesmo nós
 • Autodestruição: apagada permanentemente ao fim do cronômetro
 • Compartilhe também fotos — a maioria das ferramentas Privnote não permite
-• Sem conta — link ou código de 5 caracteres por WhatsApp/e-mail/SMS
+• Sem conta — só um link por WhatsApp/e-mail/SMS
 • Grátis, 15 idiomas
 ```
 
@@ -217,7 +217,7 @@ Kennst du Privnote, One-Time Secret oder Burn Note? snote.domezos macht dasselbe
 • Сквозное шифрование AES-256 — читает только получатель, даже мы не можем
 • Самоуничтожение: удаляется безвозвратно по истечении таймера
 • Можно делиться фото — большинство Privnote-инструментов этого не умеют
-• Без аккаунта — ссылка или 5-значный код через WhatsApp/email/SMS
+• Без аккаунта — просто ссылка через WhatsApp/email/SMS
 • Бесплатно, 15 языков
 ```
 
@@ -229,7 +229,7 @@ Kennst du Privnote, One-Time Secret oder Burn Note? snote.domezos macht dasselbe
 • تشفير E2E بمعيار AES-256 — لا يقرأه سوى المستلم، ولا حتى نحن
 • تدمير ذاتي: يُحذف نهائيًا عند انتهاء المؤقت
 • شارك الصور أيضًا — معظم أدوات Privnote لا تدعم ذلك
-• بدون حساب — رابط أو رمز 5 أحرف عبر واتساب/بريد/رسائل
+• بدون حساب — رابط فقط عبر واتساب/بريد/رسائل
 • مجانية، 15 لغة
 ```
 
@@ -241,7 +241,7 @@ Kennst du Privnote, One-Time Secret oder Burn Note? snote.domezos macht dasselbe
 • AES-256 E2E एन्क्रिप्शन — सिर्फ़ प्राप्तकर्ता पढ़ सकता है, हम भी नहीं
 • स्व-नष्ट: टाइमर खत्म होते ही हमेशा के लिए डिलीट
 • फ़ोटो भी शेयर करें — ज़्यादातर Privnote टूल्स में यह नहीं होता
-• कोई अकाउंट नहीं — लिंक या 5-अक्षर कोड WhatsApp/ईमेल/SMS से
+• कोई अकाउंट नहीं — सिर्फ़ लिंक WhatsApp/ईमेल/SMS से
 • मुफ़्त, 15 भाषाएं
 ```
 
@@ -253,7 +253,7 @@ Kennst du Privnote, One-Time Secret oder Burn Note? snote.domezos macht dasselbe
 • AES-256 E2E এনক্রিপশন — শুধু প্রাপক পড়তে পারবে, আমরাও নয়
 • স্ব-ধ্বংসী: টাইমার শেষে স্থায়ীভাবে মুছে যায়
 • ছবিও শেয়ার করুন — বেশিরভাগ Privnote টুল এটি সাপোর্ট করে না
-• কোনো অ্যাকাউন্ট নেই — লিঙ্ক বা ৫-অক্ষর কোড WhatsApp/ইমেইল/SMS-এ
+• কোনো অ্যাকাউন্ট নেই — শুধু লিঙ্ক WhatsApp/ইমেইল/SMS-এ
 • ফ্রি, ১৫ ভাষা
 ```
 
@@ -265,7 +265,7 @@ Kennst du Privnote, One-Time Secret oder Burn Note? snote.domezos macht dasselbe
 • AES-256 E2E انکرپشن — صرف وصول کنندہ پڑھ سکتا ہے، ہم بھی نہیں
 • خودکار تباہی: ٹائمر ختم ہوتے ہی مستقل حذف
 • تصاویر بھی شیئر کریں — زیادہ تر Privnote ٹولز یہ نہیں کر سکتے
-• کوئی اکاؤنٹ نہیں — لنک یا 5 حروف کا کوڈ WhatsApp/ای میل/SMS سے
+• کوئی اکاؤنٹ نہیں — صرف لنک WhatsApp/ای میل/SMS سے
 • مفت، 15 زبانیں
 ```
 
@@ -277,7 +277,7 @@ Kennst du Privnote, One-Time Secret oder Burn Note? snote.domezos macht dasselbe
 • Enkripsi E2E AES-256 — hanya penerima yang bisa membaca, kami pun tidak
 • Hancur sendiri: dihapus permanen begitu timer habis
 • Bisa berbagi foto — kebanyakan tool Privnote tidak mendukung ini
-• Tanpa akun — tautan atau kode 5 karakter via WhatsApp/email/SMS
+• Tanpa akun — cukup tautan via WhatsApp/email/SMS
 • Gratis, 15 bahasa
 ```
 
@@ -289,7 +289,7 @@ Kennst du Privnote, One-Time Secret oder Burn Note? snote.domezos macht dasselbe
 • AES-256 E2Eエンドツーエンド暗号化 — 受信者のみ読めます
 • 自己消滅：タイマー切れで完全削除
 • テキストだけでなく写真も共有可能 — Privnote系ツールの多くは画像非対応
-• アカウント不要 — リンクまたは5文字コードをWhatsApp/メール/SMSで送信
+• アカウント不要 — リンクをWhatsApp/メール/SMSで送信するだけ
 • 無料、15言語対応
 ```
 
@@ -301,7 +301,7 @@ Kennst du Privnote, One-Time Secret oder Burn Note? snote.domezos macht dasselbe
 • AES-256 E2E 암호화 — 수신자 외에는 누구도 읽을 수 없음
 • 자동 삭제: 타이머 종료 후 영구 삭제
 • 텍스트뿐 아니라 사진도 공유 — Privnote 스타일 도구 대부분 이미지 미지원
-• 계정 불필요 — 링크나 5자리 코드를 WhatsApp/이메일/SMS로 전송
+• 계정 불필요 — 링크만 WhatsApp/이메일/SMS로 전송
 • 무료, 15개 언어
 ```
 
@@ -314,7 +314,7 @@ Kennst du Privnote, One-Time Secret oder Burn Note? snote.domezos macht dasselbe
 • AES-256 E2E加密 — 只有收件人能读取，连我们也无法看到
 • 阅后即焚：计时结束后永久删除
 • 不仅支持文字，还能分享照片 — 大多数Privnote类工具不支持图片
-• 无需账号 — 生成链接或5位代码，通过微信/邮件/短信发送
+• 无需账号 — 只需生成链接，通过微信/邮件/短信发送
 • 完全免费，支持15种语言
 ```
 

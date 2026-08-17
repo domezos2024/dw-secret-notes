@@ -59,14 +59,15 @@ Crypto runs **client-side** in a WebView (Web Crypto API / AES-256-GCM, PBKDF2 1
 
 ### Decrypt
 
-1. Paste link or 5-char alias into **Link or alias**.
+1. Paste link into **Link or alias**.
 
    | Format | Example |
    |---|---|
-   | Full URL | `https://domezos-ware.com/api/...?com=XXXXX` |
-   | Short URL | `https://domezos-ware.com?link=XXXXX` |
-   | 5-char alias | `AB1C2` |
-   | Password-protected | `XXXXX\|password` |
+   | Full URL | `https://domezos-ware.com/msges/view.php?com=17.08.2026_04-15-16-700&pass=211472091156881188247239491412542637191` |
+   | Bare alias, no scheme | `17.08.2026_04-15-16-700` |
+   | Password-protected, no scheme | `17.08.2026_04-15-16-700\|211472091156881188247239491412542637191` |
+
+   There is no built-in shortlink — `domezos-ware.com` never serves short URLs. Users who want a shorter link have to shorten it themselves at [snote.fun/tinyURL.html](https://snote.fun/tinyURL.html) (external, manual, see **TinyURL** in the menu).
 
 2. Tap **Decrypt**. Message shows with a **60-second countdown**, then local view clears.
    Server copy is deleted on first successful decryption — a dropped connection loses the message permanently.

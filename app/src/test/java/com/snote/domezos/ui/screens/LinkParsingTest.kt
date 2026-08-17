@@ -49,4 +49,13 @@ class LinkParsingTest {
     fun `formatGeneratedAlias falls back when com not present`() {
         assertEquals("Link Ready", formatGeneratedAlias("${Backend.BASE_URL}/msges/view.php"))
     }
+
+    @Test
+    fun `com param parses current timestamp-based alias format`() {
+        val parsed = parseAliasFromUri(
+            Uri.parse("${Backend.BASE_URL}/msges/view.php?com=17.08.2026_04-15-16-700&pass=211472091156881188247239491412542637191")
+        )
+        assertEquals("17.08.2026_04-15-16-700", parsed.rawAlias)
+        assertEquals("211472091156881188247239491412542637191", parsed.pass)
+    }
 }

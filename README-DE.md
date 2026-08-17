@@ -31,7 +31,7 @@ Zwei Bereiche: oben **Versenden**, unten **Lesen**.
 
 ### Nachricht lesen
 
-- **Link or alias** — empfangenen Link oder 5-stelligen Code einfügen.
+- **Link or alias** — empfangenen Link einfügen. domezos-ware.com erzeugt selbst keine Kurzlinks; wer einen kürzeren Link will, kürzt ihn manuell über die externe Seite [snote.fun/tinyURL.html](https://snote.fun/tinyURL.html) (Menüpunkt **TinyURL**).
 - **Decrypt** — ruft Nachricht ab. Nicht gefunden → rote Meldung.
 - Nach Entschlüsselung: Text/Bild mit **60-Sekunden-Countdown**. Server-Kopie ist bereits beim Öffnen gelöscht.
 - **Read another message** — Ansicht leeren.
