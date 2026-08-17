@@ -11,8 +11,8 @@ configure<com.android.build.api.dsl.ApplicationExtension> {
         applicationId   = "com.snote.domezos"
         minSdk          = 26
         targetSdk       = 37
-        versionCode     = 43
-        versionName     = "4.6"
+        versionCode     = 45
+        versionName     = "5.0.0"
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         manifestPlaceholders["backendHost"] = "domezos-ware.com"
     }
