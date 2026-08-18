@@ -12,6 +12,8 @@ The Web App is a pure HTML/CSS/JS client with **no build step, no framework, and
 ## System Architecture
 
 ---
+
+---
 ┌─────────────────────────┐     HTTPS      ┌──────────────────────────────┐
 │  Android App            │◄──────────────►│  Backend (domezos-ware.com)  │
 │  - Kotlin + Compose     │                │  - PHP (no DB/Redis)         │
