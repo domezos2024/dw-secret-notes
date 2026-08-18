@@ -1,11 +1,9 @@
 # dw Secret Notes — Web App
 
-<<<<<<< HEAD
 ## Overview
 =======
 Eine reine PHP/HTML/CSS/JS-Nachbildung der Android-App **dw Secret Notes**. Kein Build-Schritt, kein
 Framework, kein Server-Code — dieser Ordner ist direkt auf jeden Webserver deploybar.
->>>>>>> 2ee76144ce565e134a1fd1f3b24c91a27fea579c
 
 This repository contains the **Web App** client for **dw Secret Notes** (`com.snote.domezos`), a self-destructing encrypted note service. The companion native Android client (Kotlin + Jetpack Compose) lives in the same repository's `app/` module.
 
