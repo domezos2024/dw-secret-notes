@@ -3,7 +3,55 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>dw Secret Notes — Help</title>
+
+  <title>Help & FAQ - dw Secret Notes | DoMeZos-Ware</title>
+  <meta name="description" content="How does dw Secret Notes work? FAQs about AES-256 encryption, self-destructing messages and anonymous note sharing." />
+  <link rel="canonical" href="https://domezos-ware.com/help.html" />
+  <meta name="robots" content="index, follow" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://domezos-ware.com/help.html" />
+  <meta property="og:title" content="Help & FAQ - dw Secret Notes" />
+  <meta property="og:description" content="How does dw Secret Notes work? FAQs about AES-256 encryption and self-destructing messages." />
+  <meta property="og:image" content="https://domezos-ware.com/assets/app_icon_512.png" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Help & FAQ - dw Secret Notes" />
+  <meta name="twitter:description" content="FAQs about AES-256 encryption and self-destructing messages." />
+  <meta name="twitter:image" content="https://domezos-ware.com/assets/app_icon_512.png" />
+
+  <!-- JSON-LD FAQPage -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Can I read a message more than once?",
+        "acceptedAnswer": { "@type": "Answer", "text": "No. Messages self-destruct immediately after the first decryption and are irrevocably deleted from the server." }
+      },
+      {
+        "@type": "Question",
+        "name": "What happens if I lose the link?",
+        "acceptedAnswer": { "@type": "Answer", "text": "The message cannot be recovered. There is no backup. Since the message deletes itself after opening, maximum discretion is guaranteed." }
+      },
+      {
+        "@type": "Question",
+        "name": "What does the Premium feature offer?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Premium users get extremely short, memorable links (only 5 dynamic digits after domezos-ware.com/), made possible by a secure, encrypted database in the background." }
+      },
+      {
+        "@type": "Question",
+        "name": "Can Premium be restored after reinstallation or a reset?",
+        "acceptedAnswer": { "@type": "Answer", "text": "No. Premium is tied to a single anonymous device token that is generated fresh on every installation. We intentionally store no personal data and cannot track devices." }
+      }
+    ]
+  }
+  </script>
+
   <link rel="stylesheet" href="css/themes.css" />
   <link rel="stylesheet" href="css/base.css" />
   <link rel="manifest" href="manifest.webapp.json" />
