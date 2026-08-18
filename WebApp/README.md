@@ -1,7 +1,7 @@
 # dw Secret Notes — Web App
 
 ## Overview
-=======
+
 Eine reine PHP/HTML/CSS/JS-Nachbildung der Android-App **dw Secret Notes**. Kein Build-Schritt, kein
 Framework, kein Server-Code — dieser Ordner ist direkt auf jeden Webserver deploybar.
 
@@ -9,11 +9,9 @@ This repository contains the **Web App** client for **dw Secret Notes** (`com.sn
 
 The Web App is a pure HTML/CSS/JS client with **no build step, no framework, and no server-side logic**. Deploy the `WebApp/` folder to any standard PHP-enabled web server and it is production-ready.
 
----
-
 ## System Architecture
 
-```
+---
 ┌─────────────────────────┐     HTTPS      ┌──────────────────────────────┐
 │  Android App            │◄──────────────►│  Backend (domezos-ware.com)  │
 │  - Kotlin + Compose     │                │  - PHP (no DB/Redis)         │
@@ -25,7 +23,7 @@ The Web App is a pure HTML/CSS/JS client with **no build step, no framework, and
 │  - Web Crypto API       │                │                              │
 │  - Service Worker (PWA) │                │                              │
 └─────────────────────────┘                └──────────────────────────────┘
-```
+---
 
 **Key invariant:** The server is a **dumb ciphertext store**. It never sees plaintext or derived keys. All encryption/decryption happens client-side via the Web Crypto API, either inside the Android WebView or directly in the browser.
 
