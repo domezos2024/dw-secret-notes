@@ -13,7 +13,7 @@ The Web App is a pure HTML/CSS/JS client with **no build step, no framework, and
 
 ---
 
----
+```Markdown
 ┌─────────────────────────┐     HTTPS      ┌──────────────────────────────┐
 │  Android App            │◄──────────────►│  Backend (domezos-ware.com)  │
 │  - Kotlin + Compose     │                │  - PHP (no DB/Redis)         │
@@ -25,7 +25,7 @@ The Web App is a pure HTML/CSS/JS client with **no build step, no framework, and
 │  - Web Crypto API       │                │                              │
 │  - Service Worker (PWA) │                │                              │
 └─────────────────────────┘                └──────────────────────────────┘
----
+```
 
 **Key invariant:** The server is a **dumb ciphertext store**. It never sees plaintext or derived keys. All encryption/decryption happens client-side via the Web Crypto API, either inside the Android WebView or directly in the browser.
 
