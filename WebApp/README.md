@@ -1,6 +1,6 @@
 # dw Secret Notes — Web App
 
-Eine reine HTML/CSS/JS-Nachbildung der Android-App **dw Secret Notes**. Kein Build-Schritt, kein
+Eine reine PHP/HTML/CSS/JS-Nachbildung der Android-App **dw Secret Notes**. Kein Build-Schritt, kein
 Framework, kein Server-Code — dieser Ordner ist direkt auf jeden Webserver deploybar.
 
 Wichtig, und anders als es die App-seitigen Kommentare vermuten lassen: die eigentliche
