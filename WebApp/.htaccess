@@ -1,3 +1,19 @@
+﻿# HTTPS erzwingen
+RewriteEngine On
+RewriteCond %{HTTPS} off
+RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+# www -> non-www
+RewriteCond %{HTTP_HOST} ^www\.(.+)$ [NC]
+RewriteRule ^ https://%1%{REQUEST_URI} [L,R=301]
+
+# .php-Varianten kanonisch auf .html umleiten
+RewriteRule ^index\.php$ / [L,R=301]
+RewriteRule ^help\.php$ /help.html [L,R=301]
+RewriteRule ^info\.php$ /info.html [L,R=301]
+RewriteRule ^impressum\.php$ /impressum.html [L,R=301]
+
+# MIME fuer assetlinks
 <IfModule mod_mime.c>
     <Files "assetlinks.json">
         ForceType application/json
