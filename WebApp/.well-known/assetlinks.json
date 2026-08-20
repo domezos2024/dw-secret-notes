@@ -7,7 +7,8 @@
       "namespace": "android_app",
       "package_name": "com.snote.domezos",
       "sha256_cert_fingerprints": [
-        "B0:34:32:BE:E9:0F:D9:B6:03:73:E5:21:29:FE:BE:5B:32:AD:50:4D:EC:80:E1:7D:2A:3D:2E:FB:6E:4D:A6:F5"
+        "B0:34:32:BE:E9:0F:D9:B6:03:73:E5:21:29:FE:BE:5B:32:AD:50:4D:EC:80:E1:7D:2A:3D:2E:FB:6E:4D:A6:F5",
+		"DA:74:E5:31:94:97:9A:ED:3B:69:B3:E8:85:2F:21:38:7D:61:F1:FE:BF:DA:1F:62:76:AC:36:AA:95:FE:A6:FF"
       ]
     }
   }

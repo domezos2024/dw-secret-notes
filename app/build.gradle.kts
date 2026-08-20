@@ -7,18 +7,28 @@ configure<com.android.build.api.dsl.ApplicationExtension> {
     namespace   = "com.snote.domezos"
     compileSdk  = 37
 
+    signingConfigs {
+        create("release") {
+            storeFile = file("C:\\\\Users\\\\micha\\\\OneDrive\\\\Dokumente\\\\AndroidSignKey")
+            storePassword = "Real.Fuck69"
+            keyAlias = "domezos"
+            keyPassword = "Real.Fuck69"
+        }
+    }
+
     defaultConfig {
         applicationId   = "com.snote.domezos"
         minSdk          = 26
         targetSdk       = 37
-        versionCode     = 45
-        versionName     = "5.0.0"
+        versionCode     = 46
+        versionName     = "5.0.1"
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         manifestPlaceholders["backendHost"] = "domezos-ware.com"
     }
 
     buildTypes {
         release {
+            signingConfig = signingConfigs.getByName("release")
             isMinifyEnabled = true
             isShrinkResources = true
             proguardFiles(
