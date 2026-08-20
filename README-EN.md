@@ -1,4 +1,4 @@
-# dw Secret Notes
+﻿# dw Secret Notes
 
 [![MIT License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 [![Android](https://img.shields.io/badge/Android-26%2B-brightgreen.svg?logo=android)](https://play.google.com/store/apps/details?id=com.snote.domezos)
@@ -7,6 +7,8 @@
 [![contributors-welcome](https://img.shields.io/badge/contributors-welcome-orange.svg)](CONTRIBUTING.md)
 [![GitHub issues](https://img.shields.io/github/issues/domezos2024/dw-secret-notes)](https://github.com/domezos2024/dw-secret-notes/issues)
 [![Play Store](https://img.shields.io/badge/Play%20Store-Download-blue?logo=googleplay)](https://play.google.com/store/apps/details?id=com.snote.domezos)
+[![GitHub Release](https://img.shields.io/github/v/release/domezos2024/dw-secret-notes)](https://github.com/domezos2024/dw-secret-notes/releases/latest)
+[![Download APK](https://img.shields.io/badge/Download-APK-brightgreen?logo=android)](https://github.com/domezos2024/dw-secret-notes/releases/latest)
 
 **Encrypted self-destructing messages — read once, gone forever.**
 
@@ -198,6 +200,19 @@ Config: `compileSdk 37`, `minSdk 26`, `targetSdk 37`, Kotlin 2.2.10, AGP 9.3.1, 
 
 Free, open-source, ad-free — but server costs are real. Tips welcome:
 **[paypal.me/domezos1982](https://paypal.me/domezos1982)**
+
+---
+
+## Changelog
+
+### v5.0.1 — 2026-08-20
+
+- **Android App Links verified** — deep links open reliably on all Android versions (`.well-known/assetlinks.json`)
+- **Service worker** added to WebApp for improved offline reliability
+- **SEO:** `robots.txt`, `sitemap.xml`, meta tags, canonical URLs, Open Graph, JSON-LD structured data
+- **Short links:** auto-generation removed — Encrypt always produces the full `view.php` link; shorten manually at [snote.fun/tinyURL.html](https://snote.fun/tinyURL.html)
+- **TinyURL screen** layout refreshed
+- **Build:** `compileSdk 37`, `targetSdk 37`, Kotlin 2.2.10, AGP 9.3.1, Java 21
 
 ---
 

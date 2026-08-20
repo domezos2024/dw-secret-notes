@@ -1,4 +1,11 @@
-# dw Secret Notes
+﻿# dw Secret Notes
+
+[![MIT License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
+[![Android](https://img.shields.io/badge/Android-26%2B-brightgreen.svg?logo=android)](https://play.google.com/store/apps/details?id=com.snote.domezos)
+[![Kotlin](https://img.shields.io/badge/Kotlin-2.2-blue.svg?logo=kotlin)](https://kotlinlang.org)
+[![Play Store](https://img.shields.io/badge/Play%20Store-Download-blue?logo=googleplay)](https://play.google.com/store/apps/details?id=com.snote.domezos)
+[![GitHub Release](https://img.shields.io/github/v/release/domezos2024/dw-secret-notes)](https://github.com/domezos2024/dw-secret-notes/releases/latest)
+[![Download APK](https://img.shields.io/badge/Download-APK-brightgreen?logo=android)](https://github.com/domezos2024/dw-secret-notes/releases/latest)
 
 Ende-zu-Ende-verschlüsselte Nachrichten (Text oder Bild), die sich nach einmaligem Lesen selbst zerstören. Nachricht schreiben → Link teilen → Empfänger liest einmal → Server löscht sie unwiderruflich. Kein Account nötig.
 
@@ -64,6 +71,19 @@ Langer Druck auf Homescreen → Widgets:
 - Server speichert nur verschlüsselten Inhalt, niemals Klartext.
 - Beim Öffnen wird die Nachricht **sofort und unwiderruflich gelöscht** — kein zweites Lesen, kein Backup.
 - Kostenlos · kein Account · keine In-App-Käufe.
+
+---
+
+## Changelog
+
+### v5.0.1 — 20.08.2026
+
+- **Android App Links verifiziert** — Deep Links öffnen zuverlässig auf allen Android-Versionen (`.well-known/assetlinks.json`)
+- **Service Worker** zur WebApp hinzugefügt
+- **SEO:** `robots.txt`, `sitemap.xml`, Meta-Tags, Canonical-URLs, Open Graph, JSON-LD
+- **Kurzlinks:** Auto-Erzeugung entfernt — Encrypt erzeugt immer den langen `view.php`-Link; manuelles Kürzen über [snote.fun/tinyURL.html](https://snote.fun/tinyURL.html)
+- **TinyURL-Screen** Layout überarbeitet
+- **Build:** `compileSdk 37`, `targetSdk 37`, Kotlin 2.2.10, AGP 9.3.1, Java 21
 
 ---
 
