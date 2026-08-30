@@ -221,3 +221,7 @@ Free, open-source, ad-free — but server costs are real. Tips welcome:
 MIT — see [LICENSE](LICENSE). Covers the Android app and `WebApp/`.
 
 *© 2026 domezos-ware.com — Michael Bergfeld*
+
+## Security
+
+See [SECURITY.md](SECURITY.md) for vulnerability reporting.
