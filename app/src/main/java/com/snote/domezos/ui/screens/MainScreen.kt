@@ -2,6 +2,7 @@ package com.snote.domezos.ui.screens
 
 import com.snote.domezos.util.findActivity
 
+import android.content.ClipData
 import android.content.Intent
 import androidx.core.net.toUri
 import android.graphics.Bitmap
@@ -75,12 +76,12 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.hapticfeedback.HapticFeedbackType
-import androidx.compose.ui.platform.LocalClipboardManager
+import androidx.compose.ui.platform.ClipEntry
+import androidx.compose.ui.platform.LocalClipboard
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalHapticFeedback
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.res.pluralStringResource
-import androidx.compose.ui.text.AnnotatedString
 import androidx.compose.ui.graphics.asImageBitmap
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.KeyboardCapitalization
@@ -147,7 +148,7 @@ fun MainScreen(
     val haptic = LocalHapticFeedback.current
     val snackbarHostState = remember { SnackbarHostState() }
     val scope = rememberCoroutineScope()
-    val clipboard = LocalClipboardManager.current
+    val clipboard = LocalClipboard.current
 
     var inputText by remember { mutableStateOf("") }
     var generatedAlias by remember { mutableStateOf("") }
@@ -460,8 +461,11 @@ fun MainScreen(
                                     Button(
                                         onClick = {
                                             haptic.performHapticFeedback(HapticFeedbackType.LongPress)
-                                            clipboard.setText(AnnotatedString(generatedLink))
-                                            scope.launch { snackbarHostState.showSnackbar(context.getString(R.string.snackbar_link_copied)) }
+                                            val linkToCopy = generatedLink
+                                            scope.launch {
+                                                clipboard.setClipEntry(ClipEntry(ClipData.newPlainText("", linkToCopy)))
+                                                snackbarHostState.showSnackbar(context.getString(R.string.snackbar_link_copied))
+                                            }
                                             generatedLink = ""
                                         },
                                         modifier = Modifier.weight(1f),
