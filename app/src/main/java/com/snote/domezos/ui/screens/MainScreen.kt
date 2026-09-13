@@ -465,6 +465,7 @@ fun MainScreen(
                                             generatedLink = ""
                                         },
                                         modifier = Modifier.weight(1f),
+                                        enabled = generatedLink.isNotBlank(),
                                         colors = ButtonDefaults.buttonColors(containerColor = MaterialTheme.colorScheme.secondary, contentColor = MaterialTheme.colorScheme.onSecondary),
                                         shape = RoundedCornerShape(10.dp)
                                     ) {
@@ -478,6 +479,7 @@ fun MainScreen(
                                             shareLink(generatedLink); generatedLink = ""
                                         },
                                         modifier = Modifier.weight(1f),
+                                        enabled = generatedLink.isNotBlank(),
                                         colors = ButtonDefaults.buttonColors(containerColor = MaterialTheme.colorScheme.secondary, contentColor = MaterialTheme.colorScheme.onSecondary),
                                         shape = RoundedCornerShape(10.dp)
                                     ) {

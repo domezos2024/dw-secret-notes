@@ -22,7 +22,6 @@ import com.snote.domezos.navigation.AppNavigation
 import com.snote.domezos.ui.theme.DwSecretNotesTheme
 import com.snote.domezos.ui.theme.ALL_THEMES
 import com.snote.domezos.ui.theme.ClassicTheme
-import kotlinx.coroutines.launch
 import androidx.core.net.toUri
 
 class MainActivity : ComponentActivity() {
@@ -66,7 +65,7 @@ class MainActivity : ComponentActivity() {
             val currentThemeId = remember { mutableStateOf(Prefs.getTheme(this)) }
             val themeConfig = ALL_THEMES.find { it.id == currentThemeId.value } ?: ClassicTheme
             LaunchedEffect(themeConfig) {
-                window.setBackgroundDrawable(ColorDrawable(themeConfig.colorScheme.background.toArgb()))
+               window.setBackgroundDrawable(ColorDrawable(themeConfig.colorScheme.background.toArgb()))
             }
             DwSecretNotesTheme(themeConfig = themeConfig) {
                 AppNavigation(
@@ -101,7 +100,7 @@ class MainActivity : ComponentActivity() {
         return null
     }
 
-    private fun extractAliasFromShareText(text: String): String? {
+    private fun extractAliasFromShareText(text: String): String {
         val urlMatch = URL_REGEX.find(text)
         if (urlMatch != null) {
             val uri = try { urlMatch.value.toUri() } catch (_: Exception) { null }
