@@ -2,6 +2,7 @@
 
 [![MIT License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 [![Android](https://img.shields.io/badge/Android-26%2B-brightgreen.svg?logo=android)](https://play.google.com/store/apps/details?id=com.snote.domezos)
+[![Unity](https://img.shields.io/badge/Unity-6000.3-black.svg?logo=unity)](unity/)
 [![Kotlin](https://img.shields.io/badge/Kotlin-2.2-blue.svg?logo=kotlin)](https://kotlinlang.org)
 [![Play Store](https://img.shields.io/badge/Play%20Store-Download-blue?logo=googleplay)](https://play.google.com/store/apps/details?id=com.snote.domezos)
 [![GitHub Release](https://img.shields.io/github/v/release/domezos2024/dw-secret-notes)](https://github.com/domezos2024/dw-secret-notes/releases/latest)
@@ -16,6 +17,26 @@ Ende-zu-Ende-verschlüsselte Nachrichten (Text oder Bild), die sich nach einmali
 | Verschlüsseln | Link erzeugt | Entschlüsseln (60s-Countdown) | Dunkles Theme |
 |---|---|---|---|
 | ![Encrypt](docs/screenshots/main-encrypt.png) | ![Link](docs/screenshots/link-generated.png) | ![Decrypt](docs/screenshots/decrypt-countdown.png) | ![Dark Theme](docs/screenshots/theme-dark.png) |
+
+---
+
+## Unity-Edition (v6.0.0) — neue Oberfläche
+
+Die App wurde in **Unity 6 (UI Toolkit)** mit einer stark verbesserten Oberfläche neu aufgebaut. Funktionen und Backend sind gleich geblieben, Links sind also voll kompatibel mit der Kotlin-App und der WebApp. Quellcode: [`unity/`](unity/).
+
+| Sprache (erster Start) | Verschlüsseln / Entschlüsseln | Menü | Themes |
+|---|---|---|---|
+| ![Sprache](docs/screenshots/unity-language.png) | ![Haupt](docs/screenshots/unity-main.png) | ![Menü](docs/screenshots/unity-menu.png) | ![Themes](docs/screenshots/unity-themes.png) |
+
+| Hilfe & FAQ | Info | TinyURL |
+|---|---|---|
+| ![Hilfe](docs/screenshots/unity-help.png) | ![Info](docs/screenshots/unity-info.png) | ![TinyURL](docs/screenshots/unity-tinyurl.png) |
+
+- Animierter Aurora-Hintergrund, Glas-Karten, Tabs Verschlüsseln/Entschlüsseln, Vektor-Icons
+- Countdown-Ring für die 60-Sekunden-Selbstzerstörung, Bild-Vollansicht, Einfügen aus der Zwischenablage
+- Menü und Theme-Auswahl als Bottom-Sheets, aufklappbare FAQ, Hinweismeldungen
+- Krypto nativ in C# (AES-256-GCM, PBKDF2-SHA256, 100 000 Iterationen), geprüft mit NIST-/RFC-Testvektoren und dem echten Backend
+- Build-, Test- und Sync-Befehle: siehe [`unity/README.md`](unity/README.md)
 
 ---
 
@@ -75,6 +96,15 @@ Langer Druck auf Homescreen → Widgets:
 ---
 
 ## Changelog
+
+### v6.0.0 — 07.10.2026
+
+- **Neue Unity-6-Edition** mit komplett neu gestalteter UI-Toolkit-Oberfläche (`unity/`), gleiches Paket `com.snote.domezos`, versionCode 47
+- Gleiche Funktionen: Text + Bild verschlüsseln, Einmal-Links, 60-s-Selbstlöschung, Deep Links, Teilen-Intent, 15 Sprachen (inkl. RTL), 17 Themes, Homescreen-Widgets, In-App-Bewertung
+- Krypto nativ in C# (AES-256-GCM / PBKDF2-SHA256), kompatibel zu Kotlin-App und WebApp
+- Widget-Schnellverschlüsselung öffnet jetzt die App mit einem Schnell-Verschlüsseln-Sheet
+- Info-Seite nennt jetzt korrekt **AES-256-GCM**
+- Lokale Pfade auf `E:\AndroidStudioProjects\…` umgestellt
 
 ### v5.0.1 — 20.08.2026
 
