@@ -9,7 +9,7 @@ Both share the same `css/`, `js/`, `i18n/` assets.
 
 ## HTML Version (local file)
 
-Open `file:///d:/AndroidStudioProjects/dw-secret-notes/WebApp/index.html` in browser.
+Open `file:///E:/AndroidStudioProjects/dw-secret-notes/WebApp/index.html` in browser.
 
 1. Select language + theme.
 2. Enter text or attach image → click **Generate secret link**.
@@ -19,7 +19,7 @@ Open `file:///d:/AndroidStudioProjects/dw-secret-notes/WebApp/index.html` in bro
 ## PHP Version (local server)
 
 ```powershell
-cd d:\AndroidStudioProjects\dw-secret-notes
+cd E:\AndroidStudioProjects\dw-secret-notes
 php -S localhost:8000
 ```
 
