@@ -52,6 +52,10 @@
     <string name="share_message">비밀 메시지를 보냈어요: %1$s\n\nsnote.domezos로 작성됨 — 자동 삭제 메모를 위한 무료 앱: https://play.google.com/store/apps/details?id=com.snote.domezos</string>
     <string name="snackbar_link_copied">링크 복사됨</string>
     <string name="error_share_unavailable">이 링크를 공유할 수 있는 앱이 없습니다.</string>
+    <string name="label_encrypting">암호화 중…</string>
+    <string name="error_encrypt_network">암호화에 실패했습니다. 인터넷 연결을 확인하세요.</string>
+    <string name="error_rate_limit">요청이 너무 많습니다. 1분 후에 다시 시도하세요.</string>
+    <string name="error_encrypt_failed">암호화에 실패했습니다. 다시 시도하세요.</string>
     <string name="symbol_success">확인</string>
     <string name="symbol_warning">!</string>
     <string name="label_decrypting">복호화 중…</string>

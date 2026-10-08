@@ -53,6 +53,10 @@
     <string name="share_message">میں نے آپ کو ایک خفیہ پیغام بھیجا ہے: %1$s\n\nsnote.domezos کے ساتھ بنایا گیا — خود کو تباہ کرنے والے نوٹس کے لیے مفت ایپ: https://play.google.com/store/apps/details?id=com.snote.domezos</string>
     <string name="snackbar_link_copied">لنک کاپی ہو گیا</string>
     <string name="error_share_unavailable">اس لنک کو شیئر کرنے کے لیے کوئی ایپ دستیاب نہیں ہے۔</string>
+    <string name="label_encrypting">انکرپٹ ہو رہا ہے…</string>
+    <string name="error_encrypt_network">انکرپشن ناکام ہو گئی۔ براہ کرم اپنا انٹرنیٹ کنکشن چیک کریں۔</string>
+    <string name="error_rate_limit">بہت زیادہ درخواستیں۔ براہ کرم ایک منٹ بعد دوبارہ کوشش کریں۔</string>
+    <string name="error_encrypt_failed">انکرپشن ناکام ہو گئی۔ براہ کرم دوبارہ کوشش کریں۔</string>
     <string name="symbol_success">ٹھیک ہے</string>
     <string name="symbol_warning">!</string>
     <string name="label_decrypting">ڈیکرپٹ ہو رہا ہے...</string>

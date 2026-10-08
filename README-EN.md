@@ -2,6 +2,7 @@
 
 [![MIT License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 [![Android](https://img.shields.io/badge/Android-26%2B-brightgreen.svg?logo=android)](https://play.google.com/store/apps/details?id=com.snote.domezos)
+[![Unity](https://img.shields.io/badge/Unity-6000.3-black.svg?logo=unity)](unity/)
 [![Kotlin](https://img.shields.io/badge/Kotlin-2.2-blue.svg?logo=kotlin)](https://kotlinlang.org)
 [![Jetpack Compose](https://img.shields.io/badge/Jetpack%20Compose-latest-blue?logo=jetpackcompose)](https://developer.android.com/jetpack/compose)
 [![contributors-welcome](https://img.shields.io/badge/contributors-welcome-orange.svg)](CONTRIBUTING.md)
@@ -21,6 +22,26 @@ Send text or images via a one-time link. The recipient reads the message once in
 | Encrypt | Link generated | Decrypt (60s countdown) | Dark theme |
 |---|---|---|---|
 | ![Encrypt screen](docs/screenshots/main-encrypt.png) | ![Link generated](docs/screenshots/link-generated.png) | ![Decrypt countdown](docs/screenshots/decrypt-countdown.png) | ![Dark theme](docs/screenshots/theme-dark.png) |
+
+---
+
+## Unity Edition (v6.0.0) — new UI
+
+The app has been rebuilt in **Unity 6 (UI Toolkit)** with a greatly improved interface. It has the same features and uses the same backend, so links stay fully compatible with the Kotlin app and the WebApp. Source: [`unity/`](unity/).
+
+| Language (first run) | Encrypt / Decrypt | Menu | Themes |
+|---|---|---|---|
+| ![Language](docs/screenshots/unity-language.png) | ![Main](docs/screenshots/unity-main.png) | ![Menu](docs/screenshots/unity-menu.png) | ![Themes](docs/screenshots/unity-themes.png) |
+
+| Help & FAQ | About | TinyURL |
+|---|---|---|
+| ![Help](docs/screenshots/unity-help.png) | ![About](docs/screenshots/unity-info.png) | ![TinyURL](docs/screenshots/unity-tinyurl.png) |
+
+- Animated aurora background, glass cards, Encrypt/Decrypt tabs, vector icons
+- Countdown ring for the 60-second self-destruct, full-screen image viewer, paste-from-clipboard button
+- Bottom sheets for menu and theme selection, collapsible FAQ, toast messages
+- Crypto implemented natively in C# (AES-256-GCM, PBKDF2-SHA256, 100k iterations), verified against NIST/RFC test vectors and the live backend
+- Build, self-test and resource sync commands: see [`unity/README.md`](unity/README.md)
 
 ---
 
@@ -204,6 +225,15 @@ Free, open-source, ad-free — but server costs are real. Tips welcome:
 ---
 
 ## Changelog
+
+### v6.0.0 — 2026-10-07
+
+- **New Unity 6 edition** with a completely redesigned UI Toolkit interface (`unity/`), same package `com.snote.domezos`, versionCode 47
+- Same features: text + image encryption, one-time links, 60 s auto-delete, deep links, share intent, 15 languages (incl. RTL), 17 themes, home-screen widgets, in-app review
+- Native C# crypto (AES-256-GCM / PBKDF2-SHA256), wire-compatible with the Kotlin app and WebApp
+- Widget quick-encrypt now opens the app with a quick-encrypt sheet
+- About screen now correctly states **AES-256-GCM**
+- Local paths updated to `E:\AndroidStudioProjects\…`
 
 ### v5.0.1 — 2026-08-20
 

@@ -53,6 +53,10 @@
     <string name="share_message">Ich hab dir eine geheime Nachricht geschickt: %1$s\n\nErstellt mit snote.domezos — kostenlose App für selbstzerstörende Notizen: https://play.google.com/store/apps/details?id=com.snote.domezos</string>
     <string name="snackbar_link_copied">Link kopiert</string>
     <string name="error_share_unavailable">Keine App zum Teilen dieses Links verfügbar.</string>
+    <string name="label_encrypting">Wird verschlüsselt…</string>
+    <string name="error_encrypt_network">Verschlüsselung fehlgeschlagen. Bitte prüfen Sie Ihre Internetverbindung.</string>
+    <string name="error_rate_limit">Zu viele Anfragen. Bitte versuchen Sie es in einer Minute erneut.</string>
+    <string name="error_encrypt_failed">Verschlüsselung fehlgeschlagen. Bitte versuchen Sie es erneut.</string>
     <string name="symbol_success">OK</string>
     <string name="symbol_warning">!</string>
     <string name="label_decrypting">Entschlüsseln…</string>

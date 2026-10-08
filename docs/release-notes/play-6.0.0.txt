@@ -1,0 +1,222 @@
+<de-DE>
+Komplett neue Oberfläche: moderneres Design mit animiertem Hintergrund, Tabs für Verschlüsseln und Entschlüsseln, Countdown-Ring und Bild-Vollansicht.
+Neu: Link direkt aus der Zwischenablage einfügen.
+Gleiche sichere AES-256-Verschlüsselung und gleiche Funktionen – alle Links bleiben gültig.
+Verbesserte Übersetzungen in allen 15 Sprachen.
+</de-DE>
+<ar>
+واجهة جديدة بالكامل: تصميم أحدث بخلفية متحركة، وعلامات تبويب للتشفير وفك التشفير، وحلقة عد تنازلي، وعرض الصور بملء الشاشة.
+جديد: لصق الرابط مباشرة من الحافظة.
+نفس التشفير الآمن AES-256 ونفس الميزات – تظل جميع الروابط صالحة.
+تحسين الترجمات في جميع اللغات الـ 15.
+</ar>
+<bn-BD>
+সম্পূর্ণ নতুন ইন্টারফেস: অ্যানিমেটেড ব্যাকগ্রাউন্ডসহ আধুনিক ডিজাইন, এনক্রিপ্ট ও ডিক্রিপ্টের জন্য ট্যাব, কাউন্টডাউন রিং এবং পূর্ণ-স্ক্রিন ছবি।
+নতুন: ক্লিপবোর্ড থেকে সরাসরি লিঙ্ক পেস্ট করুন।
+একই নিরাপদ AES-256 এনক্রিপশন ও একই ফিচার – সব লিঙ্ক বৈধ থাকবে।
+১৫টি ভাষাতেই উন্নত অনুবাদ।
+</bn-BD>
+<cs-CZ>
+Zcela nové rozhraní: modernější design s animovaným pozadím, karty pro šifrování a dešifrování, kruhový odpočet a zobrazení obrázků na celou obrazovku.
+Novinka: vložení odkazu přímo ze schránky.
+Stejné bezpečné šifrování AES-256 a stejné funkce – všechny odkazy zůstávají platné.
+Vylepšené překlady ve všech 15 jazycích.
+</cs-CZ>
+<da-DK>
+Helt ny brugerflade: mere moderne design med animeret baggrund, faner til kryptering og dekryptering, nedtællingsring og billedvisning i fuld skærm.
+Nyt: Indsæt link direkte fra udklipsholderen.
+Samme sikre AES-256-kryptering og samme funktioner – alle links forbliver gyldige.
+Forbedrede oversættelser på alle 15 sprog.
+</da-DK>
+<en-AU>
+All-new interface: a more modern design with an animated background, tabs for encrypting and decrypting, a countdown ring and full-screen image view.
+New: paste a link straight from the clipboard.
+Same secure AES-256 encryption and the same features – all links remain valid.
+Improved translations in all 15 languages.
+</en-AU>
+<en-CA>
+All-new interface: a more modern design with an animated background, tabs for encrypting and decrypting, a countdown ring and full-screen image view.
+New: paste a link straight from the clipboard.
+Same secure AES-256 encryption and the same features – all links remain valid.
+Improved translations in all 15 languages.
+</en-CA>
+<en-GB>
+All-new interface: a more modern design with an animated background, tabs for encrypting and decrypting, a countdown ring and full-screen image view.
+New: paste a link straight from the clipboard.
+Same secure AES-256 encryption and the same features – all links remain valid.
+Improved translations in all 15 languages.
+</en-GB>
+<en-IN>
+All-new interface: a more modern design with an animated background, tabs for encrypting and decrypting, a countdown ring and full-screen image view.
+New: paste a link straight from the clipboard.
+Same secure AES-256 encryption and the same features – all links remain valid.
+Improved translations in all 15 languages.
+</en-IN>
+<en-SG>
+All-new interface: a more modern design with an animated background, tabs for encrypting and decrypting, a countdown ring and full-screen image view.
+New: paste a link straight from the clipboard.
+Same secure AES-256 encryption and the same features – all links remain valid.
+Improved translations in all 15 languages.
+</en-SG>
+<en-US>
+All-new interface: a more modern design with an animated background, tabs for encrypting and decrypting, a countdown ring and full-screen image view.
+New: paste a link straight from the clipboard.
+Same secure AES-256 encryption and the same features – all links remain valid.
+Improved translations in all 15 languages.
+</en-US>
+<en-ZA>
+All-new interface: a more modern design with an animated background, tabs for encrypting and decrypting, a countdown ring and full-screen image view.
+New: paste a link straight from the clipboard.
+Same secure AES-256 encryption and the same features – all links remain valid.
+Improved translations in all 15 languages.
+</en-ZA>
+<es-419>
+Interfaz completamente nueva: diseño más moderno con fondo animado, pestañas para cifrar y descifrar, anillo de cuenta regresiva y vista de imagen en pantalla completa.
+Nuevo: pega un enlace directamente desde el portapapeles.
+El mismo cifrado seguro AES-256 y las mismas funciones: todos los enlaces siguen siendo válidos.
+Traducciones mejoradas en los 15 idiomas.
+</es-419>
+<es-ES>
+Interfaz completamente nueva: diseño más moderno con fondo animado, pestañas para cifrar y descifrar, anillo de cuenta atrás y vista de imagen a pantalla completa.
+Novedad: pega un enlace directamente desde el portapapeles.
+El mismo cifrado seguro AES-256 y las mismas funciones: todos los enlaces siguen siendo válidos.
+Traducciones mejoradas en los 15 idiomas.
+</es-ES>
+<fi-FI>
+Täysin uusi käyttöliittymä: modernimpi ulkoasu animoidulla taustalla, välilehdet salaukselle ja salauksen purulle, lähtölaskentarengas ja kuvien koko näytön näkymä.
+Uutta: liitä linkki suoraan leikepöydältä.
+Sama turvallinen AES-256-salaus ja samat toiminnot – kaikki linkit pysyvät voimassa.
+Paremmat käännökset kaikilla 15 kielellä.
+</fi-FI>
+<fr-FR>
+Interface entièrement nouvelle : design plus moderne avec arrière-plan animé, onglets pour chiffrer et déchiffrer, anneau de compte à rebours et affichage des images en plein écran.
+Nouveau : collez un lien directement depuis le presse-papiers.
+Même chiffrement sécurisé AES-256 et mêmes fonctionnalités – tous les liens restent valides.
+Traductions améliorées dans les 15 langues.
+</fr-FR>
+<hi-IN>
+पूरी तरह नया इंटरफ़ेस: एनिमेटेड बैकग्राउंड के साथ आधुनिक डिज़ाइन, एन्क्रिप्ट और डिक्रिप्ट के लिए टैब, काउंटडाउन रिंग और फ़ुल-स्क्रीन इमेज व्यू।
+नया: क्लिपबोर्ड से सीधे लिंक पेस्ट करें।
+वही सुरक्षित AES-256 एन्क्रिप्शन और वही सुविधाएँ – सभी लिंक मान्य रहेंगे।
+सभी 15 भाषाओं में बेहतर अनुवाद।
+</hi-IN>
+<hu-HU>
+Teljesen új felület: modernebb dizájn animált háttérrel, fülek a titkosításhoz és visszafejtéshez, visszaszámláló gyűrű és teljes képernyős képnézet.
+Új: link beillesztése közvetlenül a vágólapról.
+Ugyanaz a biztonságos AES-256 titkosítás és ugyanazok a funkciók – minden link érvényes marad.
+Javított fordítások mind a 15 nyelven.
+</hu-HU>
+<id>
+Antarmuka yang benar-benar baru: desain lebih modern dengan latar belakang animasi, tab untuk enkripsi dan dekripsi, cincin hitung mundur, dan tampilan gambar layar penuh.
+Baru: tempel tautan langsung dari papan klip.
+Enkripsi AES-256 yang sama amannya dan fitur yang sama – semua tautan tetap berlaku.
+Terjemahan yang lebih baik di semua 15 bahasa.
+</id>
+<it-IT>
+Interfaccia completamente nuova: design più moderno con sfondo animato, schede per crittografare e decrittare, anello del conto alla rovescia e visualizzazione delle immagini a schermo intero.
+Novità: incolla un link direttamente dagli appunti.
+Stessa crittografia sicura AES-256 e stesse funzioni: tutti i link restano validi.
+Traduzioni migliorate in tutte le 15 lingue.
+</it-IT>
+<iw-IL>
+ממשק חדש לגמרי: עיצוב מודרני יותר עם רקע מונפש, לשוניות להצפנה ולפענוח, טבעת ספירה לאחור ותצוגת תמונה במסך מלא.
+חדש: הדבקת קישור ישירות מהלוח.
+אותה הצפנת AES-256 מאובטחת ואותן תכונות – כל הקישורים נשארים בתוקף.
+תרגומים משופרים בכל 15 השפות.
+</iw-IL>
+<ja-JP>
+まったく新しいインターフェース：アニメーション背景のモダンなデザイン、暗号化と復号のタブ、カウントダウンリング、画像の全画面表示。
+新機能：クリップボードからリンクを直接貼り付け。
+同じ安全なAES-256暗号化と同じ機能 – すべてのリンクはそのまま有効です。
+全15言語で翻訳を改善。
+</ja-JP>
+<ko-KR>
+완전히 새로운 인터페이스: 애니메이션 배경의 더 현대적인 디자인, 암호화·복호화 탭, 카운트다운 링, 전체 화면 이미지 보기.
+신규: 클립보드에서 링크를 바로 붙여넣기.
+동일한 안전한 AES-256 암호화와 동일한 기능 – 모든 링크는 계속 유효합니다.
+15개 모든 언어의 번역 개선.
+</ko-KR>
+<nl-NL>
+Volledig nieuwe interface: moderner ontwerp met geanimeerde achtergrond, tabbladen voor versleutelen en ontsleutelen, aftelring en afbeeldingen op volledig scherm.
+Nieuw: plak een link direct vanuit het klembord.
+Dezelfde veilige AES-256-versleuteling en dezelfde functies – alle links blijven geldig.
+Verbeterde vertalingen in alle 15 talen.
+</nl-NL>
+<no-NO>
+Helt nytt grensesnitt: mer moderne design med animert bakgrunn, faner for kryptering og dekryptering, nedtellingsring og bildevisning i fullskjerm.
+Nytt: lim inn en lenke rett fra utklippstavlen.
+Samme sikre AES-256-kryptering og samme funksjoner – alle lenker forblir gyldige.
+Forbedrede oversettelser på alle 15 språk.
+</no-NO>
+<pl-PL>
+Całkowicie nowy interfejs: nowocześniejszy wygląd z animowanym tłem, karty do szyfrowania i odszyfrowywania, pierścień odliczania i podgląd obrazów na pełnym ekranie.
+Nowość: wklejanie linku bezpośrednio ze schowka.
+To samo bezpieczne szyfrowanie AES-256 i te same funkcje – wszystkie linki pozostają ważne.
+Ulepszone tłumaczenia we wszystkich 15 językach.
+</pl-PL>
+<pt-BR>
+Interface totalmente nova: design mais moderno com fundo animado, abas para criptografar e descriptografar, anel de contagem regressiva e visualização de imagens em tela cheia.
+Novo: cole um link direto da área de transferência.
+A mesma criptografia segura AES-256 e os mesmos recursos – todos os links continuam válidos.
+Traduções aprimoradas nos 15 idiomas.
+</pt-BR>
+<ro>
+Interfață complet nouă: design mai modern cu fundal animat, file pentru criptare și decriptare, inel de numărătoare inversă și vizualizare a imaginilor pe tot ecranul.
+Nou: lipește un link direct din clipboard.
+Aceeași criptare sigură AES-256 și aceleași funcții – toate linkurile rămân valabile.
+Traduceri îmbunătățite în toate cele 15 limbi.
+</ro>
+<ru-RU>
+Полностью новый интерфейс: более современный дизайн с анимированным фоном, вкладки для шифрования и расшифровки, кольцо обратного отсчёта и просмотр изображений на весь экран.
+Новое: вставка ссылки прямо из буфера обмена.
+То же надёжное шифрование AES-256 и те же функции – все ссылки остаются действительными.
+Улучшенные переводы на всех 15 языках.
+</ru-RU>
+<sk>
+Úplne nové rozhranie: modernejší dizajn s animovaným pozadím, karty na šifrovanie a dešifrovanie, kruhové odpočítavanie a zobrazenie obrázkov na celú obrazovku.
+Novinka: vloženie odkazu priamo zo schránky.
+Rovnaké bezpečné šifrovanie AES-256 a rovnaké funkcie – všetky odkazy zostávajú platné.
+Vylepšené preklady vo všetkých 15 jazykoch.
+</sk>
+<sv-SE>
+Helt nytt gränssnitt: modernare design med animerad bakgrund, flikar för kryptering och dekryptering, nedräkningsring och bildvisning i helskärm.
+Nytt: klistra in en länk direkt från urklipp.
+Samma säkra AES-256-kryptering och samma funktioner – alla länkar förblir giltiga.
+Förbättrade översättningar på alla 15 språk.
+</sv-SE>
+<th>
+อินเทอร์เฟซใหม่ทั้งหมด: ดีไซน์ทันสมัยขึ้นพร้อมพื้นหลังแบบเคลื่อนไหว แท็บสำหรับเข้ารหัสและถอดรหัส วงแหวนนับถอยหลัง และการดูรูปภาพแบบเต็มหน้าจอ
+ใหม่: วางลิงก์จากคลิปบอร์ดได้โดยตรง
+การเข้ารหัส AES-256 ที่ปลอดภัยเหมือนเดิมและฟีเจอร์เหมือนเดิม – ลิงก์ทั้งหมดยังใช้งานได้
+ปรับปรุงคำแปลในทั้ง 15 ภาษา
+</th>
+<tr-TR>
+Tamamen yeni arayüz: animasyonlu arka planla daha modern tasarım, şifreleme ve şifre çözme sekmeleri, geri sayım halkası ve tam ekran görüntü.
+Yeni: bağlantıyı doğrudan panodan yapıştırın.
+Aynı güvenli AES-256 şifreleme ve aynı özellikler – tüm bağlantılar geçerliliğini korur.
+15 dilin tamamında iyileştirilmiş çeviriler.
+</tr-TR>
+<uk>
+Повністю новий інтерфейс: сучасніший дизайн з анімованим фоном, вкладки для шифрування та розшифрування, кільце зворотного відліку й перегляд зображень на весь екран.
+Нове: вставлення посилання прямо з буфера обміну.
+Те саме надійне шифрування AES-256 і ті самі функції – усі посилання залишаються дійсними.
+Покращені переклади всіма 15 мовами.
+</uk>
+<ur>
+بالکل نیا انٹرفیس: اینیمیٹڈ پس منظر کے ساتھ جدید ڈیزائن، انکرپٹ اور ڈیکرپٹ کے لیے ٹیبز، کاؤنٹ ڈاؤن رنگ اور فل اسکرین تصویر۔
+نیا: کلپ بورڈ سے براہ راست لنک پیسٹ کریں۔
+وہی محفوظ AES-256 انکرپشن اور وہی فیچرز – تمام لنکس درست رہیں گے۔
+تمام 15 زبانوں میں بہتر ترجمے۔
+</ur>
+<vi>
+Giao diện hoàn toàn mới: thiết kế hiện đại hơn với nền động, các tab mã hóa và giải mã, vòng đếm ngược và xem ảnh toàn màn hình.
+Mới: dán liên kết trực tiếp từ bộ nhớ tạm.
+Vẫn mã hóa AES-256 an toàn và các tính năng như cũ – mọi liên kết vẫn còn hiệu lực.
+Cải thiện bản dịch ở cả 15 ngôn ngữ.
+</vi>
+<zh-CN>
+全新界面：更现代的设计，带动画背景、加密和解密标签页、倒计时圆环以及全屏图片查看。
+新功能：直接从剪贴板粘贴链接。
+同样安全的 AES-256 加密和相同的功能 – 所有链接继续有效。
+改进了全部 15 种语言的翻译。
+</zh-CN>

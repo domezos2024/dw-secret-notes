@@ -57,6 +57,10 @@
     <string name="share_message">لقد أرسلت لك رسالة سرية: %1$s\n\nتم إنشاؤها باستخدام snote.domezos — تطبيق مجاني للملاحظات ذاتية التدمير: https://play.google.com/store/apps/details?id=com.snote.domezos</string>
     <string name="snackbar_link_copied">تم نسخ الرابط</string>
     <string name="error_share_unavailable">لا يوجد تطبيق متاح لمشاركة هذا الرابط.</string>
+    <string name="label_encrypting">جاري التشفير…</string>
+    <string name="error_encrypt_network">فشل التشفير. يرجى التحقق من اتصالك بالإنترنت.</string>
+    <string name="error_rate_limit">طلبات كثيرة جدًا. يرجى المحاولة مرة أخرى بعد دقيقة.</string>
+    <string name="error_encrypt_failed">فشل التشفير. يرجى المحاولة مرة أخرى.</string>
     <string name="symbol_success">تم</string>
     <string name="symbol_warning">!</string>
     <string name="label_decrypting">جاري فك التشفير…</string>
