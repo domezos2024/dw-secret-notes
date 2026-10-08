@@ -97,6 +97,13 @@ Langer Druck auf Homescreen → Widgets:
 
 ## Changelog
 
+### v6.0.1 — 08.10.2026
+
+- **Android:** veraltete AndroidX-Bibliotheken ersetzt (`androidx.fragment` 1.8.6, `androidx.activity` 1.10.1)
+- **Große Displays:** Drehen und Größenänderung erlaubt, Inhalt bleibt auf Tablets und im Querformat mittig in lesbarer Breite
+- **R8-Optimierung** aktiviert; ReTrace-Zuordnungsdatei und native Debug-Symbole entstehen bei jedem Release-Build
+- versionCode 48
+
 ### v6.0.0 — 07.10.2026
 
 - **Neue Unity-6-Edition** mit komplett neu gestalteter UI-Toolkit-Oberfläche (`unity/`), gleiches Paket `com.snote.domezos`, versionCode 47
