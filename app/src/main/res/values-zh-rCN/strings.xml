@@ -53,6 +53,10 @@
     <string name="share_message">我给你发送了一条秘密消息：%1$s\n\n使用 snote.domezos 创建 — 用于自毁笔记的免费应用：https://play.google.com/store/apps/details?id=com.snote.domezos</string>
     <string name="snackbar_link_copied">链接已复制</string>
     <string name="error_share_unavailable">没有可用于分享此链接的应用。</string>
+    <string name="label_encrypting">加密中…</string>
+    <string name="error_encrypt_network">加密失败。请检查您的网络连接。</string>
+    <string name="error_rate_limit">请求过多。请一分钟后再试。</string>
+    <string name="error_encrypt_failed">加密失败。请重试。</string>
     <string name="symbol_success">确定</string>
     <string name="symbol_warning">!</string>
     <string name="label_decrypting">解密中...</string>

@@ -52,6 +52,10 @@
     <string name="share_message">Saya mengirimkan pesan rahasia untukmu: %1$s\n\nDibuat dengan snote.domezos — aplikasi gratis untuk catatan yang menghancurkan diri sendiri: https://play.google.com/store/apps/details?id=com.snote.domezos</string>
     <string name="snackbar_link_copied">Tautan disalin</string>
     <string name="error_share_unavailable">Tidak ada aplikasi yang tersedia untuk membagikan tautan ini.</string>
+    <string name="label_encrypting">Mengenkripsi…</string>
+    <string name="error_encrypt_network">Enkripsi gagal. Periksa koneksi internet Anda.</string>
+    <string name="error_rate_limit">Terlalu banyak permintaan. Coba lagi dalam satu menit.</string>
+    <string name="error_encrypt_failed">Enkripsi gagal. Silakan coba lagi.</string>
     <string name="symbol_success">OK</string>
     <string name="symbol_warning">!</string>
     <string name="label_decrypting">Mendekripsi…</string>

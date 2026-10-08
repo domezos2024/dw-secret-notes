@@ -52,6 +52,10 @@
     <string name="share_message">秘密のメッセージを送りました: %1$s\n\nsnote.domezosで作成 — 自己破壊メモの無料アプリ: https://play.google.com/store/apps/details?id=com.snote.domezos</string>
     <string name="snackbar_link_copied">リンクをコピーしました</string>
     <string name="error_share_unavailable">共有できるアプリが見つかりません。</string>
+    <string name="label_encrypting">暗号化中…</string>
+    <string name="error_encrypt_network">暗号化に失敗しました。インターネット接続を確認してください。</string>
+    <string name="error_rate_limit">リクエストが多すぎます。1分後にもう一度お試しください。</string>
+    <string name="error_encrypt_failed">暗号化に失敗しました。もう一度お試しください。</string>
     <string name="symbol_success">OK</string>
     <string name="symbol_warning">!</string>
     <string name="label_decrypting">復号中…</string>

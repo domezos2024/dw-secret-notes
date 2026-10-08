@@ -53,6 +53,10 @@
     <string name="share_message">আমি আপনাকে একটি গোপন বার্তা পাঠিয়েছি: %1$s\n\nsnote.domezos দিয়ে তৈরি — স্ব-ধ্বংসী নোটের জন্য বিনামূল্যে অ্যাপ: https://play.google.com/store/apps/details?id=com.snote.domezos</string>
     <string name="snackbar_link_copied">লিঙ্ক কপি করা হয়েছে</string>
     <string name="error_share_unavailable">এই লিঙ্কটি শেয়ার করার জন্য কোনো অ্যাপ উপলব্ধ নেই।</string>
+    <string name="label_encrypting">এনক্রিপ্ট হচ্ছে…</string>
+    <string name="error_encrypt_network">এনক্রিপশন ব্যর্থ হয়েছে। অনুগ্রহ করে আপনার ইন্টারনেট সংযোগ পরীক্ষা করুন।</string>
+    <string name="error_rate_limit">অনেক বেশি অনুরোধ। অনুগ্রহ করে এক মিনিট পরে আবার চেষ্টা করুন।</string>
+    <string name="error_encrypt_failed">এনক্রিপশন ব্যর্থ হয়েছে। অনুগ্রহ করে আবার চেষ্টা করুন।</string>
     <string name="symbol_success">ঠিক আছে</string>
     <string name="symbol_warning">!</string>
     <string name="label_decrypting">ডিক্রিপ্ট হচ্ছে…</string>

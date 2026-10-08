@@ -54,6 +54,10 @@
     <string name="share_message">Je t\'ai envoyé un message secret : %1$s\n\nCréé avec snote.domezos — application gratuite pour notes autodestructrices : https://play.google.com/store/apps/details?id=com.snote.domezos</string>
     <string name="snackbar_link_copied">Lien copié</string>
     <string name="error_share_unavailable">Aucune application disponible pour partager ce lien.</string>
+    <string name="label_encrypting">Chiffrement…</string>
+    <string name="error_encrypt_network">Échec du chiffrement. Vérifiez votre connexion Internet.</string>
+    <string name="error_rate_limit">Trop de requêtes. Réessayez dans une minute.</string>
+    <string name="error_encrypt_failed">Échec du chiffrement. Veuillez réessayer.</string>
     <string name="symbol_success">OK</string>
     <string name="symbol_warning">!</string>
     <string name="label_decrypting">Déchiffrement…</string>

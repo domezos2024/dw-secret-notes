@@ -55,6 +55,10 @@
     <string name="share_message">Я отправил тебе секретное сообщение: %1$s\n\nСоздано с помощью snote.domezos — бесплатное приложение для самоуничтожающихся заметок: https://play.google.com/store/apps/details?id=com.snote.domezos</string>
     <string name="snackbar_link_copied">Ссылка скопирована</string>
     <string name="error_share_unavailable">Нет приложений для отправки ссылки.</string>
+    <string name="label_encrypting">Шифрование…</string>
+    <string name="error_encrypt_network">Не удалось зашифровать. Проверьте подключение к интернету.</string>
+    <string name="error_rate_limit">Слишком много запросов. Повторите попытку через минуту.</string>
+    <string name="error_encrypt_failed">Не удалось зашифровать. Попробуйте ещё раз.</string>
     <string name="symbol_success">ОК</string>
     <string name="symbol_warning">!</string>
     <string name="label_decrypting">Расшифровка…</string>
