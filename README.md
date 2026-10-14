@@ -226,6 +226,13 @@ Free, open-source, ad-free — but server costs are real. Tips welcome:
 
 ## Changelog
 
+### v6.0.1 — 2026-10-08
+
+- **Android:** outdated AndroidX libraries replaced (`androidx.fragment` 1.8.6, `androidx.activity` 1.10.1)
+- **Large screens:** rotation and resizing allowed, content stays centred at a readable width on tablets and in landscape
+- **R8 optimisation** enabled; ReTrace mapping file and native debug symbols are produced with every release build
+- versionCode 48
+
 ### v6.0.0 — 2026-10-07
 
 - **New Unity 6 edition** with a completely redesigned UI Toolkit interface (`unity/`), same package `com.snote.domezos`, versionCode 47
